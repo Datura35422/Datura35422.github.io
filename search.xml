@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>2017-2018年实习工作总结</title>
-    <url>/posts/1001/</url>
+    <url>/posts/37315/</url>
     <content><![CDATA[<p>这是2017年11月-2018年2月在丁丁当实习时的笔记，当时记录在笔记本上，现在进行迁移到博客中。感谢宾哥，虽然没有实习很长时间，但是学到了很多，从最开始写一个页面需要一天半到两三个小时完成，细节不断优化，代码不断规范，还有充足的自学时间，十分感激。最开始实习的时候以为自己很厉害，其实现在看来真的经验不足，在实习之前都是一个人写根本没有发现自身的问题，仅仅就样式实现了就好，理论知识倒是可以，但是实践经验真的时不足，没有人提点，所以当时看2016年写的前端想重构，现在看2017年写的前端也想重构。</p>
 <h4 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML + CSS"></a>HTML + CSS</h4><h5 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h5><ul>
 <li><p><code>css</code> 顺序执行</p>
@@ -109,7 +109,7 @@
   </entry>
   <entry>
     <title>20191031技术分享总结</title>
-    <url>/posts/1002/</url>
+    <url>/posts/19020/</url>
     <content><![CDATA[<h4 id="代码review"><a href="#代码review" class="headerlink" title="代码review"></a>代码review</h4><h5 id="原代码问题："><a href="#原代码问题：" class="headerlink" title="原代码问题："></a>原代码问题：</h5><ol>
 <li>动画过于僵硬，当两条消息间隔时间过短时会省略进入动画</li>
 <li>动画间隔过短会给人同时消失和同时出现的错觉</li>
@@ -139,7 +139,7 @@
   </entry>
   <entry>
     <title>2019年6月工作总结</title>
-    <url>/posts/1002/</url>
+    <url>/posts/14717/</url>
     <content><![CDATA[<p>6月让上线一款快应用，一边产品经理想让我开发另一款小程序，一边boss想快速上线快应用，预计的开发时间未三周，实际用了一个月多，其中有两周踩坑融云<code>IM</code>系统，初始一周老大想让我修改融云的<code>SDK</code>兼容快应用，奈何能力有限几千行的代码看着真心头疼，道行不够深。最后用了<code>H5</code>的方式兼容融云，但是结果差强人意，快应用框架对<code>H5</code>页面的渲染根据手机平台和手机引擎有关，其中小米支持最好，华为可以单独上架。</p>
 <h4 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h4><p>因为拖了一周左右的时间，所以反思一下，下次避免再发生（虽然开发拖进度是非常平常的事情）。</p>
 <ul>
@@ -200,7 +200,7 @@
   </entry>
   <entry>
     <title>2021年3月面试总结</title>
-    <url>/posts/1003/</url>
+    <url>/posts/5899/</url>
     <content><![CDATA[<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="事件的捕获和冒泡机制"><a href="#事件的捕获和冒泡机制" class="headerlink" title="事件的捕获和冒泡机制"></a>事件的捕获和冒泡机制</h4><p>事件捕获：window -&gt; 目标事件（自顶向下） <code>element.addEventListener(&#39;click&#39;, function() &#123;&#125;, true)</code></p>
 <p>事件冒泡：目标事件 -&gt; window（自底向上） <code>element.addEventListener(&#39;click&#39;, function() &#123;&#125;, false)</code></p>
 <blockquote>
@@ -246,7 +246,7 @@
   </entry>
   <entry>
     <title>2021年工作总结</title>
-    <url>/posts/1003/</url>
+    <url>/posts/32636/</url>
     <content><![CDATA[<p>此次二次开发圈子小程序，有一个主包，三个分包，代码量一直处于快溢出阈值的程度。</p>
 <p>二次开发通常是基于不动或尽量少的去动原代码开发逻辑，轻易去调整容易崩。</p>
 <p>所以整理一下使用的技巧。</p>
@@ -551,7 +551,7 @@
   </entry>
   <entry>
     <title>20年慕课面试课程总结</title>
-    <url>/posts/1003/</url>
+    <url>/posts/51771/</url>
     <content><![CDATA[<p>慕课网课程《快速搞定前端技术一面 匹配大厂技术要求–双越》</p>
 <h3 id="应对面试"><a href="#应对面试" class="headerlink" title="应对面试"></a>应对面试</h3><h4 id="如何应对面试题"><a href="#如何应对面试题" class="headerlink" title="如何应对面试题"></a>如何应对面试题</h4><p>框架的使用（基本使用，高级特性，周边插件）</p>
 <p>框架的原理（基本原理的了解，热门技术的深度，全面性）</p>
@@ -582,25 +582,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Chrome调试技巧</title>
-    <url>/posts/1003/</url>
-    <content><![CDATA[<h4 id="查看页面性能-–-Performance"><a href="#查看页面性能-–-Performance" class="headerlink" title="查看页面性能 – Performance"></a>查看页面性能 – Performance</h4><p>步骤：[F12] -&gt; [Performance]窗口</p>
-<h4 id="查看文件中代码使用情况-–-Coverage"><a href="#查看文件中代码使用情况-–-Coverage" class="headerlink" title="查看文件中代码使用情况 – Coverage"></a>查看文件中代码使用情况 – Coverage</h4><p>步骤：[F12] -&gt; [···] -&gt; [More Tools] -&gt; [Coverage]</p>
-<p>点击加载之后可以查看加载文件使用情况，点击文件进入<code>Sources</code>窗口，可以查看已运行代码部分。</p>
-<h4 id="使用node调试工具"><a href="#使用node调试工具" class="headerlink" title="使用node调试工具"></a>使用node调试工具</h4><p>如调试webpack输入输出的内容，在npm script中设置<code>&quot;debug&quot;: &quot;node --inspect --inspect-brk node_modules/webpack/bin/webpack.js&quot;</code>，表示bugger模式运行webpack.js且在第一行打断点。如果需要在其他的地方打断点，则需要在目标地方写上<code>debugger</code>。</p>
-<p>debug运行的时候可以打开chrome -&gt; F12-&gt; 点击node图标 -&gt; 在<code>Source</code>窗口进行断点调试</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>调试技巧</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>API集合</title>
-    <url>/posts/1004/</url>
+    <url>/posts/22470/</url>
     <content><![CDATA[<h4 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h4><p>各类免费API推荐，再也不怕找不到免费API了： <a href="https://www.jianshu.com/p/d0ffe5f482dc">https://www.jianshu.com/p/d0ffe5f482dc</a></p>
 <p>免费API接口汇总：<a href="https://segmentfault.com/a/1190000017047048?utm_source=tag-newest">https://segmentfault.com/a/1190000017047048?utm_source=tag-newest</a></p>
 <h4 id="平台："><a href="#平台：" class="headerlink" title="平台："></a>平台：</h4><p>openapi.top： <a href="https://www.apiopen.top/api.html">https://www.apiopen.top/api.html</a></p>
@@ -617,8 +600,25 @@
       </tags>
   </entry>
   <entry>
+    <title>Chrome调试技巧</title>
+    <url>/posts/30786/</url>
+    <content><![CDATA[<h4 id="查看页面性能-–-Performance"><a href="#查看页面性能-–-Performance" class="headerlink" title="查看页面性能 – Performance"></a>查看页面性能 – Performance</h4><p>步骤：[F12] -&gt; [Performance]窗口</p>
+<h4 id="查看文件中代码使用情况-–-Coverage"><a href="#查看文件中代码使用情况-–-Coverage" class="headerlink" title="查看文件中代码使用情况 – Coverage"></a>查看文件中代码使用情况 – Coverage</h4><p>步骤：[F12] -&gt; [···] -&gt; [More Tools] -&gt; [Coverage]</p>
+<p>点击加载之后可以查看加载文件使用情况，点击文件进入<code>Sources</code>窗口，可以查看已运行代码部分。</p>
+<h4 id="使用node调试工具"><a href="#使用node调试工具" class="headerlink" title="使用node调试工具"></a>使用node调试工具</h4><p>如调试webpack输入输出的内容，在npm script中设置<code>&quot;debug&quot;: &quot;node --inspect --inspect-brk node_modules/webpack/bin/webpack.js&quot;</code>，表示bugger模式运行webpack.js且在第一行打断点。如果需要在其他的地方打断点，则需要在目标地方写上<code>debugger</code>。</p>
+<p>debug运行的时候可以打开chrome -&gt; F12-&gt; 点击node图标 -&gt; 在<code>Source</code>窗口进行断点调试</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>调试技巧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cookie、Session、Token、JWT</title>
-    <url>/posts/1004/</url>
+    <url>/posts/21067/</url>
     <content><![CDATA[<h3 id="Cookie、Session、Token、JWT"><a href="#Cookie、Session、Token、JWT" class="headerlink" title="Cookie、Session、Token、JWT"></a>Cookie、Session、Token、JWT</h3><blockquote>
 <p> 引入这些技术主要是为了<strong>保持状态</strong>。HTTP协议是无状态协议。</p>
 </blockquote>
@@ -712,7 +712,7 @@
   </entry>
   <entry>
     <title>Linux的使用</title>
-    <url>/posts/1004/</url>
+    <url>/posts/62371/</url>
     <content><![CDATA[<h5 id="Manjaro"><a href="#Manjaro" class="headerlink" title="Manjaro"></a>Manjaro</h5><h5 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h5><h5 id="同步时间"><a href="#同步时间" class="headerlink" title="同步时间"></a>同步时间</h5><p><code>sudo timedatectl set-local-rtc true</code></p>
 <h4 id="centOS-7"><a href="#centOS-7" class="headerlink" title="centOS 7"></a>centOS 7</h4><h5 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h5><h6 id="yum源"><a href="#yum源" class="headerlink" title="yum源"></a>yum源</h6><p>安装了yum源: <code>rpm -Uvh</code></p>
 <p>查看卸载的yum源:  <code>ls /etc/yum.repos.d/</code></p>
@@ -813,7 +813,7 @@
   </entry>
   <entry>
     <title>android调试</title>
-    <url>/posts/1004/</url>
+    <url>/posts/3562/</url>
     <content><![CDATA[<h4 id="百度智能小程序真机调试"><a href="#百度智能小程序真机调试" class="headerlink" title="百度智能小程序真机调试"></a>百度智能小程序真机调试</h4><p>1.连接USB，打开开发者模式，USB调试功能</p>
 <p>2.开启了USB调试也无法找到设备<br><code>两种解决方法:</code><br><code>(1) 在电脑中安装 Android Debug Bridge（安卓调试桥） 后再尝试连接；</code>在命令行中运行adb devices查找连接的设备<br><code>(2) 执行如下命令，使用npm全局安装adb-devtools，并在终端执行devtools，在手机上点击确认授权后再次尝试；</code></p>
 <pre class="line-numbers language-none"><code class="language-none">&#96;npm install adb-devtools -gdevtools&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -830,7 +830,7 @@
   </entry>
   <entry>
     <title>git常用命令</title>
-    <url>/posts/1004/</url>
+    <url>/posts/953/</url>
     <content><![CDATA[<p>git bash中的命令行是linux操作模式。</p>
 <p>查找git命令手册：</p>
 <pre class="line-numbers language-console" data-language="console"><code class="language-console">$ git help &lt;verb&gt;
@@ -965,71 +965,8 @@ git pull orgin master &#x2F;&#x2F; 拉取远程仓库master分支<span aria-hidd
       </tags>
   </entry>
   <entry>
-    <title>使用Hexo</title>
-    <url>/posts/1004/</url>
-    <content><![CDATA[<p>hexo 官方指南：<a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
-<h4 id="安装初始化Hexo"><a href="#安装初始化Hexo" class="headerlink" title="安装初始化Hexo"></a>安装初始化Hexo</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">npm install hexo -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>如果安装出现错误，请使用cnpm进行尝试，<br>安装后，输入<code>hexo -v</code> 检查安装是否成功，<br>安装成功后，输入<code>hexo init</code>进行初始化，<br>输入<code>npm install</code>安装所需要的组件，如果失败请使用<code>cnpm install</code>进行尝试，<br>生成静态文件，输入<code>hexo g</code>（是命令<code>hexo generate</code>缩写），<br>和线上的github相关联后，新增一篇博客<code>hexo new post &#39;博客名&#39;</code>，<br>安装插件，<code>npm install hexo-deployer-git --save</code>。</p>
-<p>编辑好文章后就可以进行发布部署了，<code>hexo d -g</code></p>
-<p>清除缓存<code>hexo clean</code></p>
-<h4 id="本地启动Hexo服务"><a href="#本地启动Hexo服务" class="headerlink" title="本地启动Hexo服务"></a>本地启动Hexo服务</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo s # hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>是命令<code>hexo server</code>的缩写<br>默认启用4000端口号，修改端口号</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo server -p 5000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h4><h5 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new &quot;new post&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h5 id="新建文章分类页面"><a href="#新建文章分类页面" class="headerlink" title="新建文章分类页面"></a>新建文章分类页面</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page categories<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>配置categories页面，进入到刚才生成的<code>categories/index.md</code>文件中</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">title: 分类
-date: 2018-04-25 22:34:08
-type: &quot;categories&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>设置每篇博客的categories</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">categories: xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="新建文章标签页面"><a href="#新建文章标签页面" class="headerlink" title="新建文章标签页面"></a>新建文章标签页面</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page tags<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>配置tags页面，进入到刚才生成的<code>tags/index.md</code>文件中</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">title: 标签
-date: 2018-04-25 22:34:08
-type: &quot;tags&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>在文章中设置标签</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tags:[xxx,xx,x]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo deploy --简写 hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h5 id="兼容node14-版本"><a href="#兼容node14-版本" class="headerlink" title="兼容node14.*版本"></a>兼容<code>node14.*</code>版本</h5><p>当前时间是2021年4月，升级了一下<code>node</code>版本到14.*，结果<code>hexo</code>发布出现了问题。</p>
-<p>所以用<code>npx</code>让<code>hexo</code>运行在12.*版本上</p>
-<ol>
-<li>先用 <code>npm view node version</code> 查看一下 <code>node</code> 的历史版本，选一个旧一点点的版本号</li>
-<li>在当前目录环境下，安装<code>node</code>依赖包 <code>npm install node@12.21.0 -D</code> </li>
-<li>就可以每次发布的时候 <code>npx hexo d -g</code> 使用当前文件夹下的<code>node</code>环境</li>
-<li>懒人当然在 <code>package.json</code> 中定义一下 <code>scripts</code> 这样可以避免忘记使用<code>npx</code>了</li>
-</ol>
-<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>版本升级：<a href="https://novnan.github.io/Hexo/update_hexo/">https://novnan.github.io/Hexo/update_hexo/</a></p>
-<p>进入 theme/next 目录，执行 git pull 。</p>
-<p>冲突解决：<a href="https://stackoverflow.com/questions/15745045/how-do-i-resolve-git-saying-commit-your-changes-or-stash-them-before-you-can-me/15745424#15745424">https://stackoverflow.com/questions/15745045/how-do-i-resolve-git-saying-commit-your-changes-or-stash-them-before-you-can-me/15745424#15745424</a></p>
-<p>主题更新：<a href="https://theme-next.js.org/docs/getting-started/upgrade.html">https://theme-next.js.org/docs/getting-started/upgrade.html</a></p>
-<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><h5 id="置顶"><a href="#置顶" class="headerlink" title="置顶"></a>置顶</h5><p>使用插件：<a href="https://github.com/netcan/hexo-generator-index-pin-top">https://github.com/netcan/hexo-generator-index-pin-top</a></p>
-<h5 id="字数统计-amp-阅读时长"><a href="#字数统计-amp-阅读时长" class="headerlink" title="字数统计 &amp; 阅读时长"></a>字数统计 &amp; 阅读时长</h5><p><a href="https://github.com/theme-next/hexo-symbols-count-time">https://github.com/theme-next/hexo-symbols-count-time</a></p>
-<h5 id="深色模式"><a href="#深色模式" class="headerlink" title="深色模式"></a>深色模式</h5><p><a href="https://github.com/sandoche/Darkmode.js">https://github.com/sandoche/Darkmode.js</a></p>
-<p><a href="https://haomingzhang.com/hexo_3/">https://haomingzhang.com/hexo_3/</a></p>
-<h5 id="提交日历"><a href="#提交日历" class="headerlink" title="提交日历"></a>提交日历</h5><p><a href="https://github.com/theme-next/theme-next-calendar">https://github.com/theme-next/theme-next-calendar</a></p>
-<h5 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h5><p>可以参考更多设置：</p>
-<p><a href="https://siriusq.top/Next%E5%8D%87%E7%BA%A7-Mac%E8%BF%81%E7%A7%BB.html">https://siriusq.top/Next%E5%8D%87%E7%BA%A7-Mac%E8%BF%81%E7%A7%BB.html</a></p>
-<p><a href="https://tding.top/archives/567debe0.html">https://tding.top/archives/567debe0.html</a></p>
-<h4 id="美化界面"><a href="#美化界面" class="headerlink" title="美化界面"></a>美化界面</h4><h5 id="安装主题NexT"><a href="#安装主题NexT" class="headerlink" title="安装主题NexT"></a>安装主题NexT</h5><p><a href="http://theme-next.iissnan.com/getting-started.html">NexT官方文档</a></p>
-<p>根据官方文档进行主题配置，还有更多的其他hexo相关的主题</p>
-<h5 id="右上角角标-forks-on-github"><a href="#右上角角标-forks-on-github" class="headerlink" title="右上角角标 forks on github"></a>右上角角标 forks on github</h5><p><a href="https://tholman.com/github-corners/">https://tholman.com/github-corners/</a></p>
-<p><a href="https://github.blog/2008-12-19-github-ribbons/">https://github.blog/2008-12-19-github-ribbons/</a></p>
-<p>将刚才复制的代码粘贴到<code>themes/next/layout/_layout.swig</code>文件中<div class="headband"></div>下面一行</p>
-]]></content>
-      <categories>
-        <category>指南</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java基础-1</title>
-    <url>/posts/1004/</url>
+    <url>/posts/41300/</url>
     <content><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>没有什么前言不前言的，就只是想记录一下去年写过的<code>Java</code>代码，有些逻辑还是很佩服自己的(乱七八糟的逻辑居然能跑通)，可能过段时间有更好的解决方案，记录一下。虽然目前我主做前端项目。</p>
 <p>时间处理<code>util</code>是在写价格日历的时候用到的，本来想把价格日历的整个逻辑整理一下的，看着🤢，还是算了吧。</p>
 <p>首先声明部分不是我写的，有些是百度的，有些是框架里的，年代久远也不想分太清了。</p>
@@ -1523,8 +1460,71 @@ type: &quot;tags&quot;<span aria-hidden="true" class="line-numbers-rows"><span><
       </tags>
   </entry>
   <entry>
+    <title>使用Hexo</title>
+    <url>/posts/29164/</url>
+    <content><![CDATA[<p>hexo 官方指南：<a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
+<h4 id="安装初始化Hexo"><a href="#安装初始化Hexo" class="headerlink" title="安装初始化Hexo"></a>安装初始化Hexo</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">npm install hexo -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果安装出现错误，请使用cnpm进行尝试，<br>安装后，输入<code>hexo -v</code> 检查安装是否成功，<br>安装成功后，输入<code>hexo init</code>进行初始化，<br>输入<code>npm install</code>安装所需要的组件，如果失败请使用<code>cnpm install</code>进行尝试，<br>生成静态文件，输入<code>hexo g</code>（是命令<code>hexo generate</code>缩写），<br>和线上的github相关联后，新增一篇博客<code>hexo new post &#39;博客名&#39;</code>，<br>安装插件，<code>npm install hexo-deployer-git --save</code>。</p>
+<p>编辑好文章后就可以进行发布部署了，<code>hexo d -g</code></p>
+<p>清除缓存<code>hexo clean</code></p>
+<h4 id="本地启动Hexo服务"><a href="#本地启动Hexo服务" class="headerlink" title="本地启动Hexo服务"></a>本地启动Hexo服务</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo s # hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>是命令<code>hexo server</code>的缩写<br>默认启用4000端口号，修改端口号</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo server -p 5000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h4><h5 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new &quot;new post&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="新建文章分类页面"><a href="#新建文章分类页面" class="headerlink" title="新建文章分类页面"></a>新建文章分类页面</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page categories<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>配置categories页面，进入到刚才生成的<code>categories/index.md</code>文件中</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">title: 分类
+date: 2018-04-25 22:34:08
+type: &quot;categories&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>设置每篇博客的categories</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">categories: xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="新建文章标签页面"><a href="#新建文章标签页面" class="headerlink" title="新建文章标签页面"></a>新建文章标签页面</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page tags<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>配置tags页面，进入到刚才生成的<code>tags/index.md</code>文件中</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">title: 标签
+date: 2018-04-25 22:34:08
+type: &quot;tags&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>在文章中设置标签</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tags:[xxx,xx,x]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo deploy --简写 hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="兼容node14-版本"><a href="#兼容node14-版本" class="headerlink" title="兼容node14.*版本"></a>兼容<code>node14.*</code>版本</h5><p>当前时间是2021年4月，升级了一下<code>node</code>版本到14.*，结果<code>hexo</code>发布出现了问题。</p>
+<p>所以用<code>npx</code>让<code>hexo</code>运行在12.*版本上</p>
+<ol>
+<li>先用 <code>npm view node version</code> 查看一下 <code>node</code> 的历史版本，选一个旧一点点的版本号</li>
+<li>在当前目录环境下，安装<code>node</code>依赖包 <code>npm install node@12.21.0 -D</code> </li>
+<li>就可以每次发布的时候 <code>npx hexo d -g</code> 使用当前文件夹下的<code>node</code>环境</li>
+<li>懒人当然在 <code>package.json</code> 中定义一下 <code>scripts</code> 这样可以避免忘记使用<code>npx</code>了</li>
+</ol>
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>版本升级：<a href="https://novnan.github.io/Hexo/update_hexo/">https://novnan.github.io/Hexo/update_hexo/</a></p>
+<p>进入 theme/next 目录，执行 git pull 。</p>
+<p>冲突解决：<a href="https://stackoverflow.com/questions/15745045/how-do-i-resolve-git-saying-commit-your-changes-or-stash-them-before-you-can-me/15745424#15745424">https://stackoverflow.com/questions/15745045/how-do-i-resolve-git-saying-commit-your-changes-or-stash-them-before-you-can-me/15745424#15745424</a></p>
+<p>主题更新：<a href="https://theme-next.js.org/docs/getting-started/upgrade.html">https://theme-next.js.org/docs/getting-started/upgrade.html</a></p>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><h5 id="置顶"><a href="#置顶" class="headerlink" title="置顶"></a>置顶</h5><p>使用插件：<a href="https://github.com/netcan/hexo-generator-index-pin-top">https://github.com/netcan/hexo-generator-index-pin-top</a></p>
+<h5 id="字数统计-amp-阅读时长"><a href="#字数统计-amp-阅读时长" class="headerlink" title="字数统计 &amp; 阅读时长"></a>字数统计 &amp; 阅读时长</h5><p><a href="https://github.com/theme-next/hexo-symbols-count-time">https://github.com/theme-next/hexo-symbols-count-time</a></p>
+<h5 id="深色模式"><a href="#深色模式" class="headerlink" title="深色模式"></a>深色模式</h5><p><a href="https://github.com/sandoche/Darkmode.js">https://github.com/sandoche/Darkmode.js</a></p>
+<p><a href="https://haomingzhang.com/hexo_3/">https://haomingzhang.com/hexo_3/</a></p>
+<h5 id="提交日历"><a href="#提交日历" class="headerlink" title="提交日历"></a>提交日历</h5><p><a href="https://github.com/theme-next/theme-next-calendar">https://github.com/theme-next/theme-next-calendar</a></p>
+<h5 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h5><p>可以参考更多设置：</p>
+<p><a href="https://siriusq.top/Next%E5%8D%87%E7%BA%A7-Mac%E8%BF%81%E7%A7%BB.html">https://siriusq.top/Next%E5%8D%87%E7%BA%A7-Mac%E8%BF%81%E7%A7%BB.html</a></p>
+<p><a href="https://tding.top/archives/567debe0.html">https://tding.top/archives/567debe0.html</a></p>
+<h4 id="美化界面"><a href="#美化界面" class="headerlink" title="美化界面"></a>美化界面</h4><h5 id="安装主题NexT"><a href="#安装主题NexT" class="headerlink" title="安装主题NexT"></a>安装主题NexT</h5><p><a href="http://theme-next.iissnan.com/getting-started.html">NexT官方文档</a></p>
+<p>根据官方文档进行主题配置，还有更多的其他hexo相关的主题</p>
+<h5 id="右上角角标-forks-on-github"><a href="#右上角角标-forks-on-github" class="headerlink" title="右上角角标 forks on github"></a>右上角角标 forks on github</h5><p><a href="https://tholman.com/github-corners/">https://tholman.com/github-corners/</a></p>
+<p><a href="https://github.blog/2008-12-19-github-ribbons/">https://github.blog/2008-12-19-github-ribbons/</a></p>
+<p>将刚才复制的代码粘贴到<code>themes/next/layout/_layout.swig</code>文件中<div class="headband"></div>下面一行</p>
+]]></content>
+      <categories>
+        <category>指南</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node-工具</title>
-    <url>/posts/1004/</url>
+    <url>/posts/17067/</url>
     <content><![CDATA[<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><h4 id="env"><a href="#env" class="headerlink" title="env"></a>env</h4><p>window系统要获取到自定义的 env 参数，需要安装 <a href="https://www.npmjs.com/package/cross-env#installation"><code>cross-env</code></a> 依赖包，而 Linux 和 Mac 系统不需要。</p>
 ]]></content>
       <categories>
@@ -1537,8 +1537,123 @@ type: &quot;tags&quot;<span aria-hidden="true" class="line-numbers-rows"><span><
       </tags>
   </entry>
   <entry>
+    <title>node-文件操作</title>
+    <url>/posts/64893/</url>
+    <content><![CDATA[<h4 id="检查目录是否存在，创建目录"><a href="#检查目录是否存在，创建目录" class="headerlink" title="检查目录是否存在，创建目录"></a>检查目录是否存在，创建目录</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// node -v v12.*</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 查找目录 并判断是否存在目标文件夹</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">findDir</span><span class="token punctuation">(</span>dirPath <span class="token operator">=</span> <span class="token string">'.'</span><span class="token punctuation">,</span> dirName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> files <span class="token operator">=</span> <span class="token keyword">await</span> fs<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span>dirPath<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+      encoding<span class="token operator">:</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span>
+      withFileTypes<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      files<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span>
+      files<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> item<span class="token punctuation">.</span>name <span class="token operator">===</span> dirName <span class="token operator">&amp;&amp;</span> item<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> err
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 创建目录</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">createDir</span><span class="token punctuation">(</span><span class="token parameter">dirPath</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">await</span> fs<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">mkdir</span><span class="token punctuation">(</span>dirPath<span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> err
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 检查是否存在目录 不存在则创建</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">findOrCreateDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">await</span> <span class="token function">findDir</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> dir<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>res<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">createDir</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 检查是否存在目录 存在则清空</span>
+<span class="token keyword">function</span> <span class="token function">delDir</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token comment">// if (fs.existsSync(path)) &#123;</span>
+    files <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+      withFileTypes<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    files<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> curPath <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>path<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>file<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">delDir</span><span class="token punctuation">(</span>curPath<span class="token punctuation">)</span> <span class="token comment">//递归删除文件夹</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        fs<span class="token punctuation">.</span><span class="token function">unlinkSync</span><span class="token punctuation">(</span>curPath<span class="token punctuation">)</span> <span class="token comment">//删除文件</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    fs<span class="token punctuation">.</span><span class="token function">rmdirSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+  <span class="token comment">// &#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 方法2</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">findOrCreateDir</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">delDir</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">await</span> <span class="token function">createDir</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="循环删除空文件夹"><a href="#循环删除空文件夹" class="headerlink" title="循环删除空文件夹"></a>循环删除空文件夹</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// node -v v14.*</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">const</span> originPath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./source/_posts'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">resolveOriginPath</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>originPath<span class="token punctuation">,</span> url<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">rmEmptyDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 同步读取目录 过滤非文件夹目录及非空文件夹</span>
+    <span class="token keyword">const</span> files <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>originPath<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> withFileTypes<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">file</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token function">resolveOriginPath</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                            <span class="token keyword">return</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span>
+                        <span class="token punctuation">&#125;</span>
+                        <span class="token keyword">return</span> <span class="token boolean">false</span>
+                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span>
+    
+    <span class="token keyword">function</span> <span class="token function">rmDir</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        fs<span class="token punctuation">.</span><span class="token function">rmdir</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+            err <span class="token operator">&amp;&amp;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'rm err: '</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    files<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token function">rmDir</span><span class="token punctuation">(</span><span class="token function">resolveOriginPath</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>工具</tag>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node、npm、yarn安装与使用</title>
-    <url>/posts/1005/</url>
+    <url>/posts/64460/</url>
     <content><![CDATA[<h3 id="NODE安装与配置"><a href="#NODE安装与配置" class="headerlink" title="NODE安装与配置"></a>NODE安装与配置</h3><h4 id="windows版本"><a href="#windows版本" class="headerlink" title="windows版本"></a>windows版本</h4><ol>
 <li><p>在<code>nodejs</code>官网中下载稳定版本的<code>nodejs</code>，<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
 </li>
@@ -1674,123 +1789,8 @@ yarn config set sass_binary_site http:&#x2F;&#x2F;cdn.npm.taobao.org&#x2F;dist&#
       </tags>
   </entry>
   <entry>
-    <title>node-文件操作</title>
-    <url>/posts/1005/</url>
-    <content><![CDATA[<h4 id="检查目录是否存在，创建目录"><a href="#检查目录是否存在，创建目录" class="headerlink" title="检查目录是否存在，创建目录"></a>检查目录是否存在，创建目录</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// node -v v12.*</span>
-<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 查找目录 并判断是否存在目标文件夹</span>
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">findDir</span><span class="token punctuation">(</span>dirPath <span class="token operator">=</span> <span class="token string">'.'</span><span class="token punctuation">,</span> dirName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">const</span> files <span class="token operator">=</span> <span class="token keyword">await</span> fs<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span>dirPath<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-      encoding<span class="token operator">:</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span>
-      withFileTypes<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      files<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span>
-      files<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> item<span class="token punctuation">.</span>name <span class="token operator">===</span> dirName <span class="token operator">&amp;&amp;</span> item<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span>
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">throw</span> err
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">// 创建目录</span>
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">createDir</span><span class="token punctuation">(</span><span class="token parameter">dirPath</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">await</span> fs<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">mkdir</span><span class="token punctuation">(</span>dirPath<span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">throw</span> err
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">// 检查是否存在目录 不存在则创建</span>
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">findOrCreateDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">await</span> <span class="token function">findDir</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> dir<span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>res<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token function">createDir</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span>
-      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">// 检查是否存在目录 存在则清空</span>
-<span class="token keyword">function</span> <span class="token function">delDir</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">let</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token comment">// if (fs.existsSync(path)) &#123;</span>
-    files <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-      withFileTypes<span class="token operator">:</span> <span class="token boolean">true</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    files<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> curPath <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>path<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>file<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">delDir</span><span class="token punctuation">(</span>curPath<span class="token punctuation">)</span> <span class="token comment">//递归删除文件夹</span>
-      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-        fs<span class="token punctuation">.</span><span class="token function">unlinkSync</span><span class="token punctuation">(</span>curPath<span class="token punctuation">)</span> <span class="token comment">//删除文件</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    fs<span class="token punctuation">.</span><span class="token function">rmdirSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
-  <span class="token comment">// &#125;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// 方法2</span>
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">findOrCreateDir</span><span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">delDir</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">await</span> <span class="token function">createDir</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h4 id="循环删除空文件夹"><a href="#循环删除空文件夹" class="headerlink" title="循环删除空文件夹"></a>循环删除空文件夹</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// node -v v14.*</span>
-<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-<span class="token keyword">const</span> originPath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./source/_posts'</span><span class="token punctuation">)</span>
-
-<span class="token keyword">function</span> <span class="token function">resolveOriginPath</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>originPath<span class="token punctuation">,</span> url<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">function</span> <span class="token function">rmEmptyDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// 同步读取目录 过滤非文件夹目录及非空文件夹</span>
-    <span class="token keyword">const</span> files <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>originPath<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> withFileTypes<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">file</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                        <span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token function">resolveOriginPath</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                            <span class="token keyword">return</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span>
-                        <span class="token punctuation">&#125;</span>
-                        <span class="token keyword">return</span> <span class="token boolean">false</span>
-                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span>
-    
-    <span class="token keyword">function</span> <span class="token function">rmDir</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        fs<span class="token punctuation">.</span><span class="token function">rmdir</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-            err <span class="token operator">&amp;&amp;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'rm err: '</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> err<span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-    files<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token function">rmDir</span><span class="token punctuation">(</span><span class="token function">resolveOriginPath</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>工具</tag>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python学习-2</title>
-    <url>/posts/1005/</url>
+    <url>/posts/57859/</url>
     <content><![CDATA[<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><ol>
 <li><p>安装python和pip</p>
 <p>需要配置<strong>环境变量</strong></p>
@@ -1864,7 +1864,7 @@ exit()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
   </entry>
   <entry>
     <title>vue的UI框架整理</title>
-    <url>/posts/1005/</url>
+    <url>/posts/29902/</url>
     <content><![CDATA[<h4 id="同时适用于PC端和移动端的UI框架"><a href="#同时适用于PC端和移动端的UI框架" class="headerlink" title="同时适用于PC端和移动端的UI框架"></a>同时适用于PC端和移动端的UI框架</h4><h5 id="1-Muse-ui-基于-Vue-2-0-和-Material-Design-的-UI-组件库"><a href="#1-Muse-ui-基于-Vue-2-0-和-Material-Design-的-UI-组件库" class="headerlink" title="1.Muse-ui 基于 Vue 2.0 和 Material Design 的 UI 组件库"></a>1.Muse-ui 基于 Vue 2.0 和 Material Design 的 UI 组件库</h5><p>github：<a href="https://github.com/museui/muse-ui">https://github.com/museui/muse-ui</a></p>
 <p>文档：<a href="https://muse-ui.org/">https://muse-ui.org/</a></p>
 <h5 id="2-vue-material-为-Vue-js-打造的-Material-风格的组件"><a href="#2-vue-material-为-Vue-js-打造的-Material-风格的组件" class="headerlink" title="2.vue-material 为 Vue.js 打造的 Material 风格的组件"></a>2.vue-material 为 Vue.js 打造的 Material 风格的组件</h5><p>github：<a href="https://github.com/vuematerial/vue-material">https://github.com/vuematerial/vue-material</a><br>文档：<a href="https://vuematerial.github.io/#/">https://vuematerial.github.io/#/</a></p>
@@ -1916,7 +1916,7 @@ exit()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
   </entry>
   <entry>
     <title>vue系列-vue-cli</title>
-    <url>/posts/1005/</url>
+    <url>/posts/23219/</url>
     <content><![CDATA[<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="单个文件开发"><a href="#单个文件开发" class="headerlink" title="单个文件开发"></a>单个文件开发</h4><p>只适用于快速原型开发。</p>
 <p>需要安装全局扩展 <code>@vue/cli-service-global</code>，开发环境得不到一致性的保证：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install -g @vue&#x2F;cli-service-global<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2054,7 +2054,7 @@ VUE_APP_NOT_SECRET_CODE&#x3D;some_value<span aria-hidden="true" class="line-numb
   </entry>
   <entry>
     <title>vue系列-vuex</title>
-    <url>/posts/1005/</url>
+    <url>/posts/10722/</url>
     <content><![CDATA[<p>Vuex官网：<a href="https://vuex.vuejs.org/zh/">https://vuex.vuejs.org/zh/</a></p>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="vuex是什么"><a href="#vuex是什么" class="headerlink" title="vuex是什么"></a><a href="https://vuex.vuejs.org/zh/#vuex-%E6%98%AF%E4%BB%80%E4%B9%88">vuex是什么</a></h4><p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
 <p>Vuex 是专门为 Vue.js 设计的状态管理库，以利用 Vue.js 的细粒度数据响应机制来进行高效的状态更新。</p>
@@ -2096,7 +2096,7 @@ VUE_APP_NOT_SECRET_CODE&#x3D;some_value<span aria-hidden="true" class="line-numb
   </entry>
   <entry>
     <title>vue系列-vue进阶</title>
-    <url>/posts/1005/</url>
+    <url>/posts/26604/</url>
     <content><![CDATA[<h3 id="源码学习总结"><a href="#源码学习总结" class="headerlink" title="源码学习总结"></a>源码学习总结</h3><ol>
 <li><p>函数柯里化的使用，如patch部分。</p>
 </li>
@@ -2155,7 +2155,7 @@ VUE_APP_NOT_SECRET_CODE&#x3D;some_value<span aria-hidden="true" class="line-numb
   </entry>
   <entry>
     <title>webpack系列-pug实战</title>
-    <url>/posts/1005/</url>
+    <url>/posts/52386/</url>
     <content><![CDATA[<h3 id="Pug-jade"><a href="#Pug-jade" class="headerlink" title="Pug(jade)"></a><a href="https://www.pugjs.cn/api/getting-started.html">Pug(jade)</a></h3><p>模板引擎。类似于JSP、FreeMarker之类Java相关的模板引擎。Pug(原称是jade)是Nodejs相关的模板引擎，可以和Express进行集成。</p>
 <p>类似的Nodejs相关的模板引擎：<a href="https://github.com/mde/ejs">ejs</a>、<a href="https://github.com/aui/art-template">art-template</a>、<a href="https://github.com/olado/doT">doT</a>、<a href="https://handlebarsjs.com/zh/guide/">Handlebars</a>、<a href="https://github.com/janl/mustache.js">Mustache</a>等</p>
 <p>模板引擎通常都是有后端搭配进行数据传输，但是有的时候只需要静态页面不需要后端时，类似Java的模板引擎就不好用了。可以在node环境下使用模板引擎可以生成静态页面后发布。</p>
@@ -2180,7 +2180,7 @@ VUE_APP_NOT_SECRET_CODE&#x3D;some_value<span aria-hidden="true" class="line-numb
   </entry>
   <entry>
     <title>webpack系列-进阶</title>
-    <url>/posts/1005/</url>
+    <url>/posts/26727/</url>
     <content><![CDATA[<h4 id="编写一个简单的Loader"><a href="#编写一个简单的Loader" class="headerlink" title="编写一个简单的Loader"></a>编写一个简单的Loader</h4><h5 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h5><p>loader api: <a href="https://webpack.docschina.org/api/loaders/">https://webpack.docschina.org/api/loaders/</a></p>
 <p>resolveLoader: <a href="https://webpack.docschina.org/configuration/resolve/#resolveloader">https://webpack.docschina.org/configuration/resolve/#resolveloader</a></p>
 <h5 id="初始化简单的项目"><a href="#初始化简单的项目" class="headerlink" title="初始化简单的项目"></a>初始化简单的项目</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> init -y
@@ -2468,61 +2468,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </tags>
   </entry>
   <entry>
-    <title>webpack系列-面试题</title>
-    <url>/posts/1005/</url>
-    <content><![CDATA[<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h4 id="前端代码为何要进行构建和打包"><a href="#前端代码为何要进行构建和打包" class="headerlink" title="前端代码为何要进行构建和打包"></a>前端代码为何要进行构建和打包</h4><h4 id="module、chunk、bundle分别什么意思，有何区别"><a href="#module、chunk、bundle分别什么意思，有何区别" class="headerlink" title="module、chunk、bundle分别什么意思，有何区别"></a>module、chunk、bundle分别什么意思，有何区别</h4><h4 id="loading-和-plugin-的区别"><a href="#loading-和-plugin-的区别" class="headerlink" title="loading 和 plugin 的区别"></a>loading 和 plugin 的区别</h4><h4 id="webpack如何实现懒加载"><a href="#webpack如何实现懒加载" class="headerlink" title="webpack如何实现懒加载"></a>webpack如何实现懒加载</h4><h4 id="webpack常用性能优化"><a href="#webpack常用性能优化" class="headerlink" title="webpack常用性能优化"></a>webpack常用性能优化</h4><h4 id="babel-runtime-和-babel-polyfill-的区别"><a href="#babel-runtime-和-babel-polyfill-的区别" class="headerlink" title="babel-runtime 和 babel-polyfill 的区别"></a>babel-runtime 和 babel-polyfill 的区别</h4><h3 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h3>]]></content>
-      <categories>
-        <category>前端</category>
-        <category>webpack</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>面试</tag>
-        <tag>webpack</tag>
-        <tag>babel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>webstorm快捷键</title>
-    <url>/posts/1005/</url>
-    <content><![CDATA[<h4 id="webstorm-常用快捷键"><a href="#webstorm-常用快捷键" class="headerlink" title="webstorm 常用快捷键"></a>webstorm 常用快捷键</h4><h5 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h5><p>(1).单行注释  Ctrl+/  //</p>
-<p>(2).多行注释  Ctrl+shift+/  /**/</p>
-<h5 id="2-行操作"><a href="#2-行操作" class="headerlink" title="2.行操作"></a>2.行操作</h5><p>(1).删除行  Ctrl+X</p>
-<p>(2).复制行  Ctrl+D</p>
-<p>(3).查找行  Ctrl+G</p>
-<p>(4).代码向上/下移动  Ctrl+Shift+Up/Down</p>
-<p>(5).行移动  shift + alt</p>
-<h5 id="3-查找"><a href="#3-查找" class="headerlink" title="3.查找"></a>3.查找</h5><p>(1).查找代码所在位置  Alt+F1</p>
-<p>(2).查找文本  Ctrl+F</p>
-<p>(3).全局查找  Ctrl + Alt + F</p>
-<p>(4).打开定义快速查找  Ctrl + Shift + I</p>
-<p>(5).通过一个字符快速查找位置  Ctrl + Shift + Alt + N</p>
-<p>(6).通过文件名快速查找工程内的文件  Ctrl + Shift + N</p>
-<p>(7).查找代码所在位置  Alt+F1</p>
-<h5 id="4-跳转"><a href="#4-跳转" class="headerlink" title="4.跳转"></a>4.跳转</h5><p>(1).重新开始一行  Shift + enter</p>
-<p>(2).快速打开光标处的类或方法  Ctrl+B或Ctrl+鼠标左键单击</p>
-<p>(3).跳转方法实现处  Ctrl + Alt + B</p>
-<p>(4).跳转到上一个/下一个方法  Alt + Up/Down</p>
-<p>(5).返回至上次浏览的位置  Ctrl+Alt+ left/right</p>
-<p>(6).最近更改的代码  Ctrl+E或者Alt+Shift+C</p>
-<p>(7).光标跳转到第一行或最后一行下  Ctrl+Up/Down</p>
-<h5 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h5><p>(1).格式化代码  Ctrl+Alt+L</p>
-<p>(2).自动补全代码  Ctrl+Shift+Space</p>
-<p>(3).选中块代码  ctrl + shift + ]/[</p>
-]]></content>
-      <categories>
-        <category>指南</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>工具</tag>
-        <tag>webstorm</tag>
-        <tag>tool</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>window和location打开页面的方式</title>
-    <url>/posts/1005/</url>
+    <url>/posts/26103/</url>
     <content><![CDATA[<h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><h4 id="window-open"><a href="#window-open" class="headerlink" title="window.open()"></a>window.open()</h4><p>open() 方法用于打开一个新的浏览器子窗口或查找一个已命名的窗口。</p>
 <p><code>window.open(URL,name,features,replace)</code></p>
 <p>参数：</p>
@@ -2563,8 +2510,23 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </tags>
   </entry>
   <entry>
+    <title>webpack系列-面试题</title>
+    <url>/posts/58095/</url>
+    <content><![CDATA[<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h4 id="前端代码为何要进行构建和打包"><a href="#前端代码为何要进行构建和打包" class="headerlink" title="前端代码为何要进行构建和打包"></a>前端代码为何要进行构建和打包</h4><h4 id="module、chunk、bundle分别什么意思，有何区别"><a href="#module、chunk、bundle分别什么意思，有何区别" class="headerlink" title="module、chunk、bundle分别什么意思，有何区别"></a>module、chunk、bundle分别什么意思，有何区别</h4><h4 id="loading-和-plugin-的区别"><a href="#loading-和-plugin-的区别" class="headerlink" title="loading 和 plugin 的区别"></a>loading 和 plugin 的区别</h4><h4 id="webpack如何实现懒加载"><a href="#webpack如何实现懒加载" class="headerlink" title="webpack如何实现懒加载"></a>webpack如何实现懒加载</h4><h4 id="webpack常用性能优化"><a href="#webpack常用性能优化" class="headerlink" title="webpack常用性能优化"></a>webpack常用性能优化</h4><h4 id="babel-runtime-和-babel-polyfill-的区别"><a href="#babel-runtime-和-babel-polyfill-的区别" class="headerlink" title="babel-runtime 和 babel-polyfill 的区别"></a>babel-runtime 和 babel-polyfill 的区别</h4><h3 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h3>]]></content>
+      <categories>
+        <category>前端</category>
+        <category>webpack</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>面试</tag>
+        <tag>webpack</tag>
+        <tag>babel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>代码规范</title>
-    <url>/posts/1005/</url>
+    <url>/posts/35373/</url>
     <content><![CDATA[<blockquote>
 <p>《JavaScript高级程序设计(第3版) 24章》</p>
 </blockquote>
@@ -2701,52 +2663,46 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </tags>
   </entry>
   <entry>
-    <title>优秀博客总结参考</title>
-    <url>/posts/1005/</url>
-    <content><![CDATA[<p>吾生也有涯，而知也无涯，以有涯随无涯，殆已。  ——《庄子·养生主》</p>
-<p>这段话送给我自己，希望自己徐徐渐进，不要急于求成，急于表现，每日学习，每日进步，今日比昨日的我会的更多就好了。即使是复习也是比昨日掌握的知识更加牢固。</p>
-<p>心态平和，戒骄戒躁，修身养性，说话温柔，内心坚毅，做事果断，善良勇敢，才是最重要的。先做好人再做好事。</p>
-<p>人的一生很长，什么时候成功都来得及。每个人成功的定义都不一样，不要听信外界对自己的正负面评价，要对自己有正确的认知。负面评价，有则改之，无则加勉。正面评价，建立自信切勿自负，继续保持，切勿踏入捧杀陷阱。</p>
-<p>保持本心，知道为什么出发，要坚信并且坚持下去，过程和结果都很重要。</p>
-<p>做想做的事，成为想要成为的人。加油，学习不断，成就更好的自我。</p>
-<p>为什么想要做前端？因为试过了产品、测试、Java、游戏、前端，最后发现最喜欢前端，可能是能够快速实现自己想要的东西，又或者听信了弟弟说的女生比较适合前端，又可能是实现一个炫酷的动画觉得很厉害。总之请记住那个2017年秋天做H5实习生时开心的自己。</p>
-<p>做什么都不重要，重要的是，是自己想要的就好了。</p>
-<p><strong>加油，成为更好的自己。</strong></p>
-<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><h4 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h4><p>迷茫的时候看看，自己还有什么不会的</p>
-<p><a href="https://andreasbm.github.io/web-skills/?compact">https://andreasbm.github.io/web-skills/?compact</a></p>
-<p><a href="https://roadmap.sh/roadmaps">https://roadmap.sh/roadmaps</a></p>
-<h4 id="个站"><a href="#个站" class="headerlink" title="个站"></a>个站</h4><p><a href="http://www.dennisgo.cn/#">http://www.dennisgo.cn/#</a></p>
-<p><a href="https://www.weisuoke.com/">https://www.weisuoke.com/</a></p>
-<p><a href="https://muyiy.cn/">https://muyiy.cn/</a></p>
-<h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h4><p><a href="https://github.com/mqyqingfeng/Blog">冴羽的博客</a></p>
-<p><a href="https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99">jsliang</a></p>
-<h4 id="掘金"><a href="#掘金" class="headerlink" title="掘金"></a>掘金</h4><p><a href="https://juejin.cn/user/4283353031252967">浪里行舟</a>：<a href="https://github.com/ljianshu/Blog">https://github.com/ljianshu/Blog</a></p>
-<p><a href="https://juejin.cn/user/712139233840407">yck</a></p>
-<h4 id="语雀"><a href="#语雀" class="headerlink" title="语雀"></a>语雀</h4><p><a href="https://www.kancloud.cn/surahe/front-end-notebook/781957">https://www.kancloud.cn/surahe/front-end-notebook/781957</a></p>
-<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><p>每日必看：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question">https://github.com/Advanced-Frontend/Daily-Interview-Question</a></p>
-<p>题库：<a href="https://github.com/haizlin/fe-interview">https://github.com/haizlin/fe-interview</a></p>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h4 id="在线编码"><a href="#在线编码" class="headerlink" title="在线编码"></a>在线编码</h4><p>参考链接： <a href="https://www.zhihu.com/question/31731104">前端常用的几种在线代码编辑器各有什么优势？ - 知乎</a></p>
-<p><a href="https://segmentfault.com/a/1190000018407482">程序猿专用十大在线编译器(IDE)整理 - segmentfault</a></p>
-<p>codepen：<a href="https://codepen.io/">https://codepen.io/</a></p>
-<p>jsbin：<a href="https://jsbin.com/?html,output">https://jsbin.com/?html,output</a></p>
-<p>Jsfiddle</p>
-<p>CodeSandbox</p>
-<p>github 使用在线 vscode 打开：</p>
-<p>在url上将github的链接后面加1s，如：<code>https://github1s.com/Datura35422/study/tree/master/webpack-demos</code></p>
-<p><a href="https://github.com/conwnet/github1s">https://github.com/conwnet/github1s</a></p>
-<h3 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h3><h4 id="个站-1"><a href="#个站-1" class="headerlink" title="个站"></a>个站</h4><p>算法 + 计算机基础 + Java + 数据库…：<a href="http://www.cyc2018.xyz/">CS-Notes</a></p>
-<h4 id="技术路径"><a href="#技术路径" class="headerlink" title="技术路径"></a>技术路径</h4><p><a href="https://github.com/cucygh/fe-material">前端技术教程及文档</a></p>
+    <title>webstorm快捷键</title>
+    <url>/posts/22910/</url>
+    <content><![CDATA[<h4 id="webstorm-常用快捷键"><a href="#webstorm-常用快捷键" class="headerlink" title="webstorm 常用快捷键"></a>webstorm 常用快捷键</h4><h5 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h5><p>(1).单行注释  Ctrl+/  //</p>
+<p>(2).多行注释  Ctrl+shift+/  /**/</p>
+<h5 id="2-行操作"><a href="#2-行操作" class="headerlink" title="2.行操作"></a>2.行操作</h5><p>(1).删除行  Ctrl+X</p>
+<p>(2).复制行  Ctrl+D</p>
+<p>(3).查找行  Ctrl+G</p>
+<p>(4).代码向上/下移动  Ctrl+Shift+Up/Down</p>
+<p>(5).行移动  shift + alt</p>
+<h5 id="3-查找"><a href="#3-查找" class="headerlink" title="3.查找"></a>3.查找</h5><p>(1).查找代码所在位置  Alt+F1</p>
+<p>(2).查找文本  Ctrl+F</p>
+<p>(3).全局查找  Ctrl + Alt + F</p>
+<p>(4).打开定义快速查找  Ctrl + Shift + I</p>
+<p>(5).通过一个字符快速查找位置  Ctrl + Shift + Alt + N</p>
+<p>(6).通过文件名快速查找工程内的文件  Ctrl + Shift + N</p>
+<p>(7).查找代码所在位置  Alt+F1</p>
+<h5 id="4-跳转"><a href="#4-跳转" class="headerlink" title="4.跳转"></a>4.跳转</h5><p>(1).重新开始一行  Shift + enter</p>
+<p>(2).快速打开光标处的类或方法  Ctrl+B或Ctrl+鼠标左键单击</p>
+<p>(3).跳转方法实现处  Ctrl + Alt + B</p>
+<p>(4).跳转到上一个/下一个方法  Alt + Up/Down</p>
+<p>(5).返回至上次浏览的位置  Ctrl+Alt+ left/right</p>
+<p>(6).最近更改的代码  Ctrl+E或者Alt+Shift+C</p>
+<p>(7).光标跳转到第一行或最后一行下  Ctrl+Up/Down</p>
+<h5 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h5><p>(1).格式化代码  Ctrl+Alt+L</p>
+<p>(2).自动补全代码  Ctrl+Shift+Space</p>
+<p>(3).选中块代码  ctrl + shift + ]/[</p>
 ]]></content>
       <categories>
-        <category>整理</category>
+        <category>指南</category>
       </categories>
       <tags>
-        <tag>整理</tag>
+        <tag>前端</tag>
+        <tag>工具</tag>
+        <tag>webstorm</tag>
+        <tag>tool</tag>
       </tags>
   </entry>
   <entry>
     <title>函数式编程</title>
-    <url>/posts/1005/</url>
+    <url>/posts/62985/</url>
     <content><![CDATA[<p>在命令式编程中，我们按部就班地编写程序代码，详细描述要完成的事情以及完成的顺序。</p>
 <p>函数式编程：</p>
 <ul>
@@ -2804,8 +2760,52 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </tags>
   </entry>
   <entry>
+    <title>优秀博客总结参考</title>
+    <url>/posts/7661/</url>
+    <content><![CDATA[<p>吾生也有涯，而知也无涯，以有涯随无涯，殆已。  ——《庄子·养生主》</p>
+<p>这段话送给我自己，希望自己徐徐渐进，不要急于求成，急于表现，每日学习，每日进步，今日比昨日的我会的更多就好了。即使是复习也是比昨日掌握的知识更加牢固。</p>
+<p>心态平和，戒骄戒躁，修身养性，说话温柔，内心坚毅，做事果断，善良勇敢，才是最重要的。先做好人再做好事。</p>
+<p>人的一生很长，什么时候成功都来得及。每个人成功的定义都不一样，不要听信外界对自己的正负面评价，要对自己有正确的认知。负面评价，有则改之，无则加勉。正面评价，建立自信切勿自负，继续保持，切勿踏入捧杀陷阱。</p>
+<p>保持本心，知道为什么出发，要坚信并且坚持下去，过程和结果都很重要。</p>
+<p>做想做的事，成为想要成为的人。加油，学习不断，成就更好的自我。</p>
+<p>为什么想要做前端？因为试过了产品、测试、Java、游戏、前端，最后发现最喜欢前端，可能是能够快速实现自己想要的东西，又或者听信了弟弟说的女生比较适合前端，又可能是实现一个炫酷的动画觉得很厉害。总之请记住那个2017年秋天做H5实习生时开心的自己。</p>
+<p>做什么都不重要，重要的是，是自己想要的就好了。</p>
+<p><strong>加油，成为更好的自己。</strong></p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><h4 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h4><p>迷茫的时候看看，自己还有什么不会的</p>
+<p><a href="https://andreasbm.github.io/web-skills/?compact">https://andreasbm.github.io/web-skills/?compact</a></p>
+<p><a href="https://roadmap.sh/roadmaps">https://roadmap.sh/roadmaps</a></p>
+<h4 id="个站"><a href="#个站" class="headerlink" title="个站"></a>个站</h4><p><a href="http://www.dennisgo.cn/#">http://www.dennisgo.cn/#</a></p>
+<p><a href="https://www.weisuoke.com/">https://www.weisuoke.com/</a></p>
+<p><a href="https://muyiy.cn/">https://muyiy.cn/</a></p>
+<h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h4><p><a href="https://github.com/mqyqingfeng/Blog">冴羽的博客</a></p>
+<p><a href="https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99">jsliang</a></p>
+<h4 id="掘金"><a href="#掘金" class="headerlink" title="掘金"></a>掘金</h4><p><a href="https://juejin.cn/user/4283353031252967">浪里行舟</a>：<a href="https://github.com/ljianshu/Blog">https://github.com/ljianshu/Blog</a></p>
+<p><a href="https://juejin.cn/user/712139233840407">yck</a></p>
+<h4 id="语雀"><a href="#语雀" class="headerlink" title="语雀"></a>语雀</h4><p><a href="https://www.kancloud.cn/surahe/front-end-notebook/781957">https://www.kancloud.cn/surahe/front-end-notebook/781957</a></p>
+<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><p>每日必看：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question">https://github.com/Advanced-Frontend/Daily-Interview-Question</a></p>
+<p>题库：<a href="https://github.com/haizlin/fe-interview">https://github.com/haizlin/fe-interview</a></p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h4 id="在线编码"><a href="#在线编码" class="headerlink" title="在线编码"></a>在线编码</h4><p>参考链接： <a href="https://www.zhihu.com/question/31731104">前端常用的几种在线代码编辑器各有什么优势？ - 知乎</a></p>
+<p><a href="https://segmentfault.com/a/1190000018407482">程序猿专用十大在线编译器(IDE)整理 - segmentfault</a></p>
+<p>codepen：<a href="https://codepen.io/">https://codepen.io/</a></p>
+<p>jsbin：<a href="https://jsbin.com/?html,output">https://jsbin.com/?html,output</a></p>
+<p>Jsfiddle</p>
+<p>CodeSandbox</p>
+<p>github 使用在线 vscode 打开：</p>
+<p>在url上将github的链接后面加1s，如：<code>https://github1s.com/Datura35422/study/tree/master/webpack-demos</code></p>
+<p><a href="https://github.com/conwnet/github1s">https://github.com/conwnet/github1s</a></p>
+<h3 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h3><h4 id="个站-1"><a href="#个站-1" class="headerlink" title="个站"></a>个站</h4><p>算法 + 计算机基础 + Java + 数据库…：<a href="http://www.cyc2018.xyz/">CS-Notes</a></p>
+<h4 id="技术路径"><a href="#技术路径" class="headerlink" title="技术路径"></a>技术路径</h4><p><a href="https://github.com/cucygh/fe-material">前端技术教程及文档</a></p>
+]]></content>
+      <categories>
+        <category>整理</category>
+      </categories>
+      <tags>
+        <tag>整理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端常用库整理</title>
-    <url>/posts/1005/</url>
+    <url>/posts/7241/</url>
     <content><![CDATA[<h4 id="NODEJS库"><a href="#NODEJS库" class="headerlink" title="NODEJS库"></a>NODEJS库</h4><h5 id="html-minifier-html压缩工具"><a href="#html-minifier-html压缩工具" class="headerlink" title="html-minifier: html压缩工具"></a>html-minifier: html压缩工具</h5><h5 id=""><a href="#" class="headerlink" title=""></a></h5>]]></content>
       <categories>
         <category>整理</category>
@@ -2817,7 +2817,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>前端性能监控系统</title>
-    <url>/posts/1006/</url>
+    <url>/posts/43591/</url>
     <content><![CDATA[<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="http://fex.baidu.com/blog/2014/05/build-performance-monitor-in-7-days/">7 天打造前端性能监控系统</a></p>
 <p>lighthouse </p>
 ]]></content>
@@ -2833,12 +2833,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>垃圾回收机制和内存泄露</title>
-    <url>/posts/1006/</url>
+    <url>/posts/9396/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>基础系列-ECMAScript规范</title>
-    <url>/posts/1006/</url>
+    <url>/posts/37130/</url>
     <content><![CDATA[<h3 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h3><p>ECMA是一个将信息标准化的组织。JavaScript被提交到ECMA进行标准化，由此诞生了一个新的语言标准，也就是我们所知道的ECMAScript。JavaScript是该标准（最流行）的一个实现。</p>
 <p>检查各个浏览器中哪些ES6/ES6+特性可用：<a href="http://kangax.github.io/compat-table/es6/">http://kangax.github.io/compat-table/es6/</a></p>
 <blockquote>
@@ -3247,7 +3247,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>基础系列-JS数据类型</title>
-    <url>/posts/1006/</url>
+    <url>/posts/7930/</url>
     <content><![CDATA[<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><h4 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><h4 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h4><h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><h4 id="BigInt"><a href="#BigInt" class="headerlink" title="BigInt"></a>BigInt</h4><h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><p>function是特殊的object</p>
 <h3 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h3><h4 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a></h4><p><strong><code>typeof</code></strong> 操作符返回一个字符串，表示未经计算的操作数的类型。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">typeof</span> <span class="token string">'a'</span> <span class="token comment">// 'string'</span>
@@ -3342,7 +3342,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>基础系列-less学习-1</title>
-    <url>/posts/1006/</url>
+    <url>/posts/21719/</url>
     <content><![CDATA[<p>官网：<a href="https://lesscss.org/#">https://lesscss.org/#</a></p>
 <h4 id="1-amp-（表示父级选择器）"><a href="#1-amp-（表示父级选择器）" class="headerlink" title="1. &amp;（表示父级选择器）"></a>1. &amp;（表示父级选择器）</h4><p>就近原则</p>
 <pre class="line-numbers language-less" data-language="less"><code class="language-less"><span class="token selector">a</span> <span class="token punctuation">&#123;</span>
@@ -3971,7 +3971,7 @@ nav ul</span> <span class="token punctuation">&#123;</span>
   </entry>
   <entry>
     <title>基础系列-preload与prefetch</title>
-    <url>/posts/1006/</url>
+    <url>/posts/57007/</url>
     <content><![CDATA[<p>有时候为了提高网页初始加载的性能，我们会选择延迟一部分资源的加载和执行。</p>
 <p>另一种情况是我们想要尽早加载资源，但是要等到合适的时机再执行。时机的影响因素包括依赖关系、执行条件、执行顺序等。</p>
 <p>通常的做法是：</p>
@@ -4094,7 +4094,7 @@ nav ul</span> <span class="token punctuation">&#123;</span>
   </entry>
   <entry>
     <title>基础系列-promise-2</title>
-    <url>/posts/1006/</url>
+    <url>/posts/3776/</url>
     <content><![CDATA[<h4 id="async函数与await命令的使用"><a href="#async函数与await命令的使用" class="headerlink" title="async函数与await命令的使用"></a>async函数与await命令的使用</h4><h5 id="解决的问题："><a href="#解决的问题：" class="headerlink" title="解决的问题："></a>解决的问题：</h5><p>减少多层嵌套，可以进行同步的写法。</p>
 <p>使<code>Promise</code>链式调用可控，即中间<code>promise</code>出现问题后能够跳出继续向下调用，能够及时处理错误。</p>
 <h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><p>(1)内置执行器。async函数的执行与普通函数一模一样，只要一行。</p>
@@ -4252,7 +4252,7 @@ nav ul</span> <span class="token punctuation">&#123;</span>
   </entry>
   <entry>
     <title>基础系列-this和对象原型</title>
-    <url>/posts/1006/</url>
+    <url>/posts/59061/</url>
     <content><![CDATA[<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><p><code>this</code> 实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。</p>
 <blockquote>
 <p>调用位置：函数在代码中被调用的位置。</p>
@@ -4451,10 +4451,10 @@ arr<span class="token punctuation">.</span><span class="token function">forEach<
   </entry>
   <entry>
     <title>基础系列-事件循环与异步</title>
-    <url>/posts/1006/</url>
+    <url>/posts/13664/</url>
     <content><![CDATA[<h3 id="JS为什么要有事件循环机制"><a href="#JS为什么要有事件循环机制" class="headerlink" title="JS为什么要有事件循环机制"></a>JS为什么要有事件循环机制</h3><p>JS被设计为<strong>单线程</strong>机制，为了避免出现竞态条件，例当线程A中正在操作DOM，但线程B中删除了此DOM，会发生错误。</p>
 <p>所以为了避免发生竞态条件，是单线程原因之一。</p>
-<h3 id="运行时的概念"><a href="#运行时的概念" class="headerlink" title="运行时的概念"></a>运行时的概念</h3><p><img src="/posts/1006/The_Javascript_Runtime_Environment_Example.svg" alt="The_Javascript_Runtime_Environment_Example"></p>
+<h3 id="运行时的概念"><a href="#运行时的概念" class="headerlink" title="运行时的概念"></a>运行时的概念</h3><p><img src="/posts/13664/The_Javascript_Runtime_Environment_Example.svg" alt="The_Javascript_Runtime_Environment_Example"></p>
 <h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><p>函数调用形成了一个由若干帧组成的栈。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
@@ -4697,12 +4697,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>基础系列-前端架构模式</title>
-    <url>/posts/1006/</url>
+    <url>/posts/17715/</url>
     <content><![CDATA[<p>参考文章：</p>
 <p><a href="https://www.kancloud.cn/lixianshengdezhanghao/interview/904696">MVC和MVVM的区别</a></p>
 <p><a href="https://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html">MVC，MVP 和 MVVM 的图示 - 阮一峰</a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2007/11/mvc.html">谈谈MVC模式 - 阮一峰</a></p>
-<h4 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h4><p><img src="/posts/1006/mvc.jpg" alt="mvc"></p>
+<h4 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h4><p><img src="/posts/17715/mvc.jpg" alt="mvc"></p>
 <p>M - Model - 数据层 - 最上层，直接面向用户，提供给用户操作界面</p>
 <p>V - View - 视图层 - 最底层，程序需要操作的数据或信息</p>
 <p>C - Controller - 控制层 - 根据用户从视图层输入的指令，选取数据层中的数据，然后进行相应的操作，产生最终结果</p>
@@ -4712,12 +4712,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>最直接的感受就是Java中的<code>Strut2</code>框架使用，是典型的MVC架构。actions -&gt; service -&gt; dao</p>
 <p>也有点像vuex的state、view、actions。state是数据源，view以声明的方式将state映射到视图，actions去更改数据</p>
 </blockquote>
-<h4 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h4><p><img src="/posts/1006/mvp.jpg" alt="mvp"></p>
+<h4 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h4><p><img src="/posts/17715/mvp.jpg" alt="mvp"></p>
 <p>P -  Presenter - 主持人(直译) - 进行数据传递</p>
 <p>各部分之间的通信，都是双向的。</p>
 <p>View 与 Model 不发生联系，都通过 Presenter 传递。</p>
 <p>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</p>
-<h4 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h4><p><img src="/posts/1006/mvvm.jpg" alt="mvvm"></p>
+<h4 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h4><p><img src="/posts/17715/mvvm.jpg" alt="mvvm"></p>
 <blockquote>
 <p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
 </blockquote>
@@ -4757,7 +4757,7 @@ var app5 &#x3D; new Vue(&#123;
   </entry>
   <entry>
     <title>基础系列-渐进式web应用PWA</title>
-    <url>/posts/1006/</url>
+    <url>/posts/29356/</url>
     <content><![CDATA[<p>PWA应用是指那些<strong>使用指定技术和标准模式来开发的web应用</strong>，这将同时赋予它们web应用和原生应用的特性。</p>
 <p>特点：</p>
 <ul>
@@ -4791,7 +4791,7 @@ var app5 &#x3D; new Vue(&#123;
   </entry>
   <entry>
     <title>基础系列-重绘与回流</title>
-    <url>/posts/1006/</url>
+    <url>/posts/7090/</url>
     <content><![CDATA[<h3 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h3><p><a href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#Introduction">浏览器的工作原理：新式网络浏览器幕后揭秘</a></p>
 <p><a href="https://juejin.cn/post/6844903935556190215#heading-8">浏览器渲染原理 （一）在网址中输入一个网站后面都做了什么</a></p>
 <p><a href="https://segmentfault.com/a/1190000017329980">浏览器渲染原理 （三）repaint(重绘)和reflow(回流)详解</a></p>
@@ -4824,7 +4824,7 @@ var app5 &#x3D; new Vue(&#123;
   </entry>
   <entry>
     <title>小程序-wepy入门-1</title>
-    <url>/posts/1006/</url>
+    <url>/posts/56580/</url>
     <content><![CDATA[<h4 id="1-安装（版本1-7-x）"><a href="#1-安装（版本1-7-x）" class="headerlink" title="1.安装（版本1.7.x）"></a>1.安装（版本1.7.x）</h4><p>步骤：</p>
 <p>(1)安装 <code>npm install wepy-cli -g</code></p>
 <p>(2)<code>wepy list</code> 查看项目模板， 新建项目 <code>wepy init standard myproject</code></p>
@@ -5012,7 +5012,7 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
   </entry>
   <entry>
     <title>小程序-微信小程序踩坑记-1</title>
-    <url>/posts/1006/</url>
+    <url>/posts/62892/</url>
     <content><![CDATA[<h4 id="onShow的坑"><a href="#onShow的坑" class="headerlink" title="onShow的坑"></a><code>onShow</code>的坑</h4><p>微信小程序<code>onShow</code>会仍然保存上一次进入小程序的参数值和场景值，所以如果需要在<code>onShow</code>中做逻辑操作，需要进行区分。</p>
 <p>其次，微信小程序发起转发和调起支付功能时，跳出了微信小程序范围，会触发<code>onHide</code>和<code>onShow</code>的操作。</p>
 <h4 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h4><ol>
@@ -5068,7 +5068,7 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
   </entry>
   <entry>
     <title>小程序-微信小程序进阶</title>
-    <url>/posts/1006/</url>
+    <url>/posts/63149/</url>
     <content><![CDATA[<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><h4 id="Worker-多线程"><a href="#Worker-多线程" class="headerlink" title="Worker - 多线程"></a>Worker - 多线程</h4><h4 id="recycle-view"><a href="#recycle-view" class="headerlink" title="recycle-view"></a><a href="https://developers.weixin.qq.com/miniprogram/dev/extended/component-plus/recycle-view.html">recycle-view</a></h4><h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><p>关键帧 this.animation</p>
 ]]></content>
       <categories>
@@ -5082,7 +5082,7 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
   </entry>
   <entry>
     <title>工具函数系列-判断对象中是否存在循环引用</title>
-    <url>/posts/1006/</url>
+    <url>/posts/53744/</url>
     <content><![CDATA[<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><p>进行序列化<code>JSON.stringify(obj)</code>，如果存在循环引用，会报错。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">isCyclic</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
@@ -5152,7 +5152,7 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
   </entry>
   <entry>
     <title>工具函数系列-千位符格式化处理</title>
-    <url>/posts/1006/</url>
+    <url>/posts/50505/</url>
     <content><![CDATA[<p>数字千分位形式,是从个位数起，每三位之间加一个逗号,例如:1450068，经过处理之后为1,450,068</p>
 <h4 id="方法一：使用Number-prototype-toLocaleString"><a href="#方法一：使用Number-prototype-toLocaleString" class="headerlink" title="方法一：使用Number.prototype.toLocaleString()"></a>方法一：使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.prototype.toLocaleString()</a></h4><p><code>toLocaleString()</code> 方法返回这个数字在特定语言环境下的表示字符串。</p>
 <p>新的 <code>locales</code> 和 <code>options</code> 参数让应用程序可以指定要进行格式转换的语言，并且定制函数的行为。在旧的实现中，会忽略 <code>locales</code> 和 <code>options</code> 参数，使用的语言环境和返回的字符串的形式完全取决于实现方式。</p>
@@ -5161,14 +5161,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-<p><img src="/posts/1006/1.png" alt="1"></p>
+<p><img src="/posts/50505/1.png" alt="1"></p>
 <h4 id="方法二：使用正则表达式"><a href="#方法二：使用正则表达式" class="headerlink" title="方法二：使用正则表达式"></a>方法二：使用正则表达式</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">toThousands</span><span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	<span class="token keyword">var</span> numStr <span class="token operator">=</span> <span class="token punctuation">(</span>num <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> numStr<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(\d)(?=(?:\d&#123;3&#125;)+$)</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'$1,'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token function">toThousands</span><span class="token punctuation">(</span><span class="token number">1234567890</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/posts/1006/2.png" alt="2"></p>
+<p><img src="/posts/50505/2.png" alt="2"></p>
 <h4 id="方法三：遍历"><a href="#方法三：遍历" class="headerlink" title="方法三：遍历"></a>方法三：遍历</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">toThousands</span><span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span> numStr <span class="token operator">=</span> <span class="token punctuation">(</span>num <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>numStr<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -5183,7 +5183,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span>
 <span class="token function">toThousands</span><span class="token punctuation">(</span><span class="token number">1234567890</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/posts/1006/3.png" alt="3"></p>
+<p><img src="/posts/50505/3.png" alt="3"></p>
 <h4 id="方法四：工具库"><a href="#方法四：工具库" class="headerlink" title="方法四：工具库"></a>方法四：工具库</h4><p><a href="http://numeraljs.com/">Numeral.js</a></p>
 ]]></content>
       <categories>
@@ -5197,29 +5197,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </tags>
   </entry>
   <entry>
-    <title>工具函数系列-总结</title>
-    <url>/posts/1006/</url>
-    <content><![CDATA[<h3 id="函数库"><a href="#函数库" class="headerlink" title="函数库"></a>函数库</h3><h4 id="Lodash"><a href="#Lodash" class="headerlink" title="Lodash"></a>Lodash</h4><p><a href="https://github.com/lodash/lodash">https://github.com/lodash/lodash</a></p>
-<p>是一个一致性、模块化、高性能的 JavaScript 实用工具库。</p>
-<h4 id="Underscore"><a href="#Underscore" class="headerlink" title="Underscore"></a>Underscore</h4><p><a href="https://underscorejs.org/">https://underscorejs.org/</a></p>
-<p>提供了一套完善的函数式编程的接口，让我们更方便地在JavaScript中实现函数式编程。</p>
-<h4 id="Ramda"><a href="#Ramda" class="headerlink" title="Ramda"></a>Ramda</h4><p><a href="https://github.com/ramda/ramda">https://github.com/ramda/ramda</a></p>
-<p>Ramda的理念是<code>function first，data last</code>。Ramda 还有一个特点：所有方法都支持柯里化。<br>可以通过阮一峰的文章<a href="http://www.ruanyifeng.com/blog/2017/03/ramda.html">Ramda 函数库参考教程</a>学习。</p>
-<h4 id="Outils"><a href="#Outils" class="headerlink" title="Outils"></a>Outils</h4><p><a href="https://github.com/proYang/outils">https://github.com/proYang/outils</a></p>
-<p>前端业务代码工具库。统一封装常用函数，并发布到 npm，以提高开发效率。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-        <category>工具函数</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>工具函数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>工具函数系列-数组拉平</title>
-    <url>/posts/1006/</url>
+    <url>/posts/2907/</url>
     <content><![CDATA[<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><h4 id="Array-prototype-flat"><a href="#Array-prototype-flat" class="headerlink" title="Array.prototype.flat()"></a><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/flat">Array.prototype.flat()</a></h4><p>拉平数组，变成一维的数组，返回一个新数组。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment">// [1, 2, 3, 4]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -5288,9 +5267,30 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </tags>
   </entry>
   <entry>
+    <title>工具函数系列-总结</title>
+    <url>/posts/47327/</url>
+    <content><![CDATA[<h3 id="函数库"><a href="#函数库" class="headerlink" title="函数库"></a>函数库</h3><h4 id="Lodash"><a href="#Lodash" class="headerlink" title="Lodash"></a>Lodash</h4><p><a href="https://github.com/lodash/lodash">https://github.com/lodash/lodash</a></p>
+<p>是一个一致性、模块化、高性能的 JavaScript 实用工具库。</p>
+<h4 id="Underscore"><a href="#Underscore" class="headerlink" title="Underscore"></a>Underscore</h4><p><a href="https://underscorejs.org/">https://underscorejs.org/</a></p>
+<p>提供了一套完善的函数式编程的接口，让我们更方便地在JavaScript中实现函数式编程。</p>
+<h4 id="Ramda"><a href="#Ramda" class="headerlink" title="Ramda"></a>Ramda</h4><p><a href="https://github.com/ramda/ramda">https://github.com/ramda/ramda</a></p>
+<p>Ramda的理念是<code>function first，data last</code>。Ramda 还有一个特点：所有方法都支持柯里化。<br>可以通过阮一峰的文章<a href="http://www.ruanyifeng.com/blog/2017/03/ramda.html">Ramda 函数库参考教程</a>学习。</p>
+<h4 id="Outils"><a href="#Outils" class="headerlink" title="Outils"></a>Outils</h4><p><a href="https://github.com/proYang/outils">https://github.com/proYang/outils</a></p>
+<p>前端业务代码工具库。统一封装常用函数，并发布到 npm，以提高开发效率。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>工具函数</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>工具函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>工具函数系列-正则表达式</title>
-    <url>/posts/1006/</url>
-    <content><![CDATA[<h4 id="使用ASCII码校验"><a href="#使用ASCII码校验" class="headerlink" title="使用ASCII码校验"></a>使用ASCII码校验</h4><p><img src="/posts/1006/ASCII.jpg" alt="ASCII"></p>
+    <url>/posts/17284/</url>
+    <content><![CDATA[<h4 id="使用ASCII码校验"><a href="#使用ASCII码校验" class="headerlink" title="使用ASCII码校验"></a>使用ASCII码校验</h4><p><img src="/posts/17284/ASCII.jpg" alt="ASCII"></p>
 <h5 id="校验长度-6-64-的英文、数字、英文字符"><a href="#校验长度-6-64-的英文、数字、英文字符" class="headerlink" title="校验长度[6, 64]的英文、数字、英文字符"></a>校验长度[6, 64]的英文、数字、英文字符</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[\x21-\x7e]&#123;6,64&#125;$</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span>
     <span class="token keyword">return</span> reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
@@ -5350,7 +5350,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>工具函数系列-浅拷贝与深拷贝</title>
-    <url>/posts/1006/</url>
+    <url>/posts/57752/</url>
     <content><![CDATA[<blockquote>
 <p>参考《你不知道的JavaScript（中卷）》第2章28页</p>
 </blockquote>
@@ -5568,7 +5568,7 @@ x<span class="token punctuation">.</span>l<span class="token punctuation">[</spa
   </entry>
   <entry>
     <title>工具函数系列-节流throttle</title>
-    <url>/posts/1006/</url>
+    <url>/posts/11528/</url>
     <content><![CDATA[<p>节流的原理是：固定时间间隔执行函数</p>
 <p>应用场景：<code>resize</code>、<code>scroll</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> wait</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -5751,7 +5751,7 @@ throttled<span class="token punctuation">.</span><span class="token function-var
   </entry>
   <entry>
     <title>工具函数系列-获取url参数</title>
-    <url>/posts/1006/</url>
+    <url>/posts/61137/</url>
     <content><![CDATA[<p>获取 <code>url</code> 中的参数</p>
 <ol>
 <li>指定参数名称，返回该参数的值 或者 空字符串</li>
@@ -5780,7 +5780,7 @@ throttled<span class="token punctuation">.</span><span class="token function-var
 <span class="token function">getUrlParam</span><span class="token punctuation">(</span><span class="token string">'http://www.nowcoder.com?key=1&amp;key=2&amp;key=3&amp;test=4#hehe'</span><span class="token punctuation">,</span> <span class="token string">'key'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>测试：</p>
-<p><img src="/posts/1006/1.png" alt="1"></p>
+<p><img src="/posts/61137/1.png" alt="1"></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -5794,7 +5794,7 @@ throttled<span class="token punctuation">.</span><span class="token function-var
   </entry>
   <entry>
     <title>工具函数系列-超时取消事件</title>
-    <url>/posts/1006/</url>
+    <url>/posts/27382/</url>
     <content><![CDATA[<h4 id="方法1-setTimeout"><a href="#方法1-setTimeout" class="headerlink" title="方法1 setTimeout"></a>方法1 setTimeout</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">timeoutify</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">var</span> intv <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         intv <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
@@ -5854,7 +5854,7 @@ Promise<span class="token punctuation">.</span><span class="token function">race
   </entry>
   <entry>
     <title>工具函数系列-防抖debounce</title>
-    <url>/posts/1006/</url>
+    <url>/posts/54864/</url>
     <content><![CDATA[<p>防抖的<strong>原理</strong>：触发事件，但在事件触发 n 秒后才执行，如果在一个事件触发的 n 秒内又触发了这个事件，那就以新的事件时间为准，n 秒后才执行。总之，就是要等触发完事件 n 秒内不再触发事件，才执行。</p>
 <p><strong>应用场景</strong>：<code>input</code>输入</p>
 <h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> wait<span class="token punctuation">,</span> immediate</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -5962,7 +5962,7 @@ Promise<span class="token punctuation">.</span><span class="token function">race
   </entry>
   <entry>
     <title>工具函数系列-随机数</title>
-    <url>/posts/1006/</url>
+    <url>/posts/9028/</url>
     <content><![CDATA[<p>随机数：<code>Math.random()</code> 函数返回一个浮点数,  伪随机数在范围[0, 1)</p>
 <h5 id="指定长度随机字符串"><a href="#指定长度随机字符串" class="headerlink" title="指定长度随机字符串"></a>指定长度随机字符串</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> chars <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">,</span> <span class="token string">'4'</span><span class="token punctuation">,</span> <span class="token string">'5'</span><span class="token punctuation">,</span> <span class="token string">'6'</span><span class="token punctuation">,</span> <span class="token string">'7'</span><span class="token punctuation">,</span> <span class="token string">'8'</span><span class="token punctuation">,</span> <span class="token string">'9'</span><span class="token punctuation">,</span>
   				<span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">,</span> <span class="token string">'D'</span><span class="token punctuation">,</span> <span class="token string">'E'</span><span class="token punctuation">,</span> <span class="token string">'F'</span><span class="token punctuation">,</span> <span class="token string">'G'</span><span class="token punctuation">,</span> <span class="token string">'H'</span><span class="token punctuation">,</span> <span class="token string">'I'</span><span class="token punctuation">,</span> <span class="token string">'J'</span><span class="token punctuation">,</span> 
@@ -6007,7 +6007,7 @@ Promise<span class="token punctuation">.</span><span class="token function">race
   </entry>
   <entry>
     <title>常见的网络攻击</title>
-    <url>/posts/1006/</url>
+    <url>/posts/21258/</url>
     <content><![CDATA[<h3 id="常见的网络攻击"><a href="#常见的网络攻击" class="headerlink" title="常见的网络攻击"></a>常见的网络攻击</h3><h4 id="注入攻击（Injection）"><a href="#注入攻击（Injection）" class="headerlink" title="注入攻击（Injection）"></a><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html">注入攻击（Injection）</a></h4><p>常见的是<code>SQL</code>注入攻击。</p>
 <p>前端传入用户输入的数据，后端不进行校验直接拼接<code>SQL</code>语句进行处理，容易发生注入攻击。</p>
 <p><code>SQL</code>注入漏洞可以让攻击者直接对网站数据库执行构造好的<code>SQL</code>语句，在无需用户权限的情况下即可实现对数据的访问、修改甚至是删除。</p>
@@ -6089,7 +6089,7 @@ Promise<span class="token punctuation">.</span><span class="token function">race
   </entry>
   <entry>
     <title>快应用与微信小程序的区别</title>
-    <url>/posts/1006/</url>
+    <url>/posts/45150/</url>
     <content><![CDATA[<h3 id="一、区别"><a href="#一、区别" class="headerlink" title="一、区别"></a>一、区别</h3><h4 id="1-开发前准备"><a href="#1-开发前准备" class="headerlink" title="1. 开发前准备"></a>1. 开发前准备</h4><table>
 <thead>
 <tr>
@@ -6407,7 +6407,7 @@ hap init <span class="token operator">&lt;</span>projectName<span class="token o
   </entry>
   <entry>
     <title>数据结构与算法-堆</title>
-    <url>/posts/1006/</url>
+    <url>/posts/31553/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -6617,7 +6617,7 @@ hap init <span class="token operator">&lt;</span>projectName<span class="token o
   </entry>
   <entry>
     <title>数据结构与算法-总结</title>
-    <url>/posts/1006/</url>
+    <url>/posts/5756/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -6633,12 +6633,12 @@ hap init <span class="token operator">&lt;</span>projectName<span class="token o
 <p><code>A*</code>搜索算法解决了求仅一对顶点间的最短路径问题，用经验法则来加速搜索过程。</p>
 <p><code>Floyd-Warshall</code> 算法解决了求所有顶点对之间的最短路径这一问题。</p>
 <h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><h5 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><p>计算时间复杂度依据 - <a href="https://zh.wikipedia.org/wiki/%E4%B8%BB%E5%AE%9A%E7%90%86">主定理</a></p>
-<p><img src="/posts/1006/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.jpg" alt="数据结构"></p>
-<p><img src="/posts/1006/%E5%9B%BE.jpg" alt="图"></p>
-<p><img src="/posts/1006/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95.jpg" alt="排序算法"></p>
-<p><img src="/posts/1006/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95.jpg" alt="搜索算法"></p>
+<p><img src="/posts/5756/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.jpg" alt="数据结构"></p>
+<p><img src="/posts/5756/%E5%9B%BE.jpg" alt="图"></p>
+<p><img src="/posts/5756/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95.jpg" alt="排序算法"></p>
+<p><img src="/posts/5756/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95.jpg" alt="搜索算法"></p>
 <p>面试中常考的时间复杂度：</p>
-<p><img src="/posts/1006/1.png" alt="1"></p>
+<p><img src="/posts/5756/1.png" alt="1"></p>
 <blockquote>
 <p>二叉树遍历 - O(n)  - 每个节点访问一次且仅有一次。</p>
 </blockquote>
@@ -6664,7 +6664,7 @@ hap init <span class="token operator">&lt;</span>projectName<span class="token o
   </entry>
   <entry>
     <title>数据结构与算法-排序</title>
-    <url>/posts/1006/</url>
+    <url>/posts/4796/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -7000,8 +7000,135 @@ hap init <span class="token operator">&lt;</span>projectName<span class="token o
       </tags>
   </entry>
   <entry>
+    <title>数据结构与算法-搜索</title>
+    <url>/posts/17779/</url>
+    <content><![CDATA[<blockquote>
+<p>《学习JavaScript数据结构与算法(第3版)》</p>
+</blockquote>
+<h4 id="顺序搜索"><a href="#顺序搜索" class="headerlink" title="顺序搜索"></a>顺序搜索</h4><p>时间复杂度：<code>O(n)</code></p>
+<p>顺序或线性搜索是最基本的搜索算法。它的机制是，将每一个数据结构中的元素和我们要找的元素做比较。顺序搜索是最低效的一种搜索算法。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">DOSE_NOT_EXIST</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">sequentialSearch</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> equalsFn <span class="token operator">=</span> defaultEquals</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 迭代整个数组</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">enqualsFn</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 进行比较</span>
+            <span class="token keyword">return</span> i<span class="token punctuation">;</span> <span class="token comment">// 找到返回索引</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token constant">DOSE_NOT_EXIST</span><span class="token punctuation">;</span> <span class="token comment">// 没有找到</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">defaultEquals</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> a <span class="token operator">===</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h4><p>时间复杂度：<code>O(log(n))</code></p>
+<p>这个算法要求被搜索的数据结构已排序。</p>
+<ol>
+<li>选择数组的中间值。</li>
+<li>如果选中值是待搜索值，那么算法执行完毕（值找到了）。</li>
+<li>如果待搜索值比选中值要小，则返回步骤1并在选中值左边的子数组中寻找（较小）。</li>
+<li>如果待搜索值比选中值要大，则返回步骤1并在选种值右边的子数组中寻找（较大）。</li>
+</ol>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">DOSE_NOT_EXIST</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 使用快排算法对数组进行排序</span>
+    <span class="token keyword">const</span> sortedArray <span class="token operator">=</span> <span class="token function">quickSort</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> low <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 初始化最小值指针</span>
+    <span class="token keyword">let</span> high <span class="token operator">=</span> sortedArray<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 初始化最大值指针</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>low <span class="token operator">&lt;=</span> high<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 两边指针没有交叉</span>
+        <span class="token keyword">const</span> mid <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>low <span class="token operator">+</span> high<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 二分</span>
+        <span class="token keyword">const</span> element <span class="token operator">=</span> sortedArray<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 取已排序的数组中值</span>
+		<span class="token comment">// 比较中值和待搜索值</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">&lt;</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            low <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 如果中值小于待搜索值，low指针后移</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">></span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            high <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 如果中值大于待搜索值，high指针前移</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 中值等于待搜索值，表示找到了，返回值</span>
+            <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 没有找到</span>
+    <span class="token keyword">return</span> <span class="token constant">DOSE_NOT_EXIST</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// ----------------------------------------</span>
+<span class="token comment">// 使用递归方法</span>
+<span class="token keyword">function</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> sortedArray <span class="token operator">=</span> <span class="token function">quickSort</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> low <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> high <span class="token operator">=</span> sortedArray<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">binarySearchRecursive</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">binarySearchRecursive</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>low <span class="token operator">&lt;=</span> high<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> mid <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>low <span class="token operator">+</span> high<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> element <span class="token operator">=</span> array<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">&lt;</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token function">binarySearchRecursive</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">></span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token function">binarySearchRecursive</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> low<span class="token punctuation">,</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token constant">DOSE_NOT_EXIST</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="内插搜索"><a href="#内插搜索" class="headerlink" title="内插搜索"></a>内插搜索</h4><p>时间复杂度：<code>O(n)</code></p>
+<p>内插搜索是改良版的二分搜索。二分搜索总是检查mid位置上的值，而内插搜索可能会根据要搜索的值检查数组中的不同地方。这个算法要求被搜索的数据结构已排序。</p>
+<ol>
+<li>使用position公式选中一个值；</li>
+<li>如果这个值是待搜索值，那么算法执行完毕（值找到了）；</li>
+<li>如果待搜索值比选中值要小，则返回步骤1并在选中值左边的子数组中寻找（较小）；</li>
+<li>如果待搜索值比选中值要大，则返回步骤1并在选中值右边的子数组中寻找（较大）。</li>
+</ol>
+<p>如果数组是均匀分布的，则该搜索算法性能会比较好。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">DOSE_NOT_EXIST</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">interpolationSearch</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> length <span class="token punctuation">&#125;</span> <span class="token operator">=</span> array<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> low <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> high <span class="token operator">=</span> length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> position <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> delta <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>low <span class="token operator">&lt;=</span> high <span class="token operator">&amp;&amp;</span> value <span class="token operator">>=</span> array<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> value <span class="token operator">&lt;=</span> array<span class="token punctuation">[</span>high<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        delta <span class="token operator">=</span> <span class="token punctuation">(</span>value <span class="token operator">-</span> array<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>high<span class="token punctuation">]</span> <span class="token operator">-</span> array<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 计算要比较值得位置</span>
+        position <span class="token operator">=</span> low <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>high <span class="token operator">-</span> low<span class="token punctuation">)</span> <span class="token operator">*</span> delta<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>position<span class="token punctuation">]</span> <span class="token operator">===</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> position<span class="token punctuation">;</span> <span class="token comment">// 找到值了返回当前位置</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>position<span class="token punctuation">]</span> <span class="token operator">&lt;</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 选中值小于待搜索值，向后查找</span>
+            low <span class="token operator">=</span> position <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 选中值大于待搜索值，向前查找</span>
+            high <span class="token operator">=</span> position <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 没有找到</span>
+    <span class="token keyword">return</span> <span class="token constant">DOSE_NOT_EXIST</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>面试</tag>
+        <tag>读书笔记</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构与算法-栈</title>
-    <url>/posts/1006/</url>
+    <url>/posts/48944/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -7242,135 +7369,8 @@ hap init <span class="token operator">&lt;</span>projectName<span class="token o
       </tags>
   </entry>
   <entry>
-    <title>数据结构与算法-搜索</title>
-    <url>/posts/1007/</url>
-    <content><![CDATA[<blockquote>
-<p>《学习JavaScript数据结构与算法(第3版)》</p>
-</blockquote>
-<h4 id="顺序搜索"><a href="#顺序搜索" class="headerlink" title="顺序搜索"></a>顺序搜索</h4><p>时间复杂度：<code>O(n)</code></p>
-<p>顺序或线性搜索是最基本的搜索算法。它的机制是，将每一个数据结构中的元素和我们要找的元素做比较。顺序搜索是最低效的一种搜索算法。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">DOSE_NOT_EXIST</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">sequentialSearch</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> equalsFn <span class="token operator">=</span> defaultEquals</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 迭代整个数组</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">enqualsFn</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 进行比较</span>
-            <span class="token keyword">return</span> i<span class="token punctuation">;</span> <span class="token comment">// 找到返回索引</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> <span class="token constant">DOSE_NOT_EXIST</span><span class="token punctuation">;</span> <span class="token comment">// 没有找到</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">function</span> <span class="token function">defaultEquals</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> a <span class="token operator">===</span> b<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h4 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h4><p>时间复杂度：<code>O(log(n))</code></p>
-<p>这个算法要求被搜索的数据结构已排序。</p>
-<ol>
-<li>选择数组的中间值。</li>
-<li>如果选中值是待搜索值，那么算法执行完毕（值找到了）。</li>
-<li>如果待搜索值比选中值要小，则返回步骤1并在选中值左边的子数组中寻找（较小）。</li>
-<li>如果待搜索值比选中值要大，则返回步骤1并在选种值右边的子数组中寻找（较大）。</li>
-</ol>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">DOSE_NOT_EXIST</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// 使用快排算法对数组进行排序</span>
-    <span class="token keyword">const</span> sortedArray <span class="token operator">=</span> <span class="token function">quickSort</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> low <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 初始化最小值指针</span>
-    <span class="token keyword">let</span> high <span class="token operator">=</span> sortedArray<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 初始化最大值指针</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>low <span class="token operator">&lt;=</span> high<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 两边指针没有交叉</span>
-        <span class="token keyword">const</span> mid <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>low <span class="token operator">+</span> high<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 二分</span>
-        <span class="token keyword">const</span> element <span class="token operator">=</span> sortedArray<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 取已排序的数组中值</span>
-		<span class="token comment">// 比较中值和待搜索值</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">&lt;</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            low <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 如果中值小于待搜索值，low指针后移</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">></span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            high <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 如果中值大于待搜索值，high指针前移</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 中值等于待搜索值，表示找到了，返回值</span>
-            <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">// 没有找到</span>
-    <span class="token keyword">return</span> <span class="token constant">DOSE_NOT_EXIST</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">// ----------------------------------------</span>
-<span class="token comment">// 使用递归方法</span>
-<span class="token keyword">function</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">const</span> sortedArray <span class="token operator">=</span> <span class="token function">quickSort</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> low <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> high <span class="token operator">=</span> sortedArray<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token function">binarySearchRecursive</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">function</span> <span class="token function">binarySearchRecursive</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>low <span class="token operator">&lt;=</span> high<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">const</span> mid <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>low <span class="token operator">+</span> high<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">const</span> element <span class="token operator">=</span> array<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">&lt;</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token function">binarySearchRecursive</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">></span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token function">binarySearchRecursive</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> value<span class="token punctuation">,</span> low<span class="token punctuation">,</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> <span class="token constant">DOSE_NOT_EXIST</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h4 id="内插搜索"><a href="#内插搜索" class="headerlink" title="内插搜索"></a>内插搜索</h4><p>时间复杂度：<code>O(n)</code></p>
-<p>内插搜索是改良版的二分搜索。二分搜索总是检查mid位置上的值，而内插搜索可能会根据要搜索的值检查数组中的不同地方。这个算法要求被搜索的数据结构已排序。</p>
-<ol>
-<li>使用position公式选中一个值；</li>
-<li>如果这个值是待搜索值，那么算法执行完毕（值找到了）；</li>
-<li>如果待搜索值比选中值要小，则返回步骤1并在选中值左边的子数组中寻找（较小）；</li>
-<li>如果待搜索值比选中值要大，则返回步骤1并在选中值右边的子数组中寻找（较大）。</li>
-</ol>
-<p>如果数组是均匀分布的，则该搜索算法性能会比较好。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">DOSE_NOT_EXIST</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">interpolationSearch</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> length <span class="token punctuation">&#125;</span> <span class="token operator">=</span> array<span class="token punctuation">;</span>
-    <span class="token keyword">let</span> low <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> high <span class="token operator">=</span> length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> position <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> delta <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>low <span class="token operator">&lt;=</span> high <span class="token operator">&amp;&amp;</span> value <span class="token operator">>=</span> array<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> value <span class="token operator">&lt;=</span> array<span class="token punctuation">[</span>high<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        delta <span class="token operator">=</span> <span class="token punctuation">(</span>value <span class="token operator">-</span> array<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>high<span class="token punctuation">]</span> <span class="token operator">-</span> array<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// 计算要比较值得位置</span>
-        position <span class="token operator">=</span> low <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>high <span class="token operator">-</span> low<span class="token punctuation">)</span> <span class="token operator">*</span> delta<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>position<span class="token punctuation">]</span> <span class="token operator">===</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> position<span class="token punctuation">;</span> <span class="token comment">// 找到值了返回当前位置</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>position<span class="token punctuation">]</span> <span class="token operator">&lt;</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">// 选中值小于待搜索值，向后查找</span>
-            low <span class="token operator">=</span> position <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 选中值大于待搜索值，向前查找</span>
-            high <span class="token operator">=</span> position <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">// 没有找到</span>
-    <span class="token keyword">return</span> <span class="token constant">DOSE_NOT_EXIST</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>面试</tag>
-        <tag>读书笔记</tag>
-        <tag>数据结构</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构与算法-递归</title>
-    <url>/posts/1007/</url>
+    <url>/posts/5399/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -7521,7 +7521,7 @@ hap init <span class="token operator">&lt;</span>projectName<span class="token o
   </entry>
   <entry>
     <title>数据结构与算法-队列</title>
-    <url>/posts/1007/</url>
+    <url>/posts/59618/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -7786,7 +7786,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>数据结构与算法-随机</title>
-    <url>/posts/1007/</url>
+    <url>/posts/62880/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -7813,7 +7813,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>数据结构与算法-集合</title>
-    <url>/posts/1007/</url>
+    <url>/posts/31978/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -7944,7 +7944,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>浏览器缓存机制</title>
-    <url>/posts/1007/</url>
+    <url>/posts/19611/</url>
     <content><![CDATA[<h3 id="浏览器缓存原理"><a href="#浏览器缓存原理" class="headerlink" title="浏览器缓存原理"></a>浏览器缓存原理</h3><p>浏览器向服务器首次发起请求后拿到请求结果，会根据<strong>响应报文</strong>中HTTP头的缓存标识，决定是否缓存结果。如果需要进行缓存，则将请求结果和缓存标识存入浏览器缓存中。</p>
 <p>浏览器每次发起请求，都会在浏览器缓存中查找当前请求结果及缓存标识。</p>
 <h3 id="浏览器缓存策略"><a href="#浏览器缓存策略" class="headerlink" title="浏览器缓存策略"></a>浏览器缓存策略</h3><ul>
@@ -7952,7 +7952,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>存在请求结果，但是不是强缓存或强缓存已失效，浏览器一定会发送一个请求到服务器，通过响应首部字段的<code>last-modified</code>和<code>etag</code>验证资源是否命中<strong>协商缓存</strong>，如果是，服务器会将这个请求返回，但是不会返回这个资源的数据，依然是从缓存中读取资源。</li>
 <li>如果前面两者都没有命中，直接从服务器加载资源。</li>
 </ul>
-<p><img src="/posts/1007/1.png" alt="1"></p>
+<p><img src="/posts/19611/1.png" alt="1"></p>
 <h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>当浏览器向服务器发起请求时，服务器会将缓存规则放入HTTP响应报文的首部字段中和请求结果一起返回给浏览器，控制强制缓存的字段分别是<code>Expires</code>和<code>Cache-Control</code>，其中<code>Cache-Control</code>优先级比<code>Expires</code>高。</p>
 <h5 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires">Expires</a></h5><p><code>Expires</code> 响应头包含日期/时间， 即在此时候之后，响应过期。（具体的日期时间）</p>
 <p>Expires是HTTP/1.0控制网页缓存的字段，其值为服务器返回该请求结果缓存的到期时间，即再次发起该请求时，如果客户端的时间小于Expires的值时，直接使用缓存结果。</p>
@@ -7988,8 +7988,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <h5 id="304状态"><a href="#304状态" class="headerlink" title="304状态"></a>304状态</h5><p>![304 header](./304 header.jpg)</p>
 <p>协商缓存优先级 ：<code>ETag / If-None-Match</code>  &gt; <code>Last-Modified / If-Modified-Since</code> </p>
-<h5 id="使用缓存内容"><a href="#使用缓存内容" class="headerlink" title="使用缓存内容"></a>使用缓存内容</h5><p><img src="/posts/1007/304.png" alt="304"></p>
-<h5 id="不使用缓存内容，重新请求"><a href="#不使用缓存内容，重新请求" class="headerlink" title="不使用缓存内容，重新请求"></a>不使用缓存内容，重新请求</h5><p><img src="/posts/1007/200.png" alt="200"></p>
+<h5 id="使用缓存内容"><a href="#使用缓存内容" class="headerlink" title="使用缓存内容"></a>使用缓存内容</h5><p><img src="/posts/19611/304.png" alt="304"></p>
+<h5 id="不使用缓存内容，重新请求"><a href="#不使用缓存内容，重新请求" class="headerlink" title="不使用缓存内容，重新请求"></a>不使用缓存内容，重新请求</h5><p><img src="/posts/19611/200.png" alt="200"></p>
 <h4 id="两种机制的异同"><a href="#两种机制的异同" class="headerlink" title="两种机制的异同"></a>两种机制的异同</h4><h5 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h5><ul>
 <li>如果都命中，则是从浏览器缓存中加载资源，服务器不返回资源数据。</li>
 </ul>
@@ -8051,7 +8051,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>浏览器输入网址到渲染出页面流程</title>
-    <url>/posts/1007/</url>
+    <url>/posts/23308/</url>
     <content><![CDATA[<h3 id="浏览器输入网址到渲染出页面流程"><a href="#浏览器输入网址到渲染出页面流程" class="headerlink" title="浏览器输入网址到渲染出页面流程"></a>浏览器输入网址到渲染出页面流程</h3><ol>
 <li><p>输入网址</p>
 </li>
@@ -8077,7 +8077,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>第二次握手：主机B收到请求后，向A发送确认号（主机A的seq+1），syn=1，seq = 随机数 的TCP包；</li>
 <li>主机A收到后检查确认号是否正确，即第一次A发送的确认号是否+1了，以及位码ack是否为1，若正确，主机A会再发送确认号(主机B的seq+1)，ack=1，主机B收到后确认seq值与ack=1则连接建立成功。</li>
 </ul>
-<p><img src="/posts/1007/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg" alt="三次握手"></p>
+<p><img src="/posts/23308/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg" alt="三次握手"></p>
 </li>
 <li><p>浏览器发送数据请求，等待服务器响应。</p>
 <p>根据数据请求判断是否使用<a href="https://datura35422.github.io/2021/03/24/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/">浏览器缓存</a>，如果使用浏览器强缓存，则不会对服务器进行请求，直接响应数据请求，返回浏览器缓存数据，如果是协商缓存机制，会向服务器进行询问缓存使用结果，注意启发式缓存。如果不使用缓存，则会向服务器请求数据。</p>
@@ -8090,7 +8090,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>一个http请求-响应，就会触发一次三次握手，四次挥手。</p>
 </blockquote>
-<p><img src="/posts/1007/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.jpg" alt="四次挥手"></p>
+<p><img src="/posts/23308/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.jpg" alt="四次挥手"></p>
 </li>
 <li><p>渲染页面</p>
 <p>HTML解析 HTML词法分析和语法分析</p>
@@ -8136,7 +8136,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>HTML词法分析和语法分析，CSS解析， 合成图层、合成线程调用光栅化线程池，生成位图后浏览器进程间通信过程，显卡缓存与显示器的关系</p>
 </blockquote>
-<p><img src="/posts/1007/html%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.jpg" alt="html渲染流程"></p>
+<p><img src="/posts/23308/html%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.jpg" alt="html渲染流程"></p>
 <h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="https://mp.weixin.qq.com/s/n59oQae3Cm8_kfHb4fNIFw">阿里面试官问“说一下从 url 输入到返回请求的过程”的难度就是不一样！</a></p>
 <p><a href="https://blog.csdn.net/qzcsu/article/details/72861891">两张动图-彻底明白TCP的三次握手与四次挥手</a></p>
 <p><a href="https://github.com/ljianshu/Blog/issues/24">从URL输入到页面展现到底发生什么</a></p>
@@ -8155,7 +8155,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>计算机网络-WebSocket</title>
-    <url>/posts/1007/</url>
+    <url>/posts/27605/</url>
     <content><![CDATA[<p>即Web浏览器与Web服务器之间全双工通信标准</p>
 <p>是一种自然的全双工、双向、单套接字(Socket)连接</p>
 <p>主要是为了解决 <code>Ajax</code> 和 <code>Comet</code> 里 <code>XMLHttpRequest</code> 附带的缺陷。</p>
@@ -8180,13 +8180,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>计算机网络基础理论</title>
-    <url>/posts/1007/</url>
-    <content><![CDATA[<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p><img src="/posts/1007/TCP%E3%80%81http%E3%80%81websocket%E5%AF%B9%E6%AF%94.png" alt="URI"></p>
+    <url>/posts/14112/</url>
+    <content><![CDATA[<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p><img src="/posts/14112/TCP%E3%80%81http%E3%80%81websocket%E5%AF%B9%E6%AF%94.png" alt="URI"></p>
 <p>从根本上讲，HTTP还是<strong>半双工</strong>的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器响应请求（单向）。半双工的效率很低。</p>
 <p>所谓<strong>套接字</strong>( <code>Socket</code> )，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议根进行交互的接口</p>
 <h4 id="协议模型"><a href="#协议模型" class="headerlink" title="协议模型"></a>协议模型</h4><p><strong><code>TCP/IP</code> 协议模型</strong>只由4个层次组成：链路层、互联网层（<code>IP</code>）、传输层（<code>TCP</code>、<code>WebSocket</code>）和应用层</p>
 <p><strong>OSI模型</strong> 由7个层次组成：应用层、表示层、会话层、传输层、网络层、数据链路层、物理层。</p>
-<p><img src="/posts/1007/%E6%A8%A1%E5%9E%8B.jpg" alt="模型"></p>
+<p><img src="/posts/14112/%E6%A8%A1%E5%9E%8B.jpg" alt="模型"></p>
 <blockquote>
 <p>TCP/IP 模型合并了 OSI 模型的应用层、表示层和会话层，将 OSI 模型的数据链路层和物理层合并为网络访问层。</p>
 </blockquote>
@@ -8207,8 +8207,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>设计模式-发布订阅模式</title>
-    <url>/posts/1007/</url>
-    <content><![CDATA[<h3 id="发布订阅者模式"><a href="#发布订阅者模式" class="headerlink" title="发布订阅者模式"></a>发布订阅者模式</h3><p><img src="/posts/1007/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F.png" alt="发布订阅模式"></p>
+    <url>/posts/5095/</url>
+    <content><![CDATA[<h3 id="发布订阅者模式"><a href="#发布订阅者模式" class="headerlink" title="发布订阅者模式"></a>发布订阅者模式</h3><p><img src="/posts/5095/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F.png" alt="发布订阅模式"></p>
 <ol>
 <li>消息中心：负责存储消息与订阅者的对应关系，有消息触发时，负责通知订阅者</li>
 <li>订阅者：去消息中心订阅自己感兴趣的消息</li>
@@ -8484,11 +8484,44 @@ broastEvent<span class="token punctuation">.</span><span class="token function">
       </tags>
   </entry>
   <entry>
+    <title>进程与线程</title>
+    <url>/posts/10079/</url>
+    <content><![CDATA[<h4 id="进程Process"><a href="#进程Process" class="headerlink" title="进程Process"></a>进程Process</h4><p>进程是资源分配和调度的最小单位。</p>
+<p>进程有独立的地址空间。</p>
+<p>一个程序至少有一个进程，一个进程至少有一个线程。</p>
+<h4 id="线程Thread"><a href="#线程Thread" class="headerlink" title="线程Thread"></a>线程Thread</h4><p>线程是程序执行（进行运算调度）的最小单位。</p>
+<p>在同一个进程中可以存在多个线程，使用同一个进程的存储空间，共享内存。</p>
+<p>一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。</p>
+<h5 id="JS是单线程的"><a href="#JS是单线程的" class="headerlink" title="JS是单线程的"></a>JS是单线程的</h5><p>多线程可以共享内存，如果JS是多线程的，同时操作相同数据可能会出现竞态条件，会发生数据错误。多个线程会有更复杂的操作逻辑和多线程维护成本。</p>
+<p>这主要和js的用途有关，js是作为浏览器的脚本语言，主要是实现用户与浏览器的交互，以及操作dom；这决定了它只能是单线程，否则会带来很复杂的同步问题。 举个例子：如果js被设计了多线程，如果有一个线程要修改一个dom元素，另一个线程要删除这个dom元素，此时浏览器就会一脸茫然，不知所措。所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。</p>
+<p>为了利用多核CPU的计算能力，<code>HTML5</code>提出<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers"><code>Web Worker</code></a>标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。</p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>多进程消耗要比多线程消耗大，效率要小。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>操作系统的设计，因此可以归结为三点：</p>
+<p>（1）以多进程形式，允许多个任务同时运行；</p>
+<p>（2）以多线程形式，允许单个任务分成不同的部分运行；</p>
+<p>（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。</p>
+<h5 id="相关概念-amp-公式"><a href="#相关概念-amp-公式" class="headerlink" title="相关概念&amp;公式"></a>相关概念&amp;公式</h5><p>最佳线程数 = ( RT / CPU Time ) * CPU核数 * CPU利用率</p>
+<p>RT = CPU Time + Wait Time</p>
+<p>单线程<code>QPS</code>(吞吐量) = 1000ms / ( Wait Time + CPU Time )</p>
+<p>CPU Time决定因素：数据结构  + 算法</p>
+<p>CPU利用率：<code>I/O</code>能力、数据库连接池、内存不足、共享资源竞争、所依赖的其他后端服务<code>QPS</code>低造成瓶颈。</p>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="https://juejin.cn/post/6844903801321685000">一篇让你明白进程与线程之间的区别与联系 – 掘金</a></p>
+<p><a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的一个简单解释 – 阮一峰</a></p>
+]]></content>
+      <categories>
+        <category>整理</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>跨域问题</title>
-    <url>/posts/1007/</url>
+    <url>/posts/48274/</url>
     <content><![CDATA[<h3 id="为什么会有跨域问题"><a href="#为什么会有跨域问题" class="headerlink" title="为什么会有跨域问题"></a>为什么会有跨域问题</h3><p>确保<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security">Web安全</a>是十分重要的，避免数据窃取和受到不必要的攻击。所以浏览器中的<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy"><strong>同源策略</strong></a>，限制了一个源（origin）中加载的文档或脚本与其他源（origin）中的资源交互的方式，是为了隔离潜在恶意文档的关键<strong>安全机制</strong>，减少可能被攻击的媒介，是重要的<strong>安全策略</strong>。</p>
 <p>同源：如果两个 URL 的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Protocol">protocol</a>、<a href="https://developer.mozilla.org/en-US/docs/Glossary/Port">port</a> (如果有指定的话)和 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Host">host</a> 都相同的话，则这两个 URL 是<em>同源</em>。这个方案也被称为“协议/主机/端口元组”，或者直接是 “元组”。（“元组” 是指一组项目构成的整体，双重/三重/四重/五重/等的通用形式）。</p>
-<p><img src="/posts/1007/%E5%90%8C%E6%BA%90.jpg" alt="同源"></p>
+<p><img src="/posts/48274/%E5%90%8C%E6%BA%90.jpg" alt="同源"></p>
 <h4 id="跨源网络访问"><a href="#跨源网络访问" class="headerlink" title="跨源网络访问"></a>跨源网络访问</h4><p>不同源之间的交互类型：</p>
 <ul>
 <li><strong>跨域写入</strong>：一般是被允许的。例如链接（links），重定向以及表单提交。特定少数的HTTP请求需要添加 <a href="https://developer.mozilla.org/zh-CN/docs/HTTP/Access_control_CORS#Preflighted_requests">preflight</a>。</li>
@@ -8645,41 +8678,8 @@ server &#123;
       </tags>
   </entry>
   <entry>
-    <title>进程与线程</title>
-    <url>/posts/1007/</url>
-    <content><![CDATA[<h4 id="进程Process"><a href="#进程Process" class="headerlink" title="进程Process"></a>进程Process</h4><p>进程是资源分配和调度的最小单位。</p>
-<p>进程有独立的地址空间。</p>
-<p>一个程序至少有一个进程，一个进程至少有一个线程。</p>
-<h4 id="线程Thread"><a href="#线程Thread" class="headerlink" title="线程Thread"></a>线程Thread</h4><p>线程是程序执行（进行运算调度）的最小单位。</p>
-<p>在同一个进程中可以存在多个线程，使用同一个进程的存储空间，共享内存。</p>
-<p>一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。</p>
-<h5 id="JS是单线程的"><a href="#JS是单线程的" class="headerlink" title="JS是单线程的"></a>JS是单线程的</h5><p>多线程可以共享内存，如果JS是多线程的，同时操作相同数据可能会出现竞态条件，会发生数据错误。多个线程会有更复杂的操作逻辑和多线程维护成本。</p>
-<p>这主要和js的用途有关，js是作为浏览器的脚本语言，主要是实现用户与浏览器的交互，以及操作dom；这决定了它只能是单线程，否则会带来很复杂的同步问题。 举个例子：如果js被设计了多线程，如果有一个线程要修改一个dom元素，另一个线程要删除这个dom元素，此时浏览器就会一脸茫然，不知所措。所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。</p>
-<p>为了利用多核CPU的计算能力，<code>HTML5</code>提出<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers"><code>Web Worker</code></a>标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。</p>
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>多进程消耗要比多线程消耗大，效率要小。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>操作系统的设计，因此可以归结为三点：</p>
-<p>（1）以多进程形式，允许多个任务同时运行；</p>
-<p>（2）以多线程形式，允许单个任务分成不同的部分运行；</p>
-<p>（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。</p>
-<h5 id="相关概念-amp-公式"><a href="#相关概念-amp-公式" class="headerlink" title="相关概念&amp;公式"></a>相关概念&amp;公式</h5><p>最佳线程数 = ( RT / CPU Time ) * CPU核数 * CPU利用率</p>
-<p>RT = CPU Time + Wait Time</p>
-<p>单线程<code>QPS</code>(吞吐量) = 1000ms / ( Wait Time + CPU Time )</p>
-<p>CPU Time决定因素：数据结构  + 算法</p>
-<p>CPU利用率：<code>I/O</code>能力、数据库连接池、内存不足、共享资源竞争、所依赖的其他后端服务<code>QPS</code>低造成瓶颈。</p>
-<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="https://juejin.cn/post/6844903801321685000">一篇让你明白进程与线程之间的区别与联系 – 掘金</a></p>
-<p><a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的一个简单解释 – 阮一峰</a></p>
-]]></content>
-      <categories>
-        <category>整理</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-        <tag>基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>获取IP地址</title>
-    <url>/posts/1007/</url>
+    <url>/posts/21068/</url>
     <content><![CDATA[<h4 id="前端获取途径"><a href="#前端获取途径" class="headerlink" title="前端获取途径"></a>前端获取途径</h4><h5 id="1-通过webRTC的方式获取"><a href="#1-通过webRTC的方式获取" class="headerlink" title="1. 通过webRTC的方式获取"></a>1. 通过<code>webRTC</code>的方式获取</h5><p>这种方式需要浏览器支持<code>webRTC</code>对象或没有屏蔽<code>webRTC</code>。所以可能部分用户无法使用好处在于可以自控</p>
 <p>参考链接： </p>
 <ol>
@@ -8869,8 +8869,24 @@ https:&#x2F;&#x2F;www.taobao.com&#x2F;help&#x2F;getip.php<span aria-hidden="true
       </tags>
   </entry>
   <entry>
+    <title>页面性能优化</title>
+    <url>/posts/56778/</url>
+    <content><![CDATA[<h3 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h3><p><a href="https://segmentfault.com/a/1190000038413073">前端性能优化之图片懒加载 - segmentfault</a></p>
+<p><a href="https://web.dev/fast/#prioritize-resources">https://web.dev/fast/#prioritize-resources</a></p>
+<p><a href="https://github.com/fi3ework/blog/issues/16">前端性能优化之关键路径渲染优化</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>面试</tag>
+        <tag>性能</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>高性能HTML5</title>
-    <url>/posts/1007/</url>
+    <url>/posts/15602/</url>
     <content><![CDATA[<blockquote>
 <p>《高性能HTML5》读书笔记</p>
 </blockquote>
@@ -8899,7 +8915,7 @@ https:&#x2F;&#x2F;www.taobao.com&#x2F;help&#x2F;getip.php<span aria-hidden="true
   </entry>
   <entry>
     <title>高级函数-thunk</title>
-    <url>/posts/1008/</url>
+    <url>/posts/4848/</url>
     <content><![CDATA[<p>形实转换程序。JavaScript中的thunk是指一个用于调用另外一个函数的函数，没有任何参数。换句话说，用一个函数定义封装函数调用，包括需要的任何参数，来定义这个调用的执行，那么这个封装函数就是一个形实转换程序。</p>
 <p>同步<code>thunk</code>：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span>y</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -8985,24 +9001,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </tags>
   </entry>
   <entry>
-    <title>页面性能优化</title>
-    <url>/posts/1009/</url>
-    <content><![CDATA[<h3 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h3><p><a href="https://segmentfault.com/a/1190000038413073">前端性能优化之图片懒加载 - segmentfault</a></p>
-<p><a href="https://web.dev/fast/#prioritize-resources">https://web.dev/fast/#prioritize-resources</a></p>
-<p><a href="https://github.com/fi3ework/blog/issues/16">前端性能优化之关键路径渲染优化</a></p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>面试</tag>
-        <tag>性能</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高级函数-函数柯里化</title>
-    <url>/posts/1009/</url>
+    <url>/posts/22570/</url>
     <content><![CDATA[<p>用于创建已经设置好了一个或多个参数的函数。函数柯里化的基本方法和函数绑定是一样的：<strong>使用一个闭包返回一个函数</strong>。两者的区别在于，当函数被调用时，返回的函数还需要设置一些传入的参数。</p>
 <p><strong>柯里化函数通常调用另一个函数并为它传入要柯里化的函数和必要参数</strong>。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 将返回函数的参数进行排序</span>
@@ -9061,7 +9061,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>高级函数-闭包</title>
-    <url>/posts/1010/</url>
+    <url>/posts/50394/</url>
     <content><![CDATA[<p>当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行。</p>
 <blockquote>
 <p>词法作用域意味着作用域是由书写代码时函数声明的位置来决定的。</p>
@@ -9191,7 +9191,7 @@ foo<span class="token punctuation">.</span><span class="token function">awesome<
   </entry>
   <entry>
     <title>高级函数</title>
-    <url>/posts/1010/</url>
+    <url>/posts/12933/</url>
     <content><![CDATA[<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="函数声明与函数表达式的区别："><a href="#函数声明与函数表达式的区别：" class="headerlink" title="函数声明与函数表达式的区别："></a>函数声明与函数表达式的区别：</h4><ol>
 <li><p>写法不同；</p>
 </li>
@@ -9219,7 +9219,7 @@ foo<span class="token punctuation">.</span><span class="token function">awesome<
   </entry>
   <entry>
     <title>2019年7-9月工作总结</title>
-    <url>/posts/1010/</url>
+    <url>/posts/47793/</url>
     <content><![CDATA[<h3 id="直播小程序开发总结"><a href="#直播小程序开发总结" class="headerlink" title="直播小程序开发总结"></a>直播小程序开发总结</h3><p>从7月份开始做直播小程序研究和开发，使用了腾讯云的云通信和互动直播的<code>SDK</code>，所以开发难度不算太大，难度主要在控制视频播放和视频录制的切换以及显示各种状态上。和同事一起合作开发，此次开发收获颇多，主要是对微信小程序运行机制有了更多更深入的了解。因为使用了特殊的视频播放和录制组件，所以使用了原生的小程序并未使用框架进行开发。</p>
 <h4 id="填坑之路"><a href="#填坑之路" class="headerlink" title="填坑之路"></a>填坑之路</h4><h5 id="1-app的生命周期"><a href="#1-app的生命周期" class="headerlink" title="1. app的生命周期"></a>1. <code>app</code>的生命周期</h5><p>项目中因为冷启动和热启动状态改变有很多种情况，所以这部分算是踩了不少的坑。通过登录</p>
 <h6 id="冷启动："><a href="#冷启动：" class="headerlink" title="冷启动："></a>冷启动：</h6><p>微信小程序的冷启动会响应 <code>onLaunch</code>生命周期和<code>onShow</code>生命周期，从分享消息进入的冷启动会携带参数。</p>
@@ -9583,7 +9583,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   </entry>
   <entry>
     <title>2020年工作总结</title>
-    <url>/posts/1010/</url>
+    <url>/posts/61373/</url>
     <content><![CDATA[<h3 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h3><p>我的小程序常见bug就是code失效的问题，做法是code使用过后重新生成新的code，其实就是刷新sessionKey，所以后端维护session就变得很难，因此就直接传入code就好了。但是新生成的code容易失效（大概3分钟左右），在使用之前就已失效，所以是我的常见bug。</p>
 <h4 id="大亲家红娘系列"><a href="#大亲家红娘系列" class="headerlink" title="大亲家红娘系列"></a>大亲家红娘系列</h4><p>很简单的一系列小程序</p>
 <h4 id="三分钟约会"><a href="#三分钟约会" class="headerlink" title="三分钟约会"></a>三分钟约会</h4><p>主要功能：实现在线匹配和在线实时聊天，以及聊天倒计时和结束时状态判断。</p>
@@ -10226,7 +10226,7 @@ wepy<span class="token punctuation">.</span><span class="token function">compone
   </entry>
   <entry>
     <title>freeCodeCamp</title>
-    <url>/posts/1011/</url>
+    <url>/posts/11355/</url>
     <content><![CDATA[<h3 id="1-翻转字符串"><a href="#1-翻转字符串" class="headerlink" title="1.翻转字符串"></a>1.翻转字符串</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">reverseString</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 
   <span class="token keyword">var</span> arr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -11821,7 +11821,7 @@ list<span class="token punctuation">.</span><span class="token function">append<
   </entry>
   <entry>
     <title>vue系列-vue-router</title>
-    <url>/posts/1011/</url>
+    <url>/posts/63840/</url>
     <content><![CDATA[<p>Vue-Router官网：<a href="https://router.vuejs.org/zh/guide/">https://router.vuejs.org/zh/guide/</a></p>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="vue-router是什么"><a href="#vue-router是什么" class="headerlink" title="vue-router是什么"></a><a href="https://router.vuejs.org/zh/">vue-router是什么</a></h4><p>Vue Router 是 <a href="http://cn.vuejs.org/">Vue.js</a> 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建<strong>单页面应用</strong>变得易如反掌。包含的功能有：</p>
 <ul>
@@ -11967,7 +11967,7 @@ list<span class="token punctuation">.</span><span class="token function">append<
 <li>用创建好的实例调用<strong>组件内</strong>的前置钩子 <code>beforeRouteEnter</code> 中传给 next 的回调函数。</li>
 </ul>
 <p>图示为首次渲染进入页面的调用顺序。</p>
-<p><img src="/posts/1011/vur-router%E5%AE%88%E5%8D%AB.jpg" alt="vur-router守卫"></p>
+<p><img src="/posts/63840/vur-router%E5%AE%88%E5%8D%AB.jpg" alt="vur-router守卫"></p>
 <h4 id="如何获取路由传过来的参数"><a href="#如何获取路由传过来的参数" class="headerlink" title="如何获取路由传过来的参数"></a>如何获取路由传过来的参数</h4><ul>
 <li>router配置参数meta：如<code>this.$route.meta.title</code></li>
 <li>url上携带的参数query：使用 path 和 query 配合传参。如浏览器地址：<code>http://localhost:8036/home?userId=123</code> 获取方式：<code>this.$route.query.userId</code></li>
@@ -12069,7 +12069,7 @@ history<span class="token punctuation">.</span><span class="token function">push
   </entry>
   <entry>
     <title>基础系列-promise-1</title>
-    <url>/posts/1011/</url>
+    <url>/posts/3968/</url>
     <content><![CDATA[<h4 id="Promise的目的"><a href="#Promise的目的" class="headerlink" title="Promise的目的"></a>Promise的目的</h4><p>人类大脑的习惯是线性的、阻塞的、单线程的语义。</p>
 <p>回调表达异步流程的方式是非线性的、非顺序的，导致<strong>代码难以理解</strong>。</p>
 <p>回调会收到<strong>控制反转</strong>的影响，因为回调暗中会把控制权交给第三方。如只有第三方写了执行回调，才能执行回调。</p>
@@ -12820,7 +12820,7 @@ p2<span class="token punctuation">.</span><span class="token function">then</spa
   </entry>
   <entry>
     <title>基础系列-模块化</title>
-    <url>/posts/1011/</url>
+    <url>/posts/10501/</url>
     <content><![CDATA[<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><p>模块化一般指的是可以被抽象封装的最小/最优代码集合，模块化解决的是功能耦合问题。</p>
 <p>每个模块都能拥有小于完整程序的体积，使得验证、调试及测试变得轻而易举。</p>
 <p>用<code>require</code>语句（CommonJS模块）进行模块化开发了。同样，还有一个流行的JavaScript模块化标准，叫作异步模块定义（<code>AMD</code>）。<code>RequireJS</code>是<code>AMD</code>最流行的实现。</p>
@@ -13363,13 +13363,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>数据结构与算法-图</title>
-    <url>/posts/1011/</url>
+    <url>/posts/39251/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
 <p>图是网络结构的抽象模型。图是一组由边连接的节点（或顶点）。任何二元关系都可以用图来表示。</p>
 <p>一个图(G)由一组顶点(V)和一组连接顶点的边(E)组成。<em>G=(V, E)</em></p>
-<p><img src="/posts/1011/%E5%9B%BE.png" alt="图"></p>
+<p><img src="/posts/39251/%E5%9B%BE.png" alt="图"></p>
 <p><strong>相邻顶点</strong>：由一条边连接在一起的顶点。</p>
 <p><strong>度</strong>：一个顶点的度是其相邻顶点的数量。</p>
 <p><strong>路径</strong>：路径是顶点<code>v1, v2,…, vk</code>的一个连续序列，其中<code>vi</code>和<code>vi+1</code>是相邻的。</p>
@@ -13380,12 +13380,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>图还可以是<strong>未加权</strong>的或是<strong>加权</strong>的。</p>
 <h4 id="图的表示"><a href="#图的表示" class="headerlink" title="图的表示"></a>图的表示</h4><p>从数据结构的角度来说，我们有多种方式来表示图。在所有的表示法中，不存在绝对正确的方式。图的正确表示法取决于待解决的问题和图的类型。</p>
 <h5 id="邻接矩阵（最常见）"><a href="#邻接矩阵（最常见）" class="headerlink" title="邻接矩阵（最常见）"></a>邻接矩阵（最常见）</h5><p>每个节点都和一个整数相关联，该整数将作为数组的索引。用一个二维数组来表示顶点之间的连接。如果索引为 <code>i</code> 的节点和索引为 <code>j</code> 的节点相邻，则 <code>array[i][j] === 1</code>，否则 <code>array[i][j] === 0</code>，如下图所示。</p>
-<p><img src="/posts/1011/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5.png" alt="邻接矩阵"></p>
+<p><img src="/posts/39251/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5.png" alt="邻接矩阵"></p>
 <p>不是强连通的图（稀疏图）如果用邻接矩阵来表示，则矩阵中将会有很多0，这意味着我们浪费了计算机存储空间来表示根本不存在的边。例如，找给定顶点的相邻顶点，即使该顶点只有一个相邻顶点，我们也不得不迭代一整行。邻接矩阵表示法不够好的另一个理由是，图中顶点的数量可能会改变，而二维数组不太灵活。</p>
 <h5 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h5><p>邻接表由图中每个顶点的相邻顶点列表所组成。可以用数组、链表、散列表或字典来表示相邻顶点列表。</p>
-<p><img src="/posts/1011/%E9%82%BB%E6%8E%A5%E8%A1%A8.png" alt="邻接矩阵"></p>
+<p><img src="/posts/39251/%E9%82%BB%E6%8E%A5%E8%A1%A8.png" alt="邻接矩阵"></p>
 <h5 id="关联矩阵"><a href="#关联矩阵" class="headerlink" title="关联矩阵"></a>关联矩阵</h5><p>在关联矩阵种，矩阵的行表示顶点，列表示边。使用二维数组来表示两者之间的连通性，如果顶点 <code>v</code> 是边 <code>e</code> 的入射点，则<code>array[v][e] === 1</code>；否则，<code>array[v][e]=== 0</code>。</p>
-<p><img src="/posts/1011/%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5.jpg" alt="关联矩阵"></p>
+<p><img src="/posts/39251/%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5.jpg" alt="关联矩阵"></p>
 <p>关联矩阵通常用于边的数量比顶点多的情况，以节省空间和内存。</p>
 <h4 id="图的数据结构"><a href="#图的数据结构" class="headerlink" title="图的数据结构"></a>图的数据结构</h4><p>使用邻接表的表示方式进行构造。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">Graph</span> <span class="token punctuation">&#123;</span>
@@ -13672,7 +13672,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>边是从最近发现的顶点u处被向外探索的。只有连接到未发现的顶点的边被探索了。当u所有的边都被探索了，该算法回退到u被发现的地方去探索其他的边。这个过程持续到发现了所有从原始顶点能够触及的顶点。如果还留有任何其他未被发现的顶点，对新源顶点重复这个过程。重复该算法，直到图中所有的顶点都被探索了。</p>
 <p>使用深度优先搜索进行<strong>拓扑排序</strong>。</p>
 <p>给定下图（有向无环图-DAG），假定每个顶点都是一个我们需要去执行的任务。</p>
-<p><img src="/posts/1011/%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE.png" alt="有向无环图"></p>
+<p><img src="/posts/39251/%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE.png" alt="有向无环图"></p>
 <p>拓扑排序：编排一些任务或步骤的执行顺序。拓扑排序只能应用于有向无环图（DAG）。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> graph <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Graph</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 有向图</span>
 
@@ -13707,7 +13707,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>拓扑排序结果有多种可能性。</p>
 <h4 id="最短路径算法"><a href="#最短路径算法" class="headerlink" title="最短路径算法"></a>最短路径算法</h4><h5 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h5><p>Dijkstra算法是一种计算从单个源到所有其他源的最短路径的贪心算法，即可以用来计算从图的一个顶点到其余各顶点的最短路径。</p>
-<p><img src="/posts/1011/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png" alt="最短路径算法"></p>
+<p><img src="/posts/39251/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95.png" alt="最短路径算法"></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 邻接矩阵表示图</span>
 <span class="token keyword">const</span> graph <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
                <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -13923,7 +13923,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>数据结构与算法-字典和散列表</title>
-    <url>/posts/1011/</url>
+    <url>/posts/5511/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -14602,7 +14602,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>数据结构与算法-树</title>
-    <url>/posts/1011/</url>
+    <url>/posts/30193/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -15056,20 +15056,20 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li><p>父节点是祖父节点的左侧子节点时，父节点的兄弟节点是黑色的</p>
 <ol>
 <li><p>插入节点是左侧子节点</p>
-<p><img src="/posts/1011/3A.jpg" alt="插入节点是左侧子节点"></p>
+<p><img src="/posts/30193/3A.jpg" alt="插入节点是左侧子节点"></p>
 </li>
 <li><p>插入节点是右侧子节点</p>
-<p><img src="/posts/1011/2A.jpg" alt="插入节点是右侧子节点"></p>
+<p><img src="/posts/30193/2A.jpg" alt="插入节点是右侧子节点"></p>
 </li>
 </ol>
 </li>
 <li><p>父节点是祖父节点的右侧子节点时，父节点的兄弟节点是黑色的</p>
 <ol>
 <li><p>插入节点是左侧子节点</p>
-<p><img src="/posts/1011/2B.jpg" alt="插入节点是左侧子节点"></p>
+<p><img src="/posts/30193/2B.jpg" alt="插入节点是左侧子节点"></p>
 </li>
 <li><p>插入节点是右侧子节点</p>
-<p><img src="/posts/1011/3B.jpg" alt="插入节点是右侧子节点"></p>
+<p><img src="/posts/30193/3B.jpg" alt="插入节点是右侧子节点"></p>
 </li>
 </ol>
 </li>
@@ -15267,7 +15267,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>数据结构与算法-算法设计</title>
-    <url>/posts/1011/</url>
+    <url>/posts/33644/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -15344,7 +15344,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>这项从顶部开始构建解决方案的技术被称为记忆化，而解决方案就在表格或矩阵的右下角。</p>
 </blockquote>
 <p>如题，背包总重量只有5，如何装可以使总价值最大？</p>
-<p><img src="/posts/1011/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98.jpg" alt="背包问题"></p>
+<p><img src="/posts/33644/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98.jpg" alt="背包问题"></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 找到解决方案</span>
 <span class="token keyword">function</span> <span class="token function">findValues</span><span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span> capacity<span class="token punctuation">,</span> kS</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span>
@@ -15610,7 +15610,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <h4 id="回溯算法"><a href="#回溯算法" class="headerlink" title="回溯算法"></a>回溯算法</h4><p>回溯是一种渐进式寻找并构建问题解决方式的策略。我们从一个可能的动作开始并试着用这个动作解决问题。如果不能解决，就回溯并选择另一个动作直到将问题解决。根据这种行为，回溯算法会尝试所有可能的动作（如果更快找到了解决办法就尝试较少的次数）来解决问题。</p>
 <h5 id="迷宫老鼠问题"><a href="#迷宫老鼠问题" class="headerlink" title="迷宫老鼠问题"></a>迷宫老鼠问题</h5><p>假设我们有一个大小为<em>N × N</em>的矩阵，矩阵的每个位置是一个方块。每个位置（或块）可以是空闲的（值为1）或是被阻挡的（值为0），如下图所示，其中<em>S</em>是起点，<em>D</em>是终点。</p>
-<p><img src="/posts/1011/%E8%BF%B7%E5%AE%AB%E8%80%81%E9%BC%A0%E9%97%AE%E9%A2%98.jpg" alt="迷宫老鼠问题"></p>
+<p><img src="/posts/33644/%E8%BF%B7%E5%AE%AB%E8%80%81%E9%BC%A0%E9%97%AE%E9%A2%98.jpg" alt="迷宫老鼠问题"></p>
 <p>矩阵就是迷宫，“老鼠”的目标是从位置<code>[0][0]</code>开始并移动到<code>[n-1][n-1]</code>（终点）。老鼠可以在垂直或水平方向上任何未被阻挡的位置间移动。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 判断当前位置是否是空闲的</span>
 <span class="token keyword">function</span> <span class="token function">isSafe</span><span class="token punctuation">(</span><span class="token parameter">maze<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -15669,7 +15669,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 <h5 id="数独解题器"><a href="#数独解题器" class="headerlink" title="数独解题器"></a>数独解题器</h5><p>目标是用数字1～9填满一个9×9的矩阵，要求每行和每列都由这九个数字构成。矩阵还包含了小方块（3×3矩阵），它们同样需要分别用这九个数字填满。谜题在开始给出一个已填了部分数字的矩阵，如下图所示。</p>
-<p><img src="/posts/1011/%E6%95%B0%E7%8B%AC.jpg" alt="数独"></p>
+<p><img src="/posts/33644/%E6%95%B0%E7%8B%AC.jpg" alt="数独"></p>
 <p>数独解题器的回溯算法会尝试在每行每列中填入每个数字。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">UNASSIGNED</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
@@ -15774,7 +15774,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   </entry>
   <entry>
     <title>数据结构与算法-链表</title>
-    <url>/posts/1012/</url>
+    <url>/posts/22147/</url>
     <content><![CDATA[<blockquote>
 <p>《学习JavaScript数据结构与算法(第3版)》</p>
 </blockquote>
@@ -16471,7 +16471,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   </entry>
   <entry>
     <title>计算机网络-HTTP系列</title>
-    <url>/posts/1012/</url>
+    <url>/posts/18836/</url>
     <content><![CDATA[<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><blockquote>
 <p>请求访问文本或图像等资源的一端称为客户端，而提供资源响应的一端称为服务器端。</p>
 </blockquote>
@@ -16480,7 +16480,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <p>HTTP协议用于客户端和服务器端之间的通信。Web是建立在HTTP协议上通信的。</p>
 <p>HTTP协议规定，请求从客户端发出，最后服务器端响应请求并返回。</p>
 <p>HTTP协议使用<strong>URI</strong>(统一资源标识符)定位互联网上的资源。</p>
-<p><img src="/posts/1012/URI.png" alt="URI"></p>
+<p><img src="/posts/18836/URI.png" alt="URI"></p>
 <p>HTTP是<strong>无状态协议</strong>。HTTP协议自身不对请求和响应之间的通信状态进行保存，即协议对于发送过的请求或响应都不做持久化处理。</p>
 <blockquote>
 <p><strong>持久连接的特点</strong>: 只要任意一端没有明确提出断开连接，则保持TCP连接状态。</p>
@@ -16494,9 +16494,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 
 <h4 id="报文结构"><a href="#报文结构" class="headerlink" title="报文结构"></a>报文结构</h4><p>起始行 + 头部 + 空行 + 实体</p>
 <p><strong>请求报文</strong>是由请求方法、请求URI、协议版本、可选的请求首部字段和内容实体构成的。</p>
-<p><img src="/posts/1012/%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87.png" alt="URI"></p>
+<p><img src="/posts/18836/%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87.png" alt="URI"></p>
 <p><strong>响应报文</strong>基本上由协议版本、状态码、用以解释状态码的原因短语、可选的响应首部字段以及实体主体构成。</p>
-<p><img src="/posts/1012/%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87.png" alt="URI"></p>
+<p><img src="/posts/18836/%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87.png" alt="URI"></p>
 <h4 id="HTTP首部"><a href="#HTTP首部" class="headerlink" title="HTTP首部"></a>HTTP首部</h4><p>结构：首部字段名: 字段值</p>
 <p>HTTP首部字段根据<strong>实际用途</strong>被分为以下4种类型</p>
 <ol>
@@ -16653,7 +16653,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   </entry>
   <entry>
     <title>2019年5月工作总结</title>
-    <url>/posts/1013/</url>
+    <url>/posts/51261/</url>
     <content><![CDATA[<p>4月末开发了一款提问小程序，因为第一次使用wepy，所以遇到很多的坑，同时开发小程序时有些功能第一次使用，记录一下</p>
 <h4 id="微信小程序API填坑"><a href="#微信小程序API填坑" class="headerlink" title="微信小程序API填坑"></a>微信小程序API填坑</h4><h5 id="上传图片（七牛云上传）"><a href="#上传图片（七牛云上传）" class="headerlink" title="上传图片（七牛云上传）"></a>上传图片（七牛云上传）</h5><p>微信上传图片到七牛云多张需要循环上传<br>七牛云上传前需要获取到七牛云token，获取到token之后保存到全局变量中。</p>
 <blockquote>
@@ -17508,7 +17508,7 @@ events <span class="token operator">=</span> <span class="token punctuation">&#1
   </entry>
   <entry>
     <title>python学习-1</title>
-    <url>/posts/1014/</url>
+    <url>/posts/58179/</url>
     <content><![CDATA[<h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><ul>
 <li><p>输出：<code>print()</code></p>
 </li>
@@ -18520,7 +18520,7 @@ ZeroDivisionError<span class="token punctuation">:</span> division by zero<span 
   </entry>
   <entry>
     <title>vue系列-vue入门</title>
-    <url>/posts/1014/</url>
+    <url>/posts/28605/</url>
     <content><![CDATA[<p>Vue官网：<a href="https://cn.vuejs.org/v2/guide/installation.html">https://cn.vuejs.org/v2/guide/installation.html</a></p>
 <p>Vue-Cli 官网：<a href="https://cli.vuejs.org/zh/guide/">https://cli.vuejs.org/zh/guide/</a></p>
 <p>当前文档为<strong>2.x</strong>版本</p>
@@ -18536,7 +18536,7 @@ ZeroDivisionError<span class="token punctuation">:</span> division by zero<span 
 <blockquote>
 <p>没有完全遵循 <a href="https://zh.wikipedia.org/wiki/MVVM">MVVM 模型</a>，但是核心思想相同。<a href="https://datura35422.github.io/2021/03/22/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/">MVVM与其他架构模型有什么不同</a></p>
 </blockquote>
-<p><img src="/posts/1014/vue%E7%89%B9%E7%82%B9.jpg" alt="vue特点"></p>
+<p><img src="/posts/28605/vue%E7%89%B9%E7%82%B9.jpg" alt="vue特点"></p>
 <h5 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h5><h6 id="Runtime-Compiler"><a href="#Runtime-Compiler" class="headerlink" title="Runtime + Compiler"></a>Runtime + Compiler</h6><p>包含编译代码的，可以把编译过程放在运行时做。引用的 <code>vue</code> 版本文件<code>vue.js</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 需要编译器</span>
 <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
@@ -19121,7 +19121,7 @@ computed: &#123;
   </entry>
   <entry>
     <title>webpack系列-入门</title>
-    <url>/posts/1015/</url>
+    <url>/posts/24630/</url>
     <content><![CDATA[<h3 id="webpack是什么"><a href="#webpack是什么" class="headerlink" title="webpack是什么"></a>webpack是什么</h3><p><strong>静态资源模块打包工具</strong></p>
 <p>当 webpack 处理应用程序时，它会在内部构建一个依赖图(dependency graph)，此依赖图对应映射到项目所需的每个模块，并生成一个或多个包(bundle)。</p>
 <blockquote>

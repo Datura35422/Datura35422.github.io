@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="有时候为了提高网页初始加载的性能，我们会选择延迟一部分资源的加载和执行。 另一种情况是我们想要尽早加载资源，但是要等到合适的时机再执行。时机的影响因素包括依赖关系、执行条件、执行顺序等。 通常的做法是：  通过插入一个页面元素来声明一个资源（比如img、script、link）。这种方式会将资源的加载和执行耦合。 用AJAX来加载资源。这种方式只有在时机成熟时才会加载资源，解决了执行时机问题。但是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础系列-preload与prefetch">
+<meta property="og:url" content="https://datura35422.github.io/posts/57007/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="有时候为了提高网页初始加载的性能，我们会选择延迟一部分资源的加载和执行。 另一种情况是我们想要尽早加载资源，但是要等到合适的时机再执行。时机的影响因素包括依赖关系、执行条件、执行顺序等。 通常的做法是：  通过插入一个页面元素来声明一个资源（比如img、script、link）。这种方式会将资源的加载和执行耦合。 用AJAX来加载资源。这种方式只有在时机成熟时才会加载资源，解决了执行时机问题。但是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://datura35422.github.io/%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97-preload%E4%B8%8Eprefetch/preconnect.png">
+<meta property="article:published_time" content="2021-04-22T03:06:46.000Z">
+<meta property="article:modified_time" content="2021-05-07T09:09:11.518Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="基础">
+<meta property="article:tag" content="preload">
+<meta property="article:tag" content="prefetch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://datura35422.github.io/%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97-preload%E4%B8%8Eprefetch/preconnect.png">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/57007/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;57007&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;57007&#x2F;&quot;,&quot;title&quot;:&quot;基础系列-preload与prefetch&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>基础系列-preload与prefetch | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource-Hints"><span class="nav-number">1.</span> <span class="nav-text">Resource Hints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Preload"><span class="nav-number">2.</span> <span class="nav-text">Preload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prefetch"><span class="nav-number">3.</span> <span class="nav-text">Prefetch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#link-prefetching"><span class="nav-number">3.1.</span> <span class="nav-text">link prefetching</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dns-prefetch"><span class="nav-number">3.2.</span> <span class="nav-text">dns-prefetch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prerender"><span class="nav-number">3.3.</span> <span class="nav-text">prerender</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proload-%E4%B8%8E-prefetch-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.4.</span> <span class="nav-text">proload 与 prefetch 的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#preconnect"><span class="nav-number">4.</span> <span class="nav-text">preconnect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">附录：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/57007/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基础系列-preload与prefetch
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-22 11:06:46" itemprop="dateCreated datePublished" datetime="2021-04-22T11:06:46+08:00">2021-04-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-07 17:09:11" itemprop="dateModified" datetime="2021-05-07T17:09:11+08:00">2021-05-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">基础</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>有时候为了提高网页初始加载的性能，我们会选择延迟一部分资源的加载和执行。</p>
+<p>另一种情况是我们想要尽早加载资源，但是要等到合适的时机再执行。时机的影响因素包括依赖关系、执行条件、执行顺序等。</p>
+<p>通常的做法是：</p>
+<ul>
+<li>通过插入一个页面元素来声明一个资源（比如img、script、link）。这种方式会将资源的<strong>加载和执行耦合</strong>。</li>
+<li>用AJAX来加载资源。这种方式只有在时机成熟时才会加载资源，解决了执行时机问题。但是浏览器无法预解析，也就<strong>无法提前加载</strong>。另外如果页面有大量的阻塞脚本，就会造成<strong>延迟</strong>。</li>
+</ul>
+<h3 id="Resource-Hints"><a href="#Resource-Hints" class="headerlink" title="Resource Hints"></a>Resource Hints</h3><p>即预获取, 指的是页面后续会与另外一个节点或者资源建立连接, 让浏览器可以在合适的时间进行提前获取, 减少用户与后续节点的连接时间。</p>
+<ul>
+<li>preload</li>
+<li>prefetch</li>
+<li>preconnect</li>
+</ul>
+<p>W3C：<a target="_blank" rel="noopener" href="https://w3c.github.io/resource-hints/">https://w3c.github.io/resource-hints/</a></p>
+<p>深入阅读：<a target="_blank" rel="noopener" href="https://www.keycdn.com/blog/resource-hints">https://www.keycdn.com/blog/resource-hints</a></p>
+<h3 id="Preload"><a href="#Preload" class="headerlink" title="Preload"></a>Preload</h3><p>浏览器支持情况：<a target="_blank" rel="noopener" href="https://caniuse.com/#feat=link-rel-preload">https://caniuse.com/#feat=link-rel-preload</a></p>
+<p>即预加载，指的是页面资源加载的优先级，对最重要的资源最优先加载。专注于当前页面。</p>
+<p>在 <code>html</code> 页面 head 中设置 link 标签的 <code>rel=&quot;preload&quot;</code> 属性告诉浏览器当前页面哪些资源需要优先提取。可以作用多种资源。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- preload stylesheet resource via declarative markup --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>preload<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/styles/base.css<span class="token punctuation">"</span></span> <span class="token attr-name">as</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>style<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>preload<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://fonts.example.com/font.woff2<span class="token punctuation">"</span></span> <span class="token attr-name">as</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>font<span class="token punctuation">"</span></span> <span class="token attr-name">crossorigin</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>font/woff2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>as属性:</strong><br>该属性声明需要加载的资源类型, 以便浏览器可以正确处理该资源.<br><strong>crossorigin属性:</strong><br>对于开启CORS的资源, 需要添加crossorigin, 否则浏览器将无法正确加载此资源.</p>
+</blockquote>
+<p>当浏览器“看”到这样的声明后，就会以一定的优先级在后台加载资源。加载完的资源放在HTTP缓存中。而等到要真正执行时，再按照正常方式用标签或者代码加载，即可从HTTP缓存取出资源。</p>
+<blockquote>
+<p>通过网络发送到浏览器的每个字节并非都具有同等重要性，浏览器深谙此道。 浏览器采用启发式算法，尝试对首先要加载的最重要的资源作出最佳猜测，例如先加载 <code>CSS</code> 然后再加载脚本和图像。</p>
+<p>即便如此，和任何启发式算法一样，这种方式并非总是有效；浏览器可能作出错误判断，原因通常在于当下获得的信息不足。 本文解释如何通过告知现代浏览器您稍后才需要的内容，充分影响浏览器中内容的优先级。</p>
+<p><a target="_blank" rel="noopener" href="https://web.dev/fast/#prioritize-resources">https://web.dev/fast/#prioritize-resources</a></p>
+<p>浏览器预加载：浏览器预加载只预先加载在HTML中声明的资源。一旦html解析器到达资源，资源将被执行，对于何时执行资源没有灵活性。和 preload 指令不同。</p>
+</blockquote>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>提前加载资源</li>
+<li>资源的加载和执行分离</li>
+<li>不延迟网页的load事件（除非Preload资源刚好是阻塞 window 加载的资源）</li>
+</ul>
+<p><strong>好处</strong>：</p>
+<ul>
+<li>允许浏览器来<strong>设定资源加载的优先级</strong>因此可以允许前端开发者来优化指定资源的加载。</li>
+<li>赋予浏览器<strong>决定资源类型</strong>的能力，因此它能分辨这个资源在以后是否可以重复利用。</li>
+<li>浏览器可以通过指定 <code>as</code> 属性来决定这个**请求是否符合 <a target="_blank" rel="noopener" href="https://www.keycdn.com/support/content-security-policy/">content security policy</a>**。</li>
+<li>浏览器可以基于资源的类型（比如 image/webp）来发送适当的 <code>accept</code> 头。</li>
+</ul>
+<p><strong>应用</strong>：</p>
+<ul>
+<li>在单页应用中，提前加载路由文件，提高切换路由时的渲染速度。现在大型的单页应用通常会异步加载路由文件。当用户切换路由时再异步加载相应的模块存在性能问题。可以用Preload提前加载，提升性能。</li>
+<li>提前加载字体文件。由于字体文件必须等到CSSOM构建完成并且作用到页面元素了才会开始加载，会导致页面字体样式闪动（FOUT，Flash of Unstyled Text）。所以要用Preload显式告诉浏览器提前加载。假如字体文件在CSS生效之前下载完成，则可以完全消灭FOUT。</li>
+</ul>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUxMTcwOTM4Mg==&mid=2247484163&idx=1&sn=16b9c907971683dd61cee251adcde79b&chksm=f96edaaace1953bcaf65a1adcf30b6d3dd66cf7b648ae59c4bf807d3f8bf460d5cd638e54ca1&token=946370022&lang=zh_CN#rd">有一种优化，叫Preload</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.keycdn.com/support/preload-directive">preload-dirctive</a></p>
+<h3 id="Prefetch"><a href="#Prefetch" class="headerlink" title="Prefetch"></a>Prefetch</h3><p>是一个低优先级的资源提示，允许<strong>浏览器在后台（空闲时）获取将来可能用得到的资源，并且将他们存储在浏览器的缓存中</strong>。一旦一个页面加载完毕就会开始下载其他的资源，然后当用户点击了一个带有 prefetched 的连接，它将可以立刻从缓存中加载内容。</p>
+<p>prefetch 有三种类型：link prefetching、dns-prefetch、prerender。</p>
+<p>深入阅读：<a target="_blank" rel="noopener" href="https://www.keycdn.com/support/prefetching">https://www.keycdn.com/support/prefetching</a></p>
+<h4 id="link-prefetching"><a href="#link-prefetching" class="headerlink" title="link prefetching"></a>link prefetching</h4><p>浏览器支持情况： <a target="_blank" rel="noopener" href="https://caniuse.com/#feat=link-rel-prefetch">https://caniuse.com/#feat=link-rel-prefetch</a></p>
+<p>对后续访问的资源进行提前加载, 需要指明资源类型.</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;link rel&#x3D;&quot;prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;example.com&#x2F;next-page.html&quot; as&#x3D;&quot;document&quot; crossorigin&#x3D;&quot;use-credentials&quot;&gt;
+&lt;link rel&#x3D;&quot;prefetch&quot; href&#x3D;&quot;&#x2F;library.js&quot; as&#x3D;&quot;script&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="dns-prefetch"><a href="#dns-prefetch" class="headerlink" title="dns-prefetch"></a>dns-prefetch</h4><p>浏览器支持情况：<a target="_blank" rel="noopener" href="https://caniuse.com/#feat=link-rel-dns-prefetch">https://caniuse.com/#feat=link-rel-dns-prefetch</a></p>
+<p>对后续会访问的域名提前解析, 具体使用场景参考 <a target="_blank" rel="noopener" href="https://github.com/Git-News/Git-News/issues/16">#16</a></p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;link rel&#x3D;&quot;dns-prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;example.com&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>不过要注意的是 Chrome 已经在敲击地址栏的时候做了类似的事情，比如 <a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/18zlAdKAxnc51y_kj-6sWLmnjl6TLnaru_WH0LJTjP-o/present?slide=id.g120f70e9a_041">DNS preresolve</a> 和 TCP preconnect，这些措施太酷了！你可以通过 <code>chrome://dns/</code> 来查看你的优化列表。</p>
+</blockquote>
+<h4 id="prerender"><a href="#prerender" class="headerlink" title="prerender"></a>prerender</h4><p>浏览器支持情况：<a target="_blank" rel="noopener" href="https://caniuse.com/#feat=link-rel-prerender">https://caniuse.com/#feat=link-rel-prerender</a></p>
+<p>优化了可能导航到的下一页上的资源的加载，在后台渲染了整个页面和资源。即标识后续的导航页面, 下载资源并执行, 即预读取页面, 常用于分页功能。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;link rel&#x3D;&quot;prerender&quot; href&#x3D;&quot;&#x2F;&#x2F;example.com&#x2F;next-page.html&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>要小心的使用 prerender，因为它将会加载很多资源并且可能造成带宽的浪费，尤其是在移动设备上。还要注意的是，你无法在 Chrome DevTools 中进行测试，而是在 <code>chrome://net-internals/#prerender</code> 中看是否有页面被 prerendered 了，你也可以在 <a target="_blank" rel="noopener" href="http://prerender-test.appspot.com/">prerender-test.appspot.com</a> 进行测试。</p>
+</blockquote>
+<p>额外的副作用：</p>
+<ul>
+<li>Web 统计将会收到影响而变大，尽管 Google 说已经限制了这个标签。看看这个关于页面分析将会被影响而在一次点击时产生两个 session 的 <a target="_blank" rel="noopener" href="http://www.scl.com/insights/blog/google-chrome-prefetchprerender-inflating-web-analytics-stats/">文章</a>。</li>
+<li>由于可能从未访问的站点下载了更多的页面（尤其是隐匿下载正在变得更加先进和多样化），用户的安全将面临更多的风险。</li>
+<li>如果预取访问未经授权的内容，用户可能违反其网络或组织的可接受使用策略。</li>
+</ul>
+<h4 id="proload-与-prefetch-的区别"><a href="#proload-与-prefetch-的区别" class="headerlink" title="proload 与 prefetch 的区别"></a>proload 与 prefetch 的区别</h4><ul>
+<li>Preload 作用在同一个请求页面的不同时段</li>
+<li>Prefetch 作用与不同请求页面</li>
+<li>Preload 是强制性指令, 浏览器必须按照这个指令进行执行.</li>
+<li>Prefetch 是非强制性指令, 浏览器会决定是否运行此指令以及何时运行</li>
+</ul>
+<h3 id="preconnect"><a href="#preconnect" class="headerlink" title="preconnect"></a>preconnect</h3><p>浏览器支持情况：<a target="_blank" rel="noopener" href="https://caniuse.com/#feat=link-rel-preconnect">https://caniuse.com/#feat=link-rel-preconnect</a></p>
+<p>允许浏览器在一个 <strong>HTTP 请求正式发给服务器前预先执行一些操作</strong>，这包括 DNS 解析，TLS 协商，TCP 握手，这消除了往返延迟并为用户节省了时间。即对后续会访问的资源提前建立连接。</p>
+<p>preconnect 可以直接添加到 HTML 中 link 标签的属性中，也可以写在 HTTP 头中或者通过 JavaScript 生成。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;link rel&#x3D;&quot;preconnect&quot; href&#x3D;&quot;&#x2F;&#x2F;example.com&quot;&gt;
+&lt;link rel&#x3D;&quot;preconnect&quot; href&#x3D;&quot;&#x2F;&#x2F;cdn.example.com&quot; crossorigin&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>按照标准, 客户端会执行 DNS+TCP for HTTP, DNS+TCP+TLS for HTTPS origins的链接请求.</p>
+</blockquote>
+<p>如下是为 Google Fonts 使用 preconnect 的例子，通过给 <code>fonts.gstatic.com</code> 加入 preconnect 提示，浏览器将立刻发起请求，和 CSS 请求并行执行。在这个场景下，<strong>preconnect 从关键路径中消除了三个 RTTs（Round-Trip Time）</strong> 并<strong>减少了超过半秒的延迟</strong>，lya Grigorik 的 <a target="_blank" rel="noopener" href="https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/">eliminating RTTS with preconnect</a> 一文中有更详细的分析。</p>
+<p><img src="/%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97-preload%E4%B8%8Eprefetch/preconnect.png" alt="preconnect"></p>
+<p>使用 preconnect 是个有效而且克制的资源优化方法，它不仅可以优化页面并且可以防止资源利用的浪费。</p>
+<p>深入了解：<a target="_blank" rel="noopener" href="https://www.keycdn.com/support/preconnect">https://www.keycdn.com/support/preconnect</a></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf">Preload, Prefetch And Priorities in Chrome</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fi3ework/blog/issues/32">资源提示 —— 什么是 Preload，Prefetch 和 Preconnect？</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Git-News/Git-News/issues/18">Web预加载-Preload &amp; Resource Hints</a></p>
+<p>更多细节：<a target="_blank" rel="noopener" href="https://github.com/happylindz/blog/issues/17">使用 Proload/Prefetch 优化你的应用</a></p>
+<h4 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h4><p>W3C Preload:<br>草案: <a target="_blank" rel="noopener" href="https://w3c.github.io/preload/">https://w3c.github.io/preload/</a><br>标准: <a target="_blank" rel="noopener" href="https://www.w3.org/TR/preload/">https://www.w3.org/TR/preload/</a></p>
+<p>W3C Resource Hints:<br>草案: <a target="_blank" rel="noopener" href="https://w3c.github.io/resource-hints/">https://w3c.github.io/resource-hints/</a><br>标准: <a target="_blank" rel="noopener" href="https://www.w3.org/TR/resource-hints/">https://www.w3.org/TR/resource-hints/</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/57007/" title="基础系列-preload与prefetch">https://datura35422.github.io/posts/57007/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag"># 基础</a>
+              <a href="/tags/preload/" rel="tag"># preload</a>
+              <a href="/tags/prefetch/" rel="tag"># prefetch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/23219/" rel="prev" title="vue系列-vue-cli">
+                  <i class="fa fa-chevron-left"></i> vue系列-vue-cli
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/29356/" rel="next" title="基础系列-渐进式web应用PWA">
+                  基础系列-渐进式web应用PWA <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">430k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">11:56</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
