@@ -27,16 +27,16 @@
 <meta property="og:site_name" content="Wang Wei&#39;s Blog">
 <meta property="og:description" content="Vuex官网：https:&#x2F;&#x2F;vuex.vuejs.org&#x2F;zh&#x2F; 基础vuex是什么Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 Vuex 是专门为 Vue.js 设计的状态管理库，以利用 Vue.js 的细粒度数据响应机制来进行高效的状态更新。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://datura35422.github.io/vue%E7%B3%BB%E5%88%97-vuex/vuex.png">
-<meta property="og:image" content="https://datura35422.github.io/vue%E7%B3%BB%E5%88%97-vuex/data-flow.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/10722/vuex.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/10722/data-flow.png">
 <meta property="article:published_time" content="2021-05-04T11:18:44.000Z">
-<meta property="article:modified_time" content="2021-05-07T09:09:11.443Z">
+<meta property="article:modified_time" content="2021-05-07T14:14:21.988Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="vuex">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://datura35422.github.io/vue%E7%B3%BB%E5%88%97-vuex/vuex.png">
+<meta name="twitter:image" content="https://datura35422.github.io/posts/10722/vuex.png">
 
 
 <link rel="canonical" href="https://datura35422.github.io/posts/10722/">
@@ -263,7 +263,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-07 17:09:11" itemprop="dateModified" datetime="2021-05-07T17:09:11+08:00">2021-05-07</time>
+        <time title="修改时间：2021-05-07 22:14:21" itemprop="dateModified" datetime="2021-05-07T22:14:21+08:00">2021-05-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -308,13 +308,13 @@
         <p>Vuex官网：<a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/">https://vuex.vuejs.org/zh/</a></p>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="vuex是什么"><a href="#vuex是什么" class="headerlink" title="vuex是什么"></a><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/#vuex-%E6%98%AF%E4%BB%80%E4%B9%88">vuex是什么</a></h4><p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
 <p>Vuex 是专门为 Vue.js 设计的状态管理库，以利用 Vue.js 的细粒度数据响应机制来进行高效的状态更新。</p>
-<p><img src="/vue%E7%B3%BB%E5%88%97-vuex/vuex.png" alt="vuex"></p>
+<p><img src="/posts/10722/vuex.png" alt="vuex"></p>
 <h5 id="状态自管理应用"><a href="#状态自管理应用" class="headerlink" title="状态自管理应用"></a>状态自管理应用</h5><ul>
 <li><strong>state</strong>，驱动应用的数据源；</li>
 <li><strong>view</strong>，以声明方式将 <strong>state</strong> 映射到视图；</li>
 <li><strong>actions</strong>，响应在 <strong>view</strong> 上的用户输入导致的状态变化。</li>
 </ul>
-<h5 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h5><p><img src="/vue%E7%B3%BB%E5%88%97-vuex/data-flow.png" alt="data-flow"></p>
+<h5 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h5><p><img src="/posts/10722/data-flow.png" alt="data-flow"></p>
 <h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><p>Vuex 可以帮助我们管理共享状态，并附带了更多的概念和框架。这需要对短期和长期效益进行权衡。</p>
 <p>如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。确实是如此——如果您的应用够简单，您最好不要使用 Vuex。一个简单的 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/state-management.html#%E7%AE%80%E5%8D%95%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E8%B5%B7%E6%AD%A5%E4%BD%BF%E7%94%A8">store 模式</a> 就足够您所需了。但是，如果您需要构建一个中大型单页应用，您很可能会考虑如何更好地在组件外部管理状态，Vuex 将会成为自然而然的选择。</p>
 <h5 id="核心内容"><a href="#核心内容" class="headerlink" title="核心内容"></a>核心内容</h5><p>每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的**状态 (state)**。Vuex 和单纯的全局对象有以下两点不同：</p>
@@ -408,14 +408,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">430k</span>
+    <span title="站点总字数">431k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:56</span>
+    <span title="站点阅读时长">11:58</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
