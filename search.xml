@@ -201,40 +201,21 @@
   <entry>
     <title>2021年3月面试总结</title>
     <url>/posts/5899/</url>
-    <content><![CDATA[<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="事件的捕获和冒泡机制"><a href="#事件的捕获和冒泡机制" class="headerlink" title="事件的捕获和冒泡机制"></a>事件的捕获和冒泡机制</h4><p>事件捕获：window -&gt; 目标事件（自顶向下） <code>element.addEventListener(&#39;click&#39;, function() &#123;&#125;, true)</code></p>
-<p>事件冒泡：目标事件 -&gt; window（自底向上） <code>element.addEventListener(&#39;click&#39;, function() &#123;&#125;, false)</code></p>
-<blockquote>
-<p>addEventListener事件第三个参数默认为false，不传是默认为事件冒泡机制</p>
-</blockquote>
-<p>事件委托（代理）使用场景：最常见的是<code>ul</code>代理<code>li</code>中的点击事件，可以不用每个<code>li</code>都绑定事件。</p>
-<p>如果都绑定了事件捕获和事件冒泡，响应顺序是，事件捕获先响应到达最底层之后开始响应事件冒泡。</p>
-<p><code>Event.stopPropagation()</code>可以阻止事件的冒泡和传递。</p>
-<h4 id="类数组如何转换为数组"><a href="#类数组如何转换为数组" class="headerlink" title="类数组如何转换为数组"></a>类数组如何转换为数组</h4><p>arguments是数组吗？不是的话，如何转换为数组？</p>
-<p>相关类数组有：document.getElementsByClass()、dom.querySelectorAll()等获得dom列表</p>
-<p>类数组转数组的方法有：</p>
-<ol>
-<li><code>Array.prototype.slice.call(domList)</code></li>
-<li>解构表达式，<code>arr = [...domList]</code></li>
-</ol>
-<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><h4 id="常见的网络状态码"><a href="#常见的网络状态码" class="headerlink" title="常见的网络状态码"></a>常见的网络状态码</h4><h5 id="3xx都表示重定向，但是302与304有什么区别？"><a href="#3xx都表示重定向，但是302与304有什么区别？" class="headerlink" title="3xx都表示重定向，但是302与304有什么区别？"></a>3xx都表示重定向，但是302与304有什么区别？</h5><p>301 - 表示永久重定向，表示资源被永久的移动到了Location首部指定的URL上了。但是搜索引擎会根据该响应进行更正。如请求<a href="http://baidu.com/">http://baidu.com</a> -&gt; 会重新请求到 <a href="https://www.baidu.com/">https://www.baidu.com</a> </p>
-<p>302 - 表示临时重定向，表示资源被临时移动到了<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location">Location</a>首部指定的URL上。后续会重新加载。</p>
-<p>304 - 协商缓存</p>
-<h5 id="4xx都表示客户端请求错误，401与403有什么区别？"><a href="#4xx都表示客户端请求错误，401与403有什么区别？" class="headerlink" title="4xx都表示客户端请求错误，401与403有什么区别？"></a>4xx都表示客户端请求错误，401与403有什么区别？</h5><p>400 - 参数错误。</p>
-<p>401 - 缺乏目标资源的身份验证凭证，发送的请求未得到满足，如未携带token。</p>
-<p>403 - 禁止访问。发送请求携带了token，但是验证完token之后已过期或没有权限。</p>
-<h3 id="小程序方向"><a href="#小程序方向" class="headerlink" title="小程序方向"></a>小程序方向</h3><p><a href="https://juejin.cn/post/6844904105882697741">小程序与H5的区别</a></p>
-<p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/env.html">小程序的运行环境</a></p>
-<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>如何封装一个vue组件</p>
-<p><a href="https://juejin.cn/post/6946022649768181774">手写系列</a></p>
-<p>盒模型</p>
-<p>html 解析过程</p>
-<p>http的get 和 post 有什么区别</p>
-<p>前端能够发什么类型的数据给后端</p>
-<p>1,234,567,890的实现</p>
-<p>webpack配置了什么</p>
-<p>如何加载一个体积较大的图片，图片优化</p>
-<h3 id="面经链接"><a href="#面经链接" class="headerlink" title="面经链接"></a>面经链接</h3><h4 id="掘金："><a href="#掘金：" class="headerlink" title="掘金："></a>掘金：</h4><p><a href="https://juejin.cn/post/6948227795059212318">https://juejin.cn/post/6948227795059212318</a></p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="🙅‍哒咩." data-whm="校验🙅‍哒咩.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="37ea09e7e08dfec3aa7506fe7ffd98c2e4938e4a41dbd70286e9b805c4d87808">f5ccbb6076d58ed268cf89a6547595d642ba5977e589dae749e1c4a55465ce76d629640fbbe59437e57d66408ad35a1d4e37496ce1f427f5aca6ef5016a76ce82b709b7fb9edeca84a3c225cdf3948a1d824ed482911aa4f5d0b824b9bc9f911d928834401d930e1da050b10b60ecde573b0ccb3304e36529e9cd7652711bfd93b63e0a034a9cdcaa40838f5d198b970cafacaaf18599eeb7db7c443b4d2e44d2670bad0b03f1344f6452accc1af0ce099c61c8c3a0505f2e709ab40909363bfe034c908bbfd6d324c8808541806fbfed846069d411ec530ee16f2ef25cec761d5035aee81bb884a46cafab846094b4a6741c44455fc999668842a69e7e796477b4850846d698e9e992a21ca6a038d3f1380200e30c0b4427d4f4ec32bef8008f7e2f4ab2632062b41a3cc58137e8929b77a9a578bc4c2014e5837fcb519577e8967b3279eacbaa66be6546fb0757c7641673b4b1c5d9c630db6e95a36d710df3ff0a7550b20b4c3b9a8fe7912947819e340dd3567b7fc7ab142a872bbb1f91f4c4fff341ddaadbbde0915928d651310f6c0252b68aede00097aca345138cc2124c99a26bd4be75ea76480c9b338c29d867afa3c0f5a1069ad7a3d5784388f397f334b75a3fa14973f9ad6488b0c37b7da40b50d5c49b73a63c5055691587428ea81ec84ddcf3c0d4426ff78aaf8960bd53577a5cddb3a87f650b3c035e05792d702c5f45390a77220e78254d1d9c4397a8dcf34eea4521c803e45af99dda0b15a9234645aab7f47a20ebd9ef8bfc9795ccbf77c87fd6b6cf2a54812666473954594216aa3739e7eaf234d31702f8bcb7f4f8c4e7d0b201dd217252a2d943c0af1a417d10418d2923679be0afb6fe8de70ef524ef68680e2a013b51674af1578abef0b4ec3e49c3bf65042ece298ffc1b9ad8751b368f0ee5bf95f91dcf5cab35ee10077e247da71443e15ea27870afde40a5a2b6b798acecdf8921ec7dec64608c12e547d0b00ef12b5f0fc63f4939aa8f2653c92d0ae63af7bb35954545e5cb4944f3e7507f1dd1746b3dfd95fff88a4879e76b19d1b6e70d590860bf236b93512682d729137b9bc3ea87f005ab3c75bf05ef3d1d5c5f692e25a6590ea490684af64456d65bda00c9f9e456f1b3b8da58e64767cc329a233b2046740f4460b1b51d2f9a7251935e95bae08e11dea792628153e40703bbbe520bc8b2d156dc949066e1936c42ebeddfbaad594b37d205cd00584f5c3bcc3a390a1e928ddcb53fa9991b931e58c315a18a425b854e4570bec3ccc59c03b03f1fc0c333865bf0bf46885d30e0421ddbcf6bc8c245ec371cef056cbf25b4af620af0fac033850948e4637a15d8af8f7a5f630e45b1dcdb3672d7f5092f6c873d4c22a2e0d429f7dfc7e29597d07ed49ec36b6f53d059e45deb6bbfa08e46d9de09273c2c6f9fa05f8f41281c4f58c595b1439bf1ce4757d023dfa2db82c6b71959d6f84b102c4168b8bf2a8cdfb5949a5df8dba46ab34c8b4e155ee132367fee6af85d12ce96f750dd998047a26d191bf854c33d96bfc7215dffc92491f2913128afdede2d08c529148e9e77f6a84305a5703e24a6d5f7169456c723376df339cd766519c4ff84f9d4f687b775373914e76a81a4a6c955a55dbcc3c70cc53c7b92b6cbb7a029dbdb352f7022221fde7af95783316c46407a2598b17e8319c7413e602334a7ed28e6adcb454f2cb393e541e1daa460f294476b285fb2079614535e3ed0ccb4a69d180555d3d9818ac9c494cb39cb3e3417cb8dce3de3e4149c76b4243daada7c713fb46611cc484fadd2b7964ae7cfbc2b28adf72e7c2a8feb5f49e8b6aee54ffd376ee33ae2794a4a966567db87e4ae8eeb36aee56ae909600de90773e17d0bb86a0ccbfb992059ab9e6a18835dc041836972305a0c73cbde5ef52cf3d59f5f67b56d3d86107309912e00ac2e05d4edfbb245eaab0abac96817d746f29a76f4725d58c1db0d28f0ca8a57a71519ba69a50817447fa80090e46a036daa2816672020d1fe37505cec0730801a8cd325e18992faa55eabf9efebe5ba9cc2e8c20fe48c0ea357499ce919f9c76925f88d0a52bc8ebbb5734438ab092b0d22f34a054412230e40f0dbf8696c1f153618218e93afea2ed990b0dd56a12786c9d2773c1391cbcd9dcfdbd85c766910b9463e2fedc05cda54cd40516f33623d599b420aa05c96e5a60cfb871c76d348c8173190f4e3547a0dcba1216a4f874972c8910c6a71b577d30013cac5f6c430616653af148dbb1ff65dd8622679509befec7257578436c41fb02c6afddbdc369d22261b4a67ed47ed9b5c0163dae11beb2225789e86d4f165cfcbd31387daa70dc794f285b88ee95a4d0c8c8df8fee417ba0c1baa5c3beeae2b462e2c6fb771f976af32f4bd7d791c2993fbc1a36530da454dc1c915aad4a6aba7ad333aad68e8e1fedbd2cfbfd02865f57a3f1d18c295f09dc4fc492e6468ffb4e1fff7dceda79e097a399d7066756323ba079700c31d64e22fe450a6eaf5b6d52008245c7f178c35385b8e2474cc0f1c1743b687870927af4991e58e96454f15cef9bdec11c0766092d3ba6567f19fa06cc622635b09af5e54eef44bc114d75469270641b0269f9f0af18c3531b4f248193046774030c43876d09b0d633b168a3d0480ff1cf078946caf9609044fc11353b7f3c1b1ad3095779da7a6e1e4c4aa7210bedab43cacc8bca1cd354e6d3dd8be2ed97edb98f35106c2befdd5f043076c272b21f7b5d990ebbd4faf7fad85c2d101be68171bbb37536583b2e1c37319746df591212908ce8097c84a505972d478bf19d3dab3e31be64c421a563f460f7afd4330da2f19dff535e6f194112f9303d389902b2e7a8c9a9de34b21a482f86dbb1c06c431e83a6ad45a387ee7352d5e2b612a4faa711ef5283620152ca7a24e8a53e416cbb1c7438173e9cd8515f752fcf2748926408b4106669e0e965024d43dfdc3fd2d852c0699297c89106970159bd79154c16474aa46c7c84e29c6ddbfa12c7edf41f93610a591b5c7bb400aeaa2256ea9df581fff6d9fcc0de5492dbde139c872b879fa8edc5d38e584d1585d966b6391460c235c37409e71e78a2608b784bcf995a8620f45573562e27835b0d4e4b21d6e50683b0c1bea6eab2b5f00f05651aff66e4ff01ab76e76b2cce4a80516b3fb4234b29dcfae21b4c8af024d9957857d6260bddca41d523007af238ddb8aa2f7b76a702489cf6d4331d2df3a54f8611324cf6b3fc4192997d131eb7baa3ce6bfb7a3a046b6a4ef1386f9b98287d25ed1e825343031deb0e47762523aa5ab4a1b93a9ff92d9622e98df4368f6631c233774208fc8745c4e8970cfb752064f903de868ccbf831d7a47964695857cb32a75b0de476d27376889681e6c30bb81f63f38eeac95b632023885eb5d65aec41cf572b19b914f5f660d3689d7ddf76da85ba8ec2927eb338c2977637f6d4f8161fcd8e9c2eaa261ee833c340aa050bf2a7f9f0cc341af6e67a30f8a09bf42885690785554c95b8351f07c2b09c9f96680dcfec2dc3ea94dee600018dce351619cf652841b4a91b4cadacb02f92ac04eda123396d0fa1ef92ffc0b12043aecde5ff0ae97def02ea0bb56eb4df571ecf47be7a7cbf3241020e89ff51148b9e327ba834387e7fb845325538dbce97b1b8fb48c0a7279ba12e25f0d49c63c8ae3be6f4014c66878bfcc053b2e00da7ee379a767f5394af72b40b03346297a1c65eb318c4d9c5b65d2759fca79db640310bcc2d9a90b4ab851c7be6d9e7c9cfcfa452195b5ba663e960af3b58554574e54d0220b5cf1565df08fc5ebf1294f375b530da60bbbbc018ef052f0e2ab6851b40f35af7073c8309517ec7df51b77f7344b2557eb29824ba9b38da65056df51e6497ae72d9b8c079eca40e833277077677e80bda534b25b5b22defaa7d2df5695063b321f474e06d63b7b149f61f45415bf48111c7307281d73283f2360ecab057c2cac8398abd5a0cf07928819f44e2afbc82ae0c36503342dc8565639240d1a192e7a94a7c6dc0cb801bf4642056f033a865e0d1b1fbfb7b426ea5fecd569b88cad7fc368973ccb9cb277953b032a4b13a34384285ddcad63890f0c31b23601f9312870d8adcb4867c1f57efd06b84952423c04cf70e6bd4e5ff415e5929227853113d3ea7a90178ee232c0c5409ba697be7997c0cdf38e4ad2a6873ced4d88ba51a85ca459cf720b94975d1ad1f09b31e27e0172031c78633c6b997c81491c9cf3a207df38368890e44b49d51d26e8519cdcc89053b6f4805bdc8d230cf490fc118b713bc63b14d534b93589d823668545cf9c38b9f40f26e4ff272992b6cef49a12c36c968c9ad13bf4bf987c50bdcec4e6796af53b8249084d0fa626217a2c6690d9fd9f8d3c7d5a28fad70a7ecc9fa97f76d52df468f8db0e5b8ff314a3e5b05502151c47579f536dac0122e6d700f96e9706b4e664daff97dcf5d50cef8748b6faa428a21170348d35d4f1b468f9ab31bbca0cc459b720fed22c7496c8568674e0cd92efdbf6c42902eeaab20dc79cdbf6754c57ce50a3bd45d960d1bc4a323f7b4e50238f9f6ab597c39d98da08155072f6739268cda827ab11d6151c446f3d160283a3a6a08cc82a0c0dd99e81a2023940c2d023b97bc76fbc73c922aa8d544b6a0a69ef96878c11b312ad0576e65aa06c85c33e5d031f63d2719c33152f1aa23d152b2592fa617813f4f264540bbac5546b66ef6e6867a4f34cf77d9131e58d33dfed65fafc2074a0aec9551ff3a2f437d5d6ff1a1a6d286be9eb52bbf25cab2f9823cfda2e290427968c2561dab4a4723c621a96a63da73e763fd2b8ade4b2cc39a7dbb8d903bf37a2f7854e8701402b94459e0459e021c1e40b9e2fd4685e6da8e4fbb4ac432003c8c2fd6b2eb2129d7fa04fad6bdf0ea94726472f07a4170958484245c5b9b974e445001069a3e7ab4202103f107fa59e9288a829dfa9a0eaa02bbed5d5233941a188e270f3b718c25d1d4c66f4a51484837056b5fc1220293698fd7279b7eaa05986a801cd951799489b069ffca382ca791276786faa2e3fcaac356f6458a72062a8a58bbeadf27c350bbf0fad0149f98d4760ea767c15b1be2daf9ce2e5963e4c8cd1f361753b7899cc112cb716008deca04792dd0a9acefc832e84f376813e734aaa35f1f2507b61050a1e9bcdb93b25c8ec5b1ee59617da1893c18ea15d883280d14aa9a6aaf6573d79554b41f4e347bac8a16a038584e7a3b6b9758989d7e79799ba0da09bc146aa7b3593028e21d76d708d3b38f7e0ffda1f7f1920841396acbb4bf181c5e08eecfdbd9ccc820ea9932ffc55a23cfc4bc71d6d3215bcce7105b0be6acaaea0553c59d471e321c0da2acb79702c4a5bd4fa94d8fb7ec91caf6d0e200c9da9bed0caa1dfbafce24fd8ef0e53276aeb74791f853614554a89a621f25b860dcb67c8cf1584391874f3ce2db3de59ff1602bdec3a2261b8ba49f2b0b302bffde46009fb15c1a04af55d5f5b09eee6a2c9c3764a9db85a0558c1ccf25559c98c84db61563e64474f63a2567b59fdd6ba9e881c53f372fbb9c168d9f3a2bdd0e0702768fd76a69b323ac5246fa56d0e648e6ef853a66dbe218fe9537abf15b2d4a6b0b6ca7d7de7eb422e16b469ac5d20f957ebc54cc77b60902107c74dc7a862011f8a8fc9e94fe328336e24ab403a516e02180973c9dd7ba51b83bbff04b39696a6cb0bd4c3f6970352170198eaed1b1107c597cdc26b549ac6b08604115843eba961622183ddb7f7f172547c289c43a9faaafad4b19f3594619a94e4f151e697be101e420bd55017d3ef09fe709ff019d2d0de8d3329c4f62fd935a002ecb0743d87cefc99262627caca9375c523225629f3e1bf64ae47bf98389c327c8092cafeb5e72f2b3dd3591f8096dd3a5fc4c179286bb516b12498f0e00876b5abf0a5b039ee0615283ef0b3e837b092fe43984e11323f07fa7c85eb2884434ecb25a5ba2845e709da438f4636b679dab0f9425dbedbd751ca76ebc8b7a47d344f9a625c8a4638e09496d06401803ba4681a650ec6fde4f8360cf8d58f36259b00f7dbabda8236919428977656319eab1e05fa0734c78654797a27de565c06761ac1bc155a6707238b4ebbd4e2064fc700c8144f1b7b41a8179b895dfc4a7c7939bee9ceefa45d8f3f81a7f4aea3f0efbcb2c9667e24c25edcd7f88cb0eac4d037babf98cd8eef0a0288522fcd37b3aaea1fe38a29b0d31316321d7fb5fa74360cf549f47f43e318375777ddd7b2c0762ba835b4117f5ad24631c6c0a2583a92e563a66ca43f6d85e805f86f31e8a36dbd13c0799a4173c856b4fa1344f7979d8a4daa3e1b04d205eb000acea0ef4a13b74ebffe97b186172d8d3fcbce27fb9b49508619c9f042557e9bbdfda10bb59aca4365131a048f91abc05c7d00650c51051c43609ea3004eb619137800be5b064a353cc3906f54ca8637b43afeb4251051b8412113f395e153da82f82f53abf5c1c07046b6e2fb81d55765d4335a296249e72dda29fd851c1145c1991a737e3ff1e7a3e90068408d6fff0300c4850182b3df63886ac231770c77995eb545b09cd6a18cbaaa579eae0ef9a40781b5c1ff79b8f756c40b728ea65e05dd380db8ceb5526d14b32945906e7c1ece01e615b2c24ca5646c790eb4b57a9ef8f5e72cab5817e353724bd76c433202de45efadeb9d0c7903997c129ffb9f8fb0131649364f5bfba6c5528b03f12a3461bc5907babeb053a825cdca93bc12bc503e84590858c2c06db0de7abf829dca9f4768f62ff19991b81a719718063d5897b8a25a137b435ee65835a8faf4db5fadfc60e6407c3283db3ee2794800e10370c67d8f10ef4f3541ebe1a16a0c1a369eb147d67d79e6fdfe182d7b33eb4ea05218596ee3d3c693e6a127c17b012a2c6185c597b257fba5ce83351521904d3bc749ed379ebf3814f586ee03e00457def14229593edc8b5f092d9dfdda2c6417d496de6f3a528e1adf19575bc5fd65c97299a87de1f5076f2dc7ced0838732e8e0dcbf83ff56ad3470a5a6a6a7240c5a4bd7fca1cf0c9c56f8c6a24456056fd1b1d474259bf752b45b9be602ebbf7f59a03143a36cae218b95869152cc5551032a073844b70e5e880cf50c0eec1b18218a156a00748caa072266d3ac710644f3f51cc7767574c7c2c5c958dbbd11a9b873e70fcdd68bb779999444467b0a3810aadb9eca65808bb95a1fcc7aa096f47f15ee3e9329a3234983e337ba24a45cdead090e217c81efe0076d72b81cc21de0aefdba0b16403159207cac0bd6b8894256312f04ac51f62ceb00c67305bf09f5e71587636172e27920f9bc39a39297849ba08b891fb977bdcf5d28a51509f33b510c00cea7566b6489eb2e03364ab410e48bec5bda666997c6af3865b54e269869e70563ea0bda1db195103037a11c2945fe325c3918716dd9d559dead97a0aa13578dd9f5ab6543e814ad942</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-surge">
+      <input class="hbe hbe-input-field hbe-input-field-surge" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-surge" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-surge" data-content="芝麻开门">芝麻开门</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-surge" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>总结</category>
       </categories>
@@ -242,6 +223,7 @@
         <tag>前端</tag>
         <tag>总结</tag>
         <tag>面试</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -2070,17 +2052,62 @@ VUE_APP_NOT_SECRET_CODE&#x3D;some_value<span aria-hidden="true" class="line-numb
 <li>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。</li>
 <li>你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地<strong>提交 (commit) mutation</strong>。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</li>
 </ol>
+<h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><p>store 就是一个数据仓库，为了更方便的管理仓库，我们把一个大的 store 拆成一些 modules ，整个 modules 是一个树型结构。每个 module 又分别定义了 state、getters、mutations、actions，通过递归遍历模块的方式完成了它们的初始化。</p>
 <h4 id="state"><a href="#state" class="headerlink" title="state"></a>state</h4><p>从 store 实例中读取状态最简单的方法就是在 <a href="https://cn.vuejs.org/guide/computed.html">计算属性</a> 中返回某个状态：</p>
 <p>如每当 <code>store.state.count</code> 变化的时候, 都会重新求取计算属性，并且触发更新相关联的 DOM。</p>
 <p>然而，这种模式导致组件依赖全局状态单例。在模块化的构建系统中，在每个需要使用 state 的组件中需要频繁地导入，并且在测试组件时需要模拟状态。</p>
 <p>Vuex 通过 <code>store</code> 选项，提供了一种机制将状态从根组件“注入”到每一个子组件中（需调用 <code>Vue.use(Vuex)</code>）。</p>
 <p>通过在根实例中注册 <code>store</code> 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 <code>this.$store</code> 访问到。</p>
-<h4 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h4><h4 id="mutations"><a href="#mutations" class="headerlink" title="mutations"></a>mutations</h4><p>mutation 是同步进行 state 数据操作的。</p>
-<h4 id="actions"><a href="#actions" class="headerlink" title="actions"></a>actions</h4><p>内部会进行 Promise 化，最终调用结果返回是一个 promise 。</p>
-<h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><p>store 就是一个数据仓库，为了更方便的管理仓库，我们把一个大的 store 拆成一些 modules ，整个 modules 是一个树型结构。每个 module 又分别定义了 state、getters、mutations、actions，通过递归遍历模块的方式完成了它们的初始化。</p>
-<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>Vuex 提供这些 API 都是方便我们在对 store 做各种操作来完成各种能力，尤其是 mapXXX 的设计，让我们在使用 API 的时候更加方便，这也是我们今后在设计一些 JavaScript 库的时候，从 API 设计角度中应该学习的方向。</p>
-<p>Vuex 从设计上支持了插件，让我们很好地从外部追踪 store 内部地变化，Logger 插件在我们地开发阶段也提供了很好地指引作用。当然我们也可以自己去实现 Vuex 的插件，来帮助我们实现一些特定的需求。</p>
-<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><p><a href="https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart">基于Vue设计一个购物车（组件结构，vuex state 数据结构）</a></p>
+<h4 id="getters"><a href="#getters" class="headerlink" title="getters"></a><a href="https://vuex.vuejs.org/zh/guide/getters.html">getters</a></h4><p>从 state 中派生出一些状态，可以认为是 store 的计算属性。例如对列表进行过滤并计数：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">computed<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">doneTodosCount</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">todo</span> <span class="token operator">=></span> todo<span class="token punctuation">.</span>done<span class="token punctuation">)</span><span class="token punctuation">.</span>length
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意，在 Vue computed 中使用 getter时， getter 在通过属性访问时是作为 Vue 的响应式系统的一部分缓存其中的。</p>
+<h4 id="mutations"><a href="#mutations" class="headerlink" title="mutations"></a><a href="https://vuex.vuejs.org/zh/guide/mutations.html">mutations</a></h4><p>mutation 是同步进行 state 数据操作的。</p>
+<p>更改 store 中的状态。</p>
+<p>每个 mutation 都有一个字符串的事件类型（type）和一个回调函数（handler）</p>
+<p>注意：</p>
+<ul>
+<li>最好提前在 store 中初始化好所有所需属性。</li>
+<li>当需要在对象上添加新属性时，应该建立起响应式关系：<ul>
+<li>使用 <code>Vue.set(obj, &#39;newProp&#39;, 123)</code></li>
+<li>以新对象替换老对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="actions"><a href="#actions" class="headerlink" title="actions"></a><a href="https://vuex.vuejs.org/zh/guide/actions.html">actions</a></h4><p>action 可以进行异步操作。action 提交的是 mutation。</p>
+<p>内部会进行 Promise 化，最终调用结果返回是一个 promise 。</p>
+<p>使用 <code>store.dispatch</code> 的方法进行派发 action。</p>
+<h4 id="modules"><a href="#modules" class="headerlink" title="modules"></a><a href="https://vuex.vuejs.org/zh/guide/modules.html">modules</a></h4><p>可以将 <code>Vuex</code> 分为多个模块甚至嵌套子模块，但是需要注意命名空间的使用。</p>
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><h5 id="mapState"><a href="#mapState" class="headerlink" title="mapState"></a>mapState</h5><h5 id="mapGetters"><a href="#mapGetters" class="headerlink" title="mapGetters"></a>mapGetters</h5><h5 id="mapActions"><a href="#mapActions" class="headerlink" title="mapActions"></a>mapActions</h5><h5 id="mapMutations"><a href="#mapMutations" class="headerlink" title="mapMutations"></a>mapMutations</h5><h5 id="createNamespacedHelpers"><a href="#createNamespacedHelpers" class="headerlink" title="createNamespacedHelpers"></a>createNamespacedHelpers</h5><p>通过使用 <code>createNamespacedHelpers</code> 创建基于某个命名空间辅助函数。它返回一个对象，对象里有新的绑定在给定命名空间值上的组件绑定辅助函数：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createNamespacedHelpers <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> mapState<span class="token punctuation">,</span> mapActions <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">createNamespacedHelpers</span><span class="token punctuation">(</span><span class="token string">'some/nested/module'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  computed<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 在 `some/nested/module` 中查找</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      <span class="token function-variable function">a</span><span class="token operator">:</span> <span class="token parameter">state</span> <span class="token operator">=></span> state<span class="token punctuation">.</span>a<span class="token punctuation">,</span>
+      <span class="token function-variable function">b</span><span class="token operator">:</span> <span class="token parameter">state</span> <span class="token operator">=></span> state<span class="token punctuation">.</span>b
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 在 `some/nested/module` 中查找</span>
+    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token string">'foo'</span><span class="token punctuation">,</span>
+      <span class="token string">'bar'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>Vuex 提供这些 API 都是方便我们在对 store 做各种操作来完成各种能力，尤其是 mapXXX 的设计，让我们在使用 API 的时候更加方便，这也是我们今后在设计一些 JavaScript 库的时候，从 API 设计角度中应该学习的方向。</p>
+</blockquote>
+<h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><p>Vuex 从设计上支持了插件，让我们很好地从外部追踪 store 内部地变化，Logger 插件在我们地开发阶段也提供了很好地指引作用。当然我们也可以自己去实现 Vuex 的插件，来帮助我们实现一些特定的需求。</p>
 <h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><h4 id="工具函数"><a href="#工具函数" class="headerlink" title="工具函数"></a>工具函数</h4><h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p><a href="https://datura35422.github.io/posts/57752/#Vuex%E6%BA%90%E7%A0%81">https://datura35422.github.io/posts/57752/#Vuex%E6%BA%90%E7%A0%81</a></p>
 <h5 id="循环对象键值对"><a href="#循环对象键值对" class="headerlink" title="循环对象键值对"></a>循环对象键值对</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * forEach for object
@@ -2106,6 +2133,13 @@ VUE_APP_NOT_SECRET_CODE&#x3D;some_value<span aria-hidden="true" class="line-numb
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><p><a href="https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart">基于Vue设计一个购物车（组件结构，vuex state 数据结构）</a></p>
+<p><a href="https://juejin.cn/post/6844903993374670855">Vuex面试题汇总</a></p>
+<h3 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h3><p><a href="https://mp.weixin.qq.com/s/qQxUCbPBYSq9vU7dvDOCzg">学习 vuex 源码整体架构，打造属于自己的状态管理库 - 若川视野</a>：<a href="https://github.com/lxchuan12/vuex-analysis">https://github.com/lxchuan12/vuex-analysis</a></p>
+<p><a href="https://ustbhuangyi.github.io/vue-analysis/v2/vuex/#vuex-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">https://ustbhuangyi.github.io/vue-analysis/v2/vuex/#vuex-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3</a></p>
+<p><a href="https://mp.weixin.qq.com/s/TYdppDvscuGpkblOmaosDQ">Vuex 4.0 正式发布！新年，官方生态齐聚一堂。</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -2493,7 +2527,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <entry>
     <title>webpack系列-面试题</title>
     <url>/posts/58095/</url>
-    <content><![CDATA[<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h4 id="前端代码为何要进行构建和打包"><a href="#前端代码为何要进行构建和打包" class="headerlink" title="前端代码为何要进行构建和打包"></a>前端代码为何要进行构建和打包</h4><h4 id="module、chunk、bundle分别什么意思，有何区别"><a href="#module、chunk、bundle分别什么意思，有何区别" class="headerlink" title="module、chunk、bundle分别什么意思，有何区别"></a>module、chunk、bundle分别什么意思，有何区别</h4><h4 id="loading-和-plugin-的区别"><a href="#loading-和-plugin-的区别" class="headerlink" title="loading 和 plugin 的区别"></a>loading 和 plugin 的区别</h4><h4 id="webpack如何实现懒加载"><a href="#webpack如何实现懒加载" class="headerlink" title="webpack如何实现懒加载"></a>webpack如何实现懒加载</h4><h4 id="webpack常用性能优化"><a href="#webpack常用性能优化" class="headerlink" title="webpack常用性能优化"></a>webpack常用性能优化</h4><h4 id="babel-runtime-和-babel-polyfill-的区别"><a href="#babel-runtime-和-babel-polyfill-的区别" class="headerlink" title="babel-runtime 和 babel-polyfill 的区别"></a>babel-runtime 和 babel-polyfill 的区别</h4><h3 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h3>]]></content>
+    <content><![CDATA[<h3 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h3><p><a href="https://vue3js.cn/interview/webpack/webpack.html">web前端面试 - 面试官系列（webpack部分）</a></p>
+<p><a href="https://juejin.cn/post/6844904094281236487">「吐血整理」再来一打Webpack面试题</a></p>
+<p><a href="https://mp.weixin.qq.com/s/2-zNlGrKUngWdQNvlcgESw">当面试官问Webpack的时候他想知道什么</a></p>
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h4 id="前端代码为何要进行构建和打包"><a href="#前端代码为何要进行构建和打包" class="headerlink" title="前端代码为何要进行构建和打包"></a>前端代码为何要进行构建和打包</h4><h4 id="module、chunk、bundle分别什么意思，有何区别"><a href="#module、chunk、bundle分别什么意思，有何区别" class="headerlink" title="module、chunk、bundle分别什么意思，有何区别"></a>module、chunk、bundle分别什么意思，有何区别</h4><h4 id="loading-和-plugin-的区别"><a href="#loading-和-plugin-的区别" class="headerlink" title="loading 和 plugin 的区别"></a>loading 和 plugin 的区别</h4><h4 id="webpack如何实现懒加载"><a href="#webpack如何实现懒加载" class="headerlink" title="webpack如何实现懒加载"></a>webpack如何实现懒加载</h4><h4 id="webpack常用性能优化"><a href="#webpack常用性能优化" class="headerlink" title="webpack常用性能优化"></a>webpack常用性能优化</h4><h4 id="babel-runtime-和-babel-polyfill-的区别"><a href="#babel-runtime-和-babel-polyfill-的区别" class="headerlink" title="babel-runtime 和 babel-polyfill 的区别"></a>babel-runtime 和 babel-polyfill 的区别</h4>]]></content>
       <categories>
         <category>前端</category>
         <category>webpack</category>
@@ -2727,7 +2764,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <title>优秀博客总结参考</title>
     <url>/posts/7661/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="🙅‍哒咩." data-whm="校验🙅‍哒咩.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="68e68ed02da43733043c2bd2f716c2b7aeee11df76f7e8944e38123279132173">f5ccbb6076d58ed268cf89a6547595d65f3414998285c56a4c4845a7cdf84e8b8b9f2c10169671b42d0fe424a0fb627f53f3c75496aef8fc307719a06a231a628fa99d3438fe069277cb9a92cd53222445791c260fd0aff5b1305f5be3ca86f7e854f928af000ef60dad008e13919df9953bafb3df11fa71d589e72f7f02d160d2d1bf1bf6f3bd17d59a333568142688df8c506d387fd6f10029cfa497944cd499260498ac1be5a96d0baa37b051810dfc57a515bfe3229655ca7aa18cac4d33f982f7eb431ebf0e10435880e6e4a2fd5e608b22e782870b1ecae37ddb846fc593da66af3c60897217c29b84d8a314ab2cfb540039f4ba470311e6df163239c88382af63b96947a6f67d29dac3dd4581032daf337dee3a2621cdbb025faff8debe75d06e0e9717d3618b82796058934b381258bf4cbc631e747b2dfd33115bdbad26bea01277574af79d1199c6ae879e5f7d52306d0c2c318a7807356db314efd478c7bfdeef2c8e02e6431ee7c19279c7d6b46a545866a7f550e5dba68a0c2ac8a6d755cff83cceb800157c12da0ba9255bb6a0dca573c2d389cd43436421eb60e4d7e81fe05da3994ab1a4c12bd4e218c6a1aae8f9d24d47ded8a9c19ded413c34a9cfd45f6b244c651d4ca687c8c696a897dcb2d7c8e589d2ba8aa29e04f18525259576c31606bc5621bd681873f73d72ce63eb4f3d51bc9a68ec49e767acbfaeed6509f5e13b239bc1a2324eb85c5427ff93fd7e8da2101742fad36463b4db4dd30a4bd92c4955a114d506ed588fec1e3cdd4a695c87ff2807c3544ecf73efd2a31c52f759a9596ea31c9d391fbf135b47bfae135dd9961ff43c95be2dd1a8f99b1f21fca41c02348fc6360e3b9677c068ebf73ef81dd12263543c4a48059d21b78eeaf7359741babfe3797e34375122598b19843ad8b644548f27f3840d2d6fd030eb82b09215e74dd3ed0817f34af114589c1fa0e2dcfdc7444386fe24c32ed265e3a7c6dcd88e72a73c0f5a63e270089a390eb9928edb2d916c6c3b0fdf29ea7dd849be0c4ee2a61a48424dc1a1cbfaa3101d5e188ac1284ecd4f349144738a501c2a98f7f8214939b6bae13205b9ae8cb2d865c86552d7a81cb04cbb58f13d00557acacb0b41e91b00e4c66d362a9026712f8030fd3683464bed67914c761cc0fcb8defee39486b518da154cc1303cc0e0ef4d543b3ce21dacacb1794a84337568fe697325854e04a07243cf462cc399c9474040022a0af3b17ee76612b7e0281a7fac0520e7a46161c78f2cac2335296d00b57df4ec44b696f8cbea2eb83e1da87d8a7026afc7429bdbb84ce83d42578816f35dac5d2a5feed37313f399da220cf95e8ae0aec07055dc11eb49aa0f4103b0ac20672340622423acd7698c0d7a6c868f6757de4923e2b622e974e2563a151aad37d49b7fb1614d8ca46f25e78c3f111134b9017cbebec60d1d63c508eb57a584cf85e5004f4032f1e64a43a9548e20321807ae61e3f40307917292b09ef8207031daad7ab3bac48d554cca479284667016467a97c19fdc4dca379ebd9ff157d60a08dee28eda77e2b439e3eb96a64690fedc3ec27733307a6b6b531685bc5b1059d22036a769195d4e1e9ccff4ad82af12c7e43fb2a0200bfa66ef68e72d980c6d8554e374037c3a61b5ecd1fc1c4a21e7389a3e0f6a9fc7c8b6a1ce4e53d50dd6fb57a92dd8202ad4b1ff0a8218a7b88e00ef8a56093f6db72be214c7c1113af82e954018c4ef0229bd0160e92ac977c0ba99e813d4b2865abddf622a5c70b2bb7d747887804093ceb86dc80663c2fc3203dea20a8f9ad15d2eddcf572397ec93ce768905150029618a926cd5b39d67fb5770f1716432b9a6255477359042ce4b2f317844e79a4b7353f2afdc2515139ae3f0fc6c53c05b7ec98c30a9b3fea6309e3767d002e8258982195fb93dfc002fb85c77d3074ae5c10c42c1a717bb06c18d3df47c3c270dcf8f0fb1eb2cf9ee44cf120bca69a123d093e17df2b20b087356d42e886e291202012de14653c2116b9582ae18b7dda53b7e147441034df5ad9caa2f0da36b70fa20e07a924d314caca3cb658f97142e3b517e4fdeb1f4295e450d6c0daa8d47d90f7d3a46d6235788801a3e12b495bb096f317d98860e11b65dfb709eecea4af4d7e4314e21f6b34a43002ef2d2263051416d56f5e6c218fd94e2bf14e179fc26d42f50ee389353316f88536a57cdcec43e225dfc99c7e949c9ce9fe2f33fe6fc5a77bebc8af0b7506a561eaba8148b8b4b8557a8e2590708002f058efb9faade66842f0f4c82ce4d1a7871b0cc55b2a8442a5dd72af61da77331b237b7f53e66b1b78015e9894cd0b46ef13c0ae5c50744b00500ea5eb4155faf1bf3ac797531a39abc4a007ccbe884e6da79fd6da6ec03cc20368c8faef7a7f6f619cf6f8f9c970927bccd7d88b16d872b9b6e110038b92e06ec5322207216bfaf0d6c81323bd6eb5205d023acc698b2366f8c1d660481018cb02b8540867a663cb6bb384d99af46ae8bd39f9dec31f6111f1f2f138c8a4787b9a8d62e8f6fb2d9b8474d08b0c9865d71b0d2908cc6264485c16bb1437954e0feb1ebbe9a2a9a984ef530f622d3b504f35cf5957a6900788bd15024f75c1544abf32bf6baa72f5c73efabc6fbd00476414aa4fb1072d069487c18c877d66ae35f11d83c08fc85feea341debd1a7f4b25689f3b22ce3453a760f7cc4a21ad7472f3c1f480b9e13085a8eb54c81627e8e49d1cbb4715f004ed7ed8208a06ee8921b6729df50885f345cd79b43422a2d49e67f698d667a4751ce80d9bfa274ac3ac3199f7965b74b69b183a0fe2f7a79757e467a6b19238e2d1b26c01b0bd367255847dd2a2f672fa734e57f0fcc9a73bbea9e60f24043a40488d7384f6f9ac037b7babc26e4bd8d1f45675c3310267e2d85183e5aa21d2d454adccadeae38d062107196f4d38bed901a216a696513b6a7ea0a111bd6feed6ad02ffc8e2b30c8446772709c50cd9ebf9d7a6b0e06262db0aab8e151293bde5fd7f95906b8572c57ffd56a54d989bf7909a1055be0add466f799a8d0b36aa79d0809ea2e71cf7d056358e4f10c719e1e94f7a7c8a0d0e757f986caceb8c5f7e62f900b310ea5b4db2430ea0f8f506fddfeeea59d6629fd4eab53889632fec0ad6e544d1123fc1a972aae6f9946a73f628618d1677c80347c7473e2c363342c563481eeb4b90407a3c5ddb7bb94400cc5dfc4dd28463b99b209fb588c9ab5590daa5c3835ac2f89016ea96526dc2df806de3b31a0fdc1f363ffeb4453da4ef7bb880cdbdb74c66152ab1fc5060d3cdaaeeac52369a8c57e40d0423224a495611f925e7d88a40eb60a7da84c7bb059212a97c57b3b5d23b7e9c9290f5cf4ee0632e40f5a1734c1974352200ee760fe04edcc57a3673a4b4fba6e9ee6b9e89c9e21b7ce9ac706c21572bd2e2c84e00adf60593ce43827507d5d15ecc6cd1098564d08d7372deeafa71015c37d2b40cb724ff0ba8a522a0bcd8d7c0a9138a171e4a4a397652f06504082b2f2e3a0f14eb9909d2bf971c622f6dd801858cdc0f98d823526a7b7d178ce9c0274cc6ceec980bb5ddc5b63f59625c5fbda1f0fe8d420d4d6857063fedbed8fc5be79a3ec9789b21b8c6f14db1eb4eedc922704b988de2a330116440c888b7e2f4847037656139c79333d4ccde0a644cc56a6320518d4e914299d060349e79b4b9b9dc2f46f662d4e3af21edf3bcb367567be74773c3b2c4b0eb00083b63941fc15faa2073a15c07c008c946438173f9c93fef6becdb6e3a171fe0c5a7674296d20be0693a07138015ee8a243168f0fa60a7004f994f8b7bafb2f2d70e6880a9fb14697deb0b044b6c2a49a00b3769322a885843a00b736a397c5d8b7d2659a6c92fe26ce1392be97394f7470ecc99c08a590a21685831084fcb6aebf9973397893eeb04204615c001c8adc6788fa61e950192f117e92503f1c7278c9f21e5e9c2933b59caf6ac609ec5c44fd8db2a67c4490bc97f014c2e28e63172d11004f1ac98a11d0480c44d31508607774f21e061c0dae0f90631cb39cbf0e76ca336a9fc89c6c3d4417f2c862a14736c23e3204786d5c482275f63d11b9fa6f6dff40853a1835602632b3c7c742456b06ee85d6909eec7e1bd7f02ac3cce8aada7089dcc54f22d111d58a8ccf92109cf2126e01e2770f9f2a6e3b9daf07174a0914657f50eb4d7b422736182af0cf1c72eaf78aa0060c10cf162f0476dc810f3ebe8f92e5781e21183b450849c63c1fb1ff6c50f635d984f588b2fbac468c07e66582a0a39d1c196180fdb0a23572cd6b6348d9add1e1a05fa15d585270a794cf5f8527781a74199a04265ecc6c9cdaa436e2f33253d3442273cb009e8fdbec611ffa7016a8e673ea8b566f6d8d1e1464a2e899d113ac7c596e756e35fb24927635429e2fe9af37743cc008ac1d63294333cc2a19db4ea1b06f4d26c7e3d606fd740226a2b2aaf236e3a3ab2d0174dfeb3617b1358b181ad843bad7629185fbe51796722162dd0ee51bf2646a3551844338c6ec75b5eab63e400341092a76039b71c42938a489cf6f886598066081d8786ea26c41ca292467a4afbaa57b48ec9ebe01f6ac7011ff0d7c9a448334c425f4a8d64736f629f2d788073aa7179aa621675629d162c317daa5e22808e97d8b88b7eca3a78338785117bbd9b1ffb0bd5e75e460ace06870d3edba9c8998352836a7a9fb6f7bc6b8761523320b703be1319659813ac31503b6e7042a89f0b7c34d758443b7702b9ccebe83d33514ec236280a32a067c12b387df29248d61ba94c9eaeb37023ebdfc01beca96692f6635bc566aa87d4f3f480b7a5d75d7b20c7a188740c460333a4411445d7680389b41a79674ae6b82feff207521ec89d1681e70ae7047391e8a0acfa75e82b68594c0e500c614ab072526093ba05aa9e3a8fbd5849a4bf7509c576620b8b23c9aab3d85fbf1aee579ec66a5b23e6b1086c441a5f260a00f28351d41c4cf279b14c70b37d69e592e6a6167d7b2ae120752aadbbddf94032b43b56f2b5bc91b6e3fd8b784106fbdb3ca892941666bb173a4572784151c210227f6ec96f135585cd09f6e8ca974d22ce5dbc66eb86fc7405b71eeb7bf9f242a34b6eb09d7daec76bdf1274679a0e4e6e69699c93254befa8ca3db07479d72b2807c8bda8c82697b410b287c2fb8a4f2ac01ea38f26d6adbd873d8cb47f44f4d5d972db37abd5a363955ea47e2eb42c126fdba9e91b86dd0b6668b28620f97a07e91c5c8a1b22c737aa0b4718510abc01e7f790a07310519c7a2167a5b9fbaab5738e5f6420a96d7cc06ab3c8446860f0f4286c021e0558c2f3467903df97c14a152e2a915360c36eb277f2e485c388afc278098c7c0138ac06a3ad96ab36fa2d1d8d732dba1175f8bf15f7ee6ece3c849d0233f89c51397784d6e30cd7859f82bbe8ca873ca4252e20e3679a380e5d01b807471618b396a6fd839e6596939500db5ef90b354dd46360cc2169a4f5ad229368d3aec76a5f0c2b9419e4bcb87dc481d144689c9c0b4b5d7a9415ff8fc8c803f98c86fbf68141fc0618becf100a387c6573e75f56d4a14b18c470460e22b8b620cfcc0f18ae2c5003dbbdb8fb5e1d05e42a1fc1b8d71ed70ed4c12eef28759c418be7e0d151d9d8de11a6262d94f826f7cf475a4ed94abe39cfb0ffc4990bc9d017811ceceadf200fcbd7b15d8cd7501e945e3c71f5644111aa7dc91539d269a4674332df5a4198e7dcd49996e293bf139ac4b0842eccdeb3dea5633758d477e20b28f7e9039ef686c6370a07788a84033dab7c97d8719c7f9920c4bb2072a5c5766ae3dc63564aa3fbc0474e74f6ba51bd5b033b5ec73c06d66d91c42806ffcb91c94300ffb8ded84e8dba929ebe15db1428df04369aec082859ddafb2737551cde7ce504da72fe23b1ac621c6cb223da062c7cd4119b262f9562d0850b93cb368c4b8f8fde5b016138bd1b81e0d08dc9d4ce900ae05d87886a007c66ae352eb402d2893e46720f84b2f3c6e54c4d55839c2152cc8a3e7dcac25abcd5b5211c6f5a13430444648e45e29a32538c00b1532b7e4ca07b74cf2f751c2c837ac9916d0bc206ed9010469b595939f0cf016f4d494a281821c743bbc15fbed75daea10423876289a125e140677af5d4fed47165dc72eeabf4b264635d70465c4833a9f8d61bc374683c97b558e517a72244971217b7700481266093991e9509ba74e7bc0dbd1024b9be3d091cccbba8cbcc17844e978c03cc0f7a8629b39d393904f278faccb55b9d6b1063eaf60c0b60ffed6648b87b49c9c2daee7ebc56f0bcd5fbabff74f09619c53655e8033b76ea4dc3e92312115649cde93dde22c3305917707e5bdd2f15c07baff392c22be3470c80aea2608311e6804917e15421b9f650f5ef774efdb64936259c126525f50098688ff01896d03ac155ef65fd0e4caf14c37273bbfedd384b77844f19acb7aad7e05f9e6582a3060c430683065f95b147c7673350fc22f92eaa0df0ecdb4ebc316badc4c8b1b236bb2c86206d101489f37792ec418fd602b50cda731a280850190127fcb0e017ccf990adbabadd294a1b3974d9c004f64fec303975059bb743f06af0801cd4e954c6102fabc9f99e8e06dc2a1b4a6551b51d17c0cc1e59de58aa10b64652ef2bd0b429dd8560f1bd2a8abfb37c4fa11d75088d653d0c83aa17af674dfded29f0e3ec992feab0e46fdbd85a7ea9135a6caa020cbef305d64a68679ec15a6c7224a3bec9a67a544ae64411e34834c699b033655bd37e82e9130b2f0570e2c4eb7e5f144470dbe5761dd55383dcb5ca3480f3b0976c08701e0e35a0e2e297533f5cc46873110d9970003026c6dbe2a6136bd9d71f31980cb54db2b787b3d43935a4aba80e2ab3b238701357180345a21671f1ad48b2c316193900aa3a72dd8248db44afb8cf</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="76666b98e9a6d0254cb445604c75acda6972b999143a6d8e83c110d5e850f2ab">f5ccbb6076d58ed268cf89a6547595d65f3414998285c56a4c4845a7cdf84e8b8b9f2c10169671b42d0fe424a0fb627f53f3c75496aef8fc307719a06a231a628fa99d3438fe069277cb9a92cd53222445791c260fd0aff5b1305f5be3ca86f7e854f928af000ef60dad008e13919df9953bafb3df11fa71d589e72f7f02d160d2d1bf1bf6f3bd17d59a333568142688df8c506d387fd6f10029cfa497944cd499260498ac1be5a96d0baa37b051810dfc57a515bfe3229655ca7aa18cac4d33f982f7eb431ebf0e10435880e6e4a2fd5e608b22e782870b1ecae37ddb846fc593da66af3c60897217c29b84d8a314ab2cfb540039f4ba470311e6df163239c88382af63b96947a6f67d29dac3dd4581032daf337dee3a2621cdbb025faff8debe75d06e0e9717d3618b82796058934b381258bf4cbc631e747b2dfd33115bdbad26bea01277574af79d1199c6ae879e5f7d52306d0c2c318a7807356db314efd478c7bfdeef2c8e02e6431ee7c19279c7d6b46a545866a7f550e5dba68a0c2ac8a6d755cff83cceb800157c12da0ba9255bb6a0dca573c2d389cd43436421eb60e4d7e81fe05da3994ab1a4c12bd4e218c6a1aae8f9d24d47ded8a9c19ded413c34a9cfd45f6b244c651d4ca687c8c696a897dcb2d7c8e589d2ba8aa29e04f18525259576c31606bc5621bd681873f73d72ce63eb4f3d51bc9a68ec49e767acbfaeed6509f5e13b239bc1a2324eb85c5427ff93fd7e8da2101742fad36463b4db4dd30a4bd92c4955a114d506ed588fec1e3cdd4a695c87ff2807c3544ecf73efd2a31c52f759a9596ea31c9d391fbf135b47bfae135dd9961ff43c95be2dd1a8f99b1f21fca41c02348fc6360e3b9677c068ebf73ef81dd12263543c4a48059d21b78eeaf7359741babfe3797e34375122598b19843ad8b644548f27f3840d2d6fd030eb82b09215e74dd3ed0817f34af114589c1fa0e2dcfdc7444386fe24c32ed265e3a7c6dcd88e72a73c0f5a63e270089a390eb9928edb2d916c6c3b0fdf29ea7dd849be0c4ee2a61a48424dc1a1cbfaa3101d5e188ac1284ecd4f349144738a501c2a98f7f8214939b6bae13205b9ae8cb2d865c86552d7a81cb04cbb58f13d00557acacb0b41e91b00e4c66d362a9026712f8030fd3683464bed67914c761cc0fcb8defee39486b518da154cc1303cc0e0ef4d543b3ce21dacacb1794a84337568fe697325854e04a07243cf462cc399c9474040022a0af3b17ee76612b7e0281a7fac0520e7a46161c78f2cac2335296d00b57df4ec44b696f8cbea2eb83e1da87d8a7026afc7429bdbb84ce83d42578816f35dac5d2a5feed37313f399da220cf95e8ae0aec07055dc11eb49aa0f4103b0ac20672340622423acd7698c0d7a6c868f6757de4923e2b622e974e2563a151aad37d49b7fb1614d8ca46f25e78c3f111134b9017cbebec60d1d63c508eb57a584cf85e5004f4032f1e64a43a9548e20321807ae61e3f40307917292b09ef8207031daad7ab3bac48d554cca479284667016467a97c19fdc4dca379ebd9ff157d60a08dee28eda77e2b439e3eb96a64690fedc3ec27733307a6b6b531685bc5b1059d22036a769195d4e1e9ccff4ad82af12c7e43fb2a0200bfa66ef68e72d980c6d8554e374037c3a61b5ecd1fc1c4a21e7389a3e0f6a9fc7c8b6a1ce4e53d50dd6fb57a92dd8202ad4b1ff0a8218a7b88e00ef8a56093f6db72be214c7c1113af82e954018c4ef0229bd0160e92ac977c0ba99e813d4b2865abddf622a5c70b2bb7d747887804093ceb86dc80663c2fc3203dea20a8f9ad15d2eddcf572397ec93ce768905150029618a926cd5b39d67fb5770f1716432b9a6255477359042ce4b2f317844e79a4b7353f2afdc2515139ae3f0fc6c53c05b7ec98c30a9b3fea6309e3767d002e8258982195fb93dfc002fb85c77d3074ae5c10c42c1a717bb06c18d3df47c3c270dcf8f0fb1eb2cf9ee44cf120bca69a123d093e17df2b20b087356d42e886e291202012de14653c2116b9582ae18b7dda53b7e147441034df5ad9caa2f0da36b70fa20e07a924d314caca3cb658f97142e3b517e4fdeb1f4295e450d6c0daa8d47d90f7d3a46d6235788801a3e12b495bb096f317d98860e11b65dfb709eecea4af4d7e4314e21f6b34a43002ef2d2263051416d56f5e6c218fd94e2bf14e179fc26d42f50ee389353316f88536a57cdcec43e225dfc99c7e949c9ce9fe2f33fe6fc5a77bebc8af0b7506a561eaba8148b8b4b8557a8e2590708002f058efb9faade66842f0f4c82ce4d1a7871b0cc55b2a8442a5dd72af61da77331b237b7f53e66b1b78015e9894cd0b46ef13c0ae5c50744b00500ea5eb4155faf1bf3ac797531a39abc4a007ccbe884e6da79fd6da6ec03cc20368c8faef7a7f6f619cf6f8f9c970927bccd7d88b16d872b9b6e110038b92e06ec5322207216bfaf0d6c81323bd6eb5205d023acc698b2366f8c1d660481018cb02b8540867a663cb6bb384d99af46ae8bd39f9dec31f6111f1f2f138c8a4787b9a8d62e8f6fb2d9b8474d08b0c9865d71b0d2908cc6264485c16bb1437954e0feb1ebbe9a2a9a984ef530f622d3b504f35cf5957a6900788bd15024f75c1544abf32bf6baa72f5c73efabc6fbd00476414aa4fb1072d069487c18c877d66ae35f11d83c08fc85feea341debd1a7f4b25689f3b22ce3453a760f7cc4a21ad7472f3c1f480b9e13085a8eb54c81627e8e49d1cbb4715f004ed7ed8208a06ee8921b6729df50885f345cd79b43422a2d49e67f698d667a4751ce80d9bfa274ac3ac3199f7965b74b69b183a0fe2f7a79757e467a6b19238e2d1b26c01b0bd367255847dd2a2f672fa734e57f0fcc9a73bbea9e60f24043a40488d7384f6f9ac037b7babc26e4bd8d1f45675c3310267e2d85183e5aa21d2d454adccadeae38d062107196f4d38bed901a216a696513b6a7ea0a111bd6feed6ad02ffc8e2b30c8446772709c50cd9ebf9d7a6b0e06262db0aab8e151293bde5fd7f95906b8572c57ffd56a54d989bf7909a1055be0add466f799a8d0b36aa79d0809ea2e71cf7d056358e4f10c719e1e94f7a7c8a0d0e757f986caceb8c5f7e62f900b310ea5b4db2430ea0f8f506fddfeeea59d6629fd4eab53889632fec0ad6e544d1123fc1a972aae6f9946a73f628618d1677c80347c7473e2c363342c563481eeb4b90407a3c5ddb7bb94400cc5dfc4dd28463b99b209fb588c9ab5590daa5c3835ac2f89016ea96526dc2df806de3b31a0fdc1f363ffeb4453da4ef7bb880cdbdb74c66152ab1fc5060d3cdaaeeac52369a8c57e40d0423224a495611f925e7d88a40eb60a7da84c7bb059212a97c57b3b5d23b7e9c9290f5cf4ee0632e40f5a1734c1974352200ee760fe04edcc57a3673a4b4fba6e9ee6b9e89c9e21b7ce9ac706c21572bd2e2c84e00adf60593ce43827507d5d15ecc6cd1098564d08d7372deeafa71015c37d2b40cb724ff0ba8a522a0bcd8d7c0a9138a171e4a4a397652f06504082b2f2e3a0f14eb9909d2bf971c622f6dd801858cdc0f98d823526a7b7d178ce9c0274cc6ceec980bb5ddc5b63f59625c5fbda1f0fe8d420d4d6857063fedbed8fc5be79a3ec9789b21b8c6f14db1eb4eedc922704b988de2a330116440c888b7e2f4847037656139c79333d4ccde0a644cc56a6320518d4e914299d060349e79b4b9b9dc2f46f662d4e3af21edf3bcb367567be74773c3b2c4b0eb00083b63941fc15faa2073a15c07c008c946438173f9c93fef6becdb6e3a171fe0c5a7674296d20be0693a07138015ee8a243168f0fa60a7004f994f8b7bafb2f2d70e6880a9fb14697deb0b044b6c2a49a00b3769322a885843a00b736a397c5d8b7d2659a6c92fe26ce1392be97394f7470ecc99c08a590a21685831084fcb6aebf9973397893eeb04204615c001c8adc6788fa61e950192f117e92503f1c7278c9f21e5e9c2933b59caf6ac609ec5c44fd8db2a67c4490bc97f014c2e28e63172d11004f1ac98a11d0480c44d31508607774f21e061c0dae0f90631cb39cbf0e76ca336a9fc89c6c3d4417f2c862a14736c23e3204786d5c482275f63d11b9fa6f6dff40853a1835602632b3c7c742456b06ee85d6909eec7e1bd7f02ac3cce8aada7089dcc54f22d111d58a8ccf92109cf2126e01e2770f9f2a6e3b9daf07174a0914657f50eb4d7b422736182af0cf1c72eaf78aa0060c10cf162f0476dc810f3ebe8f92e5781e21183b450849c63c1fb1ff6c50f635d984f588b2fbac468c07e66582a0a39d1c196180fdb0a23572cd6b6348d9add1e1a05fa15d585270a794cf5f8527781a74199a04265ecc6c9cdaa436e2f33253d3442273cb009e8fdbec611ffa7016a8e673ea8b566f6d8d1e1464a2e899d113ac7c596e756e35fb24927635429e2fe9af37743cc008ac1d63294333cc2a19db4ea1b06f4d26c7e3d606fd740226a2b2aaf236e3a3ab2d0174dfeb3617b1358b181ad843bad7629185fbe51796722162dd0ee51bf2646a3551844338c6ec75b5eab63e400341092a76039b71c42938a489cf6f886598066081d8786ea26c41ca292467a4afbaa57b48ec9ebe01f6ac7011ff0d7c9a448334c425f4a8d64736f629f2d788073aa7179aa621675629d162c317daa5e22808e97d8b88b7eca3a78338785117bbd9b1ffb0bd5e880087329d6a284ba7f0f1a1479abb397119320455950f7279d1f9ec2477265e82f64e77d4b8e0a2d7e370cacb914b23350980e161b612f6a363d943d4cb9412e1a548f7c866dac495a59d5b0f9d34998ff12d737dd42a2ff25da732045f81626d0ffa4e6e086d06512c568306ac6742841066272ba6b88138a5118f09808b60caebe8420314de18ec379bc817b7262f761d1300c27cc3d48007eb8d9eb14b7b84f0efce92c378ab4525eaa43b8ba35c9d66d6d2afbdc1ff19f9e46cab8c619a4829e00252de6f4e9e2c9898631ec9eb5914c31be31b4fca113e389fa8f86246b7aa114a7a953240733ac6e602f035597769ffa4155d89dd6eb018b1463b0e40f58c58f130051d93cead464bb96e66298370687c340d236486685e8284c5c2698aa2bbbd44c77d97ecf5d3dfe90b72da9b24c84dbe9339db5d8ae5f53dbe16e370d3d344a87d8bdef9300038332ff688205ba2e8b8094ab0cebbb948f9df0fe995de3fc70a2879a62781db4ca8539cd5803fa40bfed416c87c0eb6c959365547f038e3482e70a16f8fc3fc4e9a18914784dc6fd0308407aa09518145bc3d5163f96acbfcc6b2beaf7c1d50aea9324c4f50261f546e11f1f1abed9b4e550aeb1a60d55452303feef4b865ccf5d680684a224fabfb73558ab51c6fae4b55711f9c3f8888cf94d4c18d6aeff223b4e6d4787d11f562b80a162926a8a16c74b326c30809879a81b1faa4cbda4f362925015bbce6b3dc8b77b98d0814bd9849a9dd01e93e54d478a62332fac470abe27b09be00e9b0dab6cb85093675a17384fdf77f5654f4026bb01dc6c244a045a711debe1493e57677d0804b5969f7c5578b523f7b4340bb9ad5cfc6b91d3a5d55e1425857d89a8ada8381d070a1e608aa6e68679182404069ea8967653bcf093417c72326d6d76db295ecf9bf9ab96535cc2e391990111f2dd3f4a9c790555d7ee560bd44600db1bb5db8ca9fe8b4b151f4db30097fbd1a504c07c369f31a61899cdcb972e673af350dd66daf905d9ba77cd24b3ddb800cdaffcfe28ba84123eee09f34888cd817cc4f7b459b84a2a9b9459c7c08ee816c3b96d987270ec47d7690d57ff0d0e24cc58fe3e0e80953722fcd76afcb6a6dd1fff0157efd18d093bf65ae434b70680fce48d03a8aa4184aba71a3942c30e687eb662d75ddfb6dffd08db741ce9b66a198a0cf7bde90762dc7321f0aaa7d2f01d6a5768e59799990961454dff89cf996e1d60e3b773e81735e650d0c2c96b72bd80f0247b755ef0526a6416726ba14852016e9f3f93f39c590fc0f96727306cef9d29f3575e3f047ef134331a9d486db3d5be4c1a87b595738dfc1cdfa5c15e9aa05291a8482622801c13b06ddedd3e6261ccd89a774c5f699cde8f70fdb8373c4ad3df643e40cfd0dc3313c0678529c5f8b3e77d47eff1adbf66affcedf8f2ba3705a3fb8c1fd5742a142c40d06b7f900afb4df85304f31a2d5cf31b27b242dd683077d41cf76bd5a079642ded3f4a04fb80d77b460d3cb16359e0be9425ff6bd6ac8ccd9d29169e54b8cd5189721d4a710b0d42b488c4f66c8d614ff87675aa0e2d04d89c96367dfc786a7aecf707a9e9176e14a13bd7bbc2261a947d0df7bb4fe02976e7f8e41c84e55626edb2fae1e270f6b628758376d33dc1181f46d60522f2c3b951208be60fd854c8b011c13277014b02d86994d9fb31ec831d5ee5874de69e6a276df5598518f4b2fc08699fc6d21ac18254577f67965e19de4ef8f2da412b564eb30cfc49fa2e6ffcebf06b4a25597fd3d1c7fd8d7073ed2c5f9842fcbe6c74e2318bd1d4d33380a11752457d2bc5b6e5c6d9bb34a1f4892ef90c7a91b75fa43ff7afb2358556b44b5d162fe247d4ca500f7ea3b98a6dc75725ab2f504299fef70559d51f35f0923710292c07fa716d778bd1a2c7240a7a5d9793201fcbe826454d69e2f563c9f7b4b36277250ef96b8ed8d2b86b279325364a4804ff33af898fcdc70cd7b85b508df09c32c53c9332bb4e46a5b0336af5dcf39469b81adc486df3df288f64e1ab441dfd45843a337e214f2d695943b2a5b8ad145bf426905db181fd2f4262e1f5e32e6e5f862112424e278fad38aef29d98a5259df5e5fddb6dd6c8eac88b930ec8560bba3eca4c484f77b3355f7aa22d94f31f3d1c8faa6ec959a6f1a71355676f2f6b1b0aa7085b04ca5974d52cf95560ad396eb64190835255fbd4f44df25374cb418a1e71056ccaeae79767bedb6f96403fd4092f6d0c9d37f50c679bf0eb64ea185fcdd0476fa3aa93f24fb0706b83db23d917d323745b8f71210708bdcbeda273e87c0b710b7f957db42781dc1b3cefb2f8a81cb346218f24d5e3cff183c77d32681c50b71cf287e553719b147faff2e7f35e5890cdb3297784ff2e9f6abb1d87cb7cd6a6002a886709b817934195bc371a4043d70b10acd16060dc63d0d92d2e600a2e1a71e31911d486ed442b25afa0d7a2bd69a39001822f911d9b4bfd8ea5b5ada3a1a4f7f3be13929bd4daf6dc18b91712af38a7830e19f29518768d61fd54366b2e99044d0b3971b3b2b6c7f1e11b99e9cb1abfd261231555d75cfd04031a78051ebe8ed09d96c41c9abfc19fe62ab36fed4c2ff3bccb1e33c7cf791a84ea51a5fbd5d443b3d48b0956d5039706fb34bf593bd6937898b9b66</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-surge">
       <input class="hbe hbe-input-field hbe-input-field-surge" type="password" id="hbePass">
@@ -3479,10 +3516,10 @@ nav ul</span> <span class="token punctuation">&#123;</span>
 <p>can i use: <a href="https://caniuse.com/?search=rem">https://caniuse.com/?search=rem</a></p>
 </blockquote>
 <p>兼容ES6+的插件：<code>babel</code>、<code>polyfill</code>、<code>babel-cli</code></p>
-<h4 id="使用babel编译ES6-代码"><a href="#使用babel编译ES6-代码" class="headerlink" title="使用babel编译ES6+代码"></a>使用babel编译ES6+代码</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> i babel-cli babel-preset-env -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="使用babel编译ES6-代码"><a href="#使用babel编译ES6-代码" class="headerlink" title="使用babel编译ES6+代码"></a>使用babel编译ES6+代码</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm i babel-cli babel-preset-env -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><code>babel</code> 编译插件，<code>babel-runtime</code> 和 <code> babel-plugin-transform-runtime</code> 的区别是，相当一前者是手动而后者是自动，每当要转译一个api时都要手动加上 <code>require(&#39;babel-runtime&#39;)</code>。其中 <code>babel-plugin-transform-runtime</code> 是在 <code>babel-runtime</code> 的基础上运行</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> i -S babel-plugin-transform-runtime babel-runtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm i -S babel-plugin-transform-runtime babel-runtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>安装后，新建<code>.babelrc</code>配置文件，进行配置</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
@@ -3514,8 +3551,8 @@ nav ul</span> <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>npm run dev</code> 自动运行 <code>src</code> 目录下的编译后的<code>index.js</code>文件。<code>npm run build</code>自动将<code>dist</code>文件删除之后，重新编译项目放到<code>dist</code>文件中。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> --save-dev babel-core babel-preset-es2015 babel-preset-latest
-<span class="token function">npm</span> <span class="token function">install</span> --save-dev webpack babel-loader<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install --save-dev babel-core babel-preset-es2015 babel-preset-latest
+npm install --save-dev webpack babel-loader<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
@@ -3728,7 +3765,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <h4 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h4><p><code>this</code>指向: 静态方法中的<code>this</code>指向类，实例方法中的<code>this</code>指向类实例。静态方法不会被继承，因此静态方法中使用的<code>this</code>指向函数调用的是类的静态方法，无法调用类的实例方法。</p>
 <h5 id="Class和普通构造函数有何区别"><a href="#Class和普通构造函数有何区别" class="headerlink" title="Class和普通构造函数有何区别"></a>Class和普通构造函数有何区别</h5><p>class的本质就是函数，是特殊函数。JavaScript中只有对象。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">Point</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 在 new 时自动执行</span>
         <span class="token comment">// ...</span>
     <span class="token punctuation">&#125;</span>
 
@@ -3789,6 +3826,7 @@ p1<span class="token punctuation">.</span>__proto__ <span class="token operator"
 <p>类可以不用创建实例就使用静态类，但是实例类必须要类进行实例后才能使用。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">Root</span> <span class="token punctuation">&#123;</span>
     <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 当前的this是指对象实例</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>bar <span class="token operator">=</span> <span class="token string">'bar'</span>
     <span class="token punctuation">&#125;</span>
 
@@ -3800,19 +3838,19 @@ p1<span class="token punctuation">.</span>__proto__ <span class="token operator"
         <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>bar
     <span class="token punctuation">&#125;</span>
 
-    <span class="token keyword">static</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">static</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 静态方法，定义在 class 的对象上 this指对象</span>
         <span class="token comment">// this.bar => undefined</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span>
     <span class="token punctuation">&#125;</span>
 
-    <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 实例方法，定义在 class 的原型链上</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bar<span class="token punctuation">)</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token keyword">extends</span> <span class="token class-name">Root</span> <span class="token punctuation">&#123;</span>
     <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 调用父类的构造器</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 
@@ -3823,12 +3861,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 son<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'son'</span> <span class="token comment">// son</span>
 son<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// bar</span>
 Root<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// foo</span>
-Son<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// foo</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+Son<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// foo</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-
-
+<p>子类继承父类时，想要拥有父类的属性和静态方法，需要在构造函数中调用 <code>super</code> 访问父类，在重写父类定义的函数时可以使用。</p>
+<blockquote>
+<p>getter 和 setter 方法类似于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a> 的 getter 和 setter。</p>
+</blockquote>
 <h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><h5 id="export与import"><a href="#export与import" class="headerlink" title="export与import"></a>export与import</h5><p>export 默认导出，import导入时不用与导出名相同</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 导出</span>
 <span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">19</span>
@@ -7996,7 +8034,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <title>方法论-如何学习</title>
     <url>/posts/574e523c/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="🙅‍哒咩." data-whm="校验🙅‍哒咩.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="dbf82a7738e65c9c518268cb9eb8e3d55d3739816e7e80c46f0082e134e4a0e2">f5ccbb6076d58ed268cf89a6547595d684db417254ca7b871ddf58e43359ec1ea0ecbfc56f2da5064f86d7c96022ab2b84b3b684495018f6d21080462dd22742ac7a0621ef79dc50e7b2c9c5b827629054aa5dfd6d6e6b9cac9cafecb84dc4a64f7bdfed6626aa8d1a15354031fb6bf98ab5929e52049b2152a5e1414f4c8b71dc6bbaabd660f3e8c52f0bf33ccb575dd1f8cbff02b8708138f409dca98d20bf2c238239b5b273249f908593a57959100419c32072ab449fae8d017f142864fec670324ef73076b7ea0b55ec3191de0eb7b34e216d5369699530e632b7195113c80765f45b2610fa1929a3d2eae74ebdf045d246727ecef536f9a43a381021869dd29ad029b54708ae056a9586d70c4fa9b1deab3fd151269b081272b4ce75469b2a7632f4e00fbd3b370357d5d997ba7ccfd619415329590b047b3a4553b802856fc347aae1a0c01d3b2c3ae6980d7d9ea3620146b456f6847e5eee9aff38875af23f65f334ed4b750bca8450b65fc4ee188de669ac2ef9857b1d12dbdb882cf523405a44c3eabf509144f1c8b62566c5860a2484b5eba93ec4ee8b8138725d8126c9ef831509bcd6788c29da9a1414f1d75a4e149b586b40d587a3c8b4ad7dca6f089b10ebaa91278b34ebb4db7ee093b95ce3bdf7a8d2b2e05052bfc88120119c5967e6a8752f7abda3e8c588e2c1019d6ea57bc0a84279b0fdeb029f2279c737c5b8b5b77059b65f13f6aabbab91317d701ad393619762d4948f8126a3b52d15b459cd61cdd56ceb3089c4ae2250de5e282d8983a09f3ca78be5af48d9c31aab24860e2d7747f02569cb05cc89eb8cff76bd87fd70eaf70279ab9d071bf4242b33e2add87b02fdda2403e423eb7886d3583342e70b5affd751814c6d505a8d07e7671fe801520f45cd0738b7ad82652cbabdce2e843aba6d3d626294c08fce842f11e4ec0804c671ca6724c56e3990d3eba1d2b7316a461023312c199e06244c86a71deaefef9c1be6b5a34d0a04c2d99e1a929c19a514cb94d42ee4ddc8a66b6be39d1384e5ec7f4710401bb0626d00ed253f9c590abb34f4039c58e4f4b475b612b8c7e2d4d047a46e551946fb254080062994b8b95eee892ebfde1b3ce5cba6f40ba2e924238f83cab81943b7410863ab09ef60d4451731276245e0125bd0ba44e7a3eb58f9a8c34748c36bd96dd9c37c781d14015c557ef8fb3c7248f32d894bdcf30715b598482999965871b058b9c04b4aa1147310f9717a81e7b9535528b65ad34b3de57335efbc42719823c42135d6d04a573362655b636cce0f290a75215114803b4ba2ea98f38b79ab8e20df3666b12133a7efaf2b15d3c872e04a13393b829e7dfd261289b9fafcb3f8e9107fd57c89f3d033b87b549cbd1f97024ef99c9c86edd1e6c0b4f7d8e41ca07658bff529f2bdc5743561a2f63cf9a04227e12656698c2b6fd8e5638570a5dbb6359687beff3bc70bdb27b553eca44a1a2cf4c415e556edc8e8a5297895bc7e5f026165f522a5eaa90e6d96a18fe9b002f882e8c39cd8200249211c3282871b807f44d63ae1a518c0fd9149eaf2960192b15e1ba9c5d366f2e2882afbce4f14c2fa2eb8f7afb3ea76a18c05b4cd6cace970204bab400d72014643c6c4227aa73b068825b19524744b238f5ef28677405939c83c12eb1e4f61e0345b2efa3d09fcc571447ea2d5e2b43f2dee9db15ac831bf1bb0c3dcf01afeed1d332d24062648ab47af3ef0c61fdfa474493151969c008cebfa846b9ce81c053faeaf67d3c97f4ff9d00e70d251e816c3026f73ff492d04a00c77aa79006182eb83de907f9b262732a030b1a465356ef25bba1d0541e02f5ea40f9ddc8c1a5d745d6346255256e02f82697022dd402a36e7eab0a27527e4390ed51caa2dd929c9be54e59b21a7149ba57921b311e0b4a6bf67367fa08ce6432df6fe761f753c6bb2349102a1a28439b43b442473e6a80873907329a36ec5ec916ae16a429b8e4b6ba611349f2a19e4fe8665ed02e13e8fb1fc82f5c0cb43480d5a9809f1449d5f33194f80c72d8501b1e26e0942fb0213ca209558377f834dff4b25b8b108678d7867cb18921d16efa2bda15d7eb2980e01e620a42ddbf8e09b89d97d57d3b417f78de959cce346d155fc98c0bcbb90265b25cf88c748f54690c8b8ff6fae867a29c3f043c4e763b3e8c66318bda789d8b2722cd0ddfdc46f92205b7393506486c90e1496c735523b1b0f00f64ea607bc30e995ea67f244ba8c32b406ee13fcfb34a07f21583dec69c733ecd0cafba5fa9d65e418f559646af4b91cb6c0a07156a50159f0dcc61b6e23c2143958c0b84fc695312b53106506c8d41222fb7a7e87b6d6e93ba73ef3753b8e02c57a57a830f61f9aa770d1ac869ce181568079331d1c6c3a58de0a24e521644fa7113eeaa28402947daf847fdc9ec36aed825e1c2ce3d4986f5be80133af4a9f38c5fe711c4cea9699785fefc81828ddefd2e15fd0b0123f92412aaa34b715b228e45c66f2a55f45e50f75a6f4f3865d15d4707e5bee5d858d7e4848035d5f380709d054c87e31730478ae4ea389b9c8fb6ab2c749d77d64779211c43687e9b6cc377e80b2044fe3f9fe34583d1a4b2f4df02fc9e05255934f7b80adb867a7586343fbbbae20157ae8d7c28b465ddae9f99b82b8bc24685c0b0e64465b5e0398c6331eea7eaae430a833ef69e584982903f70853d0e1d03e74e55b660e0e37ac8fdaf1efd014e3d9375f556374d1db5ca1cdb791ff79308d105e36cd5d28d63e81f0fbe391b1d6cc4245273f8e616fe38dc2fe2abffb71d3ee6f30b89ddafce4e626a9440f46de8ffbbcc2e678e10b7d433e647d79d4c7b2dc5b91a069149b955c5679b662e97097af2173fc4274036d40316dfa9da5f4eabec37ec159d3fdb5ede8f2a019357f6489b91fdd788c473589f4b7844fee014726c34b5cc5e628d6264bf39f8d340c86e40838bcf40e9c4ed74ee3accbf532628a2d5cd921dfff800befc213b778cbab8920699b507451478933cab89c9625c9f978128eac9daa3de75fb53e15470bd163ed5ac0c0769acc452e3d859a8915c07c18cfd7b0cb01b8bda3b81afe6c0f7c51cd48a4ef00032e1d8558f84df42acafce2776ad24fdf88e46a10885f7406d97da2d446c4dcc51dea476c4eede77452bd5dcbbb6da8a60108e54fd97038db780d4a0fbff7435b3d76dbed462ca4356462ec648d075ec0436ff7d77393d993da3a49df31f1e84581914c876c2eaf72c708d41d1ff293c6ddd89b14b13a5efbe8f0bc33fa7ef40950d5d9148f015cf2b0028bf618410a1aa91d00bf489d52bca4f3bfa2c077286ddcf788b15daa61c784a637d88383476bf59199a19f6725dbc4c400983126514120fce505b55355a9b17285fc23057af0a824ccb7e045cdd42aa46a1a0c87656a5021c6a21c789c10f2586ea4d6d2addc330bd8e4686b7f8083ca49a1daedbcc1a878675c148bb3543b4f79aac11e1001e080c3beb1aaacef6be6a9ce8fa94c59fd2c3fb73f137328e2f1ed3b0e2a03bad5472c8b556a394dbd5e583779a1b829b787b7a9569d465601fd5c2f47fa85f3e5fec660dc73181ec94c22d3483813cda0679447c97c0bcf688483404c0f548f1d7a3c4f2c2220d5510cbf33a84fc1ffaa435d871d87608e57ecbb7ab3c84d2ebeb98067db97efad2c6c75becd75288588fd9799f7137cc3eb6c8359961f9ba4e722a9a34fc351ecfebb5790f9341daba7d773b32ae469922ecab04fd5efff0472139db1f3617181fccc69b33b03e54a6d41cfe56b49abec4d51bca1fc54f0f3eca29dddfc3a59e4579d40581622c8c948dfce160f914a55dd815e01814eedffa395aa6aaa4b08915c74cb39e0c4508bfe5f462d5087016d53ad651286ae00f8787f422b5b2f3686e71e5a20c0e66458caee4a6124d912914a5758e2ad5c055d92fde3656ba2431099ee02e80f0bf0b0cbeacb34ad0c9b8031c8da326beec85a103bfde47a3b7ddcabf4a3c202b54c1edbddc771f19d34a45b408f1589decd61f2aee4be9dc748c8712a9d76611494c0327a9afec641373dde5d91e1df04cd7578c8ddb0d82480165244ecdfd8d2bf80635790aacaa30d1c68e1b9fe80357740a6f543577e305a875195791dd0a62e56ffac3640c9847f49b6e044a8270fb7c21464be34532330cdbdabf2c488bc3f2027117cbaf9c4ccc38c39c905e75d13a676483b95bf6ce95133708d38dc2ec734d9a87bd67f2a5bfba5d8d537eeae33f9f3ff169484e2d849499f974d82d5d1463be2a090454270fccea68f24e1e1b7a051647f191016c2d13c0cefebd0bf2c6c7fa3d493c812a6f3e2611175a4aac3f9a8ef789033fa2148d30cdf412a455938cea2a275a1ae9667ec44b737587d979ff3ab5557607653b85506b597bdb4365f4150dffcfa16a9aaffafbaa9ac72e38080960aa548eba6958bb9e1c60018916e16055b1cfe72f30e2c4bc06d5084c3ab9c8991cc2c5664536ffa0da0cd27176932217abaa8d1aeaf2c1ec645d15e11b81f3fcf5fe25dc17bcd073c89e104b57112017799441a14e18e3c1dd753cd3897d96b353b68862d10c60750797d891250590428bee15e5dfc1d282f94f841569eae02e012edb94c76f650bb98cc74fec887203b617082fec1eefc880b62cd0b13c4e8ada47fe7865f99ac51d6323e58f7edece743ef26cc1100a7255cee2fd7bb21db035382da036f441f6297ed1f0ace3492c4bfbb7ff28a441947cad63e73b88223bdab5b623f7dc01a8e65b760f98e740755717d7a3cf5f0c18db014d4ac31b78fc16a786ddb8bf2db9c9af1c1e0680027bc401f9c671d15a76792e6ba164845175adf8d5d969f769c5267334e53b3e2e32d5c3237c00ff3cf8c1a50b846d50a7fb1e46df031747f3c6bb60b8ab694e8958fc09e753957bc07b160b6407e93239e229ab5f3bef9ea77fb38aed49c818aadab7052e7e1bed1ba6a0dbad7acdc6e1cf5fc80ed5d71089e66bce5e84452ccd4d0e06550d7ee567e5a28ba2576bab8594b23df59cf5e370b0a11d4605d7adcc344932940b0a9a4c6b652bec5d58ee75b2082467ddcef4f0f40a1021507436a145a292746c80c82c1426ad3a628b733c11102edf24f22590383556cd6e05313aef8b42533281f8695634ffa408e3a0761747f285bd1c22391652dd9213495bcea796f131869f04619647d9af4942806633cc973eac9324d08e19150b244e29c7f5f534deda2d7074e36e5b42b2dbcea435d06443d24be6ba7808559896df77fdd3f25436113eca3ab4dffb5ce93aab953f885633a4844309e1ff97588c6c512e081e4e1cfb3124f53482fab1e29dde717a6f840c8ab3b6b1ecf5af92406169fde60aed35e27b35f7b2d618c0f0d2ca5fafa311e7bebb76662ab10208c801b102de0ccde6a5090ed7c647564a15b83af65b01eb8df203469bd968be06404ec3167bd49a720dbd6c4493165368d979d624408c6bcee11cf8e76268d34790adb50cb8f4b52ed061decc34f2bf299ac998720f6a1cdfc943563c5a3df093be0d7eb2cc18e52f51b7b7d55821ab913b572f31c896a021ce40eef3e6a3f25b6de9cc7a61ce78d44a641cd22eec556ea9423c4abf3f9f7cf731d008031408a9bebebc45e76c374ad9ba57f1567f0b92316833af3bab513a60976f542</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="60d9e8902be397eccecd7d0543c6a06906a51fbed8437d4486daa427ef3b4cf0">f5ccbb6076d58ed268cf89a6547595d684db417254ca7b871ddf58e43359ec1ea0ecbfc56f2da5064f86d7c96022ab2b84b3b684495018f6d21080462dd22742ac7a0621ef79dc50e7b2c9c5b827629054aa5dfd6d6e6b9cac9cafecb84dc4a64f7bdfed6626aa8d1a15354031fb6bf98ab5929e52049b2152a5e1414f4c8b71dc6bbaabd660f3e8c52f0bf33ccb575dd1f8cbff02b8708138f409dca98d20bf2c238239b5b273249f908593a57959100419c32072ab449fae8d017f142864fec670324ef73076b7ea0b55ec3191de0eb7b34e216d5369699530e632b7195113c80765f45b2610fa1929a3d2eae74ebdf045d246727ecef536f9a43a381021869dd29ad029b54708ae056a9586d70c4fa9b1deab3fd151269b081272b4ce75469b2a7632f4e00fbd3b370357d5d997ba7ccfd619415329590b047b3a4553b802856fc347aae1a0c01d3b2c3ae6980d7d9ea3620146b456f6847e5eee9aff38875af23f65f334ed4b750bca8450b65fc4ee188de669ac2ef9857b1d12dbdb882cf523405a44c3eabf509144f1c8b62566c5860a2484b5eba93ec4ee8b8138725d8126c9ef831509bcd6788c29da9a1414f1d75a4e149b586b40d587a3c8b4ad7dca6f089b10ebaa91278b34ebb4db7ee093b95ce3bdf7a8d2b2e05052bfc88120119c5967e6a8752f7abda3e8c588e2c1019d6ea57bc0a84279b0fdeb029f2279c737c5b8b5b77059b65f13f6aabbab91317d701ad393619762d4948f8126a3b52d15b459cd61cdd56ceb3089c4ae2250de5e282d8983a09f3ca78be5af48d9c31aab24860e2d7747f02569cb05cc89eb8cff76bd87fd70eaf70279ab9d071bf4242b33e2add87b02fdda2403e423eb7886d3583342e70b5affd751814c6d505a8d07e7671fe801520f45cd0738b7ad82652cbabdce2e843aba6d3d626294c08fce842f11e4ec0804c671ca6724c56e3990d3eba1d2b7316a461023312c199e06244c86a71deaefef9c1be6b5a34d0a04c2d99e1a929c19a514cb94d42ee4ddc8a66b6be39d1384e5ec7f4710401bb0626d00ed253f9c590abb34f4039c58e4f4b475b612b8c7e2d4d047a46e551946fb254080062994b8b95eee892ebfde1b3ce5cba6f40ba2e924238f83cab81943b7410863ab09ef60d4451731276245e0125bd0ba44e7a3eb58f9a8c34748c36bd96dd9c37c781d14015c557ef8fb3c7248f32d894bdcf30715b598482999965871b058b9c04b4aa1147310f9717a81e7b9535528b65ad34b3de57335efbc42719823c42135d6d04a573362655b636cce0f290a75215114803b4ba2ea98f38b79ab8e20df3666b12133a7efaf2b15d3c872e04a13393b829e7dfd261289b9fafcb3f8e9107fd57c89f3d033b87b549cbd1f97024ef99c9c86edd1e6c0b4f7d8e41ca07658bff529f2bdc5743561a2f63cf9a04227e12656698c2b6fd8e5638570a5dbb6359687beff3bc70bdb27b553eca44a1a2cf4c415e556edc8e8a5297895bc7e5f026165f522a5eaa90e6d96a18fe9b002f882e8c39cd8200249211c3282871b807f44d63ae1a518c0fd9149eaf2960192b15e1ba9c5d366f2e2882afbce4f14c2fa2eb8f7afb3ea76a18c05b4cd6cace970204bab400d72014643c6c4227aa73b068825b19524744b238f5ef28677405939c83c12eb1e4f61e0345b2efa3d09fcc571447ea2d5e2b43f2dee9db15ac831bf1bb0c3dcf01afeed1d332d24062648ab47af3ef0c61fdfa474493151969c008cebfa846b9ce81c053faeaf67d3c97f4ff9d00e70d251e816c3026f73ff492d04a00c77aa79006182eb83de907f9b262732a030b1a465356ef25bba1d0541e02f5ea40f9ddc8c1a5d745d6346255256e02f82697022dd402a36e7eab0a27527e4390ed51caa2dd929c9be54e59b21a7149ba57921b311e0b4a6bf67367fa08ce6432df6fe761f753c6bb2349102a1a28439b43b442473e6a80873907329a36ec5ec916ae16a429b8e4b6ba611349f2a19e4fe8665ed02e13e8fb1fc82f5c0cb43480d5a9809f1449d5f33194f80c72d8501b1e26e0942fb0213ca209558377f834dff4b25b8b108678d7867cb18921d16efa2bda15d7eb2980e01e620a42ddbf8e09b89d97d57d3b417f78de959cce346d155fc98c0bcbb90265b25cf88c748f54690c8b8ff6fae867a29c3f043c4e763b3e8c66318bda789d8b2722cd0ddfdc46f92205b7393506486c90e1496c735523b1b0f00f64ea607bc30e995ea67f244ba8c32b406ee13fcfb34a07f21583dec69c733ecd0cafba5fa9d65e418f559646af4b91cb6c0a07156a50159f0dcc61b6e23c2143958c0b84fc695312b53106506c8d41222fb7a7e87b6d6e93ba73ef3753b8e02c57a57a830f61f9aa770d1ac869ce181568079331d1c6c3a58de0a24e521644fa7113eeaa28402947daf847fdc9ec36aed825e1c2ce3d4986f5be80133af4a9f38c5fe711c4cea9699785fefc81828ddefd2e15fd0b0123f92412aaa34b715b228e45c66f2a55f45e50f75a6f4f3865d15d4707e5bee5d858d7e4848035d5f380709d054c87e31730478ae4ea389b9c8fb6ab2c749d77d64779211c43687e9b6cc377e80b2044fe3f9fe34583d1a4b2f4df02fc9e05255934f7b80adb867a7586343fbbbae20157ae8d7c28b465ddae9f99b82b8bc24685c0b0e64465b5e0398c6331eea7eaae430a833ef69e584982903f70853d0e1d03e74e55b660e0e37ac8fdaf1efd014e3d9375f556374d1db5ca1cdb791ff79308d105e36cd5d28d63e81f0fbe391b1d6cc4245273f8e616fe38dc2fe2abffb71d3ee6f30b89ddafce4e626a9440f46de8ffbbcc2e678e10b7d433e647d79d4c7b2dc5b91a069149b955c5679b662e97097af2173fc4274036d40316dfa9da5f4eabec37ec159d3fdb5ede8f2a019357f6489b91fdd788c473589f4b7844fee014726c34b5cc5e628d6264bf39f8d340c86e40838bcf40e9c4ed74ee3accbf532628a2d5cd921dfff800befc213b778cbab8920699b507451478933cab89c9625c9f978128eac9daa3de75fb53e15470bd163ed5ac0c0769acc452e3d859a8915c07c18cfd7b0cb01b8bda3b81afe6c0f7c51cd48a4ef00032e1d8558f84df42acafce2776ad24fdf88e46a10885f7406d97da2d446c4dcc51dea476c4eede77452bd5dcbbb6da8a60108e54fd97038db780d4a0fbff7435b3d76dbed462ca4356462ec648d075ec0436ff7d77393d993da3a49df31f1e84581914c876c2eaf72c708d41d1ff293c6ddd89b14b13a5efbe8f0bc33fa7ef40950d5d9148f015cf2b0028bf618410a1aa91d00bf489d52bca4f3bfa2c077286ddcf788b15daa61c784a637d88383476bf59199a19f6725dbc4c400983126514120fce505b55355a9b17285fc23057af0a824ccb7e045cdd42aa46a1a0c87656a5021c6a21c789c10f2586ea4d6d2addc330bd8e4686b7f8083ca49a1daedbcc1a878675c148bb3543b4f79aac11e1001e080c3beb1aaacef6be6a9ce8fa94c59fd2c3fb73f137328e2f1ed3b0e2a03bad5472c8b556a394dbd5e583779a1b829b787b7a9569d465601fd5c2f47fa85f3e5fec660dc73181ec94c22d3483813cda0679447c97c0bcf688483404c0f548f1d7a3c4f2c2220d5510cbf33a84fc1ffaa435d871d87608e57ecbb7ab3c84d2ebeb98067db97efad2c6c75becd75288588fd9799f7137cc3eb6c8359961f9ba4e722a9a34fc351ecfebb5790f9341daba7d773b32ae469922ecab04fd5efff0472139db1f3617181fccc69b33b03e54a6d41cfe56b49abec4d51bca1fc54f0f3eca29dddfc3a59e4579d40581622c8c948dfce160f914a55dd815e01814eedffa395aa6aaa4b08915c74cb39e0c4508bfe5f462d5087016d53ad651286ae00f8787f422b5b2f3686e71e5a20c0e66458caee4a6124d912914a5758e2ad5c055d92fde3656ba2431099ee02e80f0bf0b0cbeacb34ad0c9b8031c8da326beec85a103bfde47a3b7ddcabf4a3c202b54c1edbddc771f19d34a45b408f1589decd61f2aee4be9dc748c8712a9d76611494c0327a9afec641373dde5d91e1df04cd7578c8ddb0d82480165244ecdfd8d2bf80635790aacaa30d1c68e1b9fe80357740a6f543577e305a875195791dd0a62e56ffac3640c9847f49b6e044a8270fb7c21464be34532330cdbdabf2c488bc3f2027117cbaf9c4ccc38c39c905e75d13a676483b95bf6ce95133708d38dc2ec734d9a87bd67f2a5bfba5d8d537eeae33f9f3ff169484e2d849499f974d82d5d1463be2a090454270fccea68f24e1e1b7a051647f191016c2d13c0cefebd0bf2c6c7fa3d493c812a6f3e2611175a4aac3f9a8ef789033fa2148d30cdf412a455938cea2a275a1ae9667ec44b737587d979ff3ab5557607653b85506b597bdb4365f4150dffcfa16a9aaffafbaa9ac72e38080960aa548eba6958bb9e1c60018916e16055b1cfe72f30e2c4bc06d5084c3ab9c8991cc2c5664536ffa0da0cd27176932217abaa8d1aeaf2c1ec645d15e11b81f3fcf5fe25dc17bcd073c89e104b57112017799441a14e18e3c1dd753cd3897d96b353b68862d10c60750797d891250590428bee15e5dfc1d282f94f841569eae02e012edb94c76f650bb98cc74fec887203b617082fec1eefc880b62cd0b13c4e8ada47fe7865f99ac51d6323e58f7edece743ef26cc1100a723d3f01fb6bffe3ab52125a74942004c34a25c3204e70336adc0b579a9d272e1527f6d8ef9f6ede8845bfca7d94c8f1c30d676dc0a368928b88debcce5ffa9ad35f727af65b96ec5ae94ca41822efe27063b44e62ae1882dafdaaac4db872ff04a9b797fcaaeaf11ceac5fa32795283f73c01f00b1ee72edd3928fdc2c6fc1da023d5936b5d63ce5c9771a35b3ccc05b303c0d0837516956958713ebf78755bf64d72270e3324ad880cc5426fd3ef61789f559462b6d6433aaa46c873eda4488d248bcd68b201272d2a9e9cd7e456fac40065ea076adba5b857340bbf0edc8732e516626a92cbab4a12bac269a5f022bed1f54180d62a3d630ec9bd3ce20ced97608cc54ac9f83d210b96411742f7acb3940bfebad44d86da3c64ececca6f81ca474525b4f2404a50a9f94333d7e980b71b73ba66507abcd910de87b4de3b02a3d10b87bc9a1140c97618368d469380d3615c66d70931b703eac0dfaf8670d84c1904b45f16ab20c18aa40b982558b77cbc6ce0f188a4fa2608d4dfe0552fbe57be23391dd88a435364b615f10d22b9bda5fd8d00afe8a00a36d68439c9b0461d741d223ab01d306ecd58e4b2cc71d6ee65187cb9b3246f8d0dacc57c280ba59339beea130798821723956610d0ce9a07e97d1505b4232ea56d332e6f488a718bd0f255896b0281628db96f0bec29c7b8166bb3c9b479597b2cdbda7648c6117277a73399e76dbabd5344a40a0f9ec6ecf6ba27a065dfb7eea236581db1b069606ac8906d2aa21f0fa46921f65d925ca25ee84652d240448dcde161f1ef4146952980839a8827e435cd817e0e613ed48a28913a9b6d83116807d92bfdefbad359adfd5273f2529718972147fc456ccdc48e2e7f59715d15331778e78e921c46d5e3d5b78ad6f608395723d7d3db53e1c67c49c537923065056a2c554721d31460099c9be1fd12aafdcc13ec1588fd1d6c3f9e54394cdd988a9e25a18d988ff66cbe077a4e04be7ac199395449fb6863862750fed188848926e44f56d2e313e1a8657cdc88e703a66e9386387c43fde1bcabe75ffdec062ffabb9c3aa35f83f9c2e6761123b279c2fddd8f123592365d3db1cf41ced533724ece6d22940ae6a465825e41b894ee4729fccb8619ee590cd636c5595a1f9112389007779d81a1408dd48d33502b23c97da512ede0c5811443964e0a57634f5fb71ce13302f8edb3fdb9853c801a8dd46172798fc5fa590b6290dc8a7e8de24e5e6c8e0cb4e7697d29e6cf59eb05d974725c308ebd904179ac5e4aff30348eed2f0b6be2bd8f2a0be6e7acc4df80bedfc8302486dd66417af233e28f96d966963d077b61feca689018f2d3c63c3a0489a8c68499b553f56a29886d9b53de6591e56f251442b309527c4c03c38746c05072f92d5b6bab095de0bf6817d73590a8e665489eb07438db6d2bb4dd477a6f58662630c15ce02a31eeba6a225a292e7f9c0146814e4f3652c46e1f46be80be5850580852c8be8f66b4d25642a178c380d08a16ebd46883895ef09ed2a0c0e7f15957cb6039b6af2bc5b87c56e8b8c156f5dc6fcd4791a8e65f7accf13375cbbb612632b9829d44d9686cf85429072fe9aa8925439bcc9694bf935f08c3603456a552f1169a6d5fc6f3d720aa25764052496132f5d5f151e519b398d604e9b669b083063543c258b422c3af8c6f1d6ad548a954bfb2c21e02533471febb1f4245c71b75eb710b5da301f1635eeba5b5ef9dcec1184aeb392724b4af0d0f9aa0b195ada7fa78964ab1528358802e1845643d38c70006a803fd14a6d93aa21a19f2a771ae8fb4d78dd68cfebb74ef6fbec8bacedfb75bdf7a95a544eaf8c48e06fe68848372b1f6999796bebe54a84dc276d8ad2519a4a932fbb7bb7b7e2acfe2c7cdeaf0ed540e622ac2479f54a539caffc0b7fed34b567fba334eb695ddf6c29c01bd90558fde8f86f4e01caaa3bd4d24224ceb6e9e4a2a57f295edc4ed8cd3a9192663de37a91ec5c9df05defb7d4971dd4fbdc34a20a1d99d400639239440a01726d0ab8ab87dd35630e370e5e2c22ce53445011c18d61c2d408ce756a796614b46a5a3307c753fdd20be8c8bf2ef4643a5842dc59199e050eb1c1e0a0a2ad6ea13b0df44931193ce49c9fa6272ac69fe42ea55d4ecccd4434934ce07fccd2fe8c8c7ba81709849d6476e3865f13c4831debdee6073ae3ad9ad207ba3e2ebf504e9a44ab1b5e54d09c1c484121c52750f0b2f1480f0da87632bdb1a5ea8dc4c50294d5931e9e1c9482a8bb747ed622b8e29338e872abac61eae17a69ea7466ed7b226ef0b37159f82ec0479e516422342f58ce557d8ea8b8e3d13493290fe011216ad4800d79d859e08b858326e6e41a8496af3a45611937001f5f484e2259a7e45f34432fe89d9eaf872b343784416fb2a8d00815040eb562170b3d0c0022aa9e3f5a96c8a48893d98925b67b25cf1b2444eafc939aba67caea5fd7f042c3a819dc34afaee3b59a65f252d0d530ee09a442ad7927a8154caa00e2460e6cda557370288173c646a45b5eb34d860ad2d2d5d0b72325fb0e2287f5c973f8629aba262c8468b8f06c23d758de51f0bec6a60a11e6b75bacaa9081bc8adef63e6c9702869352b33be91229637c1c0313bb82e4f52653ae1e19ca57e8abd7e289f9ce9c8e220efd8aa2d407b4b8253ee8827a82c041222b424c1566c50fb9885f32d837b168fe175138a06302f8ef594c37fbcafe05ac0011063e5cfbc5049a611d0c0e78beb65b9a880eb4e4dc78c1614dcb3ece6a301130afb638a42ba5d3d4455a980a728d963ee561c41cd261708f9351a14dc850cda5d3c2b95969585ec97ed0b4125f563e76dbd7d273589c83c923943773cb46fdf1d5dedfb43884ef6d70ebd870b3bce7ada2448104fb31588b43f2c48c3eb6c1301f97e0fa83e702f1270b261f5870294c1f24058352b081f6a6d488359aabe039f00fc14d4f01df6f448c49a28bd2948b6469918569eb03945efbae420c2bf89fe1e656b66b32232748f55c2496deafe32802650614494013746fa5e0d8094372e749cb2a4f3cbcc3f1d199e69f88dd73620bb85e161a10f345c25b3e1cfe375810d6f523d0204f3e90c7fe03928dba279350072acc91c6d5cb6f8f7a0a7e9fc356baebb406f8c0537b20e82a1f2ab4103458df51bce3ae5a45bf41c4dabdecb1b14aa97d9068d8070f98ad9bfe06fc3e50bc21e8e85a3b5e5cfee671e0a49dad005e7c765b275e044195515839f54be852e101363295d9413212e0ae6c36c07ff2d6facaa76b74afce300dd28b5b180614a766d657e9f23295ff730de4e58172454987cd313271651f57adc7f5ed91cacafe3a07116c2a34be08040c4682191eb067c965631e61b4792a9e63ab0216832c5938c01e7b31df9aad6a26397c08cb3fd2f5fa4a2d39b03c5c6a14b74061e6b2a72809f8088f2ef4a38e844917cc98783b61cf3897d19d6e55aa8a50d5933b05cd9aad578ee484b24c26f0401ff37f865a1aeee3d9c81f3313c7f660baa98f35030c629c7bb237f833ecd62b40cf8bf1457cdb0e24f37276cf1e00efce6bec3a66274f6a399b7b8d0c66bf29c51181a2351057e97f67c3d17eb1629311bd7372316ce16877e9ddeb8783d6cca624c080ca6911651d6b9aeba71d1bccd068f7406515f51239c0d0206f49fea62c75a575364735c27debc02936d35ef32406681505d24756f22e87391e5c1b8fbab3208e20</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-surge">
       <input class="hbe hbe-input-field hbe-input-field-surge" type="password" id="hbePass">
@@ -9079,7 +9117,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <entry>
     <title>高级函数-函数柯里化</title>
     <url>/posts/22570/</url>
-    <content><![CDATA[<p>用于创建已经设置好了一个或多个参数的函数。函数柯里化的基本方法和函数绑定是一样的：<strong>使用一个闭包返回一个函数</strong>。两者的区别在于，当函数被调用时，返回的函数还需要设置一些传入的参数。</p>
+    <content><![CDATA[<h3 id="什么是柯里化"><a href="#什么是柯里化" class="headerlink" title="什么是柯里化"></a>什么是柯里化</h3><p>用于创建已经设置好了一个或多个参数的函数。</p>
+<p>函数柯里化的基本方法和函数绑定是一样的：<strong>使用一个闭包返回一个函数</strong>。两者的区别在于，当函数被调用时，返回的函数还需要设置一些传入的参数。</p>
 <p><strong>柯里化函数通常调用另一个函数并为它传入要柯里化的函数和必要参数</strong>。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 将返回函数的参数进行排序</span>
 <span class="token keyword">function</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -9108,8 +9147,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">var</span> curriedAdd <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span>add<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">curriedAdd</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 7</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>函数柯里化实现<code>bind()</code>函数</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">bind</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><h4 id="函数柯里化实现bind-函数"><a href="#函数柯里化实现bind-函数" class="headerlink" title="函数柯里化实现bind()函数"></a>函数柯里化实现<code>bind()</code>函数</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">bind</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">var</span> args <span class="token operator">=</span> <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">var</span> innerArgs <span class="token operator">=</span> <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -9121,11 +9161,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>bind(…)可以对参数进行柯里化</p>
 </blockquote>
-<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><h5 id="简化差异性判断"><a href="#简化差异性判断" class="headerlink" title="简化差异性判断"></a>简化差异性判断</h5><p>如判断当前平台进行差异性操作，vue源码中的patch部分</p>
-<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="https://www.cnblogs.com/hmchen/p/11564394.html">浅谈函数柯里化</a></p>
+<h4 id="简化差异性判断"><a href="#简化差异性判断" class="headerlink" title="简化差异性判断"></a>简化差异性判断</h4><p>如判断当前平台进行差异性操作，vue源码中的patch部分</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://www.cnblogs.com/hmchen/p/11564394.html">浅谈函数柯里化</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
+        <category>高级函数</category>
       </categories>
       <tags>
         <tag>前端</tag>
@@ -9138,12 +9179,19 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <entry>
     <title>高级函数-闭包</title>
     <url>/posts/50394/</url>
-    <content><![CDATA[<p>当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行。</p>
+    <content><![CDATA[<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>当函数可以记住并访问所在的词法作用域时，就产生了<strong>闭包</strong>，即使函数是在当前词法作用域之外执行。</p>
+<p>简单来说，<strong>闭包是保存了执行环境的上下文的函数</strong>。</p>
 <blockquote>
 <p>词法作用域意味着作用域是由书写代码时函数声明的位置来决定的。</p>
 <p>编译的词法分析阶段基本能够知道全部标识符在哪里以及是如何声明的，从而能够预测在执行过程中如何对它们进行查找。</p>
 </blockquote>
-<p>闭包阻止了垃圾回收器释放外部函数的执行空间。</p>
+<p><strong>闭包阻止了垃圾回收器释放外部函数的执行空间。</strong>参数和变量不会被垃圾回收机制回收。</p>
+<blockquote>
+<p>即使外部函数栈内存已经释放闭包依旧存在。</p>
+<p>为什么不会被垃圾回收机制回收：</p>
+<p>首先 JS 垃圾回收机制中，如果一个对象不再被引用，那么这个对象就会被垃圾机制回收，如果两个对象相互引用，而不在被第三方引用，那么这两个对象就会被垃圾回收机制回收。</p>
+<p>因为闭包中，父函数被子函数引用，子函数又被外部所引用，这就是父函数不被回收的原因。</p>
+</blockquote>
 <p>经典闭包：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
@@ -9156,8 +9204,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 闭包</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>通常，<code>foo()</code>执行结束后，垃圾回收器会释放不在使用的内存空间，但是因为<code>foo()</code>内部<code>bar()</code>仍在使用<code>foo()</code>的内部作用域，因此<code>foo()</code>不会被回收。<code>bar()</code>依然持有对该作用域的引用，而这个引用就叫做闭包。<code>baz()</code>被调用是可以访问被定义时的词法作用域。</p>
-<p>闭包使得函数可以继续访问定义时的词法作用域。</p>
-<p>无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的引用，无论在何处执行这个函数都会使用闭包。</p>
+<p><strong>闭包使得函数可以继续访问定义时的词法作用域。</strong></p>
+<p><strong>无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的引用，无论在何处执行这个函数都会使用闭包。</strong>例如：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> fn<span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
@@ -9172,10 +9220,50 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>回调函数和<code>IIFE</code>是闭包的一种。</p>
-<blockquote>
+<p>闭包作用可以避免变量全局污染，例如：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">y</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> x <span class="token operator">+</span> y
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">var</span> addFun1 <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> addFun2 <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">addFun1</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//6</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">addFun2</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">//11</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>addFun1</code> 和 <code>addFun2</code> 拥有自己的内部的变量，相关应用有 <code>vue</code> 组件用函数返回对象的方式定义 <code>data</code>，这样可以避免组件复用的时候 其中一个组件<code>data</code> 修改影响到其他组件。</p>
+<p><strong>回调函数和<code>IIFE</code>是闭包的一种。</strong></p>
 <p>立即执行函数的好处：通过定义一个匿名函数，创建了一个新的函数作用域，相当于创建了一个“私有”的命名空间，该空间的变量和方法，不会破坏和污染全局的命名空间。</p>
-</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">//使用IIFE</span>
+    <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 0</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="闭包访问值范围："><a href="#闭包访问值范围：" class="headerlink" title="闭包访问值范围："></a>闭包访问值范围：</h4><ul>
+<li>闭包可以访问当前函数以外的变量。</li>
+<li>即使外部函数已经返回，闭包仍能访问外部函数定义的变量与参数。</li>
+<li>闭包可以更新外部变量的值。</li>
+<li>内层函数可以访问外层作用域。</li>
+</ul>
+<h3 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h3><ul>
+<li>避免全局变量的污染。</li>
+<li>能够读取函数内部的变量。</li>
+<li>可以在内存中维护一个变量。（大型框架和库常用闭包进行数据传递）</li>
+</ul>
+<p>应用场景：</p>
+<p>闭包通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。例如 <code>setTimeout</code> 传参、回调、IIFE、<a href="https://datura35422.github.io/posts/54864/">函数防抖</a>、<a href="https://datura35422.github.io/posts/11528/">节流</a>、<a href="https://datura35422.github.io/posts/22570/">柯里化</a>、模块化等等</p>
 <h4 id="模块机制"><a href="#模块机制" class="headerlink" title="模块机制"></a>模块机制</h4><p>模块模式：</p>
 <ol>
 <li>必须有外部的封闭函数，该函数必须至少被调用一次。</li>
@@ -9230,7 +9318,20 @@ foo<span class="token punctuation">.</span><span class="token function">awesome<
 <blockquote>
 <p>调用包装了函数定义的包装函数，并且将返回值作为该模块的API。</p>
 </blockquote>
-<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><ol>
+<h3 id="闭包的缺点"><a href="#闭包的缺点" class="headerlink" title="闭包的缺点"></a>闭包的缺点</h3><ul>
+<li><p>维护难度加大： 闭包内部是可以访问上级作用域，改变上级作用域的私有变量，我们使用的使用一定要小心，不要随便改变上级作用域私有变量的值。</p>
+</li>
+<li><p>内存泄漏：由于闭包会使得函数中的变量都保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄漏。解决方法是，在退出函数之前，将不使用的局部变量全部删除（引用设置为 <code>null</code> ，这样就解除了对这个变量的引用，其引用计数也会减少，从而确保其内存可以在适当的时机回收）</p>
+<blockquote>
+<p>程序的运行需要内存。对于持续运行的服务进程，必须及时释放不再用到的内存，否则占用越来越高，轻则影响系统性能，重则导致进程崩溃。不再用到的内存，没有及时释放，就叫做内存泄漏</p>
+</blockquote>
+</li>
+<li><p>this 指向：闭包的 this 指向为 window / global</p>
+</li>
+</ul>
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><ol>
+<li><p>for 循环输出 index</p>
+</li>
 <li><p>题目：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/455">https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/455</a></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
     <span class="token comment">// 要求实现函数体</span>
@@ -9254,11 +9355,12 @@ foo<span class="token punctuation">.</span><span class="token function">awesome<
 
 <p>个人认为这是用的递归。</p>
 </li>
-<li></li>
 </ol>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/453">第165题：闭包的使用场景，使用闭包需要注意什么</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
+        <category>高级函数</category>
       </categories>
       <tags>
         <tag>前端</tag>
@@ -12028,7 +12130,7 @@ list<span class="token punctuation">.</span><span class="token function">append<
 <h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><p>**参考：<a href="https://juejin.cn/post/6844903961745440775">Vue-Router面试题汇总 - 掘金</a></p>
 <h4 id="路由有几种模式，区别"><a href="#路由有几种模式，区别" class="headerlink" title="路由有几种模式，区别"></a>路由有几种<a href="https://router.vuejs.org/zh/api/#mode">模式</a>，区别</h4><ul>
 <li><strong>hash模式</strong>：使用 URL hash 值来作路由。支持所有浏览器，包括不支持 HTML5 History Api 的浏览器。例<a href="http://www.abc.com/#/index%EF%BC%8Chash%E5%80%BC%E4%B8%BA#/index%EF%BC%8C">http://www.abc.com/#/index，hash值为#/index，</a> hash的改变会触发hashchange事件，通过监听hashchange事件来完成操作实现前端路由。hash值变化不会让浏览器向服务器请求。主要使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location"><code>window.location</code></a> 方式进行页面跳转，如<code>window.location.assign()</code>、<code>window.location.replace()</code>。</li>
-<li><strong>history模式</strong>：依赖 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/History_API">HTML5 History AP</a>I 和服务器配置。没有<code>#</code>，路由地址跟正常的url一样，但是初次访问或者刷新都会向服务器请求，如果没有请求到对应的资源就会返回404，所以路由地址匹配不到任何静态资源，则应该返回同一个index.html 页面，需要在nginx中配置。页面路径操作为<code>history api</code>的方式，如<code>history.pushState()</code>、<code>history.replaceState()</code></li>
+<li><strong>history模式</strong>：依赖 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/History_API">HTML5 History API</a> 和服务器配置。没有<code>#</code>，路由地址跟正常的url一样，但是初次访问或者刷新都会向服务器请求，如果没有请求到对应的资源就会返回404，所以路由地址匹配不到任何静态资源，则应该返回同一个index.html 页面，需要在nginx中配置。页面路径操作为<code>history api</code>的方式，如<code>history.pushState()</code>、<code>history.replaceState()</code></li>
 <li><strong>abstract模式</strong>：支持所有 JavaScript 运行环境，如 Node.js 服务器端。<strong>如果发现没有浏览器的 API，路由会自动强制进入这个模式。</strong></li>
 </ul>
 <h4 id="完整的导航守卫流程"><a href="#完整的导航守卫流程" class="headerlink" title="完整的导航守卫流程"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%AE%8C%E6%95%B4%E7%9A%84%E5%AF%BC%E8%88%AA%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B">完整的导航守卫流程</a></h4><ul>
@@ -20236,6 +20338,212 @@ module<span class="token punctuation">.</span>exports <span class="token operato
       <tags>
         <tag>前端</tag>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基础系列-typescript入门</title>
+    <url>/posts/7a98b4ff/</url>
+    <content><![CDATA[<p>官方网站：<a href="https://www.typescriptlang.org/zh/">https://www.typescriptlang.org/zh/</a></p>
+<p>官网文档：<a href="https://www.typescriptlang.org/zh/docs/">https://www.typescriptlang.org/zh/docs/</a></p>
+<p>入门教程：<a href="https://ts.xcatliu.com/">https://ts.xcatliu.com/</a></p>
+<p>中文文档：<a href="https://zhongsp.gitbooks.io/typescript-handbook/content/">https://zhongsp.gitbooks.io/typescript-handbook/content/</a></p>
+<h3 id="TypeScript-是什么"><a href="#TypeScript-是什么" class="headerlink" title="TypeScript 是什么"></a>TypeScript 是什么</h3><p>JavaScript 的超集。TypeScript = JavaScript + 静态类型系统</p>
+<p>TypeScript 可以在运行代码之前找到错误并提供修复</p>
+<p>需要编译成 JavaScript 才能在浏览器和 node 环境（任何可以运行JavaScript的环境）中运行。</p>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ul>
+<li>开发过程中及时发现潜在问题</li>
+<li>代码语义更清晰易懂</li>
+</ul>
+<h4 id="解决了"><a href="#解决了" class="headerlink" title="解决了"></a>解决了</h4><p>多人开发时变量类型混乱，语义混乱等问题</p>
+<p>在开发过程中无法排查的类型引用等问题</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>node环境</p>
+<p>安装 <code>ts-node</code> (<code>npm i ts-node -g</code>) 对 ts 文件进行编译 <code>tsc xx.ts</code> 和运行 <code>ts-node xx.ts</code></p>
+<h3 id="常见概念"><a href="#常见概念" class="headerlink" title="常见概念"></a>常见概念</h3><p>静态类型定义</p>
+<p>类型注解</p>
+<p>类型推断</p>
+<h4 id="interface-接口"><a href="#interface-接口" class="headerlink" title="interface 接口"></a>interface 接口</h4><p>注解对象中的属性或注解函数。</p>
+<p>接口之间可以进行继承（extends）。</p>
+<h5 id="类型别名-和-interface-的区别"><a href="#类型别名-和-interface-的区别" class="headerlink" title="类型别名 和 interface 的区别"></a>类型别名 和 interface 的区别</h5><p>类型别名可以直接重新定义基础类型名称，而 interface 不可以，只能设置对象类型。</p>
+<p>实战中，interface 比类型别名更加常用，如果无法使用interface，则使用类型别名。</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">readonly</span> id<span class="token operator">:</span> numbser<span class="token punctuation">;</span> <span class="token comment">// 只读项</span>
+    name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    age<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// 可选项</span>
+    <span class="token punctuation">[</span>propName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">;</span> <span class="token comment">// 表示可以传入其他属性</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Teacher</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">teach</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">say</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">(</span>word<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="class-类"><a href="#class-类" class="headerlink" title="class 类"></a>class 类</h4><p><code>implements</code>：class 类应用 interface(接口) 。</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">implements</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    name <span class="token operator">=</span> <span class="token string">'xx'</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h5><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 等价于 简化写法</span>
+<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h6 id="readonly"><a href="#readonly" class="headerlink" title="readonly"></a>readonly</h6><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">readonly</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h5><p>abstract 关键字定义抽象类</p>
+<p>抽象类只能被继承不能被实例化。子类必须要实现抽象类中定义的抽象方法。</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Geom</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 定义抽象类</span>
+    width<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+    <span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">'Gemo'</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">abstract</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// 定义抽象方法</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Circle</span> <span class="token keyword">extends</span> <span class="token class-name">Geom</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h5 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h5><p>只生成一个对象。</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> instance<span class="token operator">:</span> Demo<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">static</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>instance <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token string">'xxxx'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>instance<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 使用</span>
+<span class="token keyword">const</span> demo1 <span class="token operator">=</span> Demo<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> demo2 <span class="token operator">=</span> Demo<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>demo1<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>demo2<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="类型注解"><a href="#类型注解" class="headerlink" title="类型注解"></a>类型注解</h3><p>基础类型</p>
+<p>引用类型</p>
+<h4 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h4><h5 id="属性设置"><a href="#属性设置" class="headerlink" title="属性设置"></a>属性设置</h5><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">readonly</span> id<span class="token operator">:</span> numbser<span class="token punctuation">;</span> <span class="token comment">// 只读项</span>
+    name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    age<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// 可选项</span>
+    <span class="token punctuation">[</span>propName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">;</span> <span class="token comment">// 表示可以传入其他属性</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>不设置可传入其他属性，当函数传参是对象时，如果传入的是字面量定义的对象则会进行强校验，有多余未注解属性则会报错，而如果是变量定义的对象则不会。</p>
+</blockquote>
+<h4 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h4><p>元组</p>
+<h4 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h4><h5 id="注解函数参数和返回值类型"><a href="#注解函数参数和返回值类型" class="headerlink" title="注解函数参数和返回值类型"></a>注解函数参数和返回值类型</h5><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 方法一</span>
+<span class="token keyword">const</span> func1 <span class="token operator">=</span> <span class="token punctuation">(</span> str<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 方法二</span>
+<span class="token keyword">const</span> <span class="token function-variable function">func2</span><span class="token operator">:</span> <span class="token punctuation">(</span> str<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function-variable function">number</span> <span class="token operator">=</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 方法三 利用类型推断</span>
+<span class="token keyword">const</span> <span class="token function-variable function">func1</span> <span class="token operator">=</span> <span class="token punctuation">(</span> str<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="使用解构参数"><a href="#使用解构参数" class="headerlink" title="使用解构参数"></a>使用解构参数</h5><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>
+	<span class="token punctuation">&#123;</span> first<span class="token punctuation">,</span> second <span class="token punctuation">&#125;</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> first<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> second<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> first <span class="token operator">+</span> second
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">const</span> total <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> first<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> second<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>基础</tag>
+        <tag>typescript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工具库-axios</title>
+    <url>/posts/2527ac7b/</url>
+    <content><![CDATA[<p>1待写</p>
+<ul>
+<li><input disabled="" type="checkbox"> axios 是什么</li>
+<li><input disabled="" type="checkbox"> 为什么会有axios，axios 解决了什么问题</li>
+<li><input disabled="" type="checkbox"> axios 与 ajax</li>
+<li><input disabled="" type="checkbox"> axios 与 fetch.js</li>
+<li><input disabled="" type="checkbox"> axios 源码</li>
+</ul>
+<h3 id="axios-和-ajax-的区别"><a href="#axios-和-ajax-的区别" class="headerlink" title="axios 和 ajax 的区别?"></a>axios 和 ajax 的区别?</h3><h4 id="ajax："><a href="#ajax：" class="headerlink" title="ajax："></a>ajax：</h4><p>1.AJAX不是新的编程语言，而是一种使用现有标准的新方法</p>
+<p>2.最大优点是在不加载整个页面，可以与服务器交换数据并局部刷新网页内容。</p>
+<p>3.不需要任何浏览器插件，但需要用户允许js在浏览器执行</p>
+<h4 id="axios："><a href="#axios：" class="headerlink" title="axios："></a>axios：</h4><p>axios是通过promise实现对ajax技术的一种封装</p>
+<p>1.用于浏览器和node.js的基于promise的HTTP的客户端</p>
+<p>2.从浏览器制作XMLHttoRequests</p>
+<p>3.让HTTP从node.js请求</p>
+<p>4.支持promise API</p>
+<p>5.拦截请求和相应（Interceptors拦截器）</p>
+<p>6.转换请求和响应数据</p>
+<p>7.取消请求</p>
+<p>8.自动转换为JSON数据</p>
+<p>9.客户端支持防止CSRF/XSRF（跨站请求伪造）</p>
+<p>安卓4.43以下的手机还是不支持promise的，所以会报错，需要引入</p>
+<pre class="line-numbers language-none"><code class="language-none">npm install babel-polyfill<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>和</p>
+<pre class="line-numbers language-none"><code class="language-none">npm install babel-runtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在入口文件上加上即可。</p>
+<pre class="line-numbers language-none"><code class="language-none">import ‘babel-polyfill’<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>参考链接：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzA5MjQwMzQyNw==&mid=2650744604&idx=1&sn=51d8d865c9848fd59f7763f5fb9ce789&chksm=88662490bf11ad86061ae76ff71a1177eeddab02c38d046eecd0e1ad25dc16f7591f91e9e3b2&scene=21#wechat_redirect">学习 axios 源码整体架构，打造属于自己的请求库</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>工具库</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>工具库</tag>
+        <tag>axios</tag>
       </tags>
   </entry>
 </search>

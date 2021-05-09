@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://datura35422.github.io/posts/10722/vuex.png">
 <meta property="og:image" content="https://datura35422.github.io/posts/10722/data-flow.png">
 <meta property="article:published_time" content="2021-05-04T11:18:44.000Z">
-<meta property="article:modified_time" content="2021-05-07T15:28:22.940Z">
+<meta property="article:modified_time" content="2021-05-08T09:29:36.167Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="vue">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vuex%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">vuex是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%87%AA%E7%AE%A1%E7%90%86%E5%BA%94%E7%94%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">状态自管理应用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">单向数据流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%86%85%E5%AE%B9"><span class="nav-number">1.1.4.</span> <span class="nav-text">核心内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#state"><span class="nav-number">1.2.</span> <span class="nav-text">state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getters"><span class="nav-number">1.3.</span> <span class="nav-text">getters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mutations"><span class="nav-number">1.4.</span> <span class="nav-text">mutations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#actions"><span class="nav-number">1.5.</span> <span class="nav-text">actions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#store"><span class="nav-number">1.6.</span> <span class="nav-text">store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API"><span class="nav-number">1.7.</span> <span class="nav-text">API</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">工具函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">3.1.1.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%AF%B9%E8%B1%A1%E9%94%AE%E5%80%BC%E5%AF%B9"><span class="nav-number">3.1.2.</span> <span class="nav-text">循环对象键值对</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.1.3.</span> <span class="nav-text">判断数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.4.</span> <span class="nav-text">高级函数</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vuex%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">vuex是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%87%AA%E7%AE%A1%E7%90%86%E5%BA%94%E7%94%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">状态自管理应用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">单向数据流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%86%85%E5%AE%B9"><span class="nav-number">1.1.4.</span> <span class="nav-text">核心内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#store"><span class="nav-number">1.2.</span> <span class="nav-text">store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#state"><span class="nav-number">1.3.</span> <span class="nav-text">state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getters"><span class="nav-number">1.4.</span> <span class="nav-text">getters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mutations"><span class="nav-number">1.5.</span> <span class="nav-text">mutations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#actions"><span class="nav-number">1.6.</span> <span class="nav-text">actions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#modules"><span class="nav-number">1.7.</span> <span class="nav-text">modules</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API"><span class="nav-number">1.8.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mapState"><span class="nav-number">1.8.1.</span> <span class="nav-text">mapState</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mapGetters"><span class="nav-number">1.8.2.</span> <span class="nav-text">mapGetters</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mapActions"><span class="nav-number">1.8.3.</span> <span class="nav-text">mapActions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mapMutations"><span class="nav-number">1.8.4.</span> <span class="nav-text">mapMutations</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#createNamespacedHelpers"><span class="nav-number">1.8.5.</span> <span class="nav-text">createNamespacedHelpers</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-number">1.9.</span> <span class="nav-text">插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">工具函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">2.1.1.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%AF%B9%E8%B1%A1%E9%94%AE%E5%80%BC%E5%AF%B9"><span class="nav-number">2.1.2.</span> <span class="nav-text">循环对象键值对</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.1.3.</span> <span class="nav-text">判断数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.4.</span> <span class="nav-text">高级函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E9%98%85%E8%AF%BB"><span class="nav-number">4.</span> <span class="nav-text">更多阅读</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -169,20 +169,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">99</span>
+          <span class="site-state-item-count">101</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -263,7 +263,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-07 23:28:22" itemprop="dateModified" datetime="2021-05-07T23:28:22+08:00">2021-05-07</time>
+        <time title="修改时间：2021-05-08 17:29:36" itemprop="dateModified" datetime="2021-05-08T17:29:36+08:00">2021-05-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,14 +287,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
+      <span>3.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -322,17 +322,62 @@
 <li>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。</li>
 <li>你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地<strong>提交 (commit) mutation</strong>。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</li>
 </ol>
+<h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><p>store 就是一个数据仓库，为了更方便的管理仓库，我们把一个大的 store 拆成一些 modules ，整个 modules 是一个树型结构。每个 module 又分别定义了 state、getters、mutations、actions，通过递归遍历模块的方式完成了它们的初始化。</p>
 <h4 id="state"><a href="#state" class="headerlink" title="state"></a>state</h4><p>从 store 实例中读取状态最简单的方法就是在 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/computed.html">计算属性</a> 中返回某个状态：</p>
 <p>如每当 <code>store.state.count</code> 变化的时候, 都会重新求取计算属性，并且触发更新相关联的 DOM。</p>
 <p>然而，这种模式导致组件依赖全局状态单例。在模块化的构建系统中，在每个需要使用 state 的组件中需要频繁地导入，并且在测试组件时需要模拟状态。</p>
 <p>Vuex 通过 <code>store</code> 选项，提供了一种机制将状态从根组件“注入”到每一个子组件中（需调用 <code>Vue.use(Vuex)</code>）。</p>
 <p>通过在根实例中注册 <code>store</code> 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 <code>this.$store</code> 访问到。</p>
-<h4 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h4><h4 id="mutations"><a href="#mutations" class="headerlink" title="mutations"></a>mutations</h4><p>mutation 是同步进行 state 数据操作的。</p>
-<h4 id="actions"><a href="#actions" class="headerlink" title="actions"></a>actions</h4><p>内部会进行 Promise 化，最终调用结果返回是一个 promise 。</p>
-<h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><p>store 就是一个数据仓库，为了更方便的管理仓库，我们把一个大的 store 拆成一些 modules ，整个 modules 是一个树型结构。每个 module 又分别定义了 state、getters、mutations、actions，通过递归遍历模块的方式完成了它们的初始化。</p>
-<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>Vuex 提供这些 API 都是方便我们在对 store 做各种操作来完成各种能力，尤其是 mapXXX 的设计，让我们在使用 API 的时候更加方便，这也是我们今后在设计一些 JavaScript 库的时候，从 API 设计角度中应该学习的方向。</p>
-<p>Vuex 从设计上支持了插件，让我们很好地从外部追踪 store 内部地变化，Logger 插件在我们地开发阶段也提供了很好地指引作用。当然我们也可以自己去实现 Vuex 的插件，来帮助我们实现一些特定的需求。</p>
-<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><p><a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart">基于Vue设计一个购物车（组件结构，vuex state 数据结构）</a></p>
+<h4 id="getters"><a href="#getters" class="headerlink" title="getters"></a><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/getters.html">getters</a></h4><p>从 state 中派生出一些状态，可以认为是 store 的计算属性。例如对列表进行过滤并计数：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">computed<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">doneTodosCount</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">todo</span> <span class="token operator">=></span> todo<span class="token punctuation">.</span>done<span class="token punctuation">)</span><span class="token punctuation">.</span>length
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意，在 Vue computed 中使用 getter时， getter 在通过属性访问时是作为 Vue 的响应式系统的一部分缓存其中的。</p>
+<h4 id="mutations"><a href="#mutations" class="headerlink" title="mutations"></a><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/mutations.html">mutations</a></h4><p>mutation 是同步进行 state 数据操作的。</p>
+<p>更改 store 中的状态。</p>
+<p>每个 mutation 都有一个字符串的事件类型（type）和一个回调函数（handler）</p>
+<p>注意：</p>
+<ul>
+<li>最好提前在 store 中初始化好所有所需属性。</li>
+<li>当需要在对象上添加新属性时，应该建立起响应式关系：<ul>
+<li>使用 <code>Vue.set(obj, &#39;newProp&#39;, 123)</code></li>
+<li>以新对象替换老对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="actions"><a href="#actions" class="headerlink" title="actions"></a><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/actions.html">actions</a></h4><p>action 可以进行异步操作。action 提交的是 mutation。</p>
+<p>内部会进行 Promise 化，最终调用结果返回是一个 promise 。</p>
+<p>使用 <code>store.dispatch</code> 的方法进行派发 action。</p>
+<h4 id="modules"><a href="#modules" class="headerlink" title="modules"></a><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/modules.html">modules</a></h4><p>可以将 <code>Vuex</code> 分为多个模块甚至嵌套子模块，但是需要注意命名空间的使用。</p>
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><h5 id="mapState"><a href="#mapState" class="headerlink" title="mapState"></a>mapState</h5><h5 id="mapGetters"><a href="#mapGetters" class="headerlink" title="mapGetters"></a>mapGetters</h5><h5 id="mapActions"><a href="#mapActions" class="headerlink" title="mapActions"></a>mapActions</h5><h5 id="mapMutations"><a href="#mapMutations" class="headerlink" title="mapMutations"></a>mapMutations</h5><h5 id="createNamespacedHelpers"><a href="#createNamespacedHelpers" class="headerlink" title="createNamespacedHelpers"></a>createNamespacedHelpers</h5><p>通过使用 <code>createNamespacedHelpers</code> 创建基于某个命名空间辅助函数。它返回一个对象，对象里有新的绑定在给定命名空间值上的组件绑定辅助函数：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createNamespacedHelpers <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> mapState<span class="token punctuation">,</span> mapActions <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">createNamespacedHelpers</span><span class="token punctuation">(</span><span class="token string">'some/nested/module'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  computed<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 在 `some/nested/module` 中查找</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      <span class="token function-variable function">a</span><span class="token operator">:</span> <span class="token parameter">state</span> <span class="token operator">=></span> state<span class="token punctuation">.</span>a<span class="token punctuation">,</span>
+      <span class="token function-variable function">b</span><span class="token operator">:</span> <span class="token parameter">state</span> <span class="token operator">=></span> state<span class="token punctuation">.</span>b
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 在 `some/nested/module` 中查找</span>
+    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token string">'foo'</span><span class="token punctuation">,</span>
+      <span class="token string">'bar'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>Vuex 提供这些 API 都是方便我们在对 store 做各种操作来完成各种能力，尤其是 mapXXX 的设计，让我们在使用 API 的时候更加方便，这也是我们今后在设计一些 JavaScript 库的时候，从 API 设计角度中应该学习的方向。</p>
+</blockquote>
+<h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><p>Vuex 从设计上支持了插件，让我们很好地从外部追踪 store 内部地变化，Logger 插件在我们地开发阶段也提供了很好地指引作用。当然我们也可以自己去实现 Vuex 的插件，来帮助我们实现一些特定的需求。</p>
 <h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><h4 id="工具函数"><a href="#工具函数" class="headerlink" title="工具函数"></a>工具函数</h4><h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p><a href="https://datura35422.github.io/posts/57752/#Vuex%E6%BA%90%E7%A0%81">https://datura35422.github.io/posts/57752/#Vuex%E6%BA%90%E7%A0%81</a></p>
 <h5 id="循环对象键值对"><a href="#循环对象键值对" class="headerlink" title="循环对象键值对"></a>循环对象键值对</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * forEach for object
@@ -358,6 +403,13 @@
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><p><a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart">基于Vue设计一个购物车（组件结构，vuex state 数据结构）</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903993374670855">Vuex面试题汇总</a></p>
+<h3 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/qQxUCbPBYSq9vU7dvDOCzg">学习 vuex 源码整体架构，打造属于自己的状态管理库 - 若川视野</a>：<a target="_blank" rel="noopener" href="https://github.com/lxchuan12/vuex-analysis">https://github.com/lxchuan12/vuex-analysis</a></p>
+<p><a target="_blank" rel="noopener" href="https://ustbhuangyi.github.io/vue-analysis/v2/vuex/#vuex-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">https://ustbhuangyi.github.io/vue-analysis/v2/vuex/#vuex-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TYdppDvscuGpkblOmaosDQ">Vuex 4.0 正式发布！新年，官方生态齐聚一堂。</a></p>
 
     </div>
 
@@ -433,14 +485,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">432k</span>
+    <span title="站点总字数">439k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:01</span>
+    <span title="站点阅读时长">12:11</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
