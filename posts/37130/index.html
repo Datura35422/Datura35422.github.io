@@ -318,10 +318,10 @@
 <p>can i use: <a target="_blank" rel="noopener" href="https://caniuse.com/?search=rem">https://caniuse.com/?search=rem</a></p>
 </blockquote>
 <p>兼容ES6+的插件：<code>babel</code>、<code>polyfill</code>、<code>babel-cli</code></p>
-<h4 id="使用babel编译ES6-代码"><a href="#使用babel编译ES6-代码" class="headerlink" title="使用babel编译ES6+代码"></a>使用babel编译ES6+代码</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm i babel-cli babel-preset-env -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="使用babel编译ES6-代码"><a href="#使用babel编译ES6-代码" class="headerlink" title="使用babel编译ES6+代码"></a>使用babel编译ES6+代码</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> i babel-cli babel-preset-env -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><code>babel</code> 编译插件，<code>babel-runtime</code> 和 <code> babel-plugin-transform-runtime</code> 的区别是，相当一前者是手动而后者是自动，每当要转译一个api时都要手动加上 <code>require(&#39;babel-runtime&#39;)</code>。其中 <code>babel-plugin-transform-runtime</code> 是在 <code>babel-runtime</code> 的基础上运行</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm i -S babel-plugin-transform-runtime babel-runtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> i -S babel-plugin-transform-runtime babel-runtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>安装后，新建<code>.babelrc</code>配置文件，进行配置</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
@@ -353,8 +353,8 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>npm run dev</code> 自动运行 <code>src</code> 目录下的编译后的<code>index.js</code>文件。<code>npm run build</code>自动将<code>dist</code>文件删除之后，重新编译项目放到<code>dist</code>文件中。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install --save-dev babel-core babel-preset-es2015 babel-preset-latest
-npm install --save-dev webpack babel-loader<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> --save-dev babel-core babel-preset-es2015 babel-preset-latest
+<span class="token function">npm</span> <span class="token function">install</span> --save-dev webpack babel-loader<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
