@@ -1189,6 +1189,7 @@ type: &quot;tags&quot;<span aria-hidden="true" class="line-numbers-rows"><span><
 <h5 id="深色模式"><a href="#深色模式" class="headerlink" title="深色模式"></a>深色模式</h5><p><a href="https://github.com/sandoche/Darkmode.js">https://github.com/sandoche/Darkmode.js</a></p>
 <p><a href="https://haomingzhang.com/hexo_3/">https://haomingzhang.com/hexo_3/</a></p>
 <h5 id="提交日历"><a href="#提交日历" class="headerlink" title="提交日历"></a>提交日历</h5><p><a href="https://github.com/theme-next/theme-next-calendar">https://github.com/theme-next/theme-next-calendar</a></p>
+<h5 id="静态图片插入"><a href="#静态图片插入" class="headerlink" title="静态图片插入"></a>静态图片插入</h5><p><a href="https://github.com/xcodebuild/hexo-asset-image">https://github.com/xcodebuild/hexo-asset-image</a></p>
 <h5 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h5><p>可以参考更多设置：</p>
 <p><a href="https://siriusq.top/Next%E5%8D%87%E7%BA%A7-Mac%E8%BF%81%E7%A7%BB.html">https://siriusq.top/Next%E5%8D%87%E7%BA%A7-Mac%E8%BF%81%E7%A7%BB.html</a></p>
 <p><a href="https://tding.top/archives/567debe0.html">https://tding.top/archives/567debe0.html</a></p>
@@ -8278,7 +8279,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>存在请求结果，但是不是强缓存或强缓存已失效，浏览器一定会发送一个请求到服务器，通过响应首部字段的<code>last-modified</code>和<code>etag</code>验证资源是否命中<strong>协商缓存</strong>，如果是，服务器会将这个请求返回，但是不会返回这个资源的数据，依然是从缓存中读取资源。</li>
 <li>如果前面两者都没有命中，直接从服务器加载资源。</li>
 </ul>
-<p><img src="/posts/19611/1.png" alt="1"></p>
+<p><img src="/.io//19611/1.png" alt="1"></p>
 <h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>当浏览器向服务器发起请求时，服务器会将缓存规则放入HTTP响应报文的首部字段中和请求结果一起返回给浏览器，控制强制缓存的字段分别是<code>Expires</code>和<code>Cache-Control</code>，其中<code>Cache-Control</code>优先级比<code>Expires</code>高。</p>
 <h5 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires">Expires</a></h5><p><code>Expires</code> 响应头包含日期/时间， 即在此时候之后，响应过期。（具体的日期时间）</p>
 <p>Expires是HTTP/1.0控制网页缓存的字段，其值为服务器返回该请求结果缓存的到期时间，即再次发起该请求时，如果客户端的时间小于Expires的值时，直接使用缓存结果。</p>
@@ -8312,10 +8313,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>请求首部 <strong><code>If-Match</code></strong> 的使用表示这是一个条件请求。在请求方法为 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/HEAD"><code>HEAD</code></a> 的情况下，服务器仅在请求的资源满足此首部列出的 <code>ETag</code>值时才会返回资源。而对于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/PUT"><code>PUT</code></a> 或其他非安全方法来说，只有在满足条件的情况下才可以将资源上传。</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/ETag"><code>ETag</code></a> 之间的比较使用的是<strong>强比较算法</strong>，即只有在每一个字节都相同的情况下，才可以认为两个文件是相同的。在 ETag 前面添加   <code>W/</code> 前缀表示可以采用相对宽松的算法。</p>
 </blockquote>
-<h5 id="304状态"><a href="#304状态" class="headerlink" title="304状态"></a>304状态</h5><p>![304 header](./304 header.jpg)</p>
+<h5 id="304状态"><a href="#304状态" class="headerlink" title="304状态"></a>304状态</h5><p><img src="/.io//19611/304_header.jpg" alt="304 header"></p>
 <p>协商缓存优先级 ：<code>ETag / If-None-Match</code>  &gt; <code>Last-Modified / If-Modified-Since</code> </p>
-<h5 id="使用缓存内容"><a href="#使用缓存内容" class="headerlink" title="使用缓存内容"></a>使用缓存内容</h5><p><img src="/posts/19611/304.png" alt="304"></p>
-<h5 id="不使用缓存内容，重新请求"><a href="#不使用缓存内容，重新请求" class="headerlink" title="不使用缓存内容，重新请求"></a>不使用缓存内容，重新请求</h5><p><img src="/posts/19611/200.png" alt="200"></p>
+<h5 id="使用缓存内容"><a href="#使用缓存内容" class="headerlink" title="使用缓存内容"></a>使用缓存内容</h5><p><img src="/.io//19611/304.png" alt="304"></p>
+<h5 id="不使用缓存内容，重新请求"><a href="#不使用缓存内容，重新请求" class="headerlink" title="不使用缓存内容，重新请求"></a>不使用缓存内容，重新请求</h5><p><img src="/.io//19611/200.png" alt="200"></p>
 <h4 id="两种机制的异同"><a href="#两种机制的异同" class="headerlink" title="两种机制的异同"></a>两种机制的异同</h4><h5 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h5><ul>
 <li>如果都命中，则是从浏览器缓存中加载资源，服务器不返回资源数据。</li>
 </ul>
@@ -8331,7 +8332,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <p>启发式缓存算法采用的缓存时间可长可短, 因此对于常规资源, 建议明确设置缓存时间(如指定max-age 或 expires).</p>
 <h4 id="查看网页中的请求使用的缓存策略"><a href="#查看网页中的请求使用的缓存策略" class="headerlink" title="查看网页中的请求使用的缓存策略"></a>查看网页中的请求使用的缓存策略</h4><p>chrome进入开发者模式 -&gt; Network窗口 -&gt; size栏</p>
-<p>![chrome size](./chrome size.jpg)</p>
+<p><img src="/.io//19611/chrome_size.jpg" alt="chrome size"></p>
 <h5 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h5><p>状态码灰色表示<strong>强缓存</strong>，直接从缓存中获取资源。</p>
 <p>304(Not Modified)：HTTP 304（未改变）说明无需再次传输请求的内容，也就是说可以使用缓存的内容。（协商缓存）</p>
 <p>302(Found)：HTTP 302 重定向状态码表明请求的资源被暂时的移动到了由<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location"><code>Location</code></a> 头部指定的 URL 上。浏览器会重定向到这个URL， 但是搜索引擎不会对该资源的链接进行更新。</p>
