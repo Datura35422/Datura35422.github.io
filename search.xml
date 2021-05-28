@@ -8401,7 +8401,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>Catch-Control的客户端请求指令和服务端响应指令部分不同，分为可缓存性、到期、重新验证和重新加载、其他等</p>
 <p>no-cache名字具有误导性，其实是有缓存，但是必须要请求服务端，让服务端决定是否使用缓存内容（协商缓存）</p>
 </blockquote>
-<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>浏览器携带缓存标识向服务器发起请求，由服务器更具缓存标识决定是否使用缓存内容。</p>
+<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存内容。</p>
 <p>协商缓存的标识也是在响应报文的首部字段中和请求结果一起返回给浏览器的，控制协商缓存的字段分别有：<code>Last-Modified</code> / <code>If-Modified-Since</code>和<code>ETag</code> / <code>If-None-Match</code>，其中<code>ETag</code> / <code>If-None-Match</code>的优先级比<code>Last-Modified</code> / <code>If-Modified-Since</code>高。</p>
 <h5 id="Last-Modified-If-Modified-Since"><a href="#Last-Modified-If-Modified-Since" class="headerlink" title="Last-Modified / If-Modified-Since"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Last-Modified">Last-Modified</a> / <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Modified-Since">If-Modified-Since</a></h5><p><code>Last-Modified</code> 是一个<strong>响应首部</strong>，其中包含源头服务器认定的资源做出修改的日期及时间。 它通常被用作一个验证器来判断接收到的或者存储的资源是否彼此一致。由于精确度比  <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/ETag"><code>ETag</code></a> 要低，所以这是一个备用机制。包含有  <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Modified-Since"><code>If-Modified-Since</code></a> 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Unmodified-Since"><code>If-Unmodified-Since</code></a> 首部的条件请求会使用这个字段。</p>
 <p><code>If-Modified-Since</code> 是一个<strong>条件式请求首部</strong>，服务器只在所请求的资源在给定的日期时间之后对内容进行过修改的情况下才会将资源返回，状态码为 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/200"><code>200</code></a> 。如果请求的资源从那时起未经修改，那么返回一个不带有消息主体的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/304"><code>304</code></a> 响应，而在 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Last-Modified"><code>Last-Modified</code></a> 首部中会带有上次修改时间。 不同于  <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Unmodified-Since"><code>If-Unmodified-Since</code></a>, <code>If-Modified-Since</code> 只可以用在 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a> 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/HEAD"><code>HEAD</code></a> 请求中。</p>
@@ -8445,11 +8445,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p><strong>什么时候从内存缓存读取，什么时候从硬盘缓存读取？</strong><br>在浏览器中，浏览器会在 <code>JS</code> 和图片等静态资源<strong>首次请求</strong>解析执行后直接存入内存缓存中，然后再存入到磁盘中。当<strong>刷新</strong>页面时，浏览器会直接从内存缓存 <code>memory cache</code> 中读取，如果内存中没有，则会从磁盘中读取缓存 <code>disk cache</code>，磁盘中读取完的数据会存到内存中，再次刷新页面时，会从内存中读取。</p>
 <p>当关闭页面后，浏览器内存会清除当前页面的内存缓存<code>memory cache</code>，再次<strong>加载</strong>页面时，浏览器内存中此时没有加载过的数据缓存，则从磁盘中读取缓存。</p>
 <blockquote>
-<p>计组老师要哭死了，我居然忘记了</p>
+<p>操作系统老师要哭死了，我居然忘记了</p>
 </blockquote>
 <h5 id="控制css文件从缓存中读取"><a href="#控制css文件从缓存中读取" class="headerlink" title="控制css文件从缓存中读取"></a>控制<code>css</code>文件从缓存中读取</h5><p>一般css文件都会进行缓存，最终数据会存在磁盘中。如果想要css文件更新，需要添加css版本控制，如hash命名，或者路径后添加<code>?v1</code>版本，但是后者部分代理缓存服务器不会缓存网址中包含 <code>?</code> 的资源，所以会可能导致每次访问时重新请求文件。</p>
 <p>css加载链接是跟HTML中的<code>&lt;link&gt;</code>标签中的<code>href</code>属性相关。</p>
 <p>其他静态资源同理。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>首先查看是否具有缓存，会依次查看内存 -&gt; 硬盘 是否有缓存数据，如果没有直接请求服务器，请求后的数据会缓存到内存和硬盘中。</p>
+<p>如果有缓存，根据命中缓存策略进行使用缓存，强缓存不需要询问服务器，协商缓存需要询问服务器是否使用缓存。</p>
+<p>协商缓存加载新数据后会更新旧缓存数据。</p>
 <h3 id="用户行为对浏览器缓存的控制"><a href="#用户行为对浏览器缓存的控制" class="headerlink" title="用户行为对浏览器缓存的控制"></a>用户行为对浏览器缓存的控制</h3><p>地址栏访问，链接跳转是正常用户行为，将会触发浏览器缓存机制；</p>
 <p>F5刷新，浏览器会设置max-age=0，跳过强缓存判断，会进行协商缓存判断；</p>
 <p>ctrl+F5刷新，跳过强缓存和协商缓存，直接从服务器拉取资源。</p>
@@ -8464,10 +8467,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <h4 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h4><p>在server请求配置中，设置响应请求头内容。</p>
 <h4 id="服务端接口配置"><a href="#服务端接口配置" class="headerlink" title="服务端接口配置"></a>服务端接口配置</h4><p>服务端的接口自定义设置响应请求头。</p>
-<p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/383">浏览器缓存 ETag 里的值是怎么生成的</a></p>
+<h4 id="ETag-生成"><a href="#ETag-生成" class="headerlink" title="ETag 生成"></a>ETag 生成</h4><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/383">浏览器缓存 ETag 里的值是怎么生成的</a></p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://juejin.cn/post/6844903593275817998">彻底理解浏览器的缓存机制 – 掘金</a></p>
 <p><a href="https://github.com/amandakelake/blog/issues/41">缓存（二）——浏览器缓存机制：强缓存、协商缓存</a></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching">HTTP 缓存 – MDN</a></p>
+<h3 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h3><p><a href="https://imweb.io/topic/5795dcb6fb312541492eda8c">HTTP缓存控制小结</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -10752,7 +10756,7 @@ wepy<span class="token punctuation">.</span><span class="token function">compone
     <content><![CDATA[<p>此次二次开发圈子小程序，有一个主包，三个分包，代码量一直处于快溢出阈值的程度。</p>
 <p>二次开发通常是基于不动或尽量少的去动原代码开发逻辑，轻易去调整容易崩。</p>
 <p>所以整理一下使用的技巧。</p>
-<h4 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h4><h5 id="多个函数执行需要新增相同的判断条件"><a href="#多个函数执行需要新增相同的判断条件" class="headerlink" title="多个函数执行需要新增相同的判断条件"></a>多个函数执行需要新增相同的判断条件</h5><p>记录时间：2021年1月</p>
+<h3 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h3><h4 id="多个函数执行需要新增相同的判断条件"><a href="#多个函数执行需要新增相同的判断条件" class="headerlink" title="多个函数执行需要新增相同的判断条件"></a>多个函数执行需要新增相同的判断条件</h4><p>记录时间：2021年1月</p>
 <p>笨方法是创建一个公共条件函数，每个函数中去添加条件函数，需要修改所有的函数，且后续新增需求也要考虑到是否需要条件函数。或者创建前置函数设置条件处理函数，修改所有的函数调用方式，新增函数同样需要考虑是否条件一致。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a: '</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span>
@@ -10774,7 +10778,7 @@ wepy<span class="token punctuation">.</span><span class="token function">compone
 
 <p>也可以根据需求，使用事件委托利用事件捕获进行处理。</p>
 <p>同一模块下，会先响应最外层的事件捕获 -&gt; 最内层的事件捕获 -&gt; 最内层的事件冒泡 -&gt; 最外层的事件冒泡。</p>
-<h4 id="新增处理逻辑"><a href="#新增处理逻辑" class="headerlink" title="新增处理逻辑"></a>新增处理逻辑</h4><h5 id="在一串回调中间新增一块处理逻辑"><a href="#在一串回调中间新增一块处理逻辑" class="headerlink" title="在一串回调中间新增一块处理逻辑"></a>在一串回调中间新增一块处理逻辑</h5><p>记录时间：2021年2月</p>
+<h3 id="新增处理逻辑"><a href="#新增处理逻辑" class="headerlink" title="新增处理逻辑"></a>新增处理逻辑</h3><h4 id="在一串回调中间新增一块处理逻辑"><a href="#在一串回调中间新增一块处理逻辑" class="headerlink" title="在一串回调中间新增一块处理逻辑"></a>在一串回调中间新增一块处理逻辑</h4><p>记录时间：2021年2月</p>
 <p>逻辑复杂的时候难免跳来跳去使用回调。需求是在中间的一个回调函数中添加一段处理逻辑，所需参数是前几个回调中的数据，可以使用笨办法，一层一层的传递参数，但是这样前面的回调都要修改一层一层向下传值，修改范围太大，且不美观和容易数据丢失和出错。可以使用<strong>闭包</strong>进行处理。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
     postStatistics<span class="token operator">:</span> <span class="token keyword">null</span> <span class="token comment">// 声明</span>
@@ -10822,12 +10826,46 @@ wepy<span class="token punctuation">.</span><span class="token function">compone
 
 
 
-<h4 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h4><h5 id="实现字体渐变"><a href="#实现字体渐变" class="headerlink" title="实现字体渐变"></a>实现字体渐变</h5><p>参考链接： </p>
+<h3 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h3><h4 id="实现字体渐变"><a href="#实现字体渐变" class="headerlink" title="实现字体渐变"></a>实现字体渐变</h4><p>参考链接： </p>
 <p><a href="https://segmentfault.com/a/1190000011882933">https://segmentfault.com/a/1190000011882933</a></p>
 <p><a href="https://blog.csdn.net/CarsonWoo/article/details/89168346">https://blog.csdn.net/CarsonWoo/article/details/89168346</a></p>
-<h4 id="小程序踩坑"><a href="#小程序踩坑" class="headerlink" title="小程序踩坑"></a>小程序踩坑</h4><h5 id="兼容问题"><a href="#兼容问题" class="headerlink" title="兼容问题"></a>兼容问题</h5><p>记录时间：2021-4-8</p>
+<h4 id="九宫格处理"><a href="#九宫格处理" class="headerlink" title="九宫格处理"></a>九宫格处理</h4><p>动态图片需要九宫格查看</p>
+<pre class="line-numbers language-less" data-language="less"><code class="language-less"><span class="token selector">.dynamicWrap</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 60rpx<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 654rpx<span class="token punctuation">;</span>
+    <span class="token selector">.imagesWrap</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token operator">-</span>6rpx<span class="token punctuation">;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+        <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span>
+        <span class="token selector">.dynaminImg</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">margin</span><span class="token punctuation">:</span> 0 6rpx 6rpx 0<span class="token punctuation">;</span>
+            <span class="token property">width</span><span class="token punctuation">:</span> 214rpx<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span> 214rpx<span class="token punctuation">;</span>
+            <span class="token property">border-radius</span><span class="token punctuation">:</span> 8rpx<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>view 布局样式</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dynamicWrap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>imagesWrap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>image</span> 
+               <span class="token attr-name"><span class="token namespace">wx:</span>for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#123;&#123; info.photos &#125;&#125;<span class="token punctuation">"</span></span> 
+               <span class="token attr-name"><span class="token namespace">wx:</span>key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>*this<span class="token punctuation">"</span></span> 
+               <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dynaminImg<span class="token punctuation">"</span></span> 
+               <span class="token attr-name">lazy-load</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> 
+               <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&#123;&#123; item &#125;&#125;?imageView2/1/w/214/h/214<span class="token punctuation">"</span></span> 
+               <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aspectFill<span class="token punctuation">"</span></span>
+               <span class="token attr-name">@tap.stop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>onPreview(&#123;&#123; item &#125;&#125;, &#123;&#123; info.photos &#125;&#125;)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>image</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>我总是会陷入图片之间的间距问题，想要图片间距自动实现距离问题使用 justify-content: space-between ，但是会遇到两张图片间距过大的问题，所以不能单纯的使用这个属性进行间距控制。使用 margin-right 是最为保险的使用方式。</p>
+</blockquote>
+<h3 id="小程序踩坑"><a href="#小程序踩坑" class="headerlink" title="小程序踩坑"></a>小程序踩坑</h3><h4 id="兼容问题"><a href="#兼容问题" class="headerlink" title="兼容问题"></a>兼容问题</h4><p>记录时间：2021-4-8</p>
 <p>需要更换<code>getUserInfo</code>的逻辑，换为<code>wx.getUserProfile</code>，但是官方给的兼容例子里，低版本微信也可以成功调用<code>wx.getUserProfile</code>，但是缺少必要的加解密信息，所以低版本也是支持<code>wx.getUserProfile</code>但是功能不完善，所以判断当前版本是否能使用具体某个功能时需要使用<code>wx.canIUse()</code>进行判断，如果使用常用浏览器判断是否支持某个特定<code>api</code>的方法是会触发异常<code>bug</code>。</p>
-<h5 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h5><p>记录时间：2021-4-21</p>
+<h4 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h4><p>记录时间：2021-4-21</p>
 <p>小程序不支持静态背景图片，主要是路径名会变，所以即使在开发工具中没有问题，可能会在真机测试出现问题。</p>
 <p>所以使用动态链接 <code>url</code> 进行设置背景图片。</p>
 <p>设置 background-image 没有作用，只能设置 background，相应的 background-size 也是没有作用的。</p>
@@ -10845,7 +10883,7 @@ wepy<span class="token punctuation">.</span><span class="token function">compone
 <li><code>&lt;box&gt;</code> 可能出现 0 次、1 次或 2 次。如果出现 1 次，它同时设定 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-origin"><code>background-origin</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip"><code>background-clip</code></a>。如果出现 2 次，第一次的出现设置 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-origin"><code>background-origin</code></a>，第二次的出现设置 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip"><code>background-clip</code></a>。</li>
 <li><code>&lt;background-color&gt;</code> 只能被包含在最后一层。</li>
 </ul>
-<h5 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h5><p>记录时间：2021-4-27</p>
+<h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><p>记录时间：2021-4-27</p>
 <p>需求想要实现动画第二种效果：参考链接 - <a href="https://blog.csdn.net/sange77/article/details/102597074">Android:仿“某音”APP 多头像跳动动画+轮播动画+心跳动画+输入框抖动动画</a></p>
 <p><img src="/posts/32636/20191018091903771.gif" alt="20191018091903771"></p>
 <p>对于实现想法：</p>
@@ -10984,7 +11022,7 @@ wepy<span class="token punctuation">.</span><span class="token function">compone
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>最后实现效果</p>
-<p>![GIF 2021-4-28 10-16-45](./GIF 2021-4-28 10-16-45.gif)</p>
+<p><img src="/posts/32636/2021-4-28_10-16-45.gif" alt="GIF 2021-4-28 10-16-45"></p>
 </li>
 <li><p>对于每个已显示的头像使用 setTimeout 进行设置每个时间段的动画（会有卡顿不圆滑）</p>
 </li>
@@ -11034,14 +11072,14 @@ wepy<span class="token punctuation">.</span><span class="token function">compone
 <p>小程序对async、await支持度不高</p>
 </blockquote>
 <p>以上代码实现效果：</p>
-<p>![GIF 2021-4-27 16-15-13](./GIF 2021-4-27 16-15-13.gif)</p>
+<p><img src="/posts/32636/2021-4-27_16-15-13.gif" alt="GIF 2021-4-27 16-15-13"></p>
 <p>动画卡住问题：运行一段时间之后点击运行斐波那契数列，运行结束后才继续执行。</p>
-<p>![GIF 2021-4-27 17-25-20](./GIF 2021-4-27 17-25-20.gif)</p>
+<p><img src="/posts/32636/2021-4-27_17-25-20.gif" alt="GIF 2021-4-27 17-25-20"></p>
 </li>
 </ol>
 <p>最后使用 CSS 动画的样式实现，运行 Fibonacci 函数时不会发生卡顿现象。</p>
 <p>最后和产品沟通 最终实现效果是 简单的滑动</p>
-<p>![GIF 2021-5-26 15-55-25](2021年工作总结/GIF 2021-5-26 15-55-25.gif)</p>
+<p><img src="/posts/32636/2021-5-26_15-55-25.gif" alt="GIF 2021-5-26 15-55-25"></p>
 <p>这种比较简单，使用了两个重复数组进行拼接，会在动画的结尾回到头部，但是不会给人明显的跳动感</p>
 <p>样式部分：</p>
 <pre class="line-numbers language-less" data-language="less"><code class="language-less"><span class="token variable">@avatarWidth<span class="token punctuation">:</span></span> 48rpx<span class="token punctuation">;</span>
@@ -11104,12 +11142,31 @@ wepy<span class="token punctuation">.</span><span class="token function">compone
 
 
 
-<h5 id="swiper踩坑"><a href="#swiper踩坑" class="headerlink" title="swiper踩坑"></a>swiper踩坑</h5><p>swiper 如果使用动态加载的方式，如果重新设置已经渲染的列表，会打乱swiper内部顺序。需要保证前面加载过的item不能被挪掉否则swiper内部可能会错乱。</p>
+<h4 id="swiper踩坑"><a href="#swiper踩坑" class="headerlink" title="swiper踩坑"></a>swiper踩坑</h4><p>记录时间：2021-5-26</p>
+<p>swiper 如果使用动态加载的方式，如果重新设置已经渲染的列表，会打乱swiper内部顺序。需要保证前面加载过的item不能被挪掉否则swiper内部可能会错乱。</p>
 <p>社区中类似问题：</p>
 <p><a href="https://developers.weixin.qq.com/community/develop/doc/000cae89c0cc485873a77891056400">动态改变渲染swiper-item的数组时出现current为-1的情况</a></p>
 <p><a href="https://developers.weixin.qq.com/community/develop/doc/0004a643b348b096b8b95cb1e56c00?_at=1622043738957">【必现】动态修改 swiper-item bug：添加 swiper-item 当前页面变空白</a></p>
 <p>current变为-1问题，使用开关控制显隐强制重新渲染，解决问题。</p>
-<p>动态改变当前页面内容变为空白时改变 currentIndex 为有效位后再进行移动。</p>
+<p>动态加载更换当前页面内容变为空白时，改变 <code>currentIndex</code> 为有效位后再进行移动。</p>
+<blockquote>
+<p>会滑动到列表中的某一位置，而不是指定位置。</p>
+<p>业务逻辑会判断当前需要过滤的列表内容是否包含首位数据项。</p>
+<p>特殊情况，过滤项包含当前显示项和首位数据项，则要先滑动到有效位（即未过滤数据项）后，再更新列表数据，滑动到第一项。</p>
+<p>如果过滤项不包含首位数据项可以直接手动滑动到第一项，再更新列表，如果包含则不能直接滑动到第一项，否则会同样出现空白问题，需要先更新列表后滑动到第一项。</p>
+</blockquote>
+<p>动态加载问题总结：</p>
+<ul>
+<li><p>整个列表全换</p>
+</li>
+<li><p>只减少部分列表内容</p>
+<ul>
+<li>减少部分是否包含首位数据项</li>
+<li>减少部分是否包含当前加载数据项 且 包含首位数据项</li>
+<li>其他情况</li>
+</ul>
+</li>
+</ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> data<span class="token punctuation">,</span> errcode<span class="token punctuation">,</span> circle_data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> is_all_buy <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res<span class="token punctuation">.</span>data
 <span class="token keyword">const</span> firstId <span class="token operator">=</span> circle_data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id
 <span class="token keyword">const</span> originCircleLen <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>circleList<span class="token punctuation">.</span>length
@@ -11221,18 +11278,47 @@ timer <span class="token operator">=</span> <span class="token function">setTime
   <span class="token keyword">return</span> next
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h5 id="粗暴的解决方案："><a href="#粗暴的解决方案：" class="headerlink" title="粗暴的解决方案："></a>粗暴的解决方案：</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 直接控制显隐问题</span>
+<span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>showSwiper <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>currentItemIndex <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>circleList <span class="token operator">=</span> circle_data
+<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$apply</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>showSwiper <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$apply</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRecommend</span><span class="token punctuation">(</span>firstId<span class="token punctuation">)</span>
+    timer <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<p>swiper 其他相关问题，答案记录：</p>
+
+<h5 id="swiper-其他相关问题"><a href="#swiper-其他相关问题" class="headerlink" title="swiper 其他相关问题"></a>swiper 其他相关问题</h5><p>答案记录：</p>
 <p><a href="https://developers.weixin.qq.com/community/develop/article/doc/000ecafb3486f07000c92c3225c013">微信小程序答题页——swiper渲染优化及swiper分页实现</a></p>
-<h4 id="wepy-1-7-X-踩坑"><a href="#wepy-1-7-X-踩坑" class="headerlink" title="wepy 1.7.X 踩坑"></a>wepy 1.7.X 踩坑</h4><h5 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h5><p>坑记录：<a href="https://github.com/Tencent/wepy/issues/1549">https://github.com/Tencent/wepy/issues/1549</a></p>
-<p>关于swiper</p>
-<p>关于watch 普通组件中可以watch  被repeat包裹的组件就无法watch</p>
-<p>关于循环组件中的data 状态切换</p>
-<p>组件自定义事件，只能绑定自定义事件名</p>
-<p>组件捕获  外部页面捕获能够截断组件内部捕获  capture</p>
+<h4 id="web-view-缓存问题"><a href="#web-view-缓存问题" class="headerlink" title="web-view 缓存问题"></a>web-view 缓存问题</h4><p>记录时间：2021-5-27</p>
+<p><a href="https://blog.csdn.net/qq_36131788/article/details/106750835">微信公众号H5页面缓存问题解决方案！</a></p>
+<p><a href="https://developers.weixin.qq.com/community/develop/doc/0008c2ffd30188f862ba7fe3b57800">小程序里webview打开的H5页面怎么清除缓存？</a></p>
+<h3 id="wepy-1-7-X-踩坑"><a href="#wepy-1-7-X-踩坑" class="headerlink" title="wepy 1.7.X 踩坑"></a>wepy 1.7.X 踩坑</h3><h4 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h4><p>坑记录：<a href="https://github.com/Tencent/wepy/issues/1549">https://github.com/Tencent/wepy/issues/1549</a></p>
+<h5 id="关于-swiper"><a href="#关于-swiper" class="headerlink" title="关于 swiper"></a>关于 swiper</h5><p>如果使用 repeat组件进行循环包裹 swiper-item 原生组件中使用的自定义组件，则向自定义组件传入的值无法进行隔离，接收的 prop 除渲染在 view 上的数据，其他数据则一直为首个数据项，如果需要传值，则需要将数据保存在 data-* 上，或方法定义传值。</p>
+<h5 id="关于watch"><a href="#关于watch" class="headerlink" title="关于watch"></a>关于watch</h5><p>普通组件中可以使用watch属性，被repeat包裹的组件就无法进行watch</p>
+<h5 id="关于循环组件中的data-状态切换"><a href="#关于循环组件中的data-状态切换" class="headerlink" title="关于循环组件中的data 状态切换"></a>关于循环组件中的data 状态切换</h5><p>状态切换不是单一的，会影响到整个 repeat 渲染列表。</p>
+<h4 id="事件相关"><a href="#事件相关" class="headerlink" title="事件相关"></a>事件相关</h4><p>组件自定义事件，只能绑定自定义事件名</p>
+<p>组件捕获，外部页面捕获能够截断组件内部捕获，同名 capture</p>
 <p>父子组件事件捕获是用的同一个链上的，如果同名，会响应父组件定义的事件捕获。</p>
 <p>最后的解决方法是用遮罩。</p>
+<h3 id="工作问题总结"><a href="#工作问题总结" class="headerlink" title="工作问题总结"></a>工作问题总结</h3><p>总是会觉得自己没有认真的做事，负责任的做事，出了事情就陷入无限自责，但是仍然不知悔改下次继续再犯，就像惯犯说的，只有无限次和零的区别。</p>
+<p>每次都会生气，生同事的气，生自己的气，生自己之前错怪同事的气，开始陷入无限的自怨自艾中，开启自暴自弃，放弃学习，放弃积极向上的想法。人生失败是常事，但是不能掉入坑中顺势躺平了，觉得现在这样也挺好，慢慢的会变成井底之蛙，丧失了竞争力和积极性，人生的意义大打折扣。</p>
+<p>希望每次我做错事情之后能够反思并且牢记下次不再犯。</p>
+<h4 id="5月问题记录"><a href="#5月问题记录" class="headerlink" title="5月问题记录"></a>5月问题记录</h4><p>记录时间：2021-5-28</p>
+<h5 id="promise-await"><a href="#promise-await" class="headerlink" title="promise await"></a>promise await</h5><p>promise reject 错误抛出后使用 await 没有处理 reject 抛出的错误，await 只接受 resolve 正确返回，所以要使用 try … catch … 的方式处理 await 的错误。</p>
+<h5 id="问题处理过于复杂化"><a href="#问题处理过于复杂化" class="headerlink" title="问题处理过于复杂化"></a>问题处理过于复杂化</h5><p>总是会在 wepy 框架的坑中常住，每次开发都会光顾同样的坑。</p>
+<p>对于特殊问题需要进行特殊方式处理。</p>
+<p>以全页点击进行获取用户授权信息为例，之前的做法是使用组件页面内容作为组件的slot，组件内部根据用户授权状态判断是否使用button进行包裹，结果最简单粗暴的方法就是直接全页覆盖一个 button 的遮罩，如果用户已经授权就隐藏遮罩，简单直接，不需要组件包裹。</p>
+<p>这种做法是不符合逻辑的嘛？不是，只是更加的简单有效，就像解一道数学题一样，传统解法和另辟蹊径的解法结果都是一样的。然而传统解法需要考虑很多东西，另辟蹊径的解法简单粗暴，当然优劣因实际情况而异，上述问题应该使用简单粗暴的解法。</p>
+<p>学的多容易进入化简为繁的死胡同，适时跳出来未尝不可。</p>
+<p><strong>过度在乎性能问题！</strong></p>
+<p><strong>对于性能损耗问题是在于能够完全解决问题的基础上再考虑的事情！</strong></p>
+<h5 id="偷懒"><a href="#偷懒" class="headerlink" title="偷懒"></a>偷懒</h5><p>总是做完不喜欢自测，然后直接将问题抛给测试，让测试推动开发，这种习惯很不好，所以需要端正工作态度，如果问题过多抛给他人解决，反而会浪费更多的时间。</p>
 ]]></content>
       <categories>
         <category>总结</category>
