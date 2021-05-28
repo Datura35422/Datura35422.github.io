@@ -28,7 +28,7 @@
 <meta property="og:description" content="Promise的目的人类大脑的习惯是线性的、阻塞的、单线程的语义。 回调表达异步流程的方式是非线性的、非顺序的，导致代码难以理解。 回调会收到控制反转的影响，因为回调暗中会把控制权交给第三方。如只有第三方写了执行回调，才能执行回调。 避免“回调地狱”，消除多层嵌套，避免竞态条件出现。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-03-10T11:12:56.000Z">
-<meta property="article:modified_time" content="2021-05-07T09:09:11.787Z">
+<meta property="article:modified_time" content="2021-05-28T07:07:26.486Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="面试">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">Promise的目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">promise 作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">promise 使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#then"><span class="nav-number">4.</span> <span class="nav-text">.then()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#catch-%E4%B8%8E-then-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.1.</span> <span class="nav-text">.catch()与.then()的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#catch-%E5%90%8E%E7%BB%A7%E7%BB%AD%E4%BD%BF%E7%94%A8-then-%E5%8F%8A-catch-%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">.catch()后继续使用.then()及.catch()的情况：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E5%BC%8F%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">链式流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">Promise 常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Promise-resolve-%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E4%BB%A5%E4%B8%AA%E5%AE%9A%E5%88%B6%E8%A7%A3%E6%9E%90%E5%90%8E%E7%9A%84Promise%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.1.</span> <span class="nav-text">1.Promise.resolve()  返回一个以个定制解析后的Promise对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Promise-reject-%E8%BF%94%E5%9B%9E%E5%A4%B1%E8%B4%A5%E7%8A%B6%E6%80%81%E7%9A%84Promise%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.2.</span> <span class="nav-text">2.Promise.reject() 返回失败状态的Promise对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Promise-all-%E2%80%A6-%E6%89%B9%E9%87%8F%E6%89%A7%E8%A1%8C%EF%BC%8C%E6%89%80%E6%9C%89%E5%AE%8C%E6%88%90%E6%89%8D%E5%AE%8C%E6%88%90%EF%BC%8C%E6%9C%89%E4%B8%80%E4%B8%AA%E5%A4%B1%E8%B4%A5%E5%B0%B1%E7%AB%8B%E5%8D%B3%E7%BB%93%E6%9D%9F"><span class="nav-number">7.3.</span> <span class="nav-text">3.Promise.all([…])  批量执行，所有完成才完成，有一个失败就立即结束</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="nav-number">7.3.1.</span> <span class="nav-text">常见用法：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0promise-all"><span class="nav-number">7.3.2.</span> <span class="nav-text">其他方式实现promise.all:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Promise-race-%E2%80%A6-%EF%BC%8C%E7%B1%BB%E4%BC%BCPromise-all%E6%9C%89%E4%BB%BB%E6%84%8F%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%88%90%E5%B0%B1%E7%AE%97%E5%AE%8C%E6%88%90%E3%80%82"><span class="nav-number">7.4.</span> <span class="nav-text">4.Promise.race([…])，类似Promise.all有任意一个完成就算完成。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%EF%BC%9A-1"><span class="nav-number">7.4.1.</span> <span class="nav-text">常见用法：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Promise-none-%E2%80%A6-%E6%89%80%E6%9C%89promise%E9%83%BD%E8%A2%AB%E6%8B%92%E7%BB%9D"><span class="nav-number">7.5.</span> <span class="nav-text">5.Promise.none([…]) 所有promise都被拒绝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-Promise-any-%E2%80%A6-%E5%8F%AA%E9%9C%80%E8%A6%81%E5%AE%8C%E6%88%90%E4%B8%80%E4%B8%AA"><span class="nav-number">7.6.</span> <span class="nav-text">6.Promise.any([…]) 只需要完成一个</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-Promise-allSettled-%E2%80%A6-%E8%BF%94%E5%9B%9E%E6%89%80%E6%9C%89%E7%9A%84promise%E7%BB%93%E6%9E%9C"><span class="nav-number">7.7.</span> <span class="nav-text">7.Promise.allSettled([…])  返回所有的promise结果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">Promise常见用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#thenable"><span class="nav-number">9.</span> <span class="nav-text">thenable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">10.</span> <span class="nav-text">Promise局限性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%BB%A1%E8%B6%B3PromiseA-%E8%A7%84%E8%8C%83%E7%9A%84Promise"><span class="nav-number">11.</span> <span class="nav-text">实现一个满足PromiseA+规范的Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-number">12.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="nav-number">13.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">Promise的目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">promise 作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">promise 使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#then"><span class="nav-number">4.</span> <span class="nav-text">.then()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#catch-%E4%B8%8E-then-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.1.</span> <span class="nav-text">.catch()与.then()的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#catch-%E5%90%8E%E7%BB%A7%E7%BB%AD%E4%BD%BF%E7%94%A8-then-%E5%8F%8A-catch-%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">.catch()后继续使用.then()及.catch()的情况：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E5%BC%8F%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">链式流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">Promise 常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Promise-resolve-%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E4%BB%A5%E4%B8%AA%E5%AE%9A%E5%88%B6%E8%A7%A3%E6%9E%90%E5%90%8E%E7%9A%84Promise%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.1.</span> <span class="nav-text">1.Promise.resolve()  返回一个以个定制解析后的Promise对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Promise-reject-%E8%BF%94%E5%9B%9E%E5%A4%B1%E8%B4%A5%E7%8A%B6%E6%80%81%E7%9A%84Promise%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.2.</span> <span class="nav-text">2.Promise.reject() 返回失败状态的Promise对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Promise-all-%E2%80%A6-%E6%89%B9%E9%87%8F%E6%89%A7%E8%A1%8C%EF%BC%8C%E6%89%80%E6%9C%89%E5%AE%8C%E6%88%90%E6%89%8D%E5%AE%8C%E6%88%90%EF%BC%8C%E6%9C%89%E4%B8%80%E4%B8%AA%E5%A4%B1%E8%B4%A5%E5%B0%B1%E7%AB%8B%E5%8D%B3%E7%BB%93%E6%9D%9F"><span class="nav-number">7.3.</span> <span class="nav-text">3.Promise.all([…])  批量执行，所有完成才完成，有一个失败就立即结束</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="nav-number">7.3.1.</span> <span class="nav-text">常见用法：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0promise-all"><span class="nav-number">7.3.2.</span> <span class="nav-text">其他方式实现promise.all:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Promise-race-%E2%80%A6-%EF%BC%8C%E7%B1%BB%E4%BC%BCPromise-all%E6%9C%89%E4%BB%BB%E6%84%8F%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%88%90%E5%B0%B1%E7%AE%97%E5%AE%8C%E6%88%90%E3%80%82"><span class="nav-number">7.4.</span> <span class="nav-text">4.Promise.race([…])，类似Promise.all有任意一个完成就算完成。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%EF%BC%9A-1"><span class="nav-number">7.4.1.</span> <span class="nav-text">常见用法：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Promise-none-%E2%80%A6-%E6%89%80%E6%9C%89promise%E9%83%BD%E8%A2%AB%E6%8B%92%E7%BB%9D"><span class="nav-number">7.5.</span> <span class="nav-text">5.Promise.none([…]) 所有promise都被拒绝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-Promise-any-%E2%80%A6-%E5%8F%AA%E9%9C%80%E8%A6%81%E5%AE%8C%E6%88%90%E4%B8%80%E4%B8%AA"><span class="nav-number">7.6.</span> <span class="nav-text">6.Promise.any([…]) 只需要完成一个</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-Promise-allSettled-%E2%80%A6-%E8%BF%94%E5%9B%9E%E6%89%80%E6%9C%89%E7%9A%84promise%E7%BB%93%E6%9E%9C"><span class="nav-number">7.7.</span> <span class="nav-text">7.Promise.allSettled([…])  返回所有的promise结果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">Promise常见用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#thenable"><span class="nav-number">9.</span> <span class="nav-text">thenable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">10.</span> <span class="nav-text">Promise局限性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%BB%A1%E8%B6%B3PromiseA-%E8%A7%84%E8%8C%83%E7%9A%84Promise"><span class="nav-number">11.</span> <span class="nav-text">实现一个满足PromiseA+规范的Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-number">12.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%EF%BC%9A%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%9B%9B%E7%A7%8Dpromise%E7%9A%84%E5%8C%BA%E5%88%AB%E6%97%B6%E4%BB%80%E4%B9%88-%E6%9D%A5%E8%87%AAwe-have-a-problem-with-promise"><span class="nav-number">12.1.</span> <span class="nav-text">1：下面的四种promise的区别时什么  (来自we have a problem with promise)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%EF%BC%9Apromise%E8%B0%83%E5%BA%A6"><span class="nav-number">12.2.</span> <span class="nav-text">2：promise调度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%EF%BC%9APromise%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7"><span class="nav-number">12.3.</span> <span class="nav-text">3：Promise辅助工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E8%BE%93%E5%87%BA%E5%86%85%E5%AE%B9"><span class="nav-number">12.4.</span> <span class="nav-text">循环输出内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="nav-number">13.</span> <span class="nav-text">参考链接：</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -167,7 +167,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -261,7 +261,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-07 17:09:11" itemprop="dateModified" datetime="2021-05-07T17:09:11+08:00">2021-05-07</time>
+        <time title="修改时间：2021-05-28 15:07:26" itemprop="dateModified" datetime="2021-05-28T15:07:26+08:00">2021-05-28</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,14 +285,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>17k</span>
+      <span>18k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>29 分钟</span>
+      <span>30 分钟</span>
     </span>
 </div>
 
@@ -309,7 +309,7 @@
 <p>避免“<strong>回调地狱</strong>”，消除多层嵌套，<strong>避免竞态条件</strong>出现。</p>
 <p>JavaScript异常变成异步行为，进而极大降低了竞态条件出现的可能。</p>
 <p><strong>处理多个异步请求并发</strong>，需要同步处理多个异步请求结果。</p>
-<h4 id="promise-作用"><a href="#promise-作用" class="headerlink" title="promise 作用"></a>promise 作用</h4><p>Promise规范化了异步，并封装了时间相关值的状态，使得我们能够把他们以这种有用的方式链接到一起。</p>
+<h4 id="promise-作用"><a href="#promise-作用" class="headerlink" title="promise 作用"></a>promise 作用</h4><p><strong>Promise规范化了异步，并封装了时间相关值的状态，使得我们能够把他们以这种有用的方式链接到一起</strong>。</p>
 <p>含义：</p>
 <ol>
 <li>promise对象用于异步计算</li>
@@ -340,11 +340,11 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
-<p>new Promise(function() {…})模式通常成为revealing constructor。传入的函数会立即执行（或同步的，不会像then(…)中的回调一样异步延迟），有两个参数是promise结果函数，resolve(…)通常标识完成，而reject(…)则标识拒绝。</p>
+<p>new Promise(function() {…})模式通常成为revealing constructor。<strong>传入的函数会立即执行</strong>（或同步的，不会像then(…)中的回调一样异步延迟），有两个参数是promise结果函数，resolve(…)通常标识完成，而reject(…)则标识拒绝。</p>
 </blockquote>
 <p>Promise是一个代理对象，它和原先要进行的操作并无关系。</p>
 <p>通过引入一个回调，避免更多的回调。</p>
-<p>Promise的状态：</p>
+<p><strong>Promise的状态</strong>：</p>
 <ol>
 <li><p>pending: (待定)初始状态</p>
 </li>
@@ -909,8 +909,7 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
 
 
 
-<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p>1：下面的四种promise的区别时什么  (来自we have a problem with promise)</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// #1</span>
+<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><h5 id="1：下面的四种promise的区别时什么-来自we-have-a-problem-with-promise"><a href="#1：下面的四种promise的区别时什么-来自we-have-a-problem-with-promise" class="headerlink" title="1：下面的四种promise的区别时什么  (来自we have a problem with promise)"></a>1：下面的四种promise的区别时什么  (来自we have a problem with promise)</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// #1</span>
 <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token function">doSomethingElse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>finalHandler<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -959,8 +958,7 @@ doSomethingElse(undefined)
                                      |------------------|<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>*注意：永远都是往then()中传递函数</p>
-<p>2：promise调度</p>
-<p>一个Promise决议后，这个Promise上所有的通过then(…)注册的回调都会在下一个异步时机点上依次被立即调用。这些回调中的任意一个都无法影响或延误对其他回调的调用。</p>
+<h5 id="2：promise调度"><a href="#2：promise调度" class="headerlink" title="2：promise调度"></a>2：promise调度</h5><p>一个Promise决议后，这个Promise上所有的通过then(…)注册的回调都会在下一个异步时机点上依次被立即调用。这些回调中的任意一个都无法影响或延误对其他回调的调用。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">p<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     p<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'C'</span><span class="token punctuation">)</span> <span class="token comment">// C无法打断或抢占B</span>
@@ -1003,8 +1001,7 @@ p2<span class="token punctuation">.</span><span class="token function">then</spa
 
 
 
-<p>3：Promise辅助工具</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// polyfill安全的guard检查</span>
+<h5 id="3：Promise辅助工具"><a href="#3：Promise辅助工具" class="headerlink" title="3：Promise辅助工具"></a>3：Promise辅助工具</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// polyfill安全的guard检查</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Promise<span class="token punctuation">.</span>wrap<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     Promise<span class="token punctuation">.</span><span class="token function-variable function">wrap</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1034,6 +1031,52 @@ p2<span class="token punctuation">.</span><span class="token function">then</spa
 
 <p>Promise.wrap(…)产出的是一个将产生Promise的函数，像Promise工厂。</p>
 <p>把需要回调的函数封装为支持Promise的函数，可以称为Promise工厂化或提升。</p>
+<h5 id="循环输出内容"><a href="#循环输出内容" class="headerlink" title="循环输出内容"></a>循环输出内容</h5><p>输出以下代码运行结果，为什么？如果希望每隔 1s 输出一个结果，应该如何改造？注意不可改动 square 方法</p>
+<p>问题链接：<a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/389">https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/389</a></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> <span class="token function-variable function">square</span> <span class="token operator">=</span> <span class="token parameter">num</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span>num <span class="token operator">*</span> num<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>forEach是不能阻塞的，默认是请求并行发起</p>
+</blockquote>
+<p>方法：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 方法一</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> list<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> x <span class="token operator">=</span> list<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">square</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 方法二</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> x <span class="token keyword">of</span> list<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">square</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 方法三</span>
+<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter">i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> promise <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">></span> list<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span>
+  promise <span class="token operator">=</span> promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token function">square</span><span class="token punctuation">(</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token function">test</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> promise<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h4 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h4><p>[翻译]We have a problem with promises：<a target="_blank" rel="noopener" href="http://fex.baidu.com/blog/2015/07/we-have-a-problem-with-promises/">http://fex.baidu.com/blog/2015/07/we-have-a-problem-with-promises/</a></p>
 <p>慕课网免费课程《Promise入门》</p>
 <p>《你不知道的JavaScript(中卷)》第三章Promise: <a target="_blank" rel="noopener" href="https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/async%20%26%20performance/ch3.md">https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/async%20%26%20performance/ch3.md</a></p>
@@ -1115,14 +1158,14 @@ p2<span class="token punctuation">.</span><span class="token function">then</spa
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">455k</span>
+    <span title="站点总字数">457k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:38</span>
+    <span title="站点阅读时长">12:42</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
