@@ -1454,7 +1454,8 @@ exit()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li><p>切换源可以使用 <a href="https://github.com/Pana/nrm"><code>nrm</code></a> 进行管理。</p>
 </li>
 </ol>
-<h4 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h4><p>在目标目录下运行，可以查看当前目录下的包版本和利用当前目录下包运行项目，不受全局包版本影响。即调用项目内部安装的模块，不受全局模块影响。</p>
+<h4 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h4><p>参考链接：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html">npx 使用教程 - 阮一峰</a></p>
+<p>在目标目录下运行，可以查看当前目录下的包版本和利用当前目录下包运行项目，不受全局包版本影响。即调用项目内部安装的模块，不受全局模块影响。</p>
 <p><code>node</code>新版本会默认安装<code>npx</code>，如果全局环境中没有<code>npx</code>，可以进行手动安装</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install -g npx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -2226,7 +2227,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <tag>前端</tag>
         <tag>工具</tag>
         <tag>webstorm</tag>
-        <tag>tool</tag>
       </tags>
   </entry>
   <entry>
@@ -4537,8 +4537,13 @@ arr<span class="token punctuation">.</span><span class="token function">forEach<
 <p>官网文档：<a href="https://www.typescriptlang.org/zh/docs/">https://www.typescriptlang.org/zh/docs/</a> 、<a href="https://www.tslang.cn/docs/home.html">https://www.tslang.cn/docs/home.html</a></p>
 <p>入门教程：<a href="https://ts.xcatliu.com/">https://ts.xcatliu.com/</a></p>
 <p>中文文档：<a href="https://zhongsp.gitbooks.io/typescript-handbook/content/">https://zhongsp.gitbooks.io/typescript-handbook/content/</a></p>
+<p>中文手册：<a href="https://typescript.bootcss.com/tutorials/typescript-in-5-minutes.html">https://typescript.bootcss.com/tutorials/typescript-in-5-minutes.html</a></p>
+<p>相关文档：</p>
+<p>react 支持 ts：<a href="https://typescript.bootcss.com/tutorials/react.html">https://typescript.bootcss.com/tutorials/react.html</a></p>
 <p>相关书籍：</p>
 <p>深入理解 TypeScript：<a href="https://jkchao.github.io/typescript-book-chinese/#why">https://jkchao.github.io/typescript-book-chinese/#why</a></p>
+<p>相关工具：</p>
+<p>Typescript AST Viewer：<a href="https://ts-ast-viewer.com/">https://ts-ast-viewer.com/</a></p>
 <h3 id="TypeScript-是什么"><a href="#TypeScript-是什么" class="headerlink" title="TypeScript 是什么"></a>TypeScript 是什么</h3><p>JavaScript 的超集。TypeScript = JavaScript + 静态类型系统</p>
 <p>TypeScript 可以在运行代码之前找到错误并提供修复</p>
 <p>需要编译成 JavaScript 才能在浏览器和 node 环境（任何可以运行JavaScript的环境）中运行。</p>
@@ -4558,12 +4563,12 @@ arr<span class="token punctuation">.</span><span class="token function">forEach<
 <p>ts-node 与 tsc 编译的区别</p>
 <p>tsc根据 tsconfig 进行编译所有文件，ts-node 将从入口文件开始，并根据导入 / 导出逐步在树中转移文件。</p>
 </blockquote>
-<h4 id="局部环境"><a href="#局部环境" class="headerlink" title="局部环境"></a>局部环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 初始化项目</span>
-<span class="token function">npm</span> init -y
+<h4 id="局部环境"><a href="#局部环境" class="headerlink" title="局部环境"></a>局部环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 初始化项目
+npm init -y
 
-<span class="token function">yarn</span> <span class="token function">add</span> ts-node typescript -D
+yarn add ts-node typescript -D
 
-<span class="token comment"># 初始化ts</span>
+# 初始化ts
 npx tsc --init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -4571,17 +4576,88 @@ npx tsc --init<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><p><a href="https://github.com/remy/nodemon"><code>nodemon</code></a>：nodemon是一种工具，可在检测到目录中的文件更改时通过自动重新启动节点应用程序来帮助开发基于node.js的应用程序。</p>
 <p><a href="https://github.com/kimmobrunfeldt/concurrently#readme"><code>concurrently</code></a>：并行解决方案。<code>concurrently npm:dev:*</code></p>
 <p><a href="https://www.parceljs.cn/"><code>parcel</code></a>：web应用打包工具</p>
-<h3 id="常见概念"><a href="#常见概念" class="headerlink" title="常见概念"></a>常见概念</h3><p>静态类型定义</p>
-<p>类型注解</p>
-<p>类型推断</p>
+<h3 id="常见概念"><a href="#常见概念" class="headerlink" title="常见概念"></a>常见概念</h3><p>静态类型定义：string、number、boolean、object/{}、Array&lt;元素类型&gt;/元素类型[]、any、void。</p>
+<p><strong>类型注解</strong>：TypeScript 里的类型注解是一种轻量级的为函数或变量添加约束的方式。 TypeScript提供了静态的代码分析，它可以分析代码结构和提供的类型注解。</p>
+<p>类型推断：TypeScript 会自动进行推断没有定义类型注解的变量类型。</p>
 <p>类型保护：判断数据类型来做相应的操作，方法有：as 断言、in 检查是否存在、typeof 和 instanceof 检查数据类型</p>
 <pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// as 断言</span>
-<span class="token comment">// in 方法</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token comment">// in 方法</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ul>
+<li>尽管有错误，<code>js</code>文件还是会被创建了。 </li>
+<li>this 没有隐式的 any</li>
+</ul>
+<h4 id="基础类型"><a href="#基础类型" class="headerlink" title="基础类型"></a>基础类型</h4><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">
+
+<span class="token comment">// 元组 tuple: 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。</span>
+<span class="token comment">// 当访问越界元素，会使用联合类型替代</span>
+<span class="token keyword">let</span> arrTuple<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token punctuation">]</span>
+arrTuple <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+arrTuple <span class="token operator">=</span> <span class="token string">'y'</span> <span class="token comment">// true 字符串可以赋值给(string | number)类型</span>
+
+<span class="token comment">// 枚举 enum: enum类型是对JavaScript标准数据类型的一个补充。</span>
+<span class="token comment">// 默认情况下，从0开始为元素编号。也可以手动的指定成员的数值。</span>
+<span class="token keyword">enum</span> Color <span class="token punctuation">&#123;</span>
+    Red<span class="token punctuation">,</span>
+    Green
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">let</span> color<span class="token operator">:</span> Color <span class="token operator">=</span> Color<span class="token punctuation">.</span>Red <span class="token comment">// 0</span>
+<span class="token keyword">let</span> colorName<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> Color<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment">// Green</span>
+
+<span class="token comment">// any: 未知类型，可以用来指定动态内容</span>
+<span class="token keyword">let</span> anyValue<span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=</span> <span class="token number">4</span>
+anyValue <span class="token operator">=</span> <span class="token string">'4'</span>
+
+<span class="token comment">// void: 表示没有任何类型。当一个函数没有返回值时可以使用。</span>
+<span class="token keyword">function</span> <span class="token function">warnUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"This is my warning message"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">let</span> unusable<span class="token operator">:</span> <span class="token keyword">void</span> <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span> <span class="token comment">// 只能赋予undefined和null</span>
+
+<span class="token comment">// null | undefined: 默认情况下null和undefined是所有类型的子类型。 就是说你可以把 null和undefined赋值给number类型的变量。</span>
+
+<span class="token comment">// never: 表示的是那些永不存在的值的类型。</span>
+<span class="token comment">// never类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型； 变量也可能是 never类型，当它们被永不为真的类型保护所约束时。</span>
+<span class="token comment">// never类型是任何类型的子类型，也可以赋值给任何类型；然而，没有类型是never的子类型或可以赋值给never类型（除了never本身之外）。 即使 any也不可以赋值给never。</span>
+<span class="token comment">// 返回never的函数必须存在无法达到的终点</span>
+<span class="token keyword">function</span> <span class="token function">error</span><span class="token punctuation">(</span>message<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">never</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 推断的返回值类型为never</span>
+<span class="token keyword">function</span> <span class="token function">fail</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"Something failed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 返回never的函数必须存在无法达到的终点</span>
+<span class="token keyword">function</span> <span class="token function">infiniteLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">never</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// object: 表示非原始类型，也就是除number，string，boolean，symbol，null或undefined之外的类型。</span>
+<span class="token comment">// Object类型的变量只是允许你给它赋任意值 - 但是却不能够在它上面调用任意的方法，即便它真的有这些方法。</span>
+<span class="token keyword">let</span> prettySure<span class="token operator">:</span> Object <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+prettySure<span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Error: Property 'toFixed' doesn't exist on type 'Object'.</span>
+<span class="token comment">// 使用object类型，就可以更好的表示像Object.create这样的API。</span>
+<span class="token keyword">declare</span> <span class="token keyword">function</span> <span class="token function">create</span><span class="token punctuation">(</span>o<span class="token operator">:</span> object <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> prop<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// OK</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h4 id="interface-接口"><a href="#interface-接口" class="headerlink" title="interface 接口"></a>interface 接口</h4><p>注解对象中的属性或注解函数。</p>
+<h4 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h4><p>形式：</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">let</span> someValue<span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=</span> <span class="token string">"this is a string"</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 形式一 尖括号 语法</span>
+<span class="token keyword">let</span> strLength<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span>someValue<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+
+<span class="token comment">// 形式二 as 语法 jsx中只能使用这种方式</span>
+<span class="token keyword">let</span> strLength<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token punctuation">(</span>someValue <span class="token keyword">as</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="interface-接口"><a href="#interface-接口" class="headerlink" title="interface 接口"></a>interface 接口</h4><p>在 TypeScript 里，只在两个类型内部的结构兼容那么这两个类型就是兼容的。 这就允许我们在实现接口时候只要保证包含了接口要求的结构就可以，而不必明确地使用 <code>implements</code>语句。</p>
+<p>注解对象中的属性或注解函数。</p>
 <p>接口之间可以进行继承（extends）。</p>
 <h5 id="类型别名-和-interface-的区别"><a href="#类型别名-和-interface-的区别" class="headerlink" title="类型别名 和 interface 的区别"></a>类型别名 和 interface 的区别</h5><p>类型别名可以直接重新定义基础类型名称，而 interface 不可以，只能设置对象类型。</p>
 <p>实战中，interface 比类型别名更加常用，如果无法使用interface，则使用类型别名。</p>
@@ -4669,7 +4745,23 @@ npx tsc --init<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 
 
 
-<h3 id="类型注解"><a href="#类型注解" class="headerlink" title="类型注解"></a>类型注解</h3><p>基础类型</p>
+<h3 id="类型注解"><a href="#类型注解" class="headerlink" title="类型注解"></a>类型注解</h3><h4 id="基础类型-1"><a href="#基础类型-1" class="headerlink" title="基础类型"></a>基础类型</h4><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// boolean</span>
+<span class="token keyword">let</span> isDone<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+
+<span class="token comment">// number</span>
+<span class="token keyword">let</span> num<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">// string</span>
+<span class="token keyword">let</span> str<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'xxx'</span>
+
+<span class="token comment">// array</span>
+<span class="token keyword">let</span> numList<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> strList<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 <p>引用类型</p>
 <h4 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h4><h5 id="属性设置"><a href="#属性设置" class="headerlink" title="属性设置"></a>属性设置</h5><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">readonly</span> id<span class="token operator">:</span> numbser<span class="token punctuation">;</span> <span class="token comment">// 只读项</span>
@@ -4802,8 +4894,13 @@ npx tsc --init<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 
 
 
-
-
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li><code>noImplicitReturns</code> ：会防止你忘记在函数末尾返回值。</li>
+<li><code>noFallthroughCasesInSwitch</code> ：会防止在<code>switch</code>代码块里的两个<code>case</code>之间忘记添加<code>break</code>语句。</li>
+<li><code>noImplicitAny</code> ：防止将没有明确指定的类型默默地推断为 <code>any</code>类型。</li>
+<li><code>noEmitOnError</code> ：</li>
+</ul>
+<p>TypeScript还能发现那些执行不到的代码和标签，你可以通过设置<code>allowUnreachableCode</code>和<code>allowUnusedLabels</code>选项来禁用。</p>
 <h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><h5 id="类型描述文件"><a href="#类型描述文件" class="headerlink" title="类型描述文件"></a>类型描述文件</h5><p>当 ts 文件引入 <code>js</code> 库时，需要使用 <code>.d.ts</code> 翻译文件。翻译文件会帮助 ts 文件引入 js 文件。</p>
 <p>安装 .d.ts 文件，<code>npm i @types/xxx -D</code></p>
 <h5 id="类型描述文件不准确"><a href="#类型描述文件不准确" class="headerlink" title="类型描述文件不准确"></a>类型描述文件不准确</h5><p>使用 interface extends 方法进行扩展属性。</p>
@@ -19795,8 +19892,6 @@ ZeroDivisionError<span class="token punctuation">:</span> division by zero<span 
 
 
 
-
-
 <h4 id="响应式系统"><a href="#响应式系统" class="headerlink" title="响应式系统"></a><a href="https://cn.vuejs.org/v2/guide/reactivity.html">响应式系统</a></h4><p>当一个 Vue 实例被创建时，它将 <code>data</code> 对象中的所有的 property 加入到 Vue 的<strong>响应式系统</strong>中。当这些 property 的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。当这些数据改变时，视图会进行重渲染。值得注意的是只有当实例被创建时就已经存在于 <code>data</code> 中的 property 才是<strong>响应式</strong>的。</p>
 <p>当你把一个普通的 JavaScript 对象传入 Vue 实例作为 <code>data</code> 选项，Vue 将遍历此对象所有的 property，并使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty</code></a> 把这些 property 全部转为 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#%E5%AE%9A%E4%B9%89_getters_%E4%B8%8E_setters">getter/setter</a>。</p>
 <p>每个组件实例都对应一个 <strong>watcher</strong> 实例，它会在组件渲染的过程中把“接触”过的数据 property 记录为依赖。之后当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染。</p>
@@ -21403,7 +21498,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
 <span class="token keyword">const</span> filterIds <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
 
-从后往前找
+<span class="token comment">// 从后往前找</span>
 <span class="token keyword">function</span> <span class="token function">findBackValid</span><span class="token punctuation">(</span><span class="token parameter">last <span class="token operator">=</span> list<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> previous <span class="token operator">=</span> filterIds<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> current <span class="token operator">=</span> previous</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>last<span class="token punctuation">,</span> previous<span class="token punctuation">,</span> current<span class="token punctuation">)</span>
   <span class="token comment">// 如果当前的index 等于最后一个 往前找</span>
@@ -21433,6 +21528,152 @@ console<span class="token punctuation">.</span><span class="token function">log<
       <tags>
         <tag>前端</tag>
         <tag>工具函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>react系列-react入门</title>
+    <url>/posts/bd48304/</url>
+    <content><![CDATA[<p>React官网：<a href="https://reactjs.org/docs/getting-started.html">https://reactjs.org/docs/getting-started.html</a></p>
+<p>Creat-react-app官网：<a href="https://create-react-app.dev/">https://create-react-app.dev/</a></p>
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><h4 id="添加-ts-支持"><a href="#添加-ts-支持" class="headerlink" title="添加 ts 支持"></a>添加 ts 支持</h4><p><a href="https://create-react-app.dev/docs/adding-typescript/">https://create-react-app.dev/docs/adding-typescript/</a></p>
+<p>创建一个新的 app ：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npx create-react-app my-app --template typescript
+
+# or
+
+yarn create react-app my-app --template typescript<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在已存在的项目中添加 typescript 支持：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install --save typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom @types&#x2F;jest
+
+# or
+
+yarn add typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom @types&#x2F;jest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>声明式编程</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscode使用</title>
+    <url>/posts/a2598390/</url>
+    <content><![CDATA[<p>官网：<a href="https://code.visualstudio.com/docs">https://code.visualstudio.com/docs</a></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a><a href="https://code.visualstudio.com/docs/getstarted/keybindings">快捷键</a></h3><ul>
+<li><code>ctrl + shift + p</code>  / <code>F1</code> ：打开命令面板。输入 <code>?</code> 可以查看可使用的命令行列表。</li>
+<li><code>ctrl + p</code> ：打开文件</li>
+<li><code>ctrl + shift + o</code> ：定位到文件某个位置</li>
+<li><code>ctrl + g</code> ：定位到某一行</li>
+<li><code>ctrl + Tab</code> ：显示最近编辑的文件</li>
+<li><code>ctrl + ,</code> ：打开 <code>setting</code></li>
+<li><code>ctrl + w</code> ：关闭所有的编辑器界面</li>
+<li><code>ctrl + 1</code> ：到最左边的编辑器界面</li>
+<li><code>ctrl + 2</code> ：到中间的编辑器界面</li>
+<li><code>ctrl + 3</code> ：到最右边的编辑器界面</li>
+<li><code>ctrl + F4</code> ：关闭当前活动的编辑器界面</li>
+<li><code>ctrl + shift + x</code> ：打开插件界面。类目搜索如 <code>@category:&quot;theme&quot;</code> 进行筛选。</li>
+<li><code>ctrl + d</code> ：当前选中的元素，多选</li>
+<li><code>ctrl + alt + down / up</code> ：多行</li>
+<li><code>ctrl + shift + alt + up / down</code> ：多行选中</li>
+<li><code>ctrl + shift + alt + left / right</code> ：多行左右选中</li>
+<li><code>ctrl + shift + alt + pageUp / pageDown</code> ：page多行选中</li>
+<li><code>ctrl + shift + l</code> ：全选中当前选中的元素</li>
+<li><code>alt + click</code> ：点击自定义多选行和位置</li>
+<li><code>ctrl + [ / ]</code> ：控制缩进</li>
+<li><code>ctrl + shift + [ / ]</code> ：控制代码块折叠</li>
+<li><code>ctrl + 0</code> ：代码块全部折叠</li>
+<li><code>ctrl + /</code> ：注释代码</li>
+<li><code>alt + shift + f</code> ：格式化代码</li>
+</ul>
+<h3 id="配置-setting-json"><a href="#配置-setting-json" class="headerlink" title="配置 setting.json"></a>配置 <a href="https://code.visualstudio.com/docs/getstarted/settings">setting.json</a></h3><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token comment">// tabs</span>
+    <span class="token property">"workbench.editor.showTabs"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 不使用tab</span>
+    <span class="token property">"workbench.editor.openPositioning"</span><span class="token operator">:</span> <span class="token string">"left"</span><span class="token punctuation">,</span> <span class="token comment">// tab order</span>
+    <span class="token comment">// preview mode 预览模式 单击进入预览模式 双击打开文件 关闭预览模式需要设置以下两个参数</span>
+    <span class="token property">"workbench.editor.enablePreview"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 默认启用预览模式</span>
+    <span class="token property">"workbench.editor.enablePreviewFromQuickOpen"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 快速打开文件，即单击打开文件 </span>
+    <span class="token comment">// 编辑器界面</span>
+    <span class="token property">"workbench.editor.closeEmptyGroups"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 不关闭空的 editor group</span>
+    <span class="token property">"workbench.editor.openSideBySideDirection"</span><span class="token operator">:</span> <span class="token string">"down"</span><span class="token punctuation">,</span> <span class="token comment">// 预设打开新的编辑器界面的方向 默认为右边</span>
+    <span class="token comment">// 窗口配置 重启窗口 有效值为 on off default</span>
+    <span class="token property">"window.openFoldersInNewWindow"</span><span class="token operator">:</span> <span class="token string">"default"</span><span class="token punctuation">,</span> <span class="token comment">// 打开新的文件夹</span>
+    <span class="token property">"window.openFilesInNewWindow"</span><span class="token operator">:</span> <span class="token string">"default"</span><span class="token punctuation">,</span> <span class="token comment">// 打开新的文件</span>
+    <span class="token comment">// 主题</span>
+    <span class="token property">"workbench.colorTheme"</span><span class="token operator">:</span> <span class="token string">"Default Dark+"</span><span class="token punctuation">,</span>
+    <span class="token comment">// 自定义主题 such as list &amp; trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons, and more </span>
+    <span class="token comment">// https://code.visualstudio.com/api/references/theme-color</span>
+    <span class="token property">"workbench.colorCustomizations"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">"activityBar.foreground"</span><span class="token operator">:</span> <span class="token string">"#00FFFF"</span><span class="token punctuation">,</span>
+        ...
+        <span class="token comment">// 或 对特殊主题设置</span>
+        <span class="token property">"[Monokai]"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"sideBar.background"</span><span class="token operator">:</span> <span class="token string">"#00FFFF"</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 高亮 comments、function、keywords、numbers...</span>
+    <span class="token property">"editor.tokenColorCustomizations"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">"comments"</span><span class="token operator">:</span> <span class="token string">"#FF9900"</span><span class="token punctuation">,</span>
+        ...
+        <span class="token comment">// 使用文件内容配置</span>
+        <span class="token property">"textMateRules"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token property">"scope"</span><span class="token operator">:</span> <span class="token string">"support.type.property-name.json"</span><span class="token punctuation">,</span>
+                <span class="token property">"settings"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                    <span class="token property">"foreground"</span><span class="token operator">:</span> <span class="token string">"#00FFFF"</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token comment">// 对特殊主题设置</span>
+        <span class="token property">"[Monokai]"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"comments"</span><span class="token operator">:</span> <span class="token string">"#00FFFF"</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment">// 更加详细的颜色配置 https://code.visualstudio.com/api/extension-guides/color-theme</span>
+    <span class="token comment">// 特殊语言的语义主题配置 https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide</span>
+    <span class="token property">"editor.semanticTokenColorCustomizations"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">"[Rouge]"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"enabled"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token property">"rules"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token property">"*.declaration"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token property">"bold"</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token comment">// icon theme</span>
+  	<span class="token property">"workbench.iconTheme"</span><span class="token operator">:</span> <span class="token string">"vs-seti"</span><span class="token punctuation">,</span>
+    
+    <span class="token comment">// 特殊语言设置</span>
+    <span class="token property">"[typescript]"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"editor.formatOnPaste"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"[markdown]"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"editor.wordWrap"</span><span class="token operator">:</span> <span class="token string">"on"</span><span class="token punctuation">,</span>
+        <span class="token property">"editor.renderWhitespace"</span><span class="token operator">:</span> <span class="token string">"all"</span><span class="token punctuation">,</span>
+        <span class="token property">"editor.acceptSuggestionOnEnter"</span><span class="token operator">:</span> <span class="token string">"off"</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a><a href="https://code.visualstudio.com/docs/editor/emmet">Emmet</a></h4><h3 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a><a href="https://code.visualstudio.com/docs/editor/extension-marketplace">常用插件</a></h3><p>EsLint</p>
+<p>Prettier</p>
+<p>GitLens</p>
+<p>LiveServer</p>
+]]></content>
+      <categories>
+        <category>指南</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>vscode</tag>
       </tags>
   </entry>
 </search>
