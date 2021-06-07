@@ -296,12 +296,14 @@
   <entry>
     <title>Linux的使用</title>
     <url>/posts/62371/</url>
-    <content><![CDATA[<h5 id="Manjaro"><a href="#Manjaro" class="headerlink" title="Manjaro"></a>Manjaro</h5><h5 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h5><h5 id="同步时间"><a href="#同步时间" class="headerlink" title="同步时间"></a>同步时间</h5><p><code>sudo timedatectl set-local-rtc true</code></p>
-<h4 id="centOS-7"><a href="#centOS-7" class="headerlink" title="centOS 7"></a>centOS 7</h4><h5 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h5><h6 id="yum源"><a href="#yum源" class="headerlink" title="yum源"></a>yum源</h6><p>安装了yum源: <code>rpm -Uvh</code></p>
+    <content><![CDATA[<h3 id="Linux-命令"><a href="#Linux-命令" class="headerlink" title="Linux 命令"></a>Linux 命令</h3><p>查找文件</p>
+<p>find</p>
+<h3 id="Manjaro"><a href="#Manjaro" class="headerlink" title="Manjaro"></a>Manjaro</h3><h4 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h4><h4 id="同步时间"><a href="#同步时间" class="headerlink" title="同步时间"></a>同步时间</h4><p><code>sudo timedatectl set-local-rtc true</code></p>
+<h3 id="centOS-7"><a href="#centOS-7" class="headerlink" title="centOS 7"></a>centOS 7</h3><h4 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h4><h5 id="yum源"><a href="#yum源" class="headerlink" title="yum源"></a>yum源</h5><p>安装了yum源: <code>rpm -Uvh</code></p>
 <p>查看卸载的yum源:  <code>ls /etc/yum.repos.d/</code></p>
 <p>卸载yum源: <code>rpm -e mysql57-community-release-el6-9.noarch</code></p>
-<h6 id="列出所有被安装的rpm-package"><a href="#列出所有被安装的rpm-package" class="headerlink" title="列出所有被安装的rpm package"></a>列出所有被安装的rpm package</h6><p><code>rpm -qa | grep mariadb</code></p>
-<h6 id="强制卸载相关的软件"><a href="#强制卸载相关的软件" class="headerlink" title="强制卸载相关的软件"></a>强制卸载相关的软件</h6><p>语句：<code>rpm -e --nodeps 软件名</code></p>
+<h5 id="列出所有被安装的rpm-package"><a href="#列出所有被安装的rpm-package" class="headerlink" title="列出所有被安装的rpm package"></a>列出所有被安装的rpm package</h5><p><code>rpm -qa | grep mariadb</code></p>
+<h5 id="强制卸载相关的软件"><a href="#强制卸载相关的软件" class="headerlink" title="强制卸载相关的软件"></a>强制卸载相关的软件</h5><p>语句：<code>rpm -e --nodeps 软件名</code></p>
 <p>实例：<code>rpm -e --nodeps mariadb-libs-5.5.37-1.el7_0.x86_64</code></p>
 <p><strong>完全卸载mariadb</strong></p>
 <p>1、卸载mariadb：</p>
@@ -313,10 +315,10 @@
 <p>3、删除数据目录：</p>
 <pre class="line-numbers language-none"><code class="language-none">rm -rf &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h6 id="运行mysql"><a href="#运行mysql" class="headerlink" title="运行mysql"></a>运行mysql</h6><p><code>mysql -u root -p</code></p>
-<h6 id="重启nginx"><a href="#重启nginx" class="headerlink" title="重启nginx"></a>重启nginx</h6><p><code>service nginx restart</code></p>
-<h6 id="查看软件安装情况"><a href="#查看软件安装情况" class="headerlink" title="查看软件安装情况"></a>查看软件安装情况</h6><p><code>rpm -qa | grep mariadb</code></p>
-<h5 id="查看linux服务器配置"><a href="#查看linux服务器配置" class="headerlink" title="查看linux服务器配置"></a>查看linux服务器配置</h5><ul>
+<h5 id="运行mysql"><a href="#运行mysql" class="headerlink" title="运行mysql"></a>运行mysql</h5><p><code>mysql -u root -p</code></p>
+<h5 id="重启nginx"><a href="#重启nginx" class="headerlink" title="重启nginx"></a>重启nginx</h5><p><code>service nginx restart</code></p>
+<h5 id="查看软件安装情况"><a href="#查看软件安装情况" class="headerlink" title="查看软件安装情况"></a>查看软件安装情况</h5><p><code>rpm -qa | grep mariadb</code></p>
+<h4 id="查看linux服务器配置"><a href="#查看linux服务器配置" class="headerlink" title="查看linux服务器配置"></a>查看linux服务器配置</h4><ul>
 <li><p>查看所有网络接口的属性<br><code>ifconfig</code></p>
 </li>
 <li><p>查看系统<br><code>cat /etc/redhat-release</code></p>
@@ -384,7 +386,8 @@
 <p>Linux安装nodejs <a href="https://blog.csdn.net/xerysherryx/article/details/78920978">https://blog.csdn.net/xerysherryx/article/details/78920978</a></p>
 <p>centos7 MariaDB远程访问 <a href="https://www.cnblogs.com/jinwenb/p/9203642.html">https://www.cnblogs.com/jinwenb/p/9203642.html</a></p>
 <p>centos7 安装Mariadb <a href="https://www.cnblogs.com/yhongji/p/9783065.html">https://www.cnblogs.com/yhongji/p/9783065.html</a></p>
-<h4 id="部署阿里云"><a href="#部署阿里云" class="headerlink" title="部署阿里云"></a>部署阿里云</h4>]]></content>
+<p>centos7 安装配置redis <a href="https://segmentfault.com/a/1190000016012597">https://segmentfault.com/a/1190000016012597</a></p>
+<h3 id="部署阿里云"><a href="#部署阿里云" class="headerlink" title="部署阿里云"></a>部署阿里云</h3>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -639,6 +642,7 @@ git pull orgin master &#x2F;&#x2F; 拉取远程仓库master分支<span aria-hidd
       <tags>
         <tag>工具</tag>
         <tag>git</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
@@ -2234,9 +2238,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <url>/posts/26727/</url>
     <content><![CDATA[<h4 id="编写一个简单的Loader"><a href="#编写一个简单的Loader" class="headerlink" title="编写一个简单的Loader"></a>编写一个简单的Loader</h4><h5 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h5><p>loader api: <a href="https://webpack.docschina.org/api/loaders/">https://webpack.docschina.org/api/loaders/</a></p>
 <p>resolveLoader: <a href="https://webpack.docschina.org/configuration/resolve/#resolveloader">https://webpack.docschina.org/configuration/resolve/#resolveloader</a></p>
-<h5 id="初始化简单的项目"><a href="#初始化简单的项目" class="headerlink" title="初始化简单的项目"></a>初始化简单的项目</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> init -y
+<h5 id="初始化简单的项目"><a href="#初始化简单的项目" class="headerlink" title="初始化简单的项目"></a>初始化简单的项目</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm init -y
 
-<span class="token function">npm</span> <span class="token function">install</span> --save-dev webpack webpack-cli
+npm install --save-dev webpack webpack-cli
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="创建loader"><a href="#创建loader" class="headerlink" title="创建loader"></a>创建loader</h5><p>loader本质就是函数</p>
@@ -2505,6 +2509,26 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
+<h4 id="webpack-管理多个项目"><a href="#webpack-管理多个项目" class="headerlink" title="webpack 管理多个项目"></a>webpack 管理多个项目</h4><p>实现多个项目共用 node_modules 和 package.json</p>
+<blockquote>
+<p>差异性不大的多个项目是否可以共用一个 <code>node_modules</code> ，使用公共组件部分、公共插件（抽npm）</p>
+</blockquote>
+<h5 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h5><h6 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h6><p>每个项目中独立配置项目差异 <code>config</code> 文件，相同配置使用根目录的 <code>webpack.base.config.js</code></p>
+<p>实现：</p>
+<ul>
+<li>./webpack.base.config.js、</li>
+<li>projectA/webpack.config.js、</li>
+<li>projectB/webpack.config.js</li>
+<li>根目录下的 <code>package.json</code> 的 <code>scripts</code> 命令：<code>npx webpack --config ./projectA/webpack.config.js &amp;&amp; npx webpack --config ./projectB/webpack.config.js</code>  </li>
+</ul>
+<h6 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h6><p>使用根目录统一的 config 文件进行做差异化处理</p>
+<p>实现：</p>
+<ul>
+<li>./webpack.config.js</li>
+<li>根目录下的 <code>package.json</code> 的 <code>scripts</code> 命令：<code>npx webpack --env PROJECT=projectA &amp;&amp; npx webpack --env PROJECT=projectB</code>  </li>
+</ul>
+<h6 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h6><p>两种方案都使用了 <a href="https://github.com/survivejs/webpack-merge">webpack-merge</a> 合并配置。</p>
+<p>配置的主要问题是获取到具体项目的路径、以及定义配置的上下文环境 <code>context</code> 和 <code>node_modules</code> 路径解析 <code>resolve.modules</code>。</p>
 <h4 id="Demo项目地址"><a href="#Demo项目地址" class="headerlink" title="Demo项目地址"></a>Demo项目地址</h4><p>study webpack: <a href="https://github.com/Datura35422/study/tree/master/webpack-demos">https://github.com/Datura35422/study/tree/master/webpack-demos</a></p>
 <p>pug demo: <a href="https://github.com/Datura35422/pug-demo/tree/master/website">https://github.com/Datura35422/pug-demo/tree/master/website</a></p>
 <h4 id="博文收集"><a href="#博文收集" class="headerlink" title="博文收集"></a>博文收集</h4><p><a href="https://github.com/sisterAn/blog/issues/69">窥探原理：手写一个 JavaScript 打包器 #69</a></p>
@@ -2705,7 +2729,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <p><strong>尾调用优化</strong>（<code>Tail call optimization</code>）：即只保留内层函数的调用记录。如果所有函数都是尾调用，那么完全可以做到每次执行时，调用记录只有一项，这将大大节省内存。</p>
 <p><strong>尾递归</strong>：如果尾调用自身，就称为尾递归。</p>
-<h4 id="优质代码写法"><a href="#优质代码写法" class="headerlink" title="优质代码写法"></a>优质代码写法</h4><h5 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h5><p><a href="https://mp.weixin.qq.com/s/O3UKTzQaRpHa--yuio2uZA">垃圾代码和优质代码的区别？</a></p>
+<h4 id="优质代码写法"><a href="#优质代码写法" class="headerlink" title="优质代码写法"></a>优质代码写法</h4><h5 id="风格指南"><a href="#风格指南" class="headerlink" title="风格指南"></a>风格指南</h5><p><a href="https://github.com/zh-google-styleguide/zh-google-styleguide">https://github.com/zh-google-styleguide/zh-google-styleguide</a></p>
+<h5 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h5><p><a href="https://mp.weixin.qq.com/s/O3UKTzQaRpHa--yuio2uZA">垃圾代码和优质代码的区别？</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -5381,8 +5406,7 @@ var app5 &#x3D; new Vue(&#123;
     <title>基础系列-渐进式web应用PWA</title>
     <url>/posts/29356/</url>
     <content><![CDATA[<p>PWA应用是指那些<strong>使用指定技术和标准模式来开发的web应用</strong>，这将同时赋予它们web应用和原生应用的特性。</p>
-<p>特点：</p>
-<ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
 <li><a href="https://developer.mozilla.org/en-US/Apps/Progressive/Advantages#Discoverable">Discoverable</a>, 内容可以通过搜索引擎发现。</li>
 <li><a href="https://developer.mozilla.org/en-US/Apps/Progressive/Advantages#Installable">Installable</a>, 可以出现在设备的主屏幕。</li>
 <li><a href="https://developer.mozilla.org/Apps/Progressive/Advantages#Linkable">Linkable</a>, 你可以简单地通过一个URL来分享它。 </li>
@@ -5392,8 +5416,13 @@ var app5 &#x3D; new Vue(&#123;
 <li><a href="https://developer.mozilla.org/en-US/Apps/Progressive/Advantages#Responsive">Responsive</a>, 它在任何具有屏幕和浏览器的设备上可以正常使用——包括手机，平板电脑，笔记本，电视，冰箱，等。</li>
 <li><a href="https://developer.mozilla.org/en-US/Apps/Progressive/Advantages#Safe">Safe</a>, 在你和应用之间的连接是安全的，可以阻止第三方访问你的敏感数据。</li>
 </ul>
-<p>架构：</p>
-<ul>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><ul>
+<li>可以添加至主屏幕，点击主屏幕图标可以实现启动动画以及隐藏地址栏；</li>
+<li>实现离线缓存功能，即使用户手机没有网络，依然可以使用一些离线功能；</li>
+<li>实现了消息推送；</li>
+<li>等累死与 Native App相关的功能；</li>
+</ul>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><ul>
 <li><p>服务器端渲染（SSR）</p>
 </li>
 <li><p>客户端渲染（CSR）</p>
@@ -21691,33 +21720,44 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>Creat-react-app官网：<a href="https://create-react-app.dev/">https://create-react-app.dev/</a></p>
 <p>教程：</p>
 <p><a href="https://github.com/the-road-to-learn-react">https://github.com/the-road-to-learn-react</a></p>
-<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><h4 id="添加-ts-支持"><a href="#添加-ts-支持" class="headerlink" title="添加 ts 支持"></a>添加 ts 支持</h4><p><a href="https://create-react-app.dev/docs/adding-typescript/">https://create-react-app.dev/docs/adding-typescript/</a></p>
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>脚手架工具搭建项目的优势：</p>
+<ul>
+<li>帮助我们搭建项目的通用性目录结构，进行通用的组织划分</li>
+<li>管理文件之间的项目依赖</li>
+<li>项目打包和压缩等通用性配置</li>
+</ul>
+<h4 id="添加-ts-支持"><a href="#添加-ts-支持" class="headerlink" title="添加 ts 支持"></a>添加 ts 支持</h4><p><a href="https://create-react-app.dev/docs/adding-typescript/">https://create-react-app.dev/docs/adding-typescript/</a></p>
 <p>创建一个新的 app ：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npx create-react-app my-app --template typescript
 
-# or
+<span class="token comment"># or</span>
 
-yarn create react-app my-app --template typescript<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">yarn</span> create react-app my-app --template typescript<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在已存在的项目中添加 typescript 支持：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install --save typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom @types&#x2F;jest
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> --save typescript @types/node @types/react @types/react-dom @types/jest
 
-# or
+<span class="token comment"># or</span>
 
-yarn add typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom @types&#x2F;jest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">yarn</span> <span class="token function">add</span> typescript @types/node @types/react @types/react-dom @types/jest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>声明式编程</p>
+<blockquote>
+<p>将传统的命令式编程，如jQuery，转变为声明式编程</p>
+</blockquote>
 <p>React 元素是<strong>不可变对象</strong>。一旦被创建，就无法更改它的子元素或者属性。</p>
 <h4 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h4><p>在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，对于同一属性不能同时使用这两种符号。</p>
 <p>React DOM 在渲染所有输入内容之前，默认会进行<a href="https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html">转义</a>。它可以确保在你的应用中，永远不会注入那些并非自己明确编写的内容。所有的内容在渲染之前都被转换成了字符串。这样可以有效地防止 <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">XSS（cross-site-scripting, 跨站脚本）</a>攻击。</p>
-<p>注释写法</p>
-<pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token punctuation">&#123;</span><span class="token comment">/* 注释 */</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><p>严格区分大小写。<strong>默认组件首字母大写。首字母小写则会被判断为普通标签元素</strong>。</p>
+<blockquote>
+<p>html 中是对大小写不敏感</p>
+</blockquote>
+<h6 id="注释写法"><a href="#注释写法" class="headerlink" title="注释写法"></a>注释写法</h6><pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token punctuation">&#123;</span><span class="token comment">/* 注释 */</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>js中的关键字不能和html标签中的属性混合，如 html标签中的class属性 需要使用 className 替代，与js中的class 关键字区分开。label标签的for属性需要使用htmlFor进行替代。</p>
-<p>state</p>
-<p>不能直接修改state。出于性能考虑，使用<code>setState()</code>去修改state。</p>
+<h5 id="state"><a href="#state" class="headerlink" title="state"></a>state</h5><p>不能直接修改state。出于性能考虑，使用<code>setState()</code>去修改state。</p>
 <p>因为 <code>this.props</code> 和 <code>this.state</code> 可能会异步更新，所以你不要依赖他们的值来更新下一个状态。</p>
 <p>可以让 <code>setState()</code> 接收一个函数而不是一个对象。这个函数用上一个 state 作为第一个参数，将此次更新被应用时的 props 做为第二个参数:</p>
 <pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token comment">// Correct</span>
@@ -21741,6 +21781,15 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
 <p>React.createElement 纯函数最终创建出来一个 ReactElement 对象。</p>
 <p>React 利用 ReactElement 对象组成了一个 JavaScript 的对象树（AST树，即虚拟DOM树）</p>
 <p>ReactDOM.render 将对象树渲染到目标节点中。</p>
+<h5 id="render函数的返回值"><a href="#render函数的返回值" class="headerlink" title="render函数的返回值"></a>render函数的返回值</h5><p>当 render 被调用时，会检查 this.props 和 this.state 的变化并返回以下类型之一：</p>
+<ul>
+<li>React元素<ul>
+<li>通常通过 JSX 创建</li>
+</ul>
+</li>
+<li>数组活 fragments（片段）：使得 render 方法可以返回多个元素</li>
+<li>Portals：可以渲染子节点到不同的 DOM 子树中</li>
+</ul>
 <h4 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h4><p>原因：</p>
 <ul>
 <li><p>很难跟踪状态的发生；</p>
@@ -21756,8 +21805,47 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
 <li>从命令式编程（传统jQuery方式）转到了声明式编程模式</li>
 <li>UI以一种虚拟化的方式保存在内存中，并且是一个相对简单的 JavaScript 对象</li>
 <li>协调：通过ReactDOM.render 让虚拟DOM 和 真实DOM 同步起来 </li>
-<li></li>
 </ul>
+<h4 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h4><p><strong>分而治之</strong>思想的应用。</p>
+<p>尽可能的将页面拆分成一个个小的、可复用的组件，降低代码耦合性，更加方便组织和管理，并且扩展性也更强。</p>
+<h5 id="组件分类"><a href="#组件分类" class="headerlink" title="组件分类"></a>组件分类</h5><p>相对于Vue而言，可以按照不同的方式分成很多类组件：</p>
+<ul>
+<li>根据组件的定义方式，分为：函数式组件（Functional Component）和类组件（Class Component）</li>
+<li>根据组件内部是否有状态需要维护，分为：无状态组件（Stateless Component）和有状态组件（Stateful Component）</li>
+<li>根据组件的不同职责，分为：展示型组件（Presentational Component）和容器型组件（Container Component）</li>
+</ul>
+<blockquote>
+<p>组件分类具有概念重叠部分，还有其他组件概念如异步组件、高阶组件等</p>
+</blockquote>
+<p>总结：</p>
+<p>最主要是关注数据逻辑和UI展示的分离，</p>
+<ul>
+<li>函数组件、无状态组件、展示型组件主要关注UI的展示</li>
+<li>类组件、有状态组件、容器型组件主要关注数据逻辑</li>
+</ul>
+<h6 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h6><p>定义：</p>
+<ul>
+<li>组件的名称是首字母大写（<strong>所有的组件名称约定为大写驼峰</strong>）</li>
+<li>类组件需要继承自 <code>React.Component</code></li>
+<li>类组件必须实现 <code>render</code> 函数 </li>
+</ul>
+<p>使用 class 定义一个组件：</p>
+<ul>
+<li>constructor 是可选的，通常在constructor 中初始化一些数据</li>
+<li>this.state 中维护的就是组件内部的数据</li>
+<li>render() 方法是 class 组件中唯一必须实现的方法</li>
+</ul>
+<h6 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h6><p>特点：</p>
+<ul>
+<li>没有this对象</li>
+<li>没有内部状态，不需要涉及到状态更新和数据交互（可以使用hooks）</li>
+</ul>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><blockquote>
+<p>vue-cli 使用了 webpack-chain进行 webpack配置扩展和自定义</p>
+</blockquote>
+<p>react 项目进行扩展配置：</p>
+<p>方法一：使用 <code>react-scripts eject</code>将配置文件暴露出来，然后进行修改。</p>
+<p>方法二：不进行暴露项目初始配置，在初始配置上进行扩展修改，参考链接：<a href="https://github.com/timarney/react-app-rewired/blob/master/README_zh.md">https://github.com/timarney/react-app-rewired/blob/master/README_zh.md</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -21955,6 +22043,55 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
       <tags>
         <tag>前端</tag>
         <tag>合集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ssh用法</title>
+    <url>/posts/f05bd2ed/</url>
+    <content><![CDATA[<p>文档：<a href="https://man.openbsd.org/ssh#AUTHENTICATION">https://man.openbsd.org/ssh#AUTHENTICATION</a></p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="查看密钥"><a href="#查看密钥" class="headerlink" title="查看密钥"></a>查看密钥</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> ~/.ssh
+<span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="生成公钥密钥"><a href="#生成公钥密钥" class="headerlink" title="生成公钥密钥"></a>生成公钥密钥</h4><p>参考链接：</p>
+<p><a href="https://www.liaohuqiu.net/cn/posts/ssh-keygen-abc/">ssh-keygen 基本用法</a></p>
+<p><a href="https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">服务器上的Git - 生成SSH公钥</a></p>
+<h5 id="默认生成密钥"><a href="#默认生成密钥" class="headerlink" title="默认生成密钥"></a>默认生成密钥</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -o<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>会询问生成的文件名字，如果默认则直接回车，默认文件名 <code>id_rsa</code></p>
+<p>会询问使用密码，如果默认不需要密码，则直接回车，否则输入密码，会进行二次确认</p>
+<p>最后生成私钥和公钥</p>
+<h5 id="指定密钥文件名"><a href="#指定密钥文件名" class="headerlink" title="指定密钥文件名"></a>指定密钥文件名</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -f fileName -C <span class="token string">"msg"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>-f</code> ：指定文件名</p>
+<p><code>-C</code> ：备注密钥</p>
+<h4 id="使用密钥"><a href="#使用密钥" class="headerlink" title="使用密钥"></a>使用密钥</h4><p>使用时，需要到对应的网站上配置好公钥。</p>
+<h5 id="存在多个密钥时，指定特殊密钥"><a href="#存在多个密钥时，指定特殊密钥" class="headerlink" title="存在多个密钥时，指定特殊密钥"></a>存在多个密钥时，指定特殊密钥</h5><p>参考链接：</p>
+<p><a href="https://lunashu.org/git-clone-ssh-key/">git clone 指定 ssh-key</a></p>
+<p><a href="https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent">Could not open a connection to your authentication agent</a></p>
+<h6 id="使用-ssh-add-方法"><a href="#使用-ssh-add-方法" class="headerlink" title="使用 ssh-add 方法"></a>使用 <code>ssh-add</code> 方法</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">eval</span> <span class="token variable"><span class="token variable">`</span>ssh-agent -s<span class="token variable">`</span></span>
+ssh-add xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>检查当前加入的密钥，使用 <code>ssh-add -l</code> 命令进行查看</p>
+<p>检测 <code>ssh</code> 连接</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ssh</span> -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h6 id="创建-修改-config-文件"><a href="#创建-修改-config-文件" class="headerlink" title="创建 / 修改 config 文件"></a>创建 / 修改 config 文件</h6><p>需要手动配置</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host github.com <span class="token comment">#git项目里面的域名</span>
+  User <span class="token function">git</span>                        <span class="token comment"># 克隆用户</span>
+  Hostname github.com
+  PreferredAuthentications publickey
+  IdentityFile /opt/aliyun_ssh_key/id_rsa <span class="token comment"># 私钥路径</span>
+  IdentitiesOnly <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>指南</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
 </search>

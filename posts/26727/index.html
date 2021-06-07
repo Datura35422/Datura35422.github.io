@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://datura35422.github.io/webpack%E8%BF%9B%E9%98%B6/plugin_compilation_assets.png">
 <meta property="article:published_time" content="2021-03-14T07:03:30.000Z">
-<meta property="article:modified_time" content="2021-05-07T09:09:11.465Z">
+<meta property="article:modified_time" content="2021-06-07T03:37:06.995Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="webpack">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Loader"><span class="nav-number">1.</span> <span class="nav-text">编写一个简单的Loader</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">1.1.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">初始化简单的项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAloader"><span class="nav-number">1.3.</span> <span class="nav-text">创建loader</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84plugin"><span class="nav-number">2.</span> <span class="nav-text">编写一个简单的plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3-1"><span class="nav-number">2.1.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8F%92%E4%BB%B6plugin"><span class="nav-number">2.2.</span> <span class="nav-text">创建插件plugin</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">调试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">3.1.</span> <span class="nav-text">其他参考链接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E7%9A%84bundler%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">创建一个简易的bundler库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="nav-number">5.</span> <span class="nav-text">Demo项目地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%9A%E6%96%87%E6%94%B6%E9%9B%86"><span class="nav-number">6.</span> <span class="nav-text">博文收集</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Loader"><span class="nav-number">1.</span> <span class="nav-text">编写一个简单的Loader</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">1.1.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AE%80%E5%8D%95%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">初始化简单的项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAloader"><span class="nav-number">1.3.</span> <span class="nav-text">创建loader</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84plugin"><span class="nav-number">2.</span> <span class="nav-text">编写一个简单的plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3-1"><span class="nav-number">2.1.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8F%92%E4%BB%B6plugin"><span class="nav-number">2.2.</span> <span class="nav-text">创建插件plugin</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">调试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">3.1.</span> <span class="nav-text">其他参考链接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E7%9A%84bundler%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">创建一个简易的bundler库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="nav-number">5.</span> <span class="nav-text">webpack 管理多个项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%88"><span class="nav-number">5.1.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80"><span class="nav-number">5.1.1.</span> <span class="nav-text">方案一</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C"><span class="nav-number">5.1.2.</span> <span class="nav-text">方案二</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">5.1.3.</span> <span class="nav-text">注意点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="nav-number">6.</span> <span class="nav-text">Demo项目地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%9A%E6%96%87%E6%94%B6%E9%9B%86"><span class="nav-number">7.</span> <span class="nav-text">博文收集</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -167,7 +167,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">109</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -180,7 +180,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">88</span>
+        <span class="site-state-item-count">89</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -261,7 +261,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-07 17:09:11" itemprop="dateModified" datetime="2021-05-07T17:09:11+08:00">2021-05-07</time>
+        <time title="修改时间：2021-06-07 11:37:06" itemprop="dateModified" datetime="2021-06-07T11:37:06+08:00">2021-06-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,14 +285,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.5k</span>
+      <span>7.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>11 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -305,9 +305,9 @@
     <div class="post-body" itemprop="articleBody">
         <h4 id="编写一个简单的Loader"><a href="#编写一个简单的Loader" class="headerlink" title="编写一个简单的Loader"></a>编写一个简单的Loader</h4><h5 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h5><p>loader api: <a target="_blank" rel="noopener" href="https://webpack.docschina.org/api/loaders/">https://webpack.docschina.org/api/loaders/</a></p>
 <p>resolveLoader: <a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/resolve/#resolveloader">https://webpack.docschina.org/configuration/resolve/#resolveloader</a></p>
-<h5 id="初始化简单的项目"><a href="#初始化简单的项目" class="headerlink" title="初始化简单的项目"></a>初始化简单的项目</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> init -y
+<h5 id="初始化简单的项目"><a href="#初始化简单的项目" class="headerlink" title="初始化简单的项目"></a>初始化简单的项目</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm init -y
 
-<span class="token function">npm</span> <span class="token function">install</span> --save-dev webpack webpack-cli
+npm install --save-dev webpack webpack-cli
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="创建loader"><a href="#创建loader" class="headerlink" title="创建loader"></a>创建loader</h5><p>loader本质就是函数</p>
@@ -576,6 +576,26 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
+<h4 id="webpack-管理多个项目"><a href="#webpack-管理多个项目" class="headerlink" title="webpack 管理多个项目"></a>webpack 管理多个项目</h4><p>实现多个项目共用 node_modules 和 package.json</p>
+<blockquote>
+<p>差异性不大的多个项目是否可以共用一个 <code>node_modules</code> ，使用公共组件部分、公共插件（抽npm）</p>
+</blockquote>
+<h5 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h5><h6 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h6><p>每个项目中独立配置项目差异 <code>config</code> 文件，相同配置使用根目录的 <code>webpack.base.config.js</code></p>
+<p>实现：</p>
+<ul>
+<li>./webpack.base.config.js、</li>
+<li>projectA/webpack.config.js、</li>
+<li>projectB/webpack.config.js</li>
+<li>根目录下的 <code>package.json</code> 的 <code>scripts</code> 命令：<code>npx webpack --config ./projectA/webpack.config.js &amp;&amp; npx webpack --config ./projectB/webpack.config.js</code>  </li>
+</ul>
+<h6 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h6><p>使用根目录统一的 config 文件进行做差异化处理</p>
+<p>实现：</p>
+<ul>
+<li>./webpack.config.js</li>
+<li>根目录下的 <code>package.json</code> 的 <code>scripts</code> 命令：<code>npx webpack --env PROJECT=projectA &amp;&amp; npx webpack --env PROJECT=projectB</code>  </li>
+</ul>
+<h6 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h6><p>两种方案都使用了 <a target="_blank" rel="noopener" href="https://github.com/survivejs/webpack-merge">webpack-merge</a> 合并配置。</p>
+<p>配置的主要问题是获取到具体项目的路径、以及定义配置的上下文环境 <code>context</code> 和 <code>node_modules</code> 路径解析 <code>resolve.modules</code>。</p>
 <h4 id="Demo项目地址"><a href="#Demo项目地址" class="headerlink" title="Demo项目地址"></a>Demo项目地址</h4><p>study webpack: <a target="_blank" rel="noopener" href="https://github.com/Datura35422/study/tree/master/webpack-demos">https://github.com/Datura35422/study/tree/master/webpack-demos</a></p>
 <p>pug demo: <a target="_blank" rel="noopener" href="https://github.com/Datura35422/pug-demo/tree/master/website">https://github.com/Datura35422/pug-demo/tree/master/website</a></p>
 <h4 id="博文收集"><a href="#博文收集" class="headerlink" title="博文收集"></a>博文收集</h4><p><a target="_blank" rel="noopener" href="https://github.com/sisterAn/blog/issues/69">窥探原理：手写一个 JavaScript 打包器 #69</a></p>
@@ -653,14 +673,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">469k</span>
+    <span title="站点总字数">471k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:01</span>
+    <span title="站点阅读时长">13:05</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
