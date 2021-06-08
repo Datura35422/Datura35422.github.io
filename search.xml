@@ -296,8 +296,7 @@
   <entry>
     <title>Linux的使用</title>
     <url>/posts/62371/</url>
-    <content><![CDATA[<h3 id="Linux-命令"><a href="#Linux-命令" class="headerlink" title="Linux 命令"></a>Linux 命令</h3><p>查找文件</p>
-<p>find</p>
+    <content><![CDATA[<h3 id="Linux-命令"><a href="#Linux-命令" class="headerlink" title="Linux 命令"></a>Linux 命令</h3><h4 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h4><p>查找文件名：<code>find [path] -name fileName</code></p>
 <h3 id="Manjaro"><a href="#Manjaro" class="headerlink" title="Manjaro"></a>Manjaro</h3><h4 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h4><h4 id="同步时间"><a href="#同步时间" class="headerlink" title="同步时间"></a>同步时间</h4><p><code>sudo timedatectl set-local-rtc true</code></p>
 <h3 id="centOS-7"><a href="#centOS-7" class="headerlink" title="centOS 7"></a>centOS 7</h3><h4 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h4><h5 id="yum源"><a href="#yum源" class="headerlink" title="yum源"></a>yum源</h5><p>安装了yum源: <code>rpm -Uvh</code></p>
 <p>查看卸载的yum源:  <code>ls /etc/yum.repos.d/</code></p>
@@ -383,11 +382,13 @@
 <li><p>查看所有安装的软件包<br><code>rpm -qa</code></p>
 </li>
 </ul>
-<p>Linux安装nodejs <a href="https://blog.csdn.net/xerysherryx/article/details/78920978">https://blog.csdn.net/xerysherryx/article/details/78920978</a></p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>centos7 安装配置nodejs </p>
 <p>centos7 MariaDB远程访问 <a href="https://www.cnblogs.com/jinwenb/p/9203642.html">https://www.cnblogs.com/jinwenb/p/9203642.html</a></p>
 <p>centos7 安装Mariadb <a href="https://www.cnblogs.com/yhongji/p/9783065.html">https://www.cnblogs.com/yhongji/p/9783065.html</a></p>
 <p>centos7 安装配置redis <a href="https://segmentfault.com/a/1190000016012597">https://segmentfault.com/a/1190000016012597</a></p>
-<h3 id="部署阿里云"><a href="#部署阿里云" class="headerlink" title="部署阿里云"></a>部署阿里云</h3>]]></content>
+<h3 id="部署阿里云"><a href="#部署阿里云" class="headerlink" title="部署阿里云"></a>部署阿里云</h3><h4 id="软件安装地址"><a href="#软件安装地址" class="headerlink" title="软件安装地址"></a>软件安装地址</h4><p>node - /usr/local/nodejs</p>
+<p>redis - /usr/redis-6.2.4</p>
+]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -1432,6 +1433,7 @@ exit()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li><p><code>cnpm</code>安装完成后，查看是否安装成功<code>cnpm -v</code></p>
 </li>
 </ol>
+<h4 id="Linux-版本"><a href="#Linux-版本" class="headerlink" title="Linux 版本"></a>Linux 版本</h4><p>参考链接：<a href="https://datura35422.github.io/posts/62371/">Linux的使用</a></p>
 <h4 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h4><p>官方文档 <a href="https://docs.npmjs.com/">npm Docs</a></p>
 <p>中文文档 <a href="https://www.npmjs.cn/">https://www.npmjs.cn/</a></p>
 <h5 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h5><blockquote>
@@ -22049,8 +22051,8 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
     <title>ssh用法</title>
     <url>/posts/f05bd2ed/</url>
     <content><![CDATA[<p>文档：<a href="https://man.openbsd.org/ssh#AUTHENTICATION">https://man.openbsd.org/ssh#AUTHENTICATION</a></p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="查看密钥"><a href="#查看密钥" class="headerlink" title="查看密钥"></a>查看密钥</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> ~/.ssh
-<span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="查看密钥"><a href="#查看密钥" class="headerlink" title="查看密钥"></a>查看密钥</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd ~&#x2F;.ssh
+ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
@@ -22062,7 +22064,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
 <p>会询问生成的文件名字，如果默认则直接回车，默认文件名 <code>id_rsa</code></p>
 <p>会询问使用密码，如果默认不需要密码，则直接回车，否则输入密码，会进行二次确认</p>
 <p>最后生成私钥和公钥</p>
-<h5 id="指定密钥文件名"><a href="#指定密钥文件名" class="headerlink" title="指定密钥文件名"></a>指定密钥文件名</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -f fileName -C <span class="token string">"msg"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="指定密钥文件名"><a href="#指定密钥文件名" class="headerlink" title="指定密钥文件名"></a>指定密钥文件名</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -f fileName -C &quot;msg&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><code>-f</code> ：指定文件名</p>
 <p><code>-C</code> ：备注密钥</p>
@@ -22070,20 +22072,20 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
 <h5 id="存在多个密钥时，指定特殊密钥"><a href="#存在多个密钥时，指定特殊密钥" class="headerlink" title="存在多个密钥时，指定特殊密钥"></a>存在多个密钥时，指定特殊密钥</h5><p>参考链接：</p>
 <p><a href="https://lunashu.org/git-clone-ssh-key/">git clone 指定 ssh-key</a></p>
 <p><a href="https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent">Could not open a connection to your authentication agent</a></p>
-<h6 id="使用-ssh-add-方法"><a href="#使用-ssh-add-方法" class="headerlink" title="使用 ssh-add 方法"></a>使用 <code>ssh-add</code> 方法</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">eval</span> <span class="token variable"><span class="token variable">`</span>ssh-agent -s<span class="token variable">`</span></span>
+<h6 id="使用-ssh-add-方法"><a href="#使用-ssh-add-方法" class="headerlink" title="使用 ssh-add 方法"></a>使用 <code>ssh-add</code> 方法</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">eval &#96;ssh-agent -s&#96;
 ssh-add xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>检查当前加入的密钥，使用 <code>ssh-add -l</code> 命令进行查看</p>
 <p>检测 <code>ssh</code> 连接</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ssh</span> -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h6 id="创建-修改-config-文件"><a href="#创建-修改-config-文件" class="headerlink" title="创建 / 修改 config 文件"></a>创建 / 修改 config 文件</h6><p>需要手动配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host github.com <span class="token comment">#git项目里面的域名</span>
-  User <span class="token function">git</span>                        <span class="token comment"># 克隆用户</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host github.com #git项目里面的域名
+  User git                        # 克隆用户
   Hostname github.com
   PreferredAuthentications publickey
-  IdentityFile /opt/aliyun_ssh_key/id_rsa <span class="token comment"># 私钥路径</span>
-  IdentitiesOnly <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  IdentityFile &#x2F;opt&#x2F;aliyun_ssh_key&#x2F;id_rsa # 私钥路径
+  IdentitiesOnly yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 ]]></content>
       <categories>
@@ -22092,6 +22094,118 @@ ssh-add xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span
       <tags>
         <tag>工具</tag>
         <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-koa2框架入门</title>
+    <url>/posts/55ad86e2/</url>
+    <content><![CDATA[<p>Koa2</p>
+<p>1-1 koa2导学</p>
+<p>遇到的问题</p>
+<p>Koa框架到底为我们zuo了什么</p>
+<p>他的内部到底是什么样子</p>
+<p>他向下一直到Nodejs底层，到底是怎么处理事件循环的</p>
+<p>一个异步的HTTP过程，到底是怎么进行的</p>
+<p>技术栈：MongoDB、Puppeteer、AntDesign、Bootstrap、Parcel</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+        <tag>koa2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-项目部署</title>
+    <url>/posts/43953bf1/</url>
+    <content><![CDATA[<p>关于 <code>Linux</code> 环境搭建参考链接：<a href="https://datura35422.github.io/posts/62371/">Linux的使用</a></p>
+<h3 id="node安装"><a href="#node安装" class="headerlink" title="node安装"></a>node安装</h3><p>参考链接：</p>
+<p>Linux安装nodejs： <a href="https://blog.csdn.net/xerysherryx/article/details/78920978">https://blog.csdn.net/xerysherryx/article/details/78920978</a></p>
+<p>centOS安装node：<a href="https://www.beiliangshizi.com/?p=671">https://www.beiliangshizi.com/?p=671</a></p>
+<p>（比较详细）：<a href="https://www.cnblogs.com/fps2tao/p/9956139.html">https://www.cnblogs.com/fps2tao/p/9956139.html</a></p>
+<h4 id="方法一：安装已编译版本"><a href="#方法一：安装已编译版本" class="headerlink" title="方法一：安装已编译版本"></a>方法一：安装已编译版本</h4><p>在官网选择 Linux 版本链接</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 安装环境
+cd &#x2F;usr&#x2F;local&#x2F;
+# 不校验证书下载
+wget https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v10.11.0&#x2F;node-v10.11.0-linux-x64.tar.xz --no-check-certificate
+# 解压
+xz -d node-v10.11.0-linux-x64.tar.xz
+tar -xvf node-v10.11.0-linux-x64.tar
+# 文件重命名
+mv node-v10.11.0-linux-x64 nodejs
+# 进入文件目录
+cd nodejs
+# 创建命令软连接
+ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;node &#x2F;usr&#x2F;bin&#x2F;node
+ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;npm &#x2F;usr&#x2F;bin&#x2F;npm
+# 或 进行批量创建
+ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;* &#x2F;usr&#x2F;bin&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这个方法的弊端是，只要全局安装依赖包，就需要手动进行创建软连接</p>
+<blockquote>
+<p>或者可以根据情况来配置环境变量，但是创建软连接算是比较常用的方式</p>
+</blockquote>
+<h4 id="方法二：安装源代码"><a href="#方法二：安装源代码" class="headerlink" title="方法二：安装源代码"></a>方法二：安装源代码</h4><p>在官网选择源代码链接进行下载，自行进行编译</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 安装环境
+cd &#x2F;usr&#x2F;local&#x2F;
+# 不校验证书下载
+wget https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v10.11.0&#x2F;node-v10.11.0.tar.xz --no-check-certificate
+# 解压
+xz -d node-v10.11.0-linux-x64.tar.xz
+tar -xvf node-v10.11.0-linux-x64.tar
+# 文件重命名
+mv node-v10.11.0-linux-x64 nodejs
+# 进入文件目录
+cd nodejs
+# 进行安装编译环境（缺少什么安装什么，可能不止这些包）
+sudo yum install gcc gcc-c++ make
+# 运行配置文件
+.&#x2F;configure
+# 进行编译安装
+make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>编译安装后会自动进行创建全局命令，好处是安装全局包的时候不用手动创建软连接，弊端是要搭建编译环境。</p>
+<h4 id="安装验证"><a href="#安装验证" class="headerlink" title="安装验证"></a>安装验证</h4><p>安装成功</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">node -v
+npm -v
+npx -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><h5 id="修改源"><a href="#修改源" class="headerlink" title="修改源"></a>修改源</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#查看当前镜像源
+$ npm config get registry
+#设置淘宝镜像源
+$ npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org
+#查看当前全局配置
+$ npm config list -l<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="全局安装依赖"><a href="#全局安装依赖" class="headerlink" title="全局安装依赖"></a>全局安装依赖</h3><h4 id="pm2-进程管理工具"><a href="#pm2-进程管理工具" class="headerlink" title="pm2 - 进程管理工具"></a>pm2 - 进程管理工具</h4><p>官网：<a href="https://github.com/Unitech/pm2">https://github.com/Unitech/pm2</a></p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 普通安装，安装地址则是你执行命令得地址，使用默认镜像源
+$ npm install pm2
+# 全局安装，安装在我们nodejs目录得lib中，使用默认镜像源
+$ npm install -g pm2
+# 临时使用淘宝镜像源，全局安装
+$ npm --registry https:&#x2F;&#x2F;registry.npm.taobao.org install -g pm2
+# 【如果是以方法一搭建的node环境，需要这一步】所有以pm2为前缀得文件建立连接
+$ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local&#x2F;bin&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="局部安装依赖"><a href="#局部安装依赖" class="headerlink" title="局部安装依赖"></a>局部安装依赖</h3><h4 id="nodemon-监听文件改变自动编译"><a href="#nodemon-监听文件改变自动编译" class="headerlink" title="nodemon - 监听文件改变自动编译"></a>nodemon - 监听文件改变自动编译</h4><p>官网：<a href="https://github.com/remy/nodemon">https://github.com/remy/nodemon</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+        <tag>部署</tag>
       </tags>
   </entry>
 </search>
