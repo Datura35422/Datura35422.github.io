@@ -383,11 +383,14 @@
 </li>
 </ul>
 <h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>centos7 安装配置nodejs <a href="https://datura35422.github.io/posts/43953bf1/">https://datura35422.github.io/posts/43953bf1/</a></p>
+<p>Linux 卸载nodejs <a href="https://my.oschina.net/u/180293/blog/3114400">https://my.oschina.net/u/180293/blog/3114400</a></p>
 <p>centos7 MariaDB远程访问 <a href="https://www.cnblogs.com/jinwenb/p/9203642.html">https://www.cnblogs.com/jinwenb/p/9203642.html</a></p>
 <p>centos7 安装Mariadb <a href="https://www.cnblogs.com/yhongji/p/9783065.html">https://www.cnblogs.com/yhongji/p/9783065.html</a></p>
 <p>centos7 安装配置redis <a href="https://segmentfault.com/a/1190000016012597">https://segmentfault.com/a/1190000016012597</a></p>
 <h3 id="部署阿里云"><a href="#部署阿里云" class="headerlink" title="部署阿里云"></a>部署阿里云</h3><h4 id="软件安装地址"><a href="#软件安装地址" class="headerlink" title="软件安装地址"></a>软件安装地址</h4><p>node - /usr/local/nodejs</p>
 <p>redis - /usr/redis-6.2.4</p>
+<p>nginx - /etc/nginx - /usr/share/nginx/html</p>
+<h4 id="其他参考"><a href="#其他参考" class="headerlink" title="其他参考"></a>其他参考</h4><p>安全组打开端口等：<a href="https://www.kancloud.cn/ganti/awuji/1784315">https://www.kancloud.cn/ganti/awuji/1784315</a></p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -11662,6 +11665,9 @@ timer <span class="token operator">=</span> <span class="token function">setTime
 <h4 id="web-view-缓存问题"><a href="#web-view-缓存问题" class="headerlink" title="web-view 缓存问题"></a>web-view 缓存问题</h4><p>记录时间：2021-5-27</p>
 <p><a href="https://blog.csdn.net/qq_36131788/article/details/106750835">微信公众号H5页面缓存问题解决方案！</a></p>
 <p><a href="https://developers.weixin.qq.com/community/develop/doc/0008c2ffd30188f862ba7fe3b57800">小程序里webview打开的H5页面怎么清除缓存？</a></p>
+<h4 id="image-自适应高度"><a href="#image-自适应高度" class="headerlink" title="image 自适应高度"></a>image 自适应高度</h4><p>记录时间：2021-6-8</p>
+<p>style 设置 <code>width: 100%</code></p>
+<p>image 标签 <code>mode=&quot;widthFix&quot;</code></p>
 <h3 id="wepy-1-7-X-踩坑"><a href="#wepy-1-7-X-踩坑" class="headerlink" title="wepy 1.7.X 踩坑"></a>wepy 1.7.X 踩坑</h3><h4 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h4><p>坑记录：<a href="https://github.com/Tencent/wepy/issues/1549">https://github.com/Tencent/wepy/issues/1549</a></p>
 <h5 id="关于-swiper"><a href="#关于-swiper" class="headerlink" title="关于 swiper"></a>关于 swiper</h5><p>如果使用 repeat组件进行循环包裹 swiper-item 原生组件中使用的自定义组件，则向自定义组件传入的值无法进行隔离，接收的 prop 除渲染在 view 上的数据，其他数据则一直为首个数据项，如果需要传值，则需要将数据保存在 data-* 上，或方法定义传值。</p>
 <h5 id="关于watch"><a href="#关于watch" class="headerlink" title="关于watch"></a>关于watch</h5><p>普通组件中可以使用watch属性，被repeat包裹的组件就无法进行watch</p>
@@ -21732,16 +21738,16 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>创建一个新的 app ：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npx create-react-app my-app --template typescript
 
-<span class="token comment"># or</span>
+# or
 
-<span class="token function">yarn</span> create react-app my-app --template typescript<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+yarn create react-app my-app --template typescript<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在已存在的项目中添加 typescript 支持：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> --save typescript @types/node @types/react @types/react-dom @types/jest
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install --save typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom @types&#x2F;jest
 
-<span class="token comment"># or</span>
+# or
 
-<span class="token function">yarn</span> <span class="token function">add</span> typescript @types/node @types/react @types/react-dom @types/jest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+yarn add typescript @types&#x2F;node @types&#x2F;react @types&#x2F;react-dom @types&#x2F;jest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -21783,15 +21789,6 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
 <p>React.createElement 纯函数最终创建出来一个 ReactElement 对象。</p>
 <p>React 利用 ReactElement 对象组成了一个 JavaScript 的对象树（AST树，即虚拟DOM树）</p>
 <p>ReactDOM.render 将对象树渲染到目标节点中。</p>
-<h5 id="render函数的返回值"><a href="#render函数的返回值" class="headerlink" title="render函数的返回值"></a>render函数的返回值</h5><p>当 render 被调用时，会检查 this.props 和 this.state 的变化并返回以下类型之一：</p>
-<ul>
-<li>React元素<ul>
-<li>通常通过 JSX 创建</li>
-</ul>
-</li>
-<li>数组活 fragments（片段）：使得 render 方法可以返回多个元素</li>
-<li>Portals：可以渲染子节点到不同的 DOM 子树中</li>
-</ul>
 <h4 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h4><p>原因：</p>
 <ul>
 <li><p>很难跟踪状态的发生；</p>
@@ -21837,11 +21834,75 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
 <li>this.state 中维护的就是组件内部的数据</li>
 <li>render() 方法是 class 组件中唯一必须实现的方法</li>
 </ul>
-<h6 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h6><p>特点：</p>
+<h6 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h6><p>定义：函数组件是使用function来进行定义的函数，只是这个函数会返回和累组件中render函数返回一样的内容。</p>
+<p>特点：</p>
 <ul>
 <li>没有this对象</li>
 <li>没有内部状态，不需要涉及到状态更新和数据交互（可以使用hooks）</li>
+<li>没有生命周期，也会被更新并挂载，但是没有生命周期函数</li>
 </ul>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a><a href="https://zh-hans.reactjs.org/docs/react-component.html#the-component-lifecycle">生命周期</a></h4><p>从创建到销毁的过程</p>
+<p>生命周期和生命周期函数的关系：</p>
+<p>React 内部为了告诉我们当前处于那些阶段，会对组件内部实现的某些函数进行回调，这些就是生命周期函数。</p>
+<p><a href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/"><strong>常用的生命周期函数</strong></a>：</p>
+<p><img src="/react%E7%B3%BB%E5%88%97-react%E5%85%A5%E9%97%A8/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0part.jpg" alt="react生命周期函数part"></p>
+<h5 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h5><p>如果不初始化 state 或不进行方法绑定，则不需要为 React 组件实现构造函数。</p>
+<p>constructor中通常只做两件事情：</p>
+<ul>
+<li>通过给 this.state 赋值对象来初始化内部的state</li>
+<li>为事件绑定实例（this）</li>
+</ul>
+<blockquote>
+<p>避免把props赋值给state</p>
+</blockquote>
+<h5 id="render"><a href="#render" class="headerlink" title="render()"></a>render()</h5><p>是 class 组件中唯一必须实现的方法。</p>
+<p>render函数应该为<strong>纯函数</strong>，并且不会直接与浏览器交互。</p>
+<h6 id="render函数的返回值"><a href="#render函数的返回值" class="headerlink" title="render函数的返回值"></a>render函数的返回值</h6><p>当 render 被调用时，会检查 this.props 和 this.state 的变化并返回以下类型之一：</p>
+<ul>
+<li><p>React元素</p>
+<ul>
+<li>通常通过 JSX 创建</li>
+</ul>
+</li>
+<li><p>数组或 fragments（片段）：使得 render 方法可以返回多个元素</p>
+</li>
+<li><p>Portals：可以渲染子节点到不同的 DOM 子树中</p>
+<blockquote>
+<p>Portal 提供了一种将子节点渲染到存在于父组件以外的 DOM 节点的优秀的方案。</p>
+</blockquote>
+</li>
+<li><p>字符串或数值类型：在DOM 中会被渲染为文本节点</p>
+</li>
+<li><p>布尔类型或 null：什么都不渲染</p>
+</li>
+</ul>
+<h5 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount()"></a>componentDidMount()</h5><p>componentDidMount() 会在组件挂载后（插入DOM树中）立即调用</p>
+<p>componentDidMount 中通常进行：</p>
+<ul>
+<li>依赖于DOM操作可以在这个方法中执行</li>
+<li>在此处发送网络请求（官方建议）</li>
+<li>可以在此处添加一些订阅和监听（会在componentWillUnmount取消订阅和监听）</li>
+</ul>
+<h5 id="componentDidUpdate"><a href="#componentDidUpdate" class="headerlink" title="componentDidUpdate()"></a>componentDidUpdate()</h5><p>componentDidUpdate() 会在更新后会被立即调用，首次渲染不会执行此方法</p>
+<ul>
+<li>当组件更新后，可以在此处对 DOM 进行操作</li>
+<li>如果对更新前后的props进行了比较，可以选择在此处进行网络请求（例如，当 props 未变化时，则不会执行网络请求）</li>
+</ul>
+<blockquote>
+<p>setState 时注意避免导致死循环</p>
+</blockquote>
+<h5 id="componentWillUnmount"><a href="#componentWillUnmount" class="headerlink" title="componentWillUnmount()"></a>componentWillUnmount()</h5><p>componentWillUnmount() 会在组件卸载及销毁之前直接调用</p>
+<ul>
+<li>在此方法中执行必要的清理操作，例如，清理 timer，取消网络请求或清楚在 componentDidMount() 中创建的订阅等</li>
+</ul>
+<blockquote>
+<p>不要调用 setState ，因为不会重新渲染执行</p>
+</blockquote>
+<h5 id="不常用的生命周期"><a href="#不常用的生命周期" class="headerlink" title="不常用的生命周期"></a>不常用的生命周期</h5><p><strong>完整的生命周期函数</strong>：</p>
+<p><img src="/react%E7%B3%BB%E5%88%97-react%E5%85%A5%E9%97%A8/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0all.jpg" alt="react生命周期函数all"></p>
+<h6 id="static-getDerivedStateFromProps-props-state"><a href="#static-getDerivedStateFromProps-props-state" class="headerlink" title="static getDerivedStateFromProps(props, state)"></a>static getDerivedStateFromProps(props, state)</h6><p>getDerivedStateFromProps 会在调用 render 方法之前调用，并且在初始挂载后续更新时都会被调用。它应返回一个对象来更新 state，如果返回 null 则不更新任何内容。</p>
+<p><strong>此方法适用于 state 的值在任何时候都取决于 props</strong>。例如，实现 <code>&lt;Transition&gt;</code> 组件可能很方便，该组件会比较当前组件与下一组件，以决定针对哪些组件进行转场动画。</p>
+<p><strong>注意</strong>：派生状态会导致代码冗余，并使组件难以维护。</p>
 <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><blockquote>
 <p>vue-cli 使用了 webpack-chain进行 webpack配置扩展和自定义</p>
 </blockquote>
@@ -22097,27 +22158,6 @@ ssh-add xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span
       </tags>
   </entry>
   <entry>
-    <title>node-koa2框架入门</title>
-    <url>/posts/55ad86e2/</url>
-    <content><![CDATA[<p>Koa2</p>
-<p>1-1 koa2导学</p>
-<p>遇到的问题</p>
-<p>Koa框架到底为我们zuo了什么</p>
-<p>他的内部到底是什么样子</p>
-<p>他向下一直到Nodejs底层，到底是怎么处理事件循环的</p>
-<p>一个异步的HTTP过程，到底是怎么进行的</p>
-<p>技术栈：MongoDB、Puppeteer、AntDesign、Bootstrap、Parcel</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-        <tag>koa2</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>node-项目部署</title>
     <url>/posts/43953bf1/</url>
     <content><![CDATA[<p>关于 <code>Linux</code> 环境搭建参考链接：<a href="https://datura35422.github.io/posts/62371/">Linux的使用</a></p>
@@ -22183,8 +22223,6 @@ $ npm config list -l<span aria-hidden="true" class="line-numbers-rows"><span></s
 
 
 
-
-
 <h3 id="全局安装依赖"><a href="#全局安装依赖" class="headerlink" title="全局安装依赖"></a>全局安装依赖</h3><h4 id="pm2-进程管理工具"><a href="#pm2-进程管理工具" class="headerlink" title="pm2 - 进程管理工具"></a>pm2 - 进程管理工具</h4><p>官网：<a href="https://github.com/Unitech/pm2">https://github.com/Unitech/pm2</a></p>
 <h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 普通安装，安装地址则是你执行命令得地址，使用默认镜像源
 $ npm install pm2
@@ -22206,6 +22244,66 @@ $ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local
       <tags>
         <tag>node</tag>
         <tag>部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-koa2入门</title>
+    <url>/posts/55ad86e2/</url>
+    <content><![CDATA[<p>官网：<a href="https://koa.bootcss.com/">https://koa.bootcss.com/</a></p>
+<p>学习教程：</p>
+<p><a href="https://github.com/chenshenhai/koa2-note">koa2进阶学习笔记</a></p>
+<p>项目地址：<a href="https://github.com/Datura35422/nodejs-demo-jiudao">https://github.com/Datura35422/nodejs-demo-jiudao</a></p>
+<p>1-1 koa2导学</p>
+<p>遇到的问题</p>
+<p>Koa框架到底为我们zuo了什么</p>
+<p>他的内部到底是什么样子</p>
+<p>他向下一直到Nodejs底层，到底是怎么处理事件循环的</p>
+<p>一个异步的HTTP过程，到底是怎么进行的</p>
+<p>技术栈：MongoDB、Puppeteer、AntDesign、Bootstrap、Parcel</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+        <tag>koa2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络-wireshark工具</title>
+    <url>/posts/6a09c161/</url>
+    <content><![CDATA[<ol>
+<li>寻址 DNS 包964-966</li>
+</ol>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-wireshark%E5%B7%A5%E5%85%B7/wireshark_1.jpg" alt="wireshark_1"></p>
+<ol start="2">
+<li>建立通讯 三次握手 四次挥手</li>
+</ol>
+<p>三次握手 syn -&gt; (ack, syn) -&gt; ack</p>
+<p>四次挥手 (fin, ack) -&gt; ack -&gt; (fin, ack) -&gt; ack</p>
+<ol start="3">
+<li><p>寻址使用tcp会对dns查询本身造成压力 会在tcp连接后进行寻址dns， 如果UDP只需要寻址就好了，不需要创建</p>
+</li>
+<li><p>Seq：表示该数据段的序号，一个Seq号的大小是根据上一个数据段的Seq号和长度相加而来的。</p>
+</li>
+</ol>
+<p>Len：该数据段的长度，如图5中的Len=1448，注意这个长度不包括TCP头</p>
+<p>Ack：确认号，如图5中的Ack=6577，接收方向发送方确认已经收到了哪些字节。</p>
+<ol start="5">
+<li><p>TCP头附带的标志位</p>
+</li>
+<li></li>
+<li><p>SYN：携带这个标志的包表示正在发起连接请求。因为连接是双向的，所以建立连接时，双方都要发一个SYN。<br> FIN：携带这个标志的包表示正在请求终止连接。因为连接是双向的，所以彻底关闭一个连接时，双方都要发一个FIN。<br> RST：用于重置一个混乱的连接，或者拒绝一个无效的请求。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+        <tag>wireshark</tag>
       </tags>
   </entry>
 </search>
