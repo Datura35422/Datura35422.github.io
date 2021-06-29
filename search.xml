@@ -23067,6 +23067,49 @@ $ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local
 <h5 id="使用纯函数来执行修改"><a href="#使用纯函数来执行修改" class="headerlink" title="使用纯函数来执行修改"></a>使用纯函数来执行修改</h5><p>通过 reducer 将旧 state 和 actions 联系在一起，并且返回一个新的 state；</p>
 <p>随着应用程序的复杂度增加，我们可以将 reducer 拆分成多个小的 reducers，分别操作不同 state tree的一部分；</p>
 <p><strong>所有的 reducer 都应该是纯函数，不能产生任何副作用。</strong></p>
+<h4 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h4><p>网络请求到的数据属于状态管理的一部分，所以请求数据应该由 redux 进行管理。</p>
+<p>然而，redux 本身没有异步请求的概念，需要借助中间件进行实现。</p>
+<p>redux 中间件的作用是对 store 的 dispatch 方法进行升级，如果传入的是函数，会将函数执行后再进行其他操作。</p>
+<p><img src="/react%E7%B3%BB%E5%88%97-redux/redux_async.jpg" alt="redux_async"></p>
+<h5 id="redux-thunk"><a href="#redux-thunk" class="headerlink" title="redux-thunk"></a><a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a></h5><p>官方推荐，用于处理store中的异步事件。</p>
+<p>一般使用 actionCreateor 返回的是对象，使用 redux-thunk 后可以返回异步函数，action 为函数，store.dispatch(action) 执行的是函数并获取返回结果。</p>
+<h5 id="redux-saga"><a href="#redux-saga" class="headerlink" title="redux-saga"></a><a href="https://redux-saga.js.org/">redux-saga</a></h5><p>redux-saga 使用过程中，在 store.dispatch(action)时，store 和 saga 能够同时接收到 action 参数</p>
+<blockquote>
+<p>redux-saga 和 redux-thunk 的作用相同，用法不同。</p>
+<p>redux-thunk 提供的接口少，适用于中小型项目。</p>
+<p>redux-saga 有丰富的接口，适用于逻辑复杂的大型项目。</p>
+</blockquote>
+<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><p>api 文档：<a href="https://redux.js.org/api/applymiddleware">https://redux.js.org/api/applymiddleware</a></p>
+<p>redux 使用中间件</p>
+<p>store/index.js</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createStore<span class="token punctuation">,</span> applyMiddleware <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'redux'</span>
+<span class="token keyword">import</span> thunkMiddleware <span class="token keyword">from</span> <span class="token string">'redux-thunk'</span>
+<span class="token keyword">import</span> reducer <span class="token keyword">from</span> <span class="token string">'./reducer'</span>
+
+<span class="token comment">// 应用一些中间件</span>
+<span class="token keyword">const</span> storeEnhancer <span class="token operator">=</span> <span class="token function">applyMiddleware</span><span class="token punctuation">(</span>thunkMiddleware<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>reducer<span class="token punctuation">,</span> storeEnhancer<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> store<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>actionCreators.js</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// redux-thunk 中定义的函数</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getHomeMultidataAction</span> <span class="token operator">=</span> <span class="token parameter">dispatch</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        url<span class="token operator">:</span> <span class="token string">'http://123.207.32.32:8000/home/multidata'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> data<span class="token operator">:</span> <span class="token punctuation">&#123;</span> banner<span class="token operator">:</span> <span class="token punctuation">&#123;</span> list<span class="token operator">:</span> banners <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> recommend<span class="token operator">:</span> <span class="token punctuation">&#123;</span> list<span class="token operator">:</span> recommends <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> res<span class="token punctuation">.</span>data
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>banners<span class="token punctuation">)</span>
+        <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">changeBannersAction</span><span class="token punctuation">(</span>banners<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">changeRecommendsAction</span><span class="token punctuation">(</span>recommends<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 <h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><h4 id="node-redux"><a href="#node-redux" class="headerlink" title="node + redux"></a>node + redux</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> redux <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'redux'</span><span class="token punctuation">)</span>
 
 <span class="token comment">// 常量</span>
@@ -23351,15 +23394,15 @@ store<span class="token punctuation">.</span><span class="token function">dispat
 
 <p>子组件中和 store 方法一致</p>
 <h6 id="相关第三方库"><a href="#相关第三方库" class="headerlink" title="相关第三方库"></a>相关第三方库</h6><p><a href="https://github.com/reduxjs/react-redux">react-redux</a> ：官方库，灵活绑定 react 和 redux 。</p>
-<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>中间件</p>
-<p><a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a>：用于处理store中的异步事件。</p>
-<blockquote>
-<p>一般使用 actionCreateor 返回的是对象，使用 redux-thunk 后可以返回异步函数,action 为函数，store.dispatch(action)执行的是函数并获取返回结果</p>
-<p>redux 中间件的作用是对 store 的 dispatch 方法进行升级，如果传入的是函数，会将函数执行后再进行其他操作。</p>
-<p>redux-saga 和 redux-thunk 的作用相同，用法不同,redux-thunk 提供的接口少，适用于中小型项目，redux-saga 有丰富的接口，适用于逻辑复杂的大型项目。</p>
-<p>redux-saga 使用过程中，在 store.dispatch(action)时，store 和 saga 能够同时接收到 action 参数</p>
-<p>react-redux 帮助在 react 中更加方便的使用 redux</p>
-</blockquote>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><p><a href="https://github.com/reduxjs/redux-devtools/tree/master/extension">redux devtool</a> ：不同的场景需要手动设置使用方式，<a href="https://github.com/reduxjs/redux-devtools/tree/master/extension#usage">https://github.com/reduxjs/redux-devtools/tree/master/extension#usage</a></p>
+<p>基础使用方式，需要在创建 store 时声明使用</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>
+  reducer<span class="token punctuation">,</span> <span class="token comment">/* preloadedState, */</span>
+  window<span class="token punctuation">.</span>__REDUX_DEVTOOLS_EXTENSION__ <span class="token operator">&amp;&amp;</span> window<span class="token punctuation">.</span><span class="token function">__REDUX_DEVTOOLS_EXTENSION__</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 ]]></content>
       <categories>
         <category>前端</category>
