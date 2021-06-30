@@ -21972,6 +21972,18 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">rea
 <p>所以<strong>避免使用数组下标或随机数作为key值</strong>，这样和不使用key值可能效率一样。</p>
 </li>
 </ul>
+<h5 id="react-中的-state-如何管理"><a href="#react-中的-state-如何管理" class="headerlink" title="react 中的 state 如何管理"></a>react 中的 state 如何管理</h5><p>管理方式：</p>
+<ul>
+<li>组件中自己的 state 管理</li>
+<li>Context 数据的共享状态</li>
+<li>Redux 管理应用状态</li>
+</ul>
+<p>建议的 state 管理方案：</p>
+<ul>
+<li>UI 相关的组件内部可以维护的状态，在组件内部自己来维护；</li>
+<li>大部分需要共享的状态，都交给 redux 来管理和维护；</li>
+<li>从服务器请求的数据（包括请求的操作），交给 redux 来维护；</li>
+</ul>
 <h4 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h4><p>原因：</p>
 <ul>
 <li><p>很难跟踪状态的发生；</p>
@@ -23055,7 +23067,7 @@ $ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local
 <h5 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h5><p>reducer 将 state 和 action 联系起来</p>
 <p>reducer 是一个纯函数</p>
 <p>reducer 做的事情就是将传入的 state 和 action 结合起来生成一个新的 state</p>
-<h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><h5 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h5><p><strong>store 是唯一的。</strong></p>
+<h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a><a href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts">原则</a></h4><h5 id="单一数据源、单向数据流"><a href="#单一数据源、单向数据流" class="headerlink" title="单一数据源、单向数据流"></a>单一数据源、单向数据流</h5><p><strong>store 是唯一的。</strong></p>
 <p>整个应用程序的state被存储再一颗 object tree 中，并且这个 object tree只存储在一个 store 中；</p>
 <p>Redux 并没有强制让我们不能创建多个 Store，但是那样做不利于数据的维护；</p>
 <p>单一的数据源可以让整个应用程序的 state 变得方便维护、追踪、修改；</p>
@@ -23067,6 +23079,13 @@ $ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local
 <h5 id="使用纯函数来执行修改"><a href="#使用纯函数来执行修改" class="headerlink" title="使用纯函数来执行修改"></a>使用纯函数来执行修改</h5><p>通过 reducer 将旧 state 和 actions 联系在一起，并且返回一个新的 state；</p>
 <p>随着应用程序的复杂度增加，我们可以将 reducer 拆分成多个小的 reducers，分别操作不同 state tree的一部分；</p>
 <p><strong>所有的 reducer 都应该是纯函数，不能产生任何副作用。</strong></p>
+<p>redux 数据交互流程</p>
+<p><img src="/react%E7%B3%BB%E5%88%97-redux/redux%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B.jpg" alt="redux使用流程"></p>
+<p>redux数据流动方向</p>
+<img src="react系列-redux/ReduxDataFlowDiagram.gif" alt="ReduxDataFlowDiagram" style="zoom: 67%;" />
+
+
+
 <h4 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h4><p>网络请求到的数据属于状态管理的一部分，所以请求数据应该由 redux 进行管理。</p>
 <p>然而，redux 本身没有异步请求的概念，需要借助中间件进行实现。</p>
 <p>redux 中间件的作用是对 store 的 dispatch 方法进行升级，如果传入的是函数，会将函数执行后再进行其他操作。</p>
@@ -23107,7 +23126,7 @@ $ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local
 
 
 
-<h5 id="实现简单的中间件"><a href="#实现简单的中间件" class="headerlink" title="实现简单的中间件"></a>实现简单的中间件</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> redux <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'redux'</span><span class="token punctuation">)</span>
+<h5 id="实现简单的中间件（中间件原理）"><a href="#实现简单的中间件（中间件原理）" class="headerlink" title="实现简单的中间件（中间件原理）"></a>实现简单的中间件（中间件原理）</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> redux <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'redux'</span><span class="token punctuation">)</span>
 
 <span class="token keyword">const</span> actionTypes <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
     <span class="token constant">ADD_NUMBER</span><span class="token operator">:</span> <span class="token string">'ADD_NUMBER'</span><span class="token punctuation">,</span>
@@ -23495,7 +23514,91 @@ store<span class="token punctuation">.</span><span class="token function">dispat
 
 <p>子组件中和 store 方法一致</p>
 <h6 id="相关第三方库"><a href="#相关第三方库" class="headerlink" title="相关第三方库"></a>相关第三方库</h6><p><a href="https://github.com/reduxjs/react-redux">react-redux</a> ：官方库，灵活绑定 react 和 redux 。</p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><p><a href="https://github.com/reduxjs/redux-devtools/tree/master/extension">redux devtool</a> ：不同的场景需要手动设置使用方式，<a href="https://github.com/reduxjs/redux-devtools/tree/master/extension#usage">https://github.com/reduxjs/redux-devtools/tree/master/extension#usage</a></p>
+<h4 id="拆分-reducer"><a href="#拆分-reducer" class="headerlink" title="拆分 reducer"></a>拆分 reducer</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> combineReducers <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'redux'</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> actionTypes <span class="token keyword">from</span> <span class="token string">'./actionTypes'</span>
+
+<span class="token comment">// 初始值</span>
+<span class="token comment">// const initialState = &#123;</span>
+<span class="token comment">//     counter: 0,</span>
+<span class="token comment">//     banners: [],</span>
+<span class="token comment">//     recommends: [],</span>
+<span class="token comment">// &#125;</span>
+
+<span class="token comment">// function reducer(state = initialState, action) &#123;</span>
+<span class="token comment">//     switch (action.type) &#123;</span>
+<span class="token comment">//         case actionTypes.INCREMENT:</span>
+<span class="token comment">//             return &#123;...state, counter: state.counter + 1&#125;</span>
+<span class="token comment">//         case actionTypes.DECREMENT:</span>
+<span class="token comment">//             return &#123;...state, counter: state.counter - 1&#125;</span>
+<span class="token comment">//         case actionTypes.ADD_NUMBER:</span>
+<span class="token comment">//             return &#123;...state, counter: state.counter + action.num&#125;</span>
+<span class="token comment">//         case actionTypes.SUB_NUMBER:</span>
+<span class="token comment">//             return &#123;...state, counter: state.counter - action.num&#125;</span>
+<span class="token comment">//         case actionTypes.CHANGE_BANNERS:</span>
+<span class="token comment">//             return &#123;...state, banners: action.banners&#125;</span>
+<span class="token comment">//         case actionTypes.CHANGE_RECOMMENDS:</span>
+<span class="token comment">//             return &#123;...state, recommends: action.recommends&#125;</span>
+<span class="token comment">//         default:</span>
+<span class="token comment">//             return state</span>
+<span class="token comment">//     &#125;</span>
+<span class="token comment">// &#125;</span>
+
+<span class="token comment">// reducer 拆分 state 调用的地方需要一起修改</span>
+<span class="token keyword">const</span> defaultCounterState <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    counter<span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">counterReducer</span><span class="token punctuation">(</span><span class="token parameter">state <span class="token operator">=</span> defaultCounterState<span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">case</span> actionTypes<span class="token punctuation">.</span><span class="token constant">INCREMENT</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>state<span class="token punctuation">,</span> counter<span class="token operator">:</span> state<span class="token punctuation">.</span>counter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">&#125;</span>
+        <span class="token keyword">case</span> actionTypes<span class="token punctuation">.</span><span class="token constant">DECREMENT</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>state<span class="token punctuation">,</span> counter<span class="token operator">:</span> state<span class="token punctuation">.</span>counter <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">&#125;</span>
+        <span class="token keyword">case</span> actionTypes<span class="token punctuation">.</span><span class="token constant">ADD_NUMBER</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>state<span class="token punctuation">,</span> counter<span class="token operator">:</span> state<span class="token punctuation">.</span>counter <span class="token operator">+</span> action<span class="token punctuation">.</span>num<span class="token punctuation">&#125;</span>
+        <span class="token keyword">case</span> actionTypes<span class="token punctuation">.</span><span class="token constant">SUB_NUMBER</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>state<span class="token punctuation">,</span> counter<span class="token operator">:</span> state<span class="token punctuation">.</span>counter <span class="token operator">-</span> action<span class="token punctuation">.</span>num<span class="token punctuation">&#125;</span>
+        <span class="token keyword">default</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> state
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">const</span> defaultHomeState <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    banners<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    recommends<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">homeReducer</span><span class="token punctuation">(</span><span class="token parameter">state <span class="token operator">=</span> defaultHomeState<span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">case</span> actionTypes<span class="token punctuation">.</span><span class="token constant">CHANGE_BANNERS</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>state<span class="token punctuation">,</span> banners<span class="token operator">:</span> action<span class="token punctuation">.</span>banners<span class="token punctuation">&#125;</span>
+        <span class="token keyword">case</span> actionTypes<span class="token punctuation">.</span><span class="token constant">CHANGE_RECOMMENDS</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>state<span class="token punctuation">,</span> recommends<span class="token operator">:</span> action<span class="token punctuation">.</span>recommends<span class="token punctuation">&#125;</span>
+        <span class="token keyword">default</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> state
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// function reducer(state = &#123;&#125;, action) &#123;</span>
+<span class="token comment">//     return &#123;</span>
+<span class="token comment">//         counterInfo: counterReducer(state.counterInfo, action),</span>
+<span class="token comment">//         homeInfo: homeReducer(state.homeInfo, action)</span>
+<span class="token comment">//     &#125;</span>
+<span class="token comment">// &#125;</span>
+<span class="token comment">// 最终的结果是 reducer 返回和 state = &#123; counterInfo: &#123;&#125;, homeInfo: &#123;&#125; &#125; 一样的对象格式</span>
+
+<span class="token comment">// 使用 redux combineReducers(reducers) api 进一步优化</span>
+<span class="token keyword">const</span> reducer <span class="token operator">=</span> <span class="token function">combineReducers</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> 
+    counterInfo<span class="token operator">:</span> counterReducer<span class="token punctuation">,</span> 
+    homeInfo<span class="token operator">:</span> homeReducer 
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> reducer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>combineReducers 函数 将我们传入的 reducers 合并到一个对象中，最终返回一个 combination 的函数，在执行 combination 函数的过程中，它会通过判断前后返回的数据是否相同来决定返回之前的 state 还是新的 state。新的 state 会触发订阅者发生对应的刷新，而旧的 state 可以有效的阻止订阅者发生刷新。 </p>
+</blockquote>
+<h4 id="结合-ImmutableJs"><a href="#结合-ImmutableJs" class="headerlink" title="结合 ImmutableJs"></a>结合 <a href="https://github.com/immutable-js/immutable-js">ImmutableJs</a></h4><h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>生态：<a href="https://redux.js.org/introduction/ecosystem">https://redux.js.org/introduction/ecosystem</a></p>
+<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><p><a href="https://github.com/reduxjs/redux-devtools/tree/master/extension">redux devtool</a> ：不同的场景需要手动设置使用方式，<a href="https://github.com/reduxjs/redux-devtools/tree/master/extension#usage">https://github.com/reduxjs/redux-devtools/tree/master/extension#usage</a></p>
 <p>基础使用方式，需要在创建 store 时声明使用</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>
   reducer<span class="token punctuation">,</span> <span class="token comment">/* preloadedState, */</span>
