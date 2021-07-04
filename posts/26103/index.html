@@ -20,32 +20,33 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="window对象window.open()open() 方法用于打开一个新的浏览器子窗口或查找一个已命名的窗口。 window.open(URL,name,features,replace) 参数：">
+<meta name="description" content="Location 对象是 Window 的子对象，但是也是全局对象，可以全局使用。 window.location &#x3D;&#x3D;&#x3D; location &#x2F;&#x2F; true    打开新的页面window.open()open() 方法用于打开一个新的标签页或查找一个已命名的窗口。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="window和location打开页面的方式">
+<meta property="og:title" content="BOM系列-打开页面的方式">
 <meta property="og:url" content="https://datura35422.github.io/posts/26103/index.html">
 <meta property="og:site_name" content="Wang Wei&#39;s Blog">
-<meta property="og:description" content="window对象window.open()open() 方法用于打开一个新的浏览器子窗口或查找一个已命名的窗口。 window.open(URL,name,features,replace) 参数：">
+<meta property="og:description" content="Location 对象是 Window 的子对象，但是也是全局对象，可以全局使用。 window.location &#x3D;&#x3D;&#x3D; location &#x2F;&#x2F; true    打开新的页面window.open()open() 方法用于打开一个新的标签页或查找一个已命名的窗口。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:/Users/wangwei/AppData/Roaming/Typora/typora-user-images/1553055825795.png">
+<meta property="og:image" content="https://datura35422.github.io/BOM%E7%B3%BB%E5%88%97-%E6%89%93%E5%BC%80%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E5%BC%8F/1553055825795.png">
 <meta property="article:published_time" content="2019-03-13T08:20:36.000Z">
-<meta property="article:modified_time" content="2021-05-07T09:09:11.476Z">
+<meta property="article:modified_time" content="2021-07-04T06:11:11.590Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="window">
 <meta property="article:tag" content="location">
+<meta property="article:tag" content="BOM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/wangwei/AppData/Roaming/Typora/typora-user-images/1553055825795.png">
+<meta name="twitter:image" content="https://datura35422.github.io/BOM%E7%B3%BB%E5%88%97-%E6%89%93%E5%BC%80%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E5%BC%8F/1553055825795.png">
 
 
 <link rel="canonical" href="https://datura35422.github.io/posts/26103/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;26103&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;26103&#x2F;&quot;,&quot;title&quot;:&quot;window和location打开页面的方式&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;26103&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;26103&#x2F;&quot;,&quot;title&quot;:&quot;BOM系列-打开页面的方式&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>window和location打开页面的方式 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+<title>BOM系列-打开页面的方式 | Wang Wei's Blog</title><script src="/js/config.js"></script>
   
 
 
@@ -152,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#window%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">window对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#window-open"><span class="nav-number">1.1.</span> <span class="nav-text">window.open()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-location-href"><span class="nav-number">1.2.</span> <span class="nav-text">window.location.href</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E6%96%B0%E7%9A%84%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">打开新的页面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#window-open"><span class="nav-number">1.1.</span> <span class="nav-text">window.open()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E7%89%B9%E5%BE%81%EF%BC%9A"><span class="nav-number">1.1.1.</span> <span class="nav-text">窗口特征：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-location"><span class="nav-number">1.2.</span> <span class="nav-text">window.location</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B7%E6%96%B0%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">刷新当前页面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#window-location-reload"><span class="nav-number">2.1.</span> <span class="nav-text">window.location.reload()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-location-href"><span class="nav-number">2.2.</span> <span class="nav-text">window.location.href</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%B7%AF%E5%BE%84URL%E4%B8%8D%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">修改路径URL不刷新页面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash%E6%96%B9%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">hash方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-%E6%A0%87%E7%AD%BE"><span class="nav-number">3.1.1.</span> <span class="nav-text">a 标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#window-location-hash"><span class="nav-number">3.1.2.</span> <span class="nav-text">window.location.hash</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-history-%E6%96%B9%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">window.history 方式</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,13 +176,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">96</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -244,7 +245,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          window和location打开页面的方式
+          BOM系列-打开页面的方式
         </h1>
 
         <div class="post-meta-container">
@@ -262,7 +263,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-07 17:09:11" itemprop="dateModified" datetime="2021-05-07T17:09:11+08:00">2021-05-07</time>
+        <time title="修改时间：2021-07-04 14:11:11" itemprop="dateModified" datetime="2021-07-04T14:11:11+08:00">2021-07-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,7 +271,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">整理</span></a>
+          <a href="/categories/BOM/" itemprop="url" rel="index"><span itemprop="name">BOM</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BOM/Location/" itemprop="url" rel="index"><span itemprop="name">Location</span></a>
         </span>
     </span>
 
@@ -282,14 +287,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>3.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -300,7 +305,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><h4 id="window-open"><a href="#window-open" class="headerlink" title="window.open()"></a>window.open()</h4><p>open() 方法用于打开一个新的浏览器子窗口或查找一个已命名的窗口。</p>
+        <p>Location 对象是 Window 的子对象，但是也是全局对象，可以全局使用。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span>location <span class="token operator">===</span> location
+<span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="打开新的页面"><a href="#打开新的页面" class="headerlink" title="打开新的页面"></a>打开新的页面</h3><h4 id="window-open"><a href="#window-open" class="headerlink" title="window.open()"></a>window.open()</h4><p>open() 方法用于打开一个新的标签页或查找一个已命名的窗口。</p>
 <p><code>window.open(URL,name,features,replace)</code></p>
 <p>参数：</p>
 <p><strong>URL</strong> - 一个可选的字符串，声明了要在新窗口中显示的文档的 URL。如果省略了这个参数，或者它的值是空字符串，那么新窗口就不会显示任何文档。</p>
@@ -311,24 +322,141 @@
 <li>true - URL 替换浏览历史中的当前条目。</li>
 <li>false - URL 在浏览历史中创建新的条目。</li>
 </ul>
-<p>窗口特征：</p>
-<p><img src="C:\Users\wangwei\AppData\Roaming\Typora\typora-user-images\1553055825795.png" alt="1553055825795"></p>
-<p>代开</p>
-<h4 id="window-location-href"><a href="#window-location-href" class="headerlink" title="window.location.href"></a>window.location.href</h4><p>当前页面打开URL页面</p>
-<p>window.location是对当前浏览器窗口的URL地址对象的参考</p>
-<p>设置window.location用来替换当前页，也就是重新定位当前页。</p>
-<p>window.location()是只能在同一个网站中打开本网站的网页 </p>
-<ol>
-<li>self.location.href;//当前页面打开URL页面</li>
-<li>window.location.href;//当前页面打开URL页面</li>
-<li>this.location.href;//当前页面打开URL页面</li>
-<li>location.href;// 当前页面打开URL页面</li>
-<li>parent.location.href;//在父页面打开新页面</li>
-<li>top.location.href;//在顶层页面打开新页面</li>
-</ol>
-<p>①如果页面中自定义了frame，那么可将parent、self、top换为自定义frame的名称,效果是在frame窗口打开url地址。</p>
-<p>②此外，window.location.href=window.location.href;和window.location.Reload();都是刷新当前页面。<br>区别在于是否有提交数据。当有提交数据时，window.location.Reload()会提示是否提交，window.location.href=window.location.href;则是向指定的url提交数据.</p>
-<p>③用window.open()打开新页面<br>但是用window.location.href＝”” 却是在原窗口打开的.<br>有时浏览器会一些安全设置window.open肯定被屏蔽。例如避免弹出广告窗口。</p>
+<h5 id="窗口特征："><a href="#窗口特征：" class="headerlink" title="窗口特征："></a>窗口特征：</h5><p><img src="/BOM%E7%B3%BB%E5%88%97-%E6%89%93%E5%BC%80%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E5%BC%8F/1553055825795.png" alt="1553055825795"></p>
+<blockquote>
+<p>有时浏览器会一些安全设置 window.open 可能被屏蔽。例如避免弹出广告窗口。</p>
+</blockquote>
+<h4 id="window-location"><a href="#window-location" class="headerlink" title="window.location"></a>window.location</h4><p>当前页面打开URL页面</p>
+<p>window.location是对当前浏览器窗口的URL地址对象的参考，是只读对象。</p>
+<p>但是仍然可以赋值 URL，当前标签页会强制刷新到目标页面，也就是重新定位当前页</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span>location <span class="token operator">=</span> <span class="token string">'https://www.baidu.com'</span>
+<span class="token comment">// 等效</span>
+window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'https://www.baidu.com'</span>
+<span class="token comment">// 等效</span>
+location <span class="token operator">=</span> <span class="token string">'https://www.baidu.com'</span>
+<span class="token comment">// 等效</span>
+location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'https://www.baidu.com'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="刷新当前页面"><a href="#刷新当前页面" class="headerlink" title="刷新当前页面"></a>刷新当前页面</h3><p><code>window.location.href=window.location.href</code> 和<code>window.location.reload()</code>都是刷新当前页面。<br>区别在于是否有提交数据。当有提交数据时，<code>window.location.reload()</code> 会提示是否提交，<code>window.location.href=window.location.href</code> 则是向指定的url提交数据。</p>
+<h4 id="window-location-reload"><a href="#window-location-reload" class="headerlink" title="window.location.reload()"></a>window.location.reload()</h4><p>强制重新加载当前页面</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span>location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="window-location-href"><a href="#window-location-href" class="headerlink" title="window.location.href"></a>window.location.href</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="修改路径URL不刷新页面"><a href="#修改路径URL不刷新页面" class="headerlink" title="修改路径URL不刷新页面"></a>修改路径URL不刷新页面</h3><h4 id="hash方式"><a href="#hash方式" class="headerlink" title="hash方式"></a>hash方式</h4><h5 id="a-标签"><a href="#a-标签" class="headerlink" title="a 标签"></a>a 标签</h5><p>a 标签的 href 元素设置为 <code>#</code> 开头的值时，只修改 url 的 hash 值，不会强制刷新页面，如果是一个真实路径，则会发生强制刷新到目标页面（a 标签的默认行为，可以使用事件监听阻止默认行为）。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x-ua-compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge, chrome=1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>hash<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#/home<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>首页<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#/about<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>关于<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'hashchange'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'The hash has changed!'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="window-location-hash"><a href="#window-location-hash" class="headerlink" title="window.location.hash"></a>window.location.hash</h5><p>直接在 url 上添加 hash 值。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x-ua-compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge, chrome=1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>hash<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/home<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>首页<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/about<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>关于<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'hashchange'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'The hash has changed!'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> aEls <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> el <span class="token keyword">of</span> aEls<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            el<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token comment">// 阻止 a 标签的默认行为</span>
+                e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">const</span> href <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span>
+                <span class="token comment">// window.location.hash = href</span>
+                <span class="token comment">// 等价于</span>
+                location<span class="token punctuation">.</span>hash <span class="token operator">=</span> href
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="window-history-方式"><a href="#window-history-方式" class="headerlink" title="window.history 方式"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/History_API">window.history 方式</a></h4><p>history 类似于 location，都是 window 对象的子对象，但也是全局对象。</p>
+<p>history 对象提供了浏览器的会话历史访问。它暴露了很多有用的方法和属性，允许你在用户浏览历史中向前和向后跳转，同时——从HTML5开始——提供了对 history 栈中内容的操作。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x-ua-compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge, chrome=1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>history state<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/home<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>首页<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/about<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>关于<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+        <span class="token comment">// 只能监听到 history 堆栈中已有的页面项改变</span>
+        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'popstate'</span><span class="token punctuation">,</span> urlChange<span class="token punctuation">)</span>
+
+        <span class="token keyword">const</span> aEls <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> el <span class="token keyword">of</span> aEls<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            el<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">const</span> href <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span>
+                history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> href<span class="token punctuation">)</span>
+                <span class="token comment">// state改变 手动 改变内容</span>
+                <span class="token function">urlChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">const</span> contentEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'container'</span><span class="token punctuation">)</span>
+        <span class="token keyword">function</span> <span class="token function">urlChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>location<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">case</span> <span class="token string">'/home'</span><span class="token operator">:</span>
+                    contentEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'home'</span>
+                    <span class="token keyword">break</span>
+                <span class="token keyword">case</span> <span class="token string">'/about'</span><span class="token operator">:</span>
+                    contentEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'about'</span> 
+                    <span class="token keyword">break</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    contentEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">''</span> 
+                    <span class="token keyword">break</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注意：</strong>调用<code>history.pushState()</code>或者<code>history.replaceState()</code>不会触发popstate事件. <code>popstate</code>事件只会在浏览器某些行为下触发, 比如点击后退、前进按钮(或者在JavaScript中调用<code>history.back()、history.forward()、history.go()</code>方法)，此外，a 标签的锚点也会触发该事件.</p>
+<p>当网页加载时,各浏览器对<code>popstate</code>事件是否触发有不同的表现,Chrome 和 Safari会触发<code>popstate</code>事件, 而Firefox不会.</p>
+</blockquote>
 
     </div>
 
@@ -346,7 +474,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://datura35422.github.io/posts/26103/" title="window和location打开页面的方式">https://datura35422.github.io/posts/26103/</a>
+      <a href="https://datura35422.github.io/posts/26103/" title="BOM系列-打开页面的方式">https://datura35422.github.io/posts/26103/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -358,6 +486,7 @@
               <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
               <a href="/tags/window/" rel="tag"># window</a>
               <a href="/tags/location/" rel="tag"># location</a>
+              <a href="/tags/BOM/" rel="tag"># BOM</a>
           </div>
 
         
@@ -404,14 +533,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">503k</span>
+    <span title="站点总字数">505k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:58</span>
+    <span title="站点阅读时长">14:02</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
