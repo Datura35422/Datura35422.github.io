@@ -28,7 +28,7 @@
 <meta property="og:description" content="官方网站：https:&#x2F;&#x2F;reactrouter.com&#x2F; 基础路由路由的含义：网络工程的术语。路由（routing）就是通过互联的网络把信息从源地址传输到目的地址的活动。  路由器提供了两种机制：路由和转送。  路由是决定数据包从来源到目的地的路径 转送将输入端的数据转移到合适的输出端">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-30T09:20:51.000Z">
-<meta property="article:modified_time" content="2021-07-01T12:58:19.724Z">
+<meta property="article:modified_time" content="2021-07-05T12:15:35.549Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="react">
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1"><span class="nav-number">1.1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">前端路由的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="nav-number">1.2.1.</span> <span class="nav-text">前端路由的核心</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#URL-%E7%9A%84-hash"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">URL 的 hash</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1"><span class="nav-number">1.1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">前端路由的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="nav-number">1.2.1.</span> <span class="nav-text">前端路由的核心</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC"><span class="nav-number">1.3.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API-amp-%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">API &amp; 高阶组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">1.5.</span> <span class="nav-text">参数传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.6.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.1.</span> <span class="nav-text">基础示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%B5%8C%E5%A5%97"><span class="nav-number">2.2.</span> <span class="nav-text">路由嵌套</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,20 +166,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">96</span>
+        <span class="site-state-item-count">100</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -260,7 +260,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-01 20:58:19" itemprop="dateModified" datetime="2021-07-01T20:58:19+08:00">2021-07-01</time>
+        <time title="修改时间：2021-07-05 20:15:35" itemprop="dateModified" datetime="2021-07-05T20:15:35+08:00">2021-07-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,14 +284,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>424</span>
+      <span>3.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -324,7 +324,155 @@
 <li>通过 URL 的 hash 改变 URL，如 <code>localhost:3000/#/abc</code></li>
 <li>通过 HTML5 中的 history 模式修改 URL</li>
 </ul>
-<h6 id="URL-的-hash"><a href="#URL-的-hash" class="headerlink" title="URL 的 hash"></a>URL 的 hash</h6><p>URL 的 hash 也就是锚点（#），本质上是改变 window.location 的 href 属性，可以通过直接赋值 location.hash 来改变herf，但是页面不发生刷新。</p>
+<blockquote>
+<p>具体可以参考链接：<a href="https://datura35422.github.io/posts/26103/#%E4%BF%AE%E6%94%B9%E8%B7%AF%E5%BE%84URL%E4%B8%8D%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2">修改路径URL不刷新页面</a></p>
+</blockquote>
+<h4 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h4><p>react-router-dom：针对浏览器</p>
+<p>react-router-native：针对原生应用</p>
+<h4 id="API-amp-高阶组件"><a href="#API-amp-高阶组件" class="headerlink" title="API &amp; 高阶组件"></a>API &amp; 高阶组件</h4><ul>
+<li><p>BrowerRouter ：使用 history 模式对路径改变的处理</p>
+</li>
+<li><p>HashRouter ：使用 hash 模式对路径改变的处理</p>
+</li>
+<li><p>Link ：通常路径的跳转使用的，最终会被渲染成 a 标签，to 属性用于设置跳转到的路径</p>
+</li>
+<li><p>NavLink ：在 Link 基础之上增加了一些样式属性，默认进行模糊匹配</p>
+</li>
+<li><p>Route ：用于路径的匹配，匹配的组件占位</p>
+</li>
+<li><p>Switch ：只渲染唯一匹配到的路由（排他操作），如果能够匹配到较为精确的路由就不显示通配路由配置</p>
+</li>
+<li><p>Redirect ：路由重定向。会执行跳转到对应的 to 路径中</p>
+</li>
+<li><p>history ：手动进行跳转时，需要获取 history 对象。</p>
+<p>获取到 history 对象的方式：</p>
+<ul>
+<li>如果该组件是通过路由直接跳转过来的，那么可以直接从 props 中获取到 history、location、match对象，路径跳转到目标组件时；</li>
+<li>如果该组件是一个普通渲染的组件，那么不可以直接获取 history、location、match对象</li>
+</ul>
+</li>
+<li><p>withRouter ：高阶组件。将 history、location、match对象包裹传入到普通组件中。可以让普通组件使用history、location、match对象。必须包裹在 Router 组件中</p>
+</li>
+</ul>
+<h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>方式：</p>
+<ul>
+<li>动态路由，<code>to=&#39;/detaitl/:id&#39;</code> 的形式传参，使用 <code>props.match.params.id</code> 获取传参</li>
+<li>search传递参数，<code>to=&#39;detail?id=123&#39;</code> 的形式传参，使用 <code>props.location.search</code> 获取传参，需要进行解析传参</li>
+<li>Link 中 to 传入对象，对象中的 state 属性可以传递对象数据，使用 <code>props.location.state</code> 获取传参。数据比较复杂的情况下使用</li>
+</ul>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>类似于 vue-router 的方式使用配置的方式进行创建 router</p>
+<p>需要安装额外的依赖包 <a target="_blank" rel="noopener" href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config"><code>react-router-config</code></a></p>
+<p>使用 <code>renderRoutes(routes)</code> 方式进行渲染。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="基础示例"><a href="#基础示例" class="headerlink" title="基础示例"></a>基础示例</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> PureComponent <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>
+    BrowserRouter<span class="token punctuation">,</span>
+    NavLink<span class="token punctuation">,</span>
+    Link<span class="token punctuation">,</span>
+    Route<span class="token punctuation">,</span>
+    Switch
+<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>h4<span class="token operator">></span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">About</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>h4<span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">useRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>BrowserRouter<span class="token operator">></span>
+            <span class="token punctuation">&#123;</span><span class="token comment">/* &lt;Link to='/'>首页&lt;/Link>
+            &lt;Link to='/about'>关于&lt;/Link> */</span><span class="token punctuation">&#125;</span>
+            <span class="token operator">&lt;</span>NavLink exact to<span class="token operator">=</span><span class="token string">'/'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+            <span class="token operator">&lt;</span>NavLink to<span class="token operator">=</span><span class="token string">'/about'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+
+            <span class="token operator">&lt;</span>Switch<span class="token operator">></span>
+                 <span class="token punctuation">&#123;</span><span class="token comment">/* 路径匹配通常是模糊匹配 只有根路径时需要设置精确匹配 */</span><span class="token punctuation">&#125;</span>
+                <span class="token operator">&lt;</span>Route exact path<span class="token operator">=</span><span class="token string">'/'</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Home<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Home<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+
+                <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">'/about'</span> component<span class="token operator">=</span><span class="token punctuation">&#123;</span>About<span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>BrowserRouter<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> PureComponent <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>
+    BrowserRouter<span class="token punctuation">,</span>
+    NavLink<span class="token punctuation">,</span>
+    Link<span class="token punctuation">,</span>
+    Route<span class="token punctuation">,</span>
+    Switch
+<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>h4<span class="token operator">></span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">About</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div<span class="token operator">></span>
+                <span class="token operator">&lt;</span>NavLink exact to<span class="token operator">=</span><span class="token string">'/about'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'green'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>关于我们<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+                <span class="token operator">&lt;</span>NavLink to<span class="token operator">=</span><span class="token string">'/about/history'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'green'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>历史<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+                <span class="token operator">&lt;</span>NavLink to<span class="token operator">=</span><span class="token string">'/about/culture'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'green'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>文化<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+                
+                <span class="token operator">&lt;</span>Switch<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Route exact path<span class="token operator">=</span><span class="token string">'/about'</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>h4<span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">'/about/history'</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>h4<span class="token operator">></span>历史<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">'/about/culture'</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>h4<span class="token operator">></span>文化<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">useRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>BrowserRouter<span class="token operator">></span>
+            <span class="token punctuation">&#123;</span><span class="token comment">/* &lt;Link to='/'>首页&lt;/Link>
+            &lt;Link to='/about'>关于&lt;/Link> */</span><span class="token punctuation">&#125;</span>
+            <span class="token operator">&lt;</span>NavLink exact to<span class="token operator">=</span><span class="token string">'/'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+            <span class="token operator">&lt;</span>NavLink to<span class="token operator">=</span><span class="token string">'/about'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+
+            <span class="token operator">&lt;</span>Switch<span class="token operator">></span>
+                 <span class="token punctuation">&#123;</span><span class="token comment">/* 路径匹配通常是模糊匹配 只有根路径时需要设置精确匹配 */</span><span class="token punctuation">&#125;</span>
+                <span class="token operator">&lt;</span>Route exact path<span class="token operator">=</span><span class="token string">'/'</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Home<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Home<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+
+                <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">'/about'</span> component<span class="token operator">=</span><span class="token punctuation">&#123;</span>About<span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>BrowserRouter<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 
     </div>
 
@@ -365,6 +513,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/f7ddfdff/" rel="next" title="扩展系列-图片格式">
+                  扩展系列-图片格式 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -397,14 +548,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">505k</span>
+    <span title="站点总字数">509k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:02</span>
+    <span title="站点阅读时长">14:08</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -23613,7 +23613,155 @@ store<span class="token punctuation">.</span><span class="token function">dispat
 <li>通过 URL 的 hash 改变 URL，如 <code>localhost:3000/#/abc</code></li>
 <li>通过 HTML5 中的 history 模式修改 URL</li>
 </ul>
-<h6 id="URL-的-hash"><a href="#URL-的-hash" class="headerlink" title="URL 的 hash"></a>URL 的 hash</h6><p>URL 的 hash 也就是锚点（#），本质上是改变 window.location 的 href 属性，可以通过直接赋值 location.hash 来改变herf，但是页面不发生刷新。</p>
+<blockquote>
+<p>具体可以参考链接：<a href="https://datura35422.github.io/posts/26103/#%E4%BF%AE%E6%94%B9%E8%B7%AF%E5%BE%84URL%E4%B8%8D%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2">修改路径URL不刷新页面</a></p>
+</blockquote>
+<h4 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h4><p>react-router-dom：针对浏览器</p>
+<p>react-router-native：针对原生应用</p>
+<h4 id="API-amp-高阶组件"><a href="#API-amp-高阶组件" class="headerlink" title="API &amp; 高阶组件"></a>API &amp; 高阶组件</h4><ul>
+<li><p>BrowerRouter ：使用 history 模式对路径改变的处理</p>
+</li>
+<li><p>HashRouter ：使用 hash 模式对路径改变的处理</p>
+</li>
+<li><p>Link ：通常路径的跳转使用的，最终会被渲染成 a 标签，to 属性用于设置跳转到的路径</p>
+</li>
+<li><p>NavLink ：在 Link 基础之上增加了一些样式属性，默认进行模糊匹配</p>
+</li>
+<li><p>Route ：用于路径的匹配，匹配的组件占位</p>
+</li>
+<li><p>Switch ：只渲染唯一匹配到的路由（排他操作），如果能够匹配到较为精确的路由就不显示通配路由配置</p>
+</li>
+<li><p>Redirect ：路由重定向。会执行跳转到对应的 to 路径中</p>
+</li>
+<li><p>history ：手动进行跳转时，需要获取 history 对象。</p>
+<p>获取到 history 对象的方式：</p>
+<ul>
+<li>如果该组件是通过路由直接跳转过来的，那么可以直接从 props 中获取到 history、location、match对象，路径跳转到目标组件时；</li>
+<li>如果该组件是一个普通渲染的组件，那么不可以直接获取 history、location、match对象</li>
+</ul>
+</li>
+<li><p>withRouter ：高阶组件。将 history、location、match对象包裹传入到普通组件中。可以让普通组件使用history、location、match对象。必须包裹在 Router 组件中</p>
+</li>
+</ul>
+<h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>方式：</p>
+<ul>
+<li>动态路由，<code>to=&#39;/detaitl/:id&#39;</code> 的形式传参，使用 <code>props.match.params.id</code> 获取传参</li>
+<li>search传递参数，<code>to=&#39;detail?id=123&#39;</code> 的形式传参，使用 <code>props.location.search</code> 获取传参，需要进行解析传参</li>
+<li>Link 中 to 传入对象，对象中的 state 属性可以传递对象数据，使用 <code>props.location.state</code> 获取传参。数据比较复杂的情况下使用</li>
+</ul>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>类似于 vue-router 的方式使用配置的方式进行创建 router</p>
+<p>需要安装额外的依赖包 <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config"><code>react-router-config</code></a></p>
+<p>使用 <code>renderRoutes(routes)</code> 方式进行渲染。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="基础示例"><a href="#基础示例" class="headerlink" title="基础示例"></a>基础示例</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> PureComponent <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>
+    BrowserRouter<span class="token punctuation">,</span>
+    NavLink<span class="token punctuation">,</span>
+    Link<span class="token punctuation">,</span>
+    Route<span class="token punctuation">,</span>
+    Switch
+<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>h4<span class="token operator">></span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">About</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>h4<span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">useRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>BrowserRouter<span class="token operator">></span>
+            <span class="token punctuation">&#123;</span><span class="token comment">/* &lt;Link to='/'>首页&lt;/Link>
+            &lt;Link to='/about'>关于&lt;/Link> */</span><span class="token punctuation">&#125;</span>
+            <span class="token operator">&lt;</span>NavLink exact to<span class="token operator">=</span><span class="token string">'/'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+            <span class="token operator">&lt;</span>NavLink to<span class="token operator">=</span><span class="token string">'/about'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+
+            <span class="token operator">&lt;</span>Switch<span class="token operator">></span>
+                 <span class="token punctuation">&#123;</span><span class="token comment">/* 路径匹配通常是模糊匹配 只有根路径时需要设置精确匹配 */</span><span class="token punctuation">&#125;</span>
+                <span class="token operator">&lt;</span>Route exact path<span class="token operator">=</span><span class="token string">'/'</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Home<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Home<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+
+                <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">'/about'</span> component<span class="token operator">=</span><span class="token punctuation">&#123;</span>About<span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>BrowserRouter<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> PureComponent <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>
+    BrowserRouter<span class="token punctuation">,</span>
+    NavLink<span class="token punctuation">,</span>
+    Link<span class="token punctuation">,</span>
+    Route<span class="token punctuation">,</span>
+    Switch
+<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>h4<span class="token operator">></span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">About</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div<span class="token operator">></span>
+                <span class="token operator">&lt;</span>NavLink exact to<span class="token operator">=</span><span class="token string">'/about'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'green'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>关于我们<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+                <span class="token operator">&lt;</span>NavLink to<span class="token operator">=</span><span class="token string">'/about/history'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'green'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>历史<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+                <span class="token operator">&lt;</span>NavLink to<span class="token operator">=</span><span class="token string">'/about/culture'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'green'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>文化<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+                
+                <span class="token operator">&lt;</span>Switch<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Route exact path<span class="token operator">=</span><span class="token string">'/about'</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>h4<span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">'/about/history'</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>h4<span class="token operator">></span>历史<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">'/about/culture'</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>h4<span class="token operator">></span>文化<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">useRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>BrowserRouter<span class="token operator">></span>
+            <span class="token punctuation">&#123;</span><span class="token comment">/* &lt;Link to='/'>首页&lt;/Link>
+            &lt;Link to='/about'>关于&lt;/Link> */</span><span class="token punctuation">&#125;</span>
+            <span class="token operator">&lt;</span>NavLink exact to<span class="token operator">=</span><span class="token string">'/'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+            <span class="token operator">&lt;</span>NavLink to<span class="token operator">=</span><span class="token string">'/about'</span> activeStyle<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>color<span class="token operator">:</span> <span class="token string">'red'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>NavLink<span class="token operator">></span>
+
+            <span class="token operator">&lt;</span>Switch<span class="token operator">></span>
+                 <span class="token punctuation">&#123;</span><span class="token comment">/* 路径匹配通常是模糊匹配 只有根路径时需要设置精确匹配 */</span><span class="token punctuation">&#125;</span>
+                <span class="token operator">&lt;</span>Route exact path<span class="token operator">=</span><span class="token string">'/'</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Home<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Home<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+
+                <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">'/about'</span> component<span class="token operator">=</span><span class="token punctuation">&#123;</span>About<span class="token punctuation">&#125;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>BrowserRouter<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 ]]></content>
       <categories>
         <category>前端</category>
@@ -23783,13 +23931,35 @@ location<span class="token punctuation">.</span>href <span class="token operator
 ]]></content>
       <categories>
         <category>BOM</category>
-        <category>Location</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>window</tag>
         <tag>location</tag>
         <tag>BOM</tag>
+        <tag>history</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>扩展系列-图片格式</title>
+    <url>/posts/f7ddfdff/</url>
+    <content><![CDATA[<h3 id="静态图片格式"><a href="#静态图片格式" class="headerlink" title="静态图片格式"></a>静态图片格式</h3><h4 id="JPG-JEPG"><a href="#JPG-JEPG" class="headerlink" title="JPG / JEPG"></a>JPG / JEPG</h4><h4 id="PNG"><a href="#PNG" class="headerlink" title="PNG"></a>PNG</h4><h4 id="WEBP"><a href="#WEBP" class="headerlink" title="WEBP"></a>WEBP</h4><h3 id="动态图片格式-方案"><a href="#动态图片格式-方案" class="headerlink" title="动态图片格式 / 方案"></a>动态图片格式 / 方案</h3><h4 id="GIF"><a href="#GIF" class="headerlink" title="GIF"></a>GIF</h4><h4 id="APNG"><a href="#APNG" class="headerlink" title="APNG"></a>APNG</h4><p>APNG是Mozilla在2004年推出的动图图片格式，是PNG的扩展，第一帧储存方式和普通的 PNG 一样在 IDAT 区段中，APNG 只是新增了三种区段：<br>ACTL (animation control) 用来存放帧数和播放次数，整个文件只有一个区段<br>FCTL (frame control) 用来存放每一帧的高、宽、位置、延时等信息，每一帧一个区段<br>FDAT (frame data) 用来存放除了第一帧以外后面每一帧的图片数据，采用 Deflate 压缩，每一帧一个区段</p>
+<h5 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h5><p>1.支持全彩和透明，可容纳的颜色种类远远多出256种（实际上是1680万种颜色），更细腻、真实；<br>2.向下兼容PNG，不支持就会显示png格式；<br>3.压缩率高于GIF，同等位下，APNG的体积小于GIF动图；</p>
+<p>具体的对比效果见：<a href="http://littlesvr.ca/apng/gif_vs_apng.html">http://littlesvr.ca/apng/gif_vs_apng.html</a></p>
+<p>参考链接：<a href="https://course.51qux.com/1874.html">https://course.51qux.com/1874.html</a></p>
+<h4 id="Lottie"><a href="#Lottie" class="headerlink" title="Lottie"></a><a href="http://airbnb.io/lottie/">Lottie</a></h4><blockquote>
+<p>动效制作方案：一种是帧动画，以逐帧的方式来播放动画；第二种是骨骼动画，基于一套基础的骨架，来播放动画；然后是 Lottie 动画。</p>
+<p><a href="http://zh.esotericsoftware.com/spine-in-depth#Spine">Spine</a> 是一款针对游戏开发的 2D 骨骼动画编辑工具。 Spine 旨在提供更高效和简洁 的工作流程，以创建游戏所需的动画。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>扩展</category>
+        <category>图片</category>
+      </categories>
+      <tags>
+        <tag>图片格式</tag>
+        <tag>apng</tag>
+        <tag>webp</tag>
       </tags>
   </entry>
 </search>
