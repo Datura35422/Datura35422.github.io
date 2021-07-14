@@ -22692,7 +22692,7 @@ document<span class="token punctuation">.</span>body<span class="token punctuati
 <p>useCallback 会返回一个函数的 memoized（记忆的）值。</p>
 <p>在依赖不变的情况下，多次定义的时候，返回的值是相同的。</p>
 <p>当你把回调函数传递给经过优化的并使用引用相等性去避免非必要渲染（例如 <code>shouldComponentUpdate</code>）的子组件时，它将非常有用。</p>
-<p>使用场景：在将一个组件中的函数，传递给子组件进行回调使用时，使用 useCallback 对函数进行处理。</p>
+<p>使用场景：<u>在将一个组件中的函数，传递给子组件进行回调使用时，使用 useCallback 对函数进行处理。</u></p>
 <p><strong>useCallback 搭配高阶组件 memo 使用</strong>，处理函数组件，避免组件非必要渲染。</p>
 <p><strong>针对函数进行优化。</strong></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> useCallback<span class="token punctuation">,</span> useState<span class="token punctuation">,</span> memo <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
@@ -23010,6 +23010,18 @@ App<span class="token punctuation">.</span>displayName <span class="token operat
 <li><p>检测过时的 context API</p>
 </li>
 </ul>
+<h4 id="数据的不可变性"><a href="#数据的不可变性" class="headerlink" title="数据的不可变性"></a>数据的不可变性</h4><h5 id="immutable-js"><a href="#immutable-js" class="headerlink" title="immutable.js"></a><a href="https://github.com/immutable-js/immutable-js">immutable.js</a></h5><p>数据的不可变性，主要解决了两个问题：</p>
+<ol>
+<li>以防数据发生不可预知的改变；</li>
+<li>当数据量大的时浅拷贝或深拷贝赋值变量再修改数据，带来的性能问题和内存浪费。</li>
+</ol>
+<p>Immutable 对象的特点时只要修改了对象，就会返回一个新的对象，旧的对象不会发生改变。</p>
+<p>为了节约内存，出现了一个新的算法：Persistent Data Structure（<strong>持久化数据结构</strong>或一致性数据结构）。</p>
+<blockquote>
+<p>持久化数据结构：使用了<strong>树</strong>结构，当数据被修改时，会返回一个对象，但是新的对象会尽可能的利用之前的数据结构而不会对内存造成浪费。结构共享。</p>
+</blockquote>
+<p>更多阅读：</p>
+<p><a href="https://medium.com/@dtinth/immutable-js-persistent-data-structures-and-structural-sharing-6d163fbd73d2">Immutable.js, persistent data structures and structural sharing</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -23377,7 +23389,7 @@ $ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local
     <content><![CDATA[<ol>
 <li>寻址 DNS 包964-966</li>
 </ol>
-<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-wireshark%E5%B7%A5%E5%85%B7/wireshark_1.jpg" alt="wireshark_1"></p>
+<p><img src="/posts/6a09c161/wireshark_1.jpg" alt="wireshark_1"></p>
 <ol start="2">
 <li>建立通讯 三次握手 四次挥手</li>
 </ol>
@@ -23419,7 +23431,11 @@ $ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local
 <li>craco（目前 antd 推荐的方案）</li>
 </ul>
 <h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><h5 id="antd-是否会将一些没有用的代码（组件或逻辑代码）引入，造成包很大"><a href="#antd-是否会将一些没有用的代码（组件或逻辑代码）引入，造成包很大" class="headerlink" title="antd 是否会将一些没有用的代码（组件或逻辑代码）引入，造成包很大"></a>antd 是否会将一些没有用的代码（组件或逻辑代码）引入，造成包很大</h5><p>antd 官网有提到： antd 的 JS 代码默认支持基于 ES modules 的 tree shaking，对于 js 部分，直接引入 <code>import &#123; Button &#125; from &#39;antd&#39;</code> 就会有按需加载的效果。</p>
-<h3 id="网易云音乐-web"><a href="#网易云音乐-web" class="headerlink" title="网易云音乐 web"></a>网易云音乐 web</h3><p>项目参考：<a href="https://github.com/wanguano/Music163-React">https://github.com/wanguano/Music163-React</a></p>
+<h3 id="网易云音乐-web"><a href="#网易云音乐-web" class="headerlink" title="网易云音乐 web"></a>网易云音乐 web</h3><p>真实项目：</p>
+<p><a href="https://music.163.com/#">https://music.163.com/#</a></p>
+<p>项目参考：</p>
+<p><a href="https://github.com/coderwhy/hy-react-web-music">https://github.com/coderwhy/hy-react-web-music</a></p>
+<p><a href="https://github.com/wanguano/Music163-React">https://github.com/wanguano/Music163-React</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -23455,6 +23471,7 @@ $ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;pm2* &#x2F;usr&#x2F;local
     <title>react系列-redux</title>
     <url>/posts/6ab9f816/</url>
     <content><![CDATA[<p>官方网站：<a href="https://redux.js.org/">https://redux.js.org/</a></p>
+<p>中文文档：<a href="https://cn.redux.js.org/">https://cn.redux.js.org/</a></p>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p><strong>状态管理器</strong></p>
 <p>JavaScript 需要管理的状态越来越多，越来越复杂；</p>
 <p>这些状态包括服务器返回的数据、缓存数据、用户操作生产的数据等等，也包括一些 UI 的状态，比如某些元素是否被选中，是否显示加载动效，当前分页等；</p>
@@ -24001,7 +24018,13 @@ store<span class="token punctuation">.</span><span class="token function">dispat
 <blockquote>
 <p>combineReducers 函数 将我们传入的 reducers 合并到一个对象中，最终返回一个 combination 的函数，在执行 combination 函数的过程中，它会通过判断前后返回的数据是否相同来决定返回之前的 state 还是新的 state。新的 state 会触发订阅者发生对应的刷新，而旧的 state 可以有效的阻止订阅者发生刷新。 </p>
 </blockquote>
-<h4 id="结合-ImmutableJs"><a href="#结合-ImmutableJs" class="headerlink" title="结合 ImmutableJs"></a>结合 <a href="https://github.com/immutable-js/immutable-js">ImmutableJs</a></h4><h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>生态：<a href="https://redux.js.org/introduction/ecosystem">https://redux.js.org/introduction/ecosystem</a></p>
+<h4 id="结合-ImmutableJs"><a href="#结合-ImmutableJs" class="headerlink" title="结合 ImmutableJs"></a>结合 <a href="https://github.com/immutable-js/immutable-js">ImmutableJs</a></h4><p><a href="https://github.com/immutable-js/immutable-js">ImmutableJs</a> ：使用不可变的数据。</p>
+<p><a href="https://github.com/gajus/redux-immutable#readme">redux-immutable</a>：使用 combineReducer 函数结合redux 和 immutable.js 的功能。</p>
+<blockquote>
+<p>fromJS 会进行深层比较，而 map 会进行浅层的比较，根据业务需求来确定使用哪一个 api ，fromJS 的性能会比 map 的性能更低。</p>
+</blockquote>
+<p>更多阅读： <a href="https://redux.js.org/faq/immutable-data">https://redux.js.org/faq/immutable-data</a></p>
+<h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>生态：<a href="https://redux.js.org/introduction/ecosystem">https://redux.js.org/introduction/ecosystem</a></p>
 <h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><p><a href="https://github.com/reduxjs/redux-devtools/tree/master/extension">redux devtool</a> ：不同的场景需要手动设置使用方式，<a href="https://github.com/reduxjs/redux-devtools/tree/master/extension#usage">https://github.com/reduxjs/redux-devtools/tree/master/extension#usage</a></p>
 <p>基础使用方式，需要在创建 store 时声明使用</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>
