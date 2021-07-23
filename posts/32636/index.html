@@ -27,13 +27,20 @@
 <meta property="og:site_name" content="Wang Wei&#39;s Blog">
 <meta property="og:description" content="此次二次开发圈子小程序，有一个主包，三个分包，代码量一直处于快溢出阈值的程度。 二次开发通常是基于不动或尽量少的去动原代码开发逻辑，轻易去调整容易崩。 所以整理一下使用的技巧。 判断条件多个函数执行需要新增相同的判断条件">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://datura35422.github.io/posts/32636/wave.gif">
 <meta property="og:image" content="https://datura35422.github.io/posts/32636/20191018091903771.gif">
 <meta property="og:image" content="https://datura35422.github.io/posts/32636/2021-4-28_10-16-45.gif">
 <meta property="og:image" content="https://datura35422.github.io/posts/32636/2021-4-27_16-15-13.gif">
 <meta property="og:image" content="https://datura35422.github.io/posts/32636/2021-4-27_17-25-20.gif">
 <meta property="og:image" content="https://datura35422.github.io/posts/32636/2021-5-26_15-55-25.gif">
+<meta property="og:image" content="https://datura35422.github.io/posts/32636/wepy组件编译前.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/32636/wepy%E7%BC%96%E8%AF%91%E5%90%8E.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/32636/wepy%20data编译前.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/32636/wepy%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84%E5%AD%90%E7%BB%84%E4%BB%B6.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/32636/wepy开发错误示例.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/32636/wepy%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84%E9%94%99%E8%AF%AF%E7%A4%BA%E4%BE%8B.jpg">
 <meta property="article:published_time" content="2021-02-23T09:36:52.000Z">
-<meta property="article:modified_time" content="2021-06-30T09:13:24.481Z">
+<meta property="article:modified_time" content="2021-07-23T05:46:12.130Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="工作">
@@ -42,7 +49,7 @@
 <meta property="article:tag" content="二次开发">
 <meta property="article:tag" content="小程序动画">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://datura35422.github.io/posts/32636/20191018091903771.gif">
+<meta name="twitter:image" content="https://datura35422.github.io/posts/32636/wave.gif">
 
 
 <link rel="canonical" href="https://datura35422.github.io/posts/32636/">
@@ -159,7 +166,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">判断条件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E9%9C%80%E8%A6%81%E6%96%B0%E5%A2%9E%E7%9B%B8%E5%90%8C%E7%9A%84%E5%88%A4%E6%96%AD%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">多个函数执行需要新增相同的判断条件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91"><span class="nav-number">2.</span> <span class="nav-text">新增处理逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%B2%E5%9B%9E%E8%B0%83%E4%B8%AD%E9%97%B4%E6%96%B0%E5%A2%9E%E4%B8%80%E5%9D%97%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91"><span class="nav-number">2.1.</span> <span class="nav-text">在一串回调中间新增一块处理逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ASCII%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">ASCII正则表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS%E6%A0%B7%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">CSS样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%AD%97%E4%BD%93%E6%B8%90%E5%8F%98"><span class="nav-number">3.1.</span> <span class="nav-text">实现字体渐变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%9D%E5%AE%AB%E6%A0%BC%E5%A4%84%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">九宫格处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B8%A9%E5%9D%91"><span class="nav-number">4.</span> <span class="nav-text">小程序踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">4.2.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E7%94%BB"><span class="nav-number">4.3.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper%E8%B8%A9%E5%9D%91"><span class="nav-number">4.4.</span> <span class="nav-text">swiper踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B2%97%E6%9A%B4%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">4.4.1.</span> <span class="nav-text">粗暴的解决方案：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#swiper-%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">4.4.2.</span> <span class="nav-text">swiper 其他相关问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web-view-%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98"><span class="nav-number">4.5.</span> <span class="nav-text">web-view 缓存问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#image-%E8%87%AA%E9%80%82%E5%BA%94%E9%AB%98%E5%BA%A6"><span class="nav-number">4.6.</span> <span class="nav-text">image 自适应高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOS-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%85%BC%E5%AE%B9"><span class="nav-number">4.7.</span> <span class="nav-text">IOS 时间处理兼容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wepy-1-7-X-%E8%B8%A9%E5%9D%91"><span class="nav-number">5.</span> <span class="nav-text">wepy 1.7.X 踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#repeat"><span class="nav-number">5.1.</span> <span class="nav-text">repeat</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-swiper"><span class="nav-number">5.1.1.</span> <span class="nav-text">关于 swiper</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Ewatch"><span class="nav-number">5.1.2.</span> <span class="nav-text">关于watch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%BE%AA%E7%8E%AF%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data-%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2"><span class="nav-number">5.1.3.</span> <span class="nav-text">关于循环组件中的data 状态切换</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3"><span class="nav-number">5.2.</span> <span class="nav-text">事件相关</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">工作问题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95"><span class="nav-number">6.1.</span> <span class="nav-text">5月问题记录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#promise-await"><span class="nav-number">6.1.1.</span> <span class="nav-text">promise await</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%E8%BF%87%E4%BA%8E%E5%A4%8D%E6%9D%82%E5%8C%96"><span class="nav-number">6.1.2.</span> <span class="nav-text">问题处理过于复杂化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%81%B7%E6%87%92"><span class="nav-number">6.1.3.</span> <span class="nav-text">偷懒</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">判断条件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E9%9C%80%E8%A6%81%E6%96%B0%E5%A2%9E%E7%9B%B8%E5%90%8C%E7%9A%84%E5%88%A4%E6%96%AD%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">多个函数执行需要新增相同的判断条件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91"><span class="nav-number">2.</span> <span class="nav-text">新增处理逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%B2%E5%9B%9E%E8%B0%83%E4%B8%AD%E9%97%B4%E6%96%B0%E5%A2%9E%E4%B8%80%E5%9D%97%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91"><span class="nav-number">2.1.</span> <span class="nav-text">在一串回调中间新增一块处理逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ASCII%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">ASCII正则表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS%E6%A0%B7%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">CSS样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%AD%97%E4%BD%93%E6%B8%90%E5%8F%98"><span class="nav-number">3.1.</span> <span class="nav-text">实现字体渐变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%9D%E5%AE%AB%E6%A0%BC%E5%A4%84%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">九宫格处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%B3%A2%E7%BA%B9%E5%8A%A8%E6%95%88"><span class="nav-number">3.3.</span> <span class="nav-text">实现波纹动效</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B8%A9%E5%9D%91"><span class="nav-number">4.</span> <span class="nav-text">小程序踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">4.2.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E7%94%BB"><span class="nav-number">4.3.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper%E8%B8%A9%E5%9D%91"><span class="nav-number">4.4.</span> <span class="nav-text">swiper踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B2%97%E6%9A%B4%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">4.4.1.</span> <span class="nav-text">粗暴的解决方案：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#swiper-%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">4.4.2.</span> <span class="nav-text">swiper 其他相关问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web-view-%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98"><span class="nav-number">4.5.</span> <span class="nav-text">web-view 缓存问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#image-%E8%87%AA%E9%80%82%E5%BA%94%E9%AB%98%E5%BA%A6"><span class="nav-number">4.6.</span> <span class="nav-text">image 自适应高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOS-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%85%BC%E5%AE%B9"><span class="nav-number">4.7.</span> <span class="nav-text">IOS 时间处理兼容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wepy-1-7-X-%E8%B8%A9%E5%9D%91"><span class="nav-number">5.</span> <span class="nav-text">wepy 1.7.X 踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#repeat"><span class="nav-number">5.1.</span> <span class="nav-text">repeat</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-swiper"><span class="nav-number">5.1.1.</span> <span class="nav-text">关于 swiper</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Ewatch"><span class="nav-number">5.1.2.</span> <span class="nav-text">关于watch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%BE%AA%E7%8E%AF%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data-%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2"><span class="nav-number">5.1.3.</span> <span class="nav-text">关于循环组件中的data 状态切换</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3"><span class="nav-number">5.2.</span> <span class="nav-text">事件相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6"><span class="nav-number">5.3.</span> <span class="nav-text">组件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">工作问题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95"><span class="nav-number">6.1.</span> <span class="nav-text">5月问题记录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#promise-await"><span class="nav-number">6.1.1.</span> <span class="nav-text">promise await</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%E8%BF%87%E4%BA%8E%E5%A4%8D%E6%9D%82%E5%8C%96"><span class="nav-number">6.1.2.</span> <span class="nav-text">问题处理过于复杂化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%81%B7%E6%87%92"><span class="nav-number">6.1.3.</span> <span class="nav-text">偷懒</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -269,7 +276,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-30 17:13:24" itemprop="dateModified" datetime="2021-06-30T17:13:24+08:00">2021-06-30</time>
+        <time title="修改时间：2021-07-23 13:46:12" itemprop="dateModified" datetime="2021-07-23T13:46:12+08:00">2021-07-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,14 +300,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>13k</span>
+      <span>15k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>22 分钟</span>
+      <span>25 分钟</span>
     </span>
 </div>
 
@@ -421,6 +428,93 @@
 <blockquote>
 <p>我总是会陷入图片之间的间距问题，想要图片间距自动实现距离问题使用 justify-content: space-between ，但是会遇到两张图片间距过大的问题，所以不能单纯的使用这个属性进行间距控制。使用 margin-right 是最为保险的使用方式。</p>
 </blockquote>
+<h4 id="实现波纹动效"><a href="#实现波纹动效" class="headerlink" title="实现波纹动效"></a>实现波纹动效</h4><p><img src="/posts/32636/wave.gif" alt="wave"></p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>recommending<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>recommendingContent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatarWrap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>open-data</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>userAvatarUrl<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>open-data</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>recommendRipple<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ripple<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ripple<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ripple<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>样式</p>
+<pre class="line-numbers language-less" data-language="less"><code class="language-less"><span class="token selector">.recommending</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> 20<span class="token punctuation">;</span>
+    <span class="token selector">.recommendingContent</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">.avatarWrap</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200rpx<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 200rpx<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">.recommendRipple</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+        <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token operator">-</span>50%<span class="token punctuation">,</span> <span class="token operator">-</span>50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> ripple 1000ms step<span class="token operator">-</span>start 0s infinite<span class="token punctuation">;</span>
+        <span class="token selector">.ripple</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+            <span class="token property">width</span><span class="token punctuation">:</span> 240rpx<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span> 240rpx<span class="token punctuation">;</span>
+            <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+            <span class="token property">border</span><span class="token punctuation">:</span> 1px solid<span class="token punctuation">;</span>
+            <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>239<span class="token punctuation">,</span> 75<span class="token punctuation">,</span> 75<span class="token punctuation">,</span> 1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token selector">&amp;:nth-child(1)</span> <span class="token punctuation">&#123;</span>
+                <span class="token property">width</span><span class="token punctuation">:</span> 280rpx<span class="token punctuation">;</span>
+                <span class="token property">height</span><span class="token punctuation">:</span> 280rpx<span class="token punctuation">;</span>
+                <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>239<span class="token punctuation">,</span> 75<span class="token punctuation">,</span> 75<span class="token punctuation">,</span> .6<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token selector">&amp;:nth-child(2)</span> <span class="token punctuation">&#123;</span>
+                <span class="token property">width</span><span class="token punctuation">:</span> 320rpx<span class="token punctuation">;</span>
+                <span class="token property">height</span><span class="token punctuation">:</span> 320rpx<span class="token punctuation">;</span>
+                <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>239<span class="token punctuation">,</span> 75<span class="token punctuation">,</span> 75<span class="token punctuation">,</span> .2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token atrule">@keyframes ripple</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">0%, 100%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 220rpx<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 220rpx<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">25%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 260rpx<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 260rpx<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">50%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 300rpx<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 300rpx<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">75%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 340rpx<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 340rpx<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h3 id="小程序踩坑"><a href="#小程序踩坑" class="headerlink" title="小程序踩坑"></a>小程序踩坑</h3><h4 id="兼容问题"><a href="#兼容问题" class="headerlink" title="兼容问题"></a>兼容问题</h4><p>记录时间：2021-4-8</p>
 <p>需要更换<code>getUserInfo</code>的逻辑，换为<code>wx.getUserProfile</code>，但是官方给的兼容例子里，低版本微信也可以成功调用<code>wx.getUserProfile</code>，但是缺少必要的加解密信息，所以低版本也是支持<code>wx.getUserProfile</code>但是功能不完善，所以判断当前版本是否能使用具体某个功能时需要使用<code>wx.canIUse()</code>进行判断，如果使用常用浏览器判断是否支持某个特定<code>api</code>的方法是会触发异常<code>bug</code>。</p>
 <h4 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h4><p>记录时间：2021-4-21</p>
@@ -877,6 +971,24 @@ timer <span class="token operator">=</span> <span class="token function">setTime
 <p>组件捕获，外部页面捕获能够截断组件内部捕获，同名 capture</p>
 <p>父子组件事件捕获是用的同一个链上的，如果同名，会响应父组件定义的事件捕获。</p>
 <p>最后的解决方法是用遮罩。</p>
+<h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><p>子组件绑定到小程序组件上的属性值必须要通过 data 定义的方式进行传递，否则编译后，会找不到数据。</p>
+<p>编译前的开发代码</p>
+<img src="./wepy组件编译前.jpg" alt="wepy组件编译前" style="zoom:67%;" />
+
+<p>编译后的 page 页面中的代码，会直接将组件嵌入到页面中。</p>
+<p><img src="/posts/32636/wepy%E7%BC%96%E8%AF%91%E5%90%8E.jpg" alt="wepy编译后"></p>
+<blockquote>
+<p>wepy 出现的时候小程序不支持组件化开发，所以 wepy 低版本中是将组件中的 html 直接嵌入到 page 中。</p>
+</blockquote>
+<p>编译前后的子组件数据。</p>
+<img src="./wepy data编译前.jpg" alt="wepy data编译前" style="zoom: 67%;" />
+
+<p><img src="/posts/32636/wepy%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84%E5%AD%90%E7%BB%84%E4%BB%B6.jpg" alt="wepy编译后的子组件"></p>
+<p>组件中定义属性错误的使用方式示例：</p>
+<img src="./wepy开发错误示例.jpg" alt="wepy开发错误示例" style="zoom:67%;" />
+
+<p><img src="/posts/32636/wepy%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84%E9%94%99%E8%AF%AF%E7%A4%BA%E4%BE%8B.jpg" alt="wepy编译后的错误示例"></p>
+<p>子组件中并没有定义 变量名为 true / false 的变量，取不到时则为 undefined， 所以设置的属性并不生效。</p>
 <h3 id="工作问题总结"><a href="#工作问题总结" class="headerlink" title="工作问题总结"></a>工作问题总结</h3><p>总是会觉得自己没有认真的做事，负责任的做事，出了事情就陷入无限自责，但是仍然不知悔改下次继续再犯，就像惯犯说的，只有无限次和零的区别。</p>
 <p>每次都会生气，生同事的气，生自己的气，生自己之前错怪同事的气，开始陷入无限的自怨自艾中，开启自暴自弃，放弃学习，放弃积极向上的想法。人生失败是常事，但是不能掉入坑中顺势躺平了，觉得现在这样也挺好，慢慢的会变成井底之蛙，丧失了竞争力和积极性，人生的意义大打折扣。</p>
 <p>希望每次我做错事情之后能够反思并且牢记下次不再犯。</p>
@@ -968,14 +1080,14 @@ timer <span class="token operator">=</span> <span class="token function">setTime
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">526k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:31</span>
+    <span title="站点阅读时长">14:37</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
