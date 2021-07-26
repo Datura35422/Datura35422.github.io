@@ -5370,7 +5370,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p><a href="https://www.kancloud.cn/lixianshengdezhanghao/interview/904696">MVC和MVVM的区别</a></p>
 <p><a href="https://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html">MVC，MVP 和 MVVM 的图示 - 阮一峰</a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2007/11/mvc.html">谈谈MVC模式 - 阮一峰</a></p>
-<h4 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h4><p><img src="/posts/17715/mvc.jpg" alt="mvc"></p>
+<h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p><img src="/posts/17715/mvc.jpg" alt="mvc"></p>
 <p>M - Model - 数据层 - 最上层，直接面向用户，提供给用户操作界面</p>
 <p>V - View - 视图层 - 最底层，程序需要操作的数据或信息</p>
 <p>C - Controller - 控制层 - 根据用户从视图层输入的指令，选取数据层中的数据，然后进行相应的操作，产生最终结果</p>
@@ -5380,12 +5380,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>最直接的感受就是Java中的<code>Strut2</code>框架使用，是典型的MVC架构。actions -&gt; service -&gt; dao</p>
 <p>也有点像vuex的state、view、actions。state是数据源，view以声明的方式将state映射到视图，actions去更改数据</p>
 </blockquote>
-<h4 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h4><p><img src="/posts/17715/mvp.jpg" alt="mvp"></p>
+<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><p><img src="/posts/17715/mvp.jpg" alt="mvp"></p>
 <p>P -  Presenter - 主持人(直译) - 进行数据传递</p>
 <p>各部分之间的通信，都是双向的。</p>
 <p>View 与 Model 不发生联系，都通过 Presenter 传递。</p>
 <p>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</p>
-<h4 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h4><p><img src="/posts/17715/mvvm.jpg" alt="mvvm"></p>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p><img src="/posts/17715/mvvm.jpg" alt="mvvm"></p>
 <blockquote>
 <p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
 </blockquote>
@@ -5411,6 +5411,9 @@ var app5 &#x3D; new Vue(&#123;
 <p>html部分相当于View层，View通过通过模板语法(<code>&#123;&#123; 表达式 &#125;&#125;</code>)来声明式的将数据渲染进DOM元素，当ViewModel对Model进行更新时，通过数据绑定更新到View。</p>
 <p>Vue实例中的data相当于Model层，而ViewModel层的核心是Vue中的双向数据绑定，即Model变化时VIew可以实时更新，View变化也能让Model发生变化。</p>
 <p>整体看来，MVVM比MVC精简很多，不仅简化了业务与界面的依赖，还解决了数据频繁更新的问题，不用再用选择器操作DOM元素。因为在MVVM中，View不知道Model的存在，Model和ViewModel也观察不到View，这种<strong>低耦合模式提高代码的可重用性</strong>。</p>
+<h3 id="BFF（Backends-For-Frontends-服务于前端的后端）"><a href="#BFF（Backends-For-Frontends-服务于前端的后端）" class="headerlink" title="BFF（Backends For Frontends 服务于前端的后端）"></a>BFF（Backends For Frontends 服务于前端的后端）</h3><p>BFF就是服务器设计API时会考虑到不同设备的需求，也就是为不同的设备提供不同的API接口，虽然它们可能是实现相同的功能，但因为不同设备的特殊性，它们对服务端的API访问也各有其特点，需要区别处理。</p>
+<h3 id="整洁前端架构"><a href="#整洁前端架构" class="headerlink" title="整洁前端架构"></a>整洁前端架构</h3><p>阅读文章：</p>
+<p><a href="https://phodal.github.io/clean-frontend/#clean-frontend-architecture%EF%BC%9A%E6%95%B4%E6%B4%81%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84">Clean Frontend Architecture：整洁前端架构</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -5421,6 +5424,7 @@ var app5 &#x3D; new Vue(&#123;
         <tag>面试</tag>
         <tag>MVC</tag>
         <tag>MVVM</tag>
+        <tag>架构</tag>
       </tags>
   </entry>
   <entry>
@@ -25056,6 +25060,43 @@ location<span class="token punctuation">.</span>href <span class="token operator
         <tag>图片格式</tag>
         <tag>apng</tag>
         <tag>webp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基础系列-SSR服务端渲染</title>
+    <url>/posts/303fe98f/</url>
+    <content><![CDATA[<h3 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h3><p>服务端渲染（SSR）：指的是页面在服务器端已经生成了<strong>完整的HTML页面结构</strong>，不需要浏览器解析（请求 js 文件，执行 js 文件，ajax 请求，获取数据生成完整的 html 结构等一系列操作）。</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><h4 id="为什么需要服务端渲染"><a href="#为什么需要服务端渲染" class="headerlink" title="为什么需要服务端渲染"></a>为什么需要服务端渲染</h4><p>单页面富应用（SPA）的局限：</p>
+<p>之前我们开发的应用程序，如果直接请求可以看到上面几乎没有什么内容，当我们请求下来静态资源之后会执行 JS ，JS 会去请求数据，并且渲染我们想要看到的。</p>
+<p>所有有局限性：</p>
+<ul>
+<li>首屏显示的速度较慢</li>
+<li>不利于SEO优化</li>
+</ul>
+<p>所以，服务端渲染最主要是解决上面两个问题。</p>
+<blockquote>
+<p>CSR，客户端渲染，单页面富应用（SPA）就是依赖的客服端渲染。</p>
+</blockquote>
+<h3 id="同构"><a href="#同构" class="headerlink" title="同构"></a>同构</h3><p><strong>一套代码既可以在服务端运行又可以在客户端运行</strong>，这就是同构应用。</p>
+<p>同构是一种 SSR 的形态，是现代 SSR 的一种表现形式，</p>
+<p>当用户发出请求时，先在服务器通过 SSR 渲染出首页的内容。</p>
+<p>但是对应的代码同样可以在客户端被执行。</p>
+<p>执行的目的包括事件绑定等以及其他页面切换时也可以在客户端被渲染。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="React-SSR"><a href="#React-SSR" class="headerlink" title="React SSR"></a>React SSR</h4><p>使用 React SSR主要有两种方式：</p>
+<ul>
+<li>手动搭建一个 SSR 框架；</li>
+<li>使用已经成熟的 SSR 框架： Next.js</li>
+</ul>
+<h4 id="Vue-SSR"><a href="#Vue-SSR" class="headerlink" title="Vue SSR"></a>Vue SSR</h4><p>使用 Nuxt.js 框架</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>基础</tag>
+        <tag>SSR</tag>
       </tags>
   </entry>
 </search>
