@@ -25153,4 +25153,79 @@ location<span class="token punctuation">.</span>href <span class="token operator
         <tag>windows</tag>
       </tags>
   </entry>
+  <entry>
+    <title>工程化-创建脚手架</title>
+    <url>/posts/d4a7f941/</url>
+    <content><![CDATA[<p>参考文章：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/105846231">如何写一个标准的前端脚手架</a></p>
+<p><a href="https://segmentfault.com/a/1190000016915868">前端脚手架，听起来玄乎，实际呢？</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>工程化</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>前端工程化</tag>
+        <tag>脚手架</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工程化-搭建私有npm仓库</title>
+    <url>/posts/d6f10adb/</url>
+    <content><![CDATA[<p>参考文章：</p>
+<p><a href="https://segmentfault.com/a/1190000019075126?utm_source=sf-similar-article">搭建npm私库</a> - 技术方案选择</p>
+<p><a href="https://www.cnblogs.com/liuming666/p/12470522.html">如何搭建npm私有仓库及发布npm包</a> - 教程完善</p>
+<p><a href="https://verdaccio.org/zh-CN/docs/what-is-verdaccio">verdaccio 官方文档</a></p>
+<h3 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h3><ul>
+<li>Verdaccio 是一个 <strong>Node.js</strong>创建的<strong>轻量的私有npm proxy registry</strong>，基于 sinopia 库进一步开发。</li>
+<li>Node.js &gt;= v12</li>
+<li>npm &gt; 5.x / yarn &gt; 1.x</li>
+</ul>
+<h4 id="安装并运行-verdaccio"><a href="#安装并运行-verdaccio" class="headerlink" title="安装并运行 verdaccio"></a>安装并运行 verdaccio</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install -g verdaccio
+# 或
+yarn global add verdaccio
+
+# 运行 默认配置 默认端口 4873
+verdaccio
+# 或 自定义配置
+verdaccio --listen 4000 --config ~.&#x2F;config.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/%E5%B7%A5%E7%A8%8B%E5%8C%96-%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89npm%E4%BB%93%E5%BA%93/verdaccio.png" alt="verdaccio"></p>
+<blockquote>
+<p>启动后可以查看到使用的配置文件地址，可以根据需求修改默认配置文件，也可以运行时设置配置文件地址。</p>
+</blockquote>
+<p>启动后的 web 界面，就可以上传 npm 包或者下载私有仓库中的 npm 包了。</p>
+<h3 id="使用私有仓库"><a href="#使用私有仓库" class="headerlink" title="使用私有仓库"></a>使用私有仓库</h3><h4 id="发包"><a href="#发包" class="headerlink" title="发包"></a>发包</h4><p>参考教程：<a href="https://segmentfault.com/a/1190000023075167">一分钟教你发布npm包</a> </p>
+<p><a href="https://webpack.docschina.org/guides/author-libraries/#root">webpack 打包 library</a></p>
+<p>首次发包，需要创建用户和密码，再进行发布</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm adduser --registry http:&#x2F;&#x2F;localhost:4873&#x2F;
+npm publish --registry http:&#x2F;&#x2F;localhost:4873&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="/%E5%B7%A5%E7%A8%8B%E5%8C%96-%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89npm%E4%BB%93%E5%BA%93/publish.png" alt="publish"></p>
+<p>第二次发包，就需要登录之前的账号和密码后进行发包</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm login --registry http:&#x2F;&#x2F;localhost:4873&#x2F;
+npm publish --registry http:&#x2F;&#x2F;localhost:4873&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>包发布后，就可以刷新查看运行的 verdaccio 的 web 页面，上面就有刚发布的包情况。</p>
+<p>此时就可以在私有库中使用刚发的包了。</p>
+<h4 id="使用私包"><a href="#使用私包" class="headerlink" title="使用私包"></a>使用私包</h4><p>参考教程：<a href="https://verdaccio.org/zh-CN/docs/cli-registry">https://verdaccio.org/zh-CN/docs/cli-registry</a></p>
+<p>安装包，设置包的临时源。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm --registry&#x3D;http:&#x2F;&#x2F;localhost:4873&#x2F; install library
+# 更新包
+npm update library --registry&#x3D;http:&#x2F;&#x2F;localhost:4873&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>工程化</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>npm</tag>
+        <tag>前端工程化</tag>
+      </tags>
+  </entry>
 </search>
