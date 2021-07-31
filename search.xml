@@ -1859,7 +1859,8 @@ VUE_APP_NOT_SECRET_CODE&#x3D;some_value<span aria-hidden="true" class="line-numb
 
 <h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><p><a href="https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart">基于Vue设计一个购物车（组件结构，vuex state 数据结构）</a></p>
 <p><a href="https://juejin.cn/post/6844903993374670855">Vuex面试题汇总</a></p>
-<h3 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h3><p><a href="https://mp.weixin.qq.com/s/qQxUCbPBYSq9vU7dvDOCzg">学习 vuex 源码整体架构，打造属于自己的状态管理库 - 若川视野</a>：<a href="https://github.com/lxchuan12/vuex-analysis">https://github.com/lxchuan12/vuex-analysis</a></p>
+<h3 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h3><p><a href="https://github.com/zero2one3/Vuex-Analysis">https://github.com/zero2one3/Vuex-Analysis</a></p>
+<p><a href="https://mp.weixin.qq.com/s/qQxUCbPBYSq9vU7dvDOCzg">学习 vuex 源码整体架构，打造属于自己的状态管理库 - 若川视野</a>：<a href="https://github.com/lxchuan12/vuex-analysis">https://github.com/lxchuan12/vuex-analysis</a></p>
 <p><a href="https://ustbhuangyi.github.io/vue-analysis/v2/vuex/#vuex-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">https://ustbhuangyi.github.io/vue-analysis/v2/vuex/#vuex-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3</a></p>
 <p><a href="https://mp.weixin.qq.com/s/TYdppDvscuGpkblOmaosDQ">Vuex 4.0 正式发布！新年，官方生态齐聚一堂。</a></p>
 ]]></content>
@@ -2233,7 +2234,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <category>指南</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>工具</tag>
         <tag>webstorm</tag>
       </tags>
@@ -25111,6 +25111,46 @@ location<span class="token punctuation">.</span>href <span class="token operator
         <tag>前端</tag>
         <tag>基础</tag>
         <tag>SSR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>window快捷键</title>
+    <url>/posts/d1988cc4/</url>
+    <content><![CDATA[<h3 id="windows-常用快捷键"><a href="#windows-常用快捷键" class="headerlink" title="windows 常用快捷键"></a>windows 常用快捷键</h3><p>更多阅读：</p>
+<p><a href="https://support.microsoft.com/zh-cn/windows/windows-%E7%9A%84%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F-dcc61a57-8ff0-cffe-9796-cb9706c75eec">Windows 的键盘快捷方式</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/127755045">超全Windows10快捷键大全</a></p>
+<ul>
+<li><code>Win + D</code>：显示桌面</li>
+<li><code>Win + E</code>：打开资源管理器</li>
+<li><code>Win + L</code>：锁屏</li>
+<li><code>Win + I</code>：设置</li>
+<li><code>Win + S</code>：搜索</li>
+<li><code>Win + V</code>：多重剪贴板</li>
+<li><code>Win + G</code>：录屏</li>
+<li><code>Win + R</code>：打开运行窗口</li>
+<li><code>Win + T</code>：在任务栏上切换应用</li>
+<li><code>Win + X</code>：打开快速链接菜单</li>
+<li><code>Win + Shift + S</code>：截图</li>
+<li><code>Win + Alt + D</code>：显示日历</li>
+<li><code>Win + [+ / -]</code>：放大镜</li>
+<li><code>Win + Esc</code>：退出放大镜</li>
+<li><code>Win + Tab</code>：打开任务视图</li>
+<li><code>Win + Ctrl + D</code>：添加虚拟桌面</li>
+<li><code>Win + Ctrl + F4</code>：关闭当前虚拟桌面</li>
+<li><code>Win + Ctrl + [← / →]</code>：切换虚拟桌面</li>
+</ul>
+<h4 id="文件资源管理器"><a href="#文件资源管理器" class="headerlink" title="文件资源管理器"></a>文件资源管理器</h4><ul>
+<li><code>Ctrl + N</code>：打开新窗口</li>
+<li><code>Ctrl + W</code>：关闭活动窗口</li>
+<li><code>F11</code>：最大/小化活动窗口</li>
+</ul>
+]]></content>
+      <categories>
+        <category>指南</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>windows</tag>
       </tags>
   </entry>
 </search>
