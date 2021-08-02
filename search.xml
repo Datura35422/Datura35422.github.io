@@ -25229,4 +25229,49 @@ npm update library --registry&#x3D;http:&#x2F;&#x2F;localhost:4873&#x2F;<span ar
         <tag>前端工程化</tag>
       </tags>
   </entry>
+  <entry>
+    <title>工程化-前端自动化部署</title>
+    <url>/posts/61076e74/</url>
+    <content><![CDATA[<p>参考链接：</p>
+<p><a href="https://juejin.cn/post/6845166890420011021">docker + webhook 从零实现前端自动化部署</a></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><h4 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h4><ul>
+<li><p>打包耗时</p>
+</li>
+<li><p>特殊环境隔离</p>
+</li>
+<li><p>打包环境的差异，linux 和 windows 的编码格式不同。</p>
+<blockquote>
+<p>环境的差异，导致编码格式不同，当重新编译时，会重新编译未修改文件，造成打包耗时，上线后需要重新下载新的打包文件（hash值已经改变，会认为是需要下载新的文件不使用缓存，虽然文件内容没有改变）。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>官网： <a href="https://www.docker.com/">https://www.docker.com/</a></p>
+<p>文档：<a href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a></p>
+<p>参考文章：<a href="https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html">docker 入门教程 - 阮一峰</a></p>
+<p>Docker 可以灵活的创建/销毁/管理多个“服务器”，这些“服务器”被称为 <code>容器 (container)</code></p>
+<p><strong>Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用接口。</strong>它是目前最流行的 Linux 容器解决方案。</p>
+<p>Docker 将应用程序与该程序的依赖，打包在一个文件里面。运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了 Docker，就不用担心环境问题。</p>
+<p>总体来说，Docker 的接口相当简单，用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。</p>
+<h4 id="为什么要用-Docker"><a href="#为什么要用-Docker" class="headerlink" title="为什么要用 Docker"></a>为什么要用 Docker</h4><ul>
+<li>环境统一。利用镜像统一开发环境和生产环境，避免因为环境因素导致的问题。</li>
+<li>便于回滚。版本控制，如果环境出现了问题，可以回滚到之前版本。</li>
+<li>环境隔离。</li>
+<li>高效并节省资源。作用类似服务器 / 虚拟机，可以直接在 Docker 中布置特殊环境且不包含操作系统。</li>
+</ul>
+<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul>
+<li>提供一次性的环境。比如，本地测试他人的软件、持续集成的时候提供单元测试和构建的环境。</li>
+<li>提供弹性的云服务。因为 Docker 容器可以随开随关，很适合动态扩容和缩容。</li>
+<li>组建微服务架构。通过多个容器，一台机器可以跑多个服务，因此在本机就可以模拟出微服务架构。</li>
+<li>版本管理。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>工程化</category>
+      </categories>
+      <tags>
+        <tag>自动化部署</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
 </search>
