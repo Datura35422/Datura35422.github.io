@@ -170,20 +170,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">108</span>
+        <span class="site-state-item-count">106</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -282,14 +282,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>957</span>
+      <span>852</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -309,14 +309,14 @@
 <li>Node.js &gt;= v12</li>
 <li>npm &gt; 5.x / yarn &gt; 1.x</li>
 </ul>
-<h4 id="安装并运行-verdaccio"><a href="#安装并运行-verdaccio" class="headerlink" title="安装并运行 verdaccio"></a>安装并运行 verdaccio</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install -g verdaccio
-# 或
-yarn global add verdaccio
+<h4 id="安装并运行-verdaccio"><a href="#安装并运行-verdaccio" class="headerlink" title="安装并运行 verdaccio"></a>安装并运行 verdaccio</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> -g verdaccio
+<span class="token comment"># 或</span>
+<span class="token function">yarn</span> global <span class="token function">add</span> verdaccio
 
-# 运行 默认配置 默认端口 4873
+<span class="token comment"># 运行 默认配置 默认端口 4873</span>
 verdaccio
-# 或 自定义配置
-verdaccio --listen 4000 --config ~.&#x2F;config.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 或 自定义配置</span>
+verdaccio --listen <span class="token number">4000</span> --config ~./config.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/posts/d6f10adb/verdaccio.png" alt="verdaccio"></p>
 <blockquote>
@@ -327,13 +327,13 @@ verdaccio --listen 4000 --config ~.&#x2F;config.yaml<span aria-hidden="true" cla
 <h3 id="使用私有仓库"><a href="#使用私有仓库" class="headerlink" title="使用私有仓库"></a>使用私有仓库</h3><h4 id="发包"><a href="#发包" class="headerlink" title="发包"></a>发包</h4><p>参考教程：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023075167">一分钟教你发布npm包</a> </p>
 <p><a target="_blank" rel="noopener" href="https://webpack.docschina.org/guides/author-libraries/#root">webpack 打包 library</a></p>
 <p>首次发包，需要创建用户和密码，再进行发布</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm adduser --registry http:&#x2F;&#x2F;localhost:4873&#x2F;
-npm publish --registry http:&#x2F;&#x2F;localhost:4873&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> adduser --registry http://localhost:4873/
+<span class="token function">npm</span> publish --registry http://localhost:4873/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><img src="/posts/d6f10adb/publish.png" alt="publish"></p>
 <p>第二次发包，就需要登录之前的账号和密码后进行发包</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm login --registry http:&#x2F;&#x2F;localhost:4873&#x2F;
-npm publish --registry http:&#x2F;&#x2F;localhost:4873&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> login --registry http://localhost:4873/
+<span class="token function">npm</span> publish --registry http://localhost:4873/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
@@ -341,9 +341,9 @@ npm publish --registry http:&#x2F;&#x2F;localhost:4873&#x2F;<span aria-hidden="t
 <p>此时就可以在私有库中使用刚发的包了。</p>
 <h4 id="使用私包"><a href="#使用私包" class="headerlink" title="使用私包"></a>使用私包</h4><p>参考教程：<a target="_blank" rel="noopener" href="https://verdaccio.org/zh-CN/docs/cli-registry">https://verdaccio.org/zh-CN/docs/cli-registry</a></p>
 <p>安装包，设置包的临时源。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm --registry&#x3D;http:&#x2F;&#x2F;localhost:4873&#x2F; install library
-# 更新包
-npm update library --registry&#x3D;http:&#x2F;&#x2F;localhost:4873&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> --registry<span class="token operator">=</span>http://localhost:4873/ <span class="token function">install</span> library
+<span class="token comment"># 更新包</span>
+<span class="token function">npm</span> update library --registry<span class="token operator">=</span>http://localhost:4873/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
     </div>
@@ -420,14 +420,14 @@ npm update library --registry&#x3D;http:&#x2F;&#x2F;localhost:4873&#x2F;<span ar
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">558k</span>
+    <span title="站点总字数">553k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15:29</span>
+    <span title="站点阅读时长">15:22</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
