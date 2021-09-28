@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://datura35422.github.io/posts/28605/transition.jpg">
 <meta property="og:image" content="https://datura35422.github.io/posts/28605/%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93%E6%9B%B4%E6%96%B0.png">
 <meta property="article:published_time" content="2019-03-19T02:17:45.000Z">
-<meta property="article:modified_time" content="2021-09-24T07:33:45.708Z">
+<meta property="article:modified_time" content="2021-09-28T09:04:43.030Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="vue">
@@ -171,7 +171,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -184,7 +184,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">114</span>
+        <span class="site-state-item-count">115</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -265,7 +265,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-24 15:33:45" itemprop="dateModified" datetime="2021-09-24T15:33:45+08:00">2021-09-24</time>
+        <time title="修改时间：2021-09-28 17:04:43" itemprop="dateModified" datetime="2021-09-28T17:04:43+08:00">2021-09-28</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -296,7 +296,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>40 分钟</span>
+      <span>41 分钟</span>
     </span>
 </div>
 
@@ -652,7 +652,9 @@ vm<span class="token punctuation">.</span>_self <span class="token operator">=</
 <p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#v-pre"><code>v-pre</code></a>：跳过这个元素和它的子元素的编译过程。可以用来显示原始 Mustache 标签。跳过大量没有指令的节点会加快编译。</p>
 <p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#v-cloak"><code>v-cloak</code></a>：这个指令保持在元素上直到关联实例结束编译。和 CSS 规则如 <code>[v-cloak] &#123; display: none &#125;</code> 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕。<strong>用于优化显示</strong>。</p>
 <p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#v-once"><code>v-once</code></a>：只渲染元素和组件<strong>一次</strong>。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。</p>
-<h4 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h4><h5 id="事件穿透解决方案："><a href="#事件穿透解决方案：" class="headerlink" title="事件穿透解决方案："></a>事件穿透解决方案：</h5><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40513881/article/details/87190511">https://blog.csdn.net/qq_40513881/article/details/87190511</a></p>
+<h4 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h4><h5 id="事件穿透解决方案："><a href="#事件穿透解决方案：" class="headerlink" title="事件穿透解决方案："></a>事件穿透解决方案：</h5><p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/86347430">https://zhuanlan.zhihu.com/p/86347430</a></p>
+<p>vue框架内置指令v-on:click有300ms的延迟响应，这是为了判断区分单击和双击。vue为移动端提供了触摸方法touchstart、touchmove、touchend，但却没有提供tap指令，因此需要自己手动定义v-tap去消除300ms延迟，提升移动端用户体验。</p>
 <h5 id="Event事件"><a href="#Event事件" class="headerlink" title="Event事件"></a>Event事件</h5><p>event 在编译阶段生成相关的data，对于 DOM 事件在 patch 过程中的创建阶段和更新阶段执行 updateDOMListeners 生成 DOM 事件；对于自定义事件，会在组件初始化阶段通过 initEvents 创建。</p>
 <p>原生 DOM 事件和自定义事件主要的区别在于添加和删除事件的方式不一样，并且自定义事件的派发是往当前实例上（子组件实例）派发，但是可以利用在父组件环境定义回调函数来实现父子组件的通讯。</p>
 <h4 id="双向数据绑定-v-model"><a href="#双向数据绑定-v-model" class="headerlink" title="双向数据绑定 v-model"></a>双向数据绑定 v-model</h4><p>在<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>、<code>&lt;textarea&gt;</code> 表单元素上创建双向数据绑定，会根据控件类型自动选取正确的方法来更新元素。负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。</p>
@@ -1180,14 +1182,14 @@ computed: &#123;
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">610k</span>
+    <span title="站点总字数">611k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">16:57</span>
+    <span title="站点阅读时长">16:58</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
