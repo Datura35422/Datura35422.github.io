@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://datura35422.github.io/posts/55ad86e2/%E6%B4%8B%E8%91%B1%E6%A8%A1%E5%9E%8B.png">
 <meta property="article:published_time" content="2021-06-08T03:11:03.000Z">
-<meta property="article:modified_time" content="2021-09-14T16:04:05.534Z">
+<meta property="article:modified_time" content="2021-10-18T16:32:26.772Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="node">
 <meta property="article:tag" content="koa2">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Koa2-%E8%A2%AB%E6%8E%A8%E5%87%BA%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.1.</span> <span class="nav-text">Koa2 被推出的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%8E-express-%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.</span> <span class="nav-text">koa2 与 express  区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#express"><span class="nav-number">1.2.1.</span> <span class="nav-text">express</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#koa2"><span class="nav-number">1.2.2.</span> <span class="nav-text">koa2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.3.</span> <span class="nav-text">使用区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%B4%8B%E8%91%B1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">koa2 中间件洋葱模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91-koa-compose"><span class="nav-number">1.4.</span> <span class="nav-text">koa2 中间件处理逻辑 koa-compose</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Koa2-%E8%A2%AB%E6%8E%A8%E5%87%BA%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.1.</span> <span class="nav-text">Koa2 被推出的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%8E-express-%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.</span> <span class="nav-text">koa2 与 express  区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#express"><span class="nav-number">1.2.1.</span> <span class="nav-text">express</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#koa2"><span class="nav-number">1.2.2.</span> <span class="nav-text">koa2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.3.</span> <span class="nav-text">使用区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%B4%8B%E8%91%B1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">koa2 中间件洋葱模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91-koa-compose"><span class="nav-number">1.4.</span> <span class="nav-text">koa2 中间件处理逻辑 koa-compose</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87-base64"><span class="nav-number">2.1.</span> <span class="nav-text">上传图片 base64</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -261,7 +261,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-15 00:04:05" itemprop="dateModified" datetime="2021-09-15T00:04:05+08:00">2021-09-15</time>
+        <time title="修改时间：2021-10-19 00:32:26" itemprop="dateModified" datetime="2021-10-19T00:32:26+08:00">2021-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,14 +285,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.1k</span>
+      <span>5.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>10 分钟</span>
     </span>
 </div>
 
@@ -481,6 +481,124 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <p>他向下一直到Nodejs底层，到底是怎么处理事件循环的</p>
 <p>一个异步的HTTP过程，到底是怎么进行的</p>
 <p>技术栈：MongoDB、Puppeteer、AntDesign、Bootstrap、Parcel</p>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><h4 id="上传图片-base64"><a href="#上传图片-base64" class="headerlink" title="上传图片 base64"></a>上传图片 base64</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 教程：https://www.huaweicloud.com/articles/2687012349fabd74e9cc9da11c0ca640.html</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> writeFileSync <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> Buffer <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'buffer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/koajs/router/blob/master/API.md</span>
+<span class="token keyword">const</span> Router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@koa/router'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/koajs/koa-body</span>
+<span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/koajs/static</span>
+<span class="token keyword">const</span> koaStatic <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-static'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/koajs/cors</span>
+<span class="token comment">// const cors = require('@koa/cors');</span>
+<span class="token keyword">const</span> Crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> SizeOf <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'image-size'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> images <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'images'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// app.use(cors(&#123;</span>
+<span class="token comment">//   'Access-Control-Allow-Methods': 'POST',</span>
+<span class="token comment">//   'Access-Control-Allow-Origin': '*'</span>
+<span class="token comment">// &#125;))</span>
+
+<span class="token keyword">function</span> <span class="token function">_getHash</span><span class="token punctuation">(</span><span class="token parameter">salt <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> Crypto<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'md5'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>salt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">koaStatic</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/img'</span><span class="token punctuation">,</span> 
+  <span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    multipart<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+    <span class="token comment">// https://github.com/node-formidable/formidable</span>
+    formidable<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      uploadDir<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./public/uploads'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      keepExtensions<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      hash<span class="token operator">:</span> <span class="token string">'sha1'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> file <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>files<span class="token punctuation">.</span>file<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> basename <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">&#123;</span> 
+      url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>ctx<span class="token punctuation">.</span>origin<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/uploads/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>basename<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      hash<span class="token operator">:</span> file<span class="token punctuation">.</span>hash
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/pixel'</span><span class="token punctuation">,</span> 
+  <span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> data <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body
+    <span class="token comment">// => POST body</span>
+    <span class="token keyword">const</span> pixel <span class="token operator">=</span> data<span class="token punctuation">.</span>pixel
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pixel <span class="token operator">&amp;&amp;</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>pixel<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> sizeOld <span class="token operator">=</span> pixel<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">4</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sizeOld<span class="token punctuation">)</span>
+      <span class="token keyword">const</span> base64 <span class="token operator">=</span> pixel<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">base<span class="token punctuation">,</span> item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">rgba\(([\d]+), ([\d]+), ([\d]+), 255\)</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> match <span class="token operator">=</span> reg<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        match<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            base <span class="token operator">+=</span> String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> base
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// 转图片</span>
+      <span class="token keyword">const</span> buf <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>base64<span class="token punctuation">,</span> <span class="token string">'base64'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> unit <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 返回一个被 string,编码格式是base64(默认编码格式是utf-8)的值初始化的新的 Buffer 实例</span>
+      <span class="token keyword">const</span> salt <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> hash <span class="token operator">=</span> <span class="token function">_getHash</span><span class="token punctuation">(</span>salt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> imgPath <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>hash<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.jpg</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+      <span class="token comment">// 计算图片大小</span>
+      <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> width<span class="token punctuation">,</span> height <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">SizeOf</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
+      <span class="token keyword">const</span> sizeNew <span class="token operator">=</span> width <span class="token operator">*</span> height<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> multiple <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sizeOld <span class="token operator">/</span> sizeNew<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newWidth <span class="token operator">=</span> multiple <span class="token operator">*</span> width<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newHeight <span class="token operator">=</span> multiple <span class="token operator">*</span> height<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newHash <span class="token operator">=</span> <span class="token function">_getHash</span><span class="token punctuation">(</span>salt <span class="token operator">+</span> <span class="token string">'new'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>multiple<span class="token punctuation">,</span> newHeight<span class="token punctuation">,</span> newWidth<span class="token punctuation">)</span>
+
+      <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 用fs写入文件</span>
+        <span class="token keyword">const</span> uploadDir <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">./public/uploads</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>uploadDir<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>imgPath<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> unit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">images</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span>newWidth<span class="token punctuation">,</span> newHeight<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>uploadDir<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>newHash<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.jpg</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+          url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>ctx<span class="token punctuation">.</span>origin<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/uploads/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>imgPath<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+          hash
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app
+  <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">allowedMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'启动成功: http://localhost:3000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 
     </div>
 
@@ -555,14 +673,14 @@ module<span class="token punctuation">.</span>exports <span class="token operato
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">621k</span>
+    <span title="站点总字数">624k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">17:15</span>
+    <span title="站点阅读时长">17:20</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
