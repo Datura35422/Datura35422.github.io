@@ -20,19 +20,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="1 占位符 前情提要：有个 input 输入框的样式，iOS 15.1 beta4版本上和 iOS 14.x 上的效果不同，iOS 14.x 上的效果是预期效果，然而">
+<meta name="description" content="主要是调试 H5 页面。审查各个系统环境下的样式和断点调试。 在Mac OS 上调试iOS 生态环境调试会很容易。 模拟环境环境准备">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS调试">
 <meta property="og:url" content="https://datura35422.github.io/posts/ef7ecee1/index.html">
 <meta property="og:site_name" content="Wang Wei&#39;s Blog">
-<meta property="og:description" content="1 占位符 前情提要：有个 input 输入框的样式，iOS 15.1 beta4版本上和 iOS 14.x 上的效果不同，iOS 14.x 上的效果是预期效果，然而">
+<meta property="og:description" content="主要是调试 H5 页面。审查各个系统环境下的样式和断点调试。 在Mac OS 上调试iOS 生态环境调试会很容易。 模拟环境环境准备">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211030-170117@2x.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211030-170505@2x.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211030-170852@2x.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211030-172002@2x.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211030-171210@2x.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211030-171523@2x.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211030-171800@2x.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211031-213620@2x.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211031-213524@2x.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/IMG_9365.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/IMG_9366.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211031-224833@2x.png">
 <meta property="article:published_time" content="2021-10-26T15:12:20.000Z">
-<meta property="article:modified_time" content="2021-10-26T15:54:36.439Z">
+<meta property="article:modified_time" content="2021-10-31T17:35:39.078Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="调试">
 <meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://datura35422.github.io/posts/ef7ecee1/WX20211030-170117@2x.png">
 
 
 <link rel="canonical" href="https://datura35422.github.io/posts/ef7ecee1/">
@@ -136,7 +149,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -149,6 +162,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8Mac-OS-%E4%B8%8A%E8%B0%83%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">在Mac OS 上调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">模拟环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.2.</span> <span class="nav-text">具体步骤</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95"><span class="nav-number">1.2.</span> <span class="nav-text">真机调试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">具体步骤</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,10 +264,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-10-26 23:12:20 / 修改时间：23:54:36" itemprop="dateCreated datePublished" datetime="2021-10-26T23:12:20+08:00">2021-10-26</time>
+      <time title="创建时间：2021-10-26 23:12:20" itemprop="dateCreated datePublished" datetime="2021-10-26T23:12:20+08:00">2021-10-26</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-01 01:35:39" itemprop="dateModified" datetime="2021-11-01T01:35:39+08:00">2021-11-01</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -272,7 +292,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>72</span>
+      <span>479</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -290,9 +310,46 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>1</p>
-<p>占位符</p>
-<p>前情提要：有个 input 输入框的样式，iOS 15.1 beta4版本上和 iOS 14.x 上的效果不同，iOS 14.x 上的效果是预期效果，然而</p>
+        <p>主要是调试 H5 页面。审查各个系统环境下的样式和断点调试。</p>
+<h3 id="在Mac-OS-上调试"><a href="#在Mac-OS-上调试" class="headerlink" title="在Mac OS 上调试"></a>在Mac OS 上调试</h3><p>iOS 生态环境调试会很容易。</p>
+<h4 id="模拟环境"><a href="#模拟环境" class="headerlink" title="模拟环境"></a>模拟环境</h4><h5 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h5><ul>
+<li>Xcode</li>
+<li>Safari 浏览器</li>
+</ul>
+<h5 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h5><ol>
+<li><p>打开 Xcode 后，如果没有 Xcode 项目可以按照步骤 A 创建一个测试项目。如果已有项目，可以按照步骤 B 打开项目。</p>
+<img src="./WX20211030-170117@2x.png" alt="WX20211030-170117@2x" style="zoom: 33%;" /></li>
+<li><p>选择想要调试的环境。可以选择Xcode提供的环境，也可以自定义手机型号和系统版本，如果需要测试特殊版本且 Xcode 中没有提供就需要去下载。</p>
+<img src="./WX20211030-170505@2x.jpg" alt="WX20211030-170505@2x" style="zoom: 25%;" />
+
+<img src="./WX20211030-170852@2x.png" alt="WX20211030-170852@2x" style="zoom: 25%;" /></li>
+<li><p>选择具体环境后运行项目</p>
+<p><img src="/posts/ef7ecee1/WX20211030-172002@2x.png" alt="WX20211030-172002@2x"></p>
+</li>
+<li><p>项目运行后会自动打开模拟器，然后点击【首页】按钮，回到首页后，打开模拟器的 Safari 浏览器。</p>
+<p><img src="./WX20211030-171210@2x.png" alt="WX20211030-171210@2x" style="zoom:25%;" /><img src="./WX20211030-171523@2x.png" alt="WX20211030-171523@2x" style="zoom:25%;" /><img src="./WX20211030-171800@2x.png" alt="WX20211030-171800@2x" style="zoom:25%;" /></p>
+</li>
+<li><p>打开电脑的 Safari 浏览器进行调试。</p>
+<img src="./WX20211031-213620@2x.png" alt="WX20211031-213620@2x" style="zoom:25%;" /></li>
+<li><p>进入调试界面，这样就可以进行元素审查或断点调试了。</p>
+<img src="./WX20211031-213524@2x.png" alt="WX20211031-213524@2x" style="zoom:25%;" /></li>
+</ol>
+<h4 id="真机调试"><a href="#真机调试" class="headerlink" title="真机调试"></a>真机调试</h4><p>需要搭配一台iPhone进行调试。</p>
+<h5 id="环境准备-1"><a href="#环境准备-1" class="headerlink" title="环境准备"></a>环境准备</h5><ul>
+<li><p>一台 iPhone</p>
+</li>
+<li><p>Safari 浏览器</p>
+</li>
+</ul>
+<h5 id="具体步骤-1"><a href="#具体步骤-1" class="headerlink" title="具体步骤"></a>具体步骤</h5><ol>
+<li><p>iPhone 需要进行【设置】-&gt; 【Safari浏览器】-&gt; 【高级】-&gt; 打开【JavaScript】&amp;【网页检查器】设置。</p>
+<p><img src="./IMG_9365.jpg" alt="IMG_9365" style="zoom:25%;" /><img src="./IMG_9366.jpg" alt="IMG_9366" style="zoom:25%;" /></p>
+</li>
+<li><p>使用【数据线】连接 iPhone 和Mac OS电脑。</p>
+</li>
+<li><p>在电脑上的 Safari浏览器中就可以看到具体的真机设备，进行调试。</p>
+<img src="./WX20211031-224833@2x.png" alt="WX20211031-224833@2x" style="zoom:25%;" /></li>
+</ol>
 
     </div>
 
@@ -374,7 +431,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">17:29</span>
+    <span title="站点阅读时长">17:30</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
