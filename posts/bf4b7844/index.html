@@ -28,7 +28,7 @@
 <meta property="og:description" content="前端异常监控系统之前写微信小程序的时候使用的微信小程序自带的实时日志 API ，微信小程序端将错误信息进行上报，可以在微信小程序公众平台上进行查看。 当前公司使用的是 Sentry.io 管理前端异常。需要手动上传当前登录用户的信息和错误信息。然后在 Sentry 错误信息管理平台进行查看报错信息和系统性能。  Sentry’s SDK hooks into your runtime enviro">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-12T13:11:40.000Z">
-<meta property="article:modified_time" content="2021-12-12T13:14:30.840Z">
+<meta property="article:modified_time" content="2021-12-19T16:29:02.963Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%BC%82%E5%B8%B8%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">前端异常监控系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%BC%82%E5%B8%B8%E5%92%8C%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">其他异常和性能监控系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB"><span class="nav-number">1.2.</span> <span class="nav-text">推荐阅读</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">前端数据埋点体系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">前端自动化流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91"><span class="nav-number">4.</span> <span class="nav-text">项目开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E6%8F%90%E7%A4%BA%E5%92%8C%E6%95%B0%E6%8D%AE%E7%8A%B6%E6%80%81%E5%85%B1%E4%BA%AB"><span class="nav-number">4.1.</span> <span class="nav-text">全局提示和数据状态共享</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.2.</span> <span class="nav-text">组件设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dva-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.3.</span> <span class="nav-text">Dva 的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS-%E9%97%AE%E9%A2%98"><span class="nav-number">4.4.</span> <span class="nav-text">CSS 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#flex"><span class="nav-number">4.4.1.</span> <span class="nav-text">flex</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95"><span class="nav-number">4.5.</span> <span class="nav-text">错误记录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%B1%E7%BD%91%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E8%BF%87%E6%85%A2%EF%BC%8C%E4%B8%8B%E4%B8%80%E6%AD%A5%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE-undefined-%E9%97%AE%E9%A2%98%E3%80%82"><span class="nav-number">4.5.1.</span> <span class="nav-text">弱网环境，数据请求过慢，下一步操作数据 undefined 问题。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.5.1.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%87%BA%E7%8E%B0%E9%97%AA%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.5.2.</span> <span class="nav-text">页面出现闪动的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%8F%8D%E6%80%9D"><span class="nav-number">5.</span> <span class="nav-text">总结反思</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CR-%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.</span> <span class="nav-text">CR 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TS-%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.1.</span> <span class="nav-text">TS 使用问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.2.</span> <span class="nav-text">代码问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%8A%AF%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">常犯问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%86%E8%8A%82%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.3.</span> <span class="nav-text">细节问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%96%91%E6%83%91%E6%88%96%E5%BE%85%E4%BC%98%E5%8C%96%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.4.</span> <span class="nav-text">疑惑或待优化的问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E4%B8%AA%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C%E4%BD%8E%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.5.</span> <span class="nav-text">整个开发过程中，低效的问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%80%9D%EF%BC%9A"><span class="nav-number">5.6.</span> <span class="nav-text">反思：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%AA%E6%96%BD-%F0%9F%9A%A9%EF%BC%9A"><span class="nav-number">5.7.</span> <span class="nav-text">措施 🚩：</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%BC%82%E5%B8%B8%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">前端异常监控系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%BC%82%E5%B8%B8%E5%92%8C%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">其他异常和性能监控系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB"><span class="nav-number">1.2.</span> <span class="nav-text">推荐阅读</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">前端数据埋点体系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">前端自动化流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91"><span class="nav-number">4.</span> <span class="nav-text">项目开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E6%8F%90%E7%A4%BA%E5%92%8C%E6%95%B0%E6%8D%AE%E7%8A%B6%E6%80%81%E5%85%B1%E4%BA%AB-redux"><span class="nav-number">4.1.</span> <span class="nav-text">全局提示和数据状态共享 - redux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.2.</span> <span class="nav-text">组件设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dva-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.3.</span> <span class="nav-text">Dva 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%B8%96%EF%BC%9A"><span class="nav-number">4.3.1.</span> <span class="nav-text">经验帖：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9C%A8-model-%E4%B8%AD%E4%BD%BF%E7%94%A8-typescript%EF%BC%9A"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">在 model 中使用 typescript：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB%EF%BC%9A"><span class="nav-number">4.3.2.</span> <span class="nav-text">扩展阅读：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E9%A1%B5%E9%9D%A2%E5%89%A9%E4%BD%99%E9%AB%98%E5%BA%A6"><span class="nav-number">4.4.</span> <span class="nav-text">计算页面剩余高度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">4.4.1.</span> <span class="nav-text">解决方案：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.5.</span> <span class="nav-text">React 生命周期的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#UNSAFE-componentWillReceiveProps"><span class="nav-number">4.5.1.</span> <span class="nav-text">UNSAFE_componentWillReceiveProps()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95"><span class="nav-number">4.6.</span> <span class="nav-text">错误记录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%B1%E7%BD%91%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E8%BF%87%E6%85%A2%EF%BC%8C%E4%B8%8B%E4%B8%80%E6%AD%A5%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE-undefined-%E9%97%AE%E9%A2%98%E3%80%82"><span class="nav-number">4.6.1.</span> <span class="nav-text">弱网环境，数据请求过慢，下一步操作数据 undefined 问题。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.6.1.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%87%BA%E7%8E%B0%E9%97%AA%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.6.2.</span> <span class="nav-text">页面出现闪动的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%8F%8D%E6%80%9D"><span class="nav-number">5.</span> <span class="nav-text">总结反思</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CR-%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.</span> <span class="nav-text">CR 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TS-%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.1.</span> <span class="nav-text">TS 使用问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.2.</span> <span class="nav-text">代码问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%8A%AF%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">常犯问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%86%E8%8A%82%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.3.</span> <span class="nav-text">细节问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%96%91%E6%83%91%E6%88%96%E5%BE%85%E4%BC%98%E5%8C%96%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.4.</span> <span class="nav-text">疑惑或待优化的问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E4%B8%AA%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C%E4%BD%8E%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.5.</span> <span class="nav-text">整个开发过程中，低效的问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%80%9D%EF%BC%9A"><span class="nav-number">5.6.</span> <span class="nav-text">反思：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%AA%E6%96%BD-%F0%9F%9A%A9%EF%BC%9A"><span class="nav-number">5.7.</span> <span class="nav-text">措施 🚩：</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +164,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">119</span>
+        <span class="site-state-item-count">120</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -250,10 +250,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-12-12 21:11:40 / 修改时间：21:14:30" itemprop="dateCreated datePublished" datetime="2021-12-12T21:11:40+08:00">2021-12-12</time>
+      <time title="创建时间：2021-12-12 21:11:40" itemprop="dateCreated datePublished" datetime="2021-12-12T21:11:40+08:00">2021-12-12</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-20 00:29:02" itemprop="dateModified" datetime="2021-12-20T00:29:02+08:00">2021-12-20</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -276,14 +282,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.2k</span>
+      <span>7.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
+      <span>13 分钟</span>
     </span>
 </div>
 
@@ -305,28 +311,72 @@
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039131388">错误上报和应用性能监控平台 Sentry</a> </p>
 <h3 id="前端数据埋点体系"><a href="#前端数据埋点体系" class="headerlink" title="前端数据埋点体系"></a>前端数据埋点体系</h3><p>前公司的数据埋点系统使用的是友盟、微盟、阿拉丁，因为是 To C 的应用所以埋点数据侧重于用户的按钮点击次数和页面加载次数等记录用户操作。</p>
 <p>当前公司使用的是自己搭建的 apm 埋点系统 + <a target="_blank" rel="noopener" href="https://grafana.com/">grafana</a> 数据展示平台。更加复杂的数据就使用的神策进行处理。因为是 To B 应用所以更加侧重于系统性能，如页面加载速度等。</p>
+<p>搭建的 apm 埋点系统是</p>
 <h3 id="前端自动化流程"><a href="#前端自动化流程" class="headerlink" title="前端自动化流程"></a>前端自动化流程</h3><p>使用的是 k8s + docker + gitlab + jenkins 搭建的自动化流程</p>
 <p>每次发布构建需要十几分钟，整个流程是先创建 docker 然后在 docker 中运行 <code>npm install --production --registry=http://npm.mokahr.com &amp;&amp; npm run build</code> 命令，就会重新安装一遍 npm 包，然后进行构建。巨型项目这个流程就会很耗时，构建好后触发 jenkins 进行镜像发布，这段时间耗时一般在一分半左右。</p>
 <h3 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h3><p>项目使用的是 React + dva + umi + axios 技术栈。</p>
-<h4 id="全局提示和数据状态共享"><a href="#全局提示和数据状态共享" class="headerlink" title="全局提示和数据状态共享"></a>全局提示和数据状态共享</h4><p>一般提示信息和数据状态多页面共享情况下，会使用 redux 。当然也不是滥用 redux，redux 过大会出现难以维护的问题。</p>
-<p>但是一个业务页面中数据逻辑过于复杂时就可以抽出业务组件和通用组件。通用组件中通常不会耦合业务代码，即为木偶组件。</p>
+<h4 id="全局提示和数据状态共享-redux"><a href="#全局提示和数据状态共享-redux" class="headerlink" title="全局提示和数据状态共享 - redux"></a>全局提示和数据状态共享 - redux</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://redux.js.org/faq/general#when-should-i-use-redux">https://redux.js.org/faq/general#when-should-i-use-redux</a></p>
+</blockquote>
+<p>一般提示信息和数据状态多页面共享情况下，会使用 redux 。</p>
+<p>但是一个业务页面中数据逻辑过于复杂时需要进行合理地按照组件职责进行划分和抽取组件。</p>
 <h4 id="组件设计"><a href="#组件设计" class="headerlink" title="组件设计"></a>组件设计</h4><blockquote>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/04-%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95.md">dva-组件设计方法</a></p>
 </blockquote>
 <p>在拆分 Component 的过程中要尽量让每个 Component 专注做自己的事情。</p>
-<p>根据职责区分可以分为：容器组件和</p>
+<p>根据职责区分可以分为：容器型组件和展示型组件。</p>
+<p><strong>容器型组件</strong>主要负责业务逻辑部分，指的是具有监听数据行为的组件，一般来说它们的职责是绑定相关联的 model 数据，以数据容器的角色包含其它子组件，通常在项目中表现出来的类型为：Layouts、Router Components 以及普通 Containers 组件。需要组织子组件的交互逻辑和展示。</p>
+<p><strong>展示型组件</strong>，也称作为<strong>木偶组件</strong>，不会关联订阅 model 上的数据。每个组件跟业务数据并没有耦合关系，只是完成自己独立的任务，需要的数据通过 <code>props</code> 传递进来，需要操作的行为通过接口暴露出去。</p>
 <h4 id="Dva-的使用"><a href="#Dva-的使用" class="headerlink" title="Dva 的使用"></a>Dva 的使用</h4><p>dva 官网： <a target="_blank" rel="noopener" href="https://dvajs.com/guide/">https://dvajs.com/guide/</a></p>
 <p>dva 首先是一个基于 <a target="_blank" rel="noopener" href="https://github.com/reduxjs/redux">redux</a> 和 <a target="_blank" rel="noopener" href="https://github.com/redux-saga/redux-saga">redux-saga</a> 的数据流方案，然后为了简化开发体验，dva 还额外内置了 <a target="_blank" rel="noopener" href="https://github.com/ReactTraining/react-router">react-router</a> 和 <a target="_blank" rel="noopener" href="https://github.com/github/fetch">fetch</a>，所以也可以理解为一个轻量级的应用框架。</p>
 <p>dva = React-Router + Redux + Redux-saga</p>
-<h4 id="CSS-问题"><a href="#CSS-问题" class="headerlink" title="CSS 问题"></a>CSS 问题</h4><h5 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h5><blockquote>
-<p>关于使用 flex 样式属性，我都已经开始产生了自我怀疑，可能之前的经验是遇事不决占满剩余空间就是 <code>flex: 1;</code> 但是发生了问题，和我想的预期不一样，做的不好的一点是没有深究问题就直接问同事了，所以应该提升自己独立解决问题的能力。</p>
-</blockquote>
-<p><strong>表格容器需要占用页面中的剩余的空间</strong>，这个空间不固定，原来的处理逻辑是通过获取父容器的高度然后减去兄弟元素的高度得到表格容器的高度。</p>
+<h5 id="经验帖："><a href="#经验帖：" class="headerlink" title="经验帖："></a>经验帖：</h5><p><a target="_blank" rel="noopener" href="https://dvajs.com/guide/develop-complex-spa.html">使用 Dva 开发复杂 SPA</a></p>
+<h6 id="在-model-中使用-typescript："><a href="#在-model-中使用-typescript：" class="headerlink" title="在 model 中使用 typescript："></a>在 model 中使用 typescript：</h6><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6971323669825994789">玩转 TS - 实现 dva 的完整类型推导 - 掘金</a> ：使用 dva-type 基于 typescript 4.1 进行类型推导。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7023712356064559111">react+typescript+umi+dva+antd - 掘金</a></p>
+<h5 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h5><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6963466553601835044">一文彻底搞懂 DvaJS 原理 - 掘金</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7014484781429850148">为什么 redux-saga 不能用 async await 实现 - 掘金</a></p>
+<p>Redux-Saga妈妈级教程 - 掘金：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6975041237266989086">https://juejin.cn/post/6975041237266989086</a> + <a target="_blank" rel="noopener" href="https://juejin.cn/post/6979146131028574245">https://juejin.cn/post/6979146131028574245</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7009110590752817183">踏入进阶！redux-saga中的八个高阶知识点 - 掘金</a></p>
+<h4 id="计算页面剩余高度"><a href="#计算页面剩余高度" class="headerlink" title="计算页面剩余高度"></a>计算页面剩余高度</h4><p><strong>表格容器需要占用页面中的剩余的空间</strong>，这个空间不固定，原来的处理逻辑是通过获取父容器的高度然后减去兄弟元素的高度得到表格容器的高度。</p>
 <p>对于更加复杂的页面布局，可能会出现需要计算更多的兄弟元素的高度。使用 NewTable 组件和 BasicTable 组件高度计算方式不一样，BasicTable 设置的高度是表格数据的高度（即不包含表头的高度），NewTable 设置的高度是表格的整体高度（即包含了表头的高度），要在原来的基础上写会更加复杂和难懂。</p>
-<p>解决方案</p>
 <p>在项目中使用 <code>flex: 1 1 0; / flex: 1 1 0px; / flex: 1 1 0%;</code> 构建后变成了 <code>flex: 1 1;</code> 。但是实际情况下 <code>flex: 1 1 0;</code> 和 <code>flex: 1 1 0%;</code> 的效果是不一样的，所以在项目中使用只能将三个属性拆开写 <code>flex-grow: 1; flex-shrink: 1; flex-basis: 0;</code> 才能达到目标效果。 </p>
 <blockquote>
 <p>项目中的具体原因需要进行 css loader 之类的库进行实验。</p>
+</blockquote>
+<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><p>父容器使用 <code>flex: 1 1 0px;</code>  （即<code>flex-grow: 1; flex-shrink: 1; flex-basis: 0;</code>）设置样式，然后使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver">ResizeObserver</a> 进行监听父容器的高度变化，因为页面中部分区域是需要根据数据动态显示的，所以组件挂载后的高度不是固定的，需要等待数据加载并更新渲染后才能确定父容器的真正高度。</p>
+<blockquote>
+<p>关于 ResizeObserver 扩展阅读：<a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2020/03/dom-resize-api-resizeobserver/">检测DOM尺寸变化JS API ResizeObserver简介 - 张鑫旭</a></p>
+</blockquote>
+<p>相关代码片段（<a target="_blank" rel="noopener" href="https://caniuse.com/?search=ResizeObserver">注意 ResizeObserver 的兼容性</a> ）：</p>
+<pre class="line-numbers language-react" data-language="react"><code class="language-react">componentDidMount() &#123;
+  const tableWrapElement &#x3D; document.getElementsByClassName(styles.reportTable)[0];
+  if (window.ResizeObserver) &#123;
+    this.resizeObserver &#x3D; new ResizeObserver((entries) &#x3D;&gt; &#123;
+      const tableWrapContentRect &#x3D; entries[0].contentRect;
+      this.throttleSetHeight(tableWrapContentRect.height);
+    &#125;);
+
+    if (tableWrapElement) &#123;
+      this.resizeObserver.observe(tableWrapElement);
+    &#125;
+  &#125; else &#123;
+    this.setState(&#123;
+      tableWrapHeight: tableWrapElement.clientHeight,
+      isBrowserSupportResizeObserver: false,
+    &#125;);
+  &#125;
+&#125;
+
+componentWillUnmount() &#123;
+  this.resizeObserver?.disconnect();
+  this.resizeObserver &#x3D; null;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="React-生命周期的使用"><a href="#React-生命周期的使用" class="headerlink" title="React 生命周期的使用"></a>React 生命周期的使用</h4><h5 id="UNSAFE-componentWillReceiveProps"><a href="#UNSAFE-componentWillReceiveProps" class="headerlink" title="UNSAFE_componentWillReceiveProps()"></a><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops"><code>UNSAFE_componentWillReceiveProps()</code></a></h5><p>我需要监听到 model 中传递的 props 发生了改变且进行新旧 props 对比后计算并触发一些事件，如封存状态从封存中变为封存成功时需要重新刷新数据表格，数据表格数据维护在容器型组件中而不是在 model 中。在这种情况下就需要用到 <code>UNSAFE_componentWillReceiveProps(nextProps)</code> 生命周期。</p>
+<blockquote>
+<p>todo：需要进行实验 componentDidUpdate 和 getSnapshotBeforeUpdate 生命周期，并总结生命周期使用的场景</p>
 </blockquote>
 <h4 id="错误记录"><a href="#错误记录" class="headerlink" title="错误记录"></a>错误记录</h4><p>这块主要是记录在这个月组内或者自己解决或遇到的问题，做个记录。</p>
 <h5 id="弱网环境，数据请求过慢，下一步操作数据-undefined-问题。"><a href="#弱网环境，数据请求过慢，下一步操作数据-undefined-问题。" class="headerlink" title="弱网环境，数据请求过慢，下一步操作数据 undefined 问题。"></a>弱网环境，数据请求过慢，下一步操作数据 undefined 问题。</h5><p>redux 和 vuex 具有一样的问题。页面强制刷新（F5）后，redux 和 vuex 中 store 数据就会被清空，回到初始状态。如果当前页依赖上一页储存到 redux 中的数据，用户进行手动刷新页面或者移动端系统机制强制刷新，上一页的数据就会被清空，当前页的操作就会报数据 undefined 错误。</p>
@@ -453,6 +503,7 @@ useEffect(() &#x3D;&gt; &#123;
 <li>对于前期已经考虑到的交互优化效果，对高阶组件使用不太明确，也没有想其他想法去实现相同的功能，被之前的模式给框住了，浪费了很多时间在样式处理实验和进行复杂的高度计算，反而写出更多难懂和难以维护的逻辑。<strong>如果出现了自己都觉得难懂和难以维护的解决方案就要适时放弃，对自己好一点，也对后续维护的人好一点。且要坚持交互优化效果，保持良好的交互体验。</strong></li>
 <li>不合理的开发安排。技术方案的问题，主要想要先实现通用组件再实现业务组件，但是通用组件的效果是在业务组件的基础上进行测试的，所以初期考虑的开发顺序有问题。<strong>先业务后通用组件，更加容易实现通用组件的数据交互和测试。</strong></li>
 <li>过度思考。总是会多考虑一些问题，如果拿不定的时候应该多和产品、设计或其他同学进行讨论。关于交互问题的疑问不要只问设计同学，要与产品、设计、涉及到的技术同学一起询问，避免出现设计同学的方案被产品否定的情况，<strong>确定方案再下手修改，避免重复修改</strong>。</li>
+<li>对于需求的理解不够透彻。最开始写的时候单纯的信了产品说的没有数据交互关系，反讲的时候也是这样讲的，结果实际开发的时候其实有数据逻辑关系的，和后端的接口文档沟通上也不是很全，浪费了很多时间。</li>
 <li>后端接口的问题不要去多写兜底方案，最后还是要修改的，要<strong>积极主动去推动后端同学修复 bug</strong> 避免前端白屏或报错问题，影响主流程测试。</li>
 <li>深刻的意识到技术方案的重要性。<strong>需要深入思考和前期多花时间去进行规划，使用思维导图将临时想到的问题及时记录下来，不要相信金鱼的记忆力。</strong></li>
 </ol>
@@ -511,6 +562,9 @@ useEffect(() &#x3D;&gt; &#123;
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/97c65c57/" rel="next" title="react系列-HOOKS">
+                  react系列-HOOKS <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -543,14 +597,14 @@ useEffect(() &#x3D;&gt; &#123;
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">642k</span>
+    <span title="站点总字数">648k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">17:50</span>
+    <span title="站点阅读时长">18:01</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
