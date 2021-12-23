@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://datura35422.github.io/posts/b5a9a427/shallowEqual.png">
 <meta property="article:published_time" content="2021-12-06T09:15:49.000Z">
-<meta property="article:modified_time" content="2021-12-23T06:24:41.434Z">
+<meta property="article:modified_time" content="2021-12-23T12:38:45.849Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="react">
@@ -262,7 +262,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-23 14:24:41" itemprop="dateModified" datetime="2021-12-23T14:24:41+08:00">2021-12-23</time>
+        <time title="修改时间：2021-12-23 20:38:45" itemprop="dateModified" datetime="2021-12-23T20:38:45+08:00">2021-12-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -286,7 +286,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>9k</span>
+      <span>9.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -551,25 +551,34 @@ ReactDOM.render(&lt;LifeCycelContainer &#x2F;&gt;, document.getElementById(&#39;
   if (typeof prevValue !&#x3D;&#x3D; typeof nextValue) &#123;
     return false;
   &#125;
+  if ([&#39;string&#39;, &#39;number&#39;, &#39;boolean&#39;, &#39;undefined&#39;].includes(typeof prevValue)) &#123;
+    return false;
+  &#125;
+  if (prevValue &#x3D;&#x3D;&#x3D; null || nextValue &#x3D;&#x3D;&#x3D; null) &#123;
+    return false;
+  &#125;
   if (typeof prevValue &#x3D;&#x3D;&#x3D; &#39;function&#39; &amp;&amp; typeof nextValue &#x3D;&#x3D;&#x3D; &#39;function&#39;) &#123;
     return prevValue.toString() &#x3D;&#x3D;&#x3D; nextValue.toString();
   &#125;
   &#x2F;&#x2F; object &amp; array
-  const prevValueKeys &#x3D; Object.keys(prevValue);
-  const nextValueKeys &#x3D; Object.keys(nextValue);
-  if (prevValueKeys.length !&#x3D;&#x3D; nextValueKeys.length) &#123;
-    return false;
-  &#125;
-  let childCompareResult &#x3D; [];
-  for (let i &#x3D; 0; i &lt; prevValueKeys.length; i++) &#123;
-    if (!Object.prototype.hasOwnProperty.call(nextValue, prevValueKeys[i])) &#123;
+  if (typeof prevValue &#x3D;&#x3D;&#x3D; &#39;object&#39;) &#123;
+    const prevValueKeys &#x3D; Object.keys(prevValue);
+    const nextValueKeys &#x3D; Object.keys(nextValue);
+    if (prevValueKeys.length !&#x3D;&#x3D; nextValueKeys.length) &#123;
       return false;
     &#125;
-    childCompareResult.push(
-      deepCompareObject(prevValue[prevValueKeys[i]], nextValue[prevValueKeys[i]])
-    );
+    for (let i &#x3D; 0; i &lt; prevValueKeys.length; i++) &#123;
+      if (!Object.prototype.hasOwnProperty.call(nextValue, prevValueKeys[i])) &#123;
+        return false;
+      &#125;
+      const result &#x3D; deepCompareObject(prevValue[prevValueKeys[i]], nextValue[prevValueKeys[i]]);
+      if (!result) &#123;
+        return false;
+      &#125;
+    &#125;
+    return true;
   &#125;
-  return childCompareResult.every((childValueResult) &#x3D;&gt; childValueResult);
+  return false;
 &#125;
 
 function TestComponent(props) &#123;
@@ -703,7 +712,7 @@ class LifeCycelContainer extends React.Component &#123;
   &#125;
 &#125;
 
-ReactDOM.render(&lt;LifeCycelContainer &#x2F;&gt;, document.getElementById(&#39;root&#39;));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ReactDOM.render(&lt;LifeCycelContainer &#x2F;&gt;, document.getElementById(&#39;root&#39;));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
