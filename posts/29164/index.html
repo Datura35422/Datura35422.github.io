@@ -301,25 +301,25 @@
 <p>如果安装出现错误，请使用cnpm进行尝试，<br>安装后，输入<code>hexo -v</code> 检查安装是否成功，<br>安装成功后，输入<code>hexo init</code>进行初始化，<br>输入<code>npm install</code>安装所需要的组件，如果失败请使用<code>cnpm install</code>进行尝试，<br>生成静态文件，输入<code>hexo g</code>（是命令<code>hexo generate</code>缩写），<br>和线上的github相关联后，新增一篇博客<code>hexo new post &#39;博客名&#39;</code>，<br>安装插件，<code>npm install hexo-deployer-git --save</code>。</p>
 <p>编辑好文章后就可以进行发布部署了，<code>hexo d -g</code></p>
 <p>清除缓存<code>hexo clean</code></p>
-<h4 id="本地启动Hexo服务"><a href="#本地启动Hexo服务" class="headerlink" title="本地启动Hexo服务"></a>本地启动Hexo服务</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo s # hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="本地启动Hexo服务"><a href="#本地启动Hexo服务" class="headerlink" title="本地启动Hexo服务"></a>本地启动Hexo服务</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo s <span class="token comment"># hexo server</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>是命令<code>hexo server</code>的缩写<br>默认启用4000端口号，修改端口号</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo server -p 5000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h4><h5 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new &quot;new post&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo server -p <span class="token number">5000</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h4><h5 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new <span class="token string">"new post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h5 id="新建文章分类页面"><a href="#新建文章分类页面" class="headerlink" title="新建文章分类页面"></a>新建文章分类页面</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page categories<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>配置categories页面，进入到刚才生成的<code>categories/index.md</code>文件中</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">title: 分类
-date: 2018-04-25 22:34:08
-type: &quot;categories&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+date: <span class="token number">2018</span>-04-25 <span class="token number">22</span>:34:08
+type: <span class="token string">"categories"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>设置每篇博客的categories</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">categories: xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5 id="新建文章标签页面"><a href="#新建文章标签页面" class="headerlink" title="新建文章标签页面"></a>新建文章标签页面</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo new page tags<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>配置tags页面，进入到刚才生成的<code>tags/index.md</code>文件中</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">title: 标签
-date: 2018-04-25 22:34:08
-type: &quot;tags&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+date: <span class="token number">2018</span>-04-25 <span class="token number">22</span>:34:08
+type: <span class="token string">"tags"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>在文章中设置标签</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tags:[xxx,xx,x]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tags:<span class="token punctuation">[</span>xxx,xx,x<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo deploy --简写 hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 

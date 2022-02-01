@@ -341,12 +341,12 @@
 <p>ts-node 与 tsc （typescript 自带的编译方式）编译的区别</p>
 <p>tsc根据 tsconfig 进行编译所有文件，ts-node 将从入口文件开始，并根据导入 / 导出逐步在树中转移文件。</p>
 </blockquote>
-<h4 id="局部环境"><a href="#局部环境" class="headerlink" title="局部环境"></a>局部环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 初始化项目
-npm init -y
+<h4 id="局部环境"><a href="#局部环境" class="headerlink" title="局部环境"></a>局部环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 初始化项目</span>
+<span class="token function">npm</span> init -y
 
-yarn add ts-node typescript -D
+<span class="token function">yarn</span> <span class="token function">add</span> ts-node typescript -D
 
-# 初始化ts
+<span class="token comment"># 初始化ts</span>
 npx tsc --init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
