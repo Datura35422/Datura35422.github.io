@@ -161,7 +161,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">141</span>
+          <span class="site-state-item-count">143</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +174,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">124</span>
+        <span class="site-state-item-count">125</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -214,6 +214,226 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/acbe5842/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/acbe5842/" class="post-title-link" itemprop="url">基础系列-onerror处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-28 13:23:40" itemprop="dateCreated datePublished" datetime="2022-02-28T13:23:40+08:00">2022-02-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-03-04 14:48:21" itemprop="dateModified" datetime="2022-03-04T14:48:21+08:00">2022-03-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">基础</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><h4 id="GlobalEventHandlers-onerror"><a href="#GlobalEventHandlers-onerror" class="headerlink" title="GlobalEventHandlers.onerror"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onerror">GlobalEventHandlers.onerror</a></h4><p>用于处理 error 事件。</p>
+<p><code>Error</code>事件的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers">事件处理程序 (en-US)</a>，在各种目标对象的不同类型错误被触发：</p>
+<ul>
+<li>当<strong>JavaScript运行时错误</strong>（包括语法错误）发生时，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window"><code>window</code></a>会触发一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/ErrorEvent"><code>ErrorEvent</code></a>接口的<code>error</code>事件，并执行<code>window.onerror()</code>。</li>
+<li>当一项资源（如<code>&lt;img&gt;</code> 或 <code>&lt;script&gt;</code> ）<strong>加载失败</strong>，加载资源的元素会触发一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event"><code>Event</code></a>接口的<code>error</code>事件，并执行该元素上的<code>onerror()</code>处理函数。<strong>这些error事件不会向上冒泡到 window</strong>，不过（至少在Firefox中）能被单一的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>window.addEventListener</code> (en-US)</a>捕获。<strong>可以使用捕获的方式监听到资源加载失败。</strong></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/acbe5842/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/5dcd61b5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/5dcd61b5/" class="post-title-link" itemprop="url">2022年1-2月工作总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-16 13:30:14" itemprop="dateCreated datePublished" datetime="2022-02-16T13:30:14+08:00">2022-02-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-03-04 00:26:14" itemprop="dateModified" datetime="2022-03-04T00:26:14+08:00">2022-03-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>979</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><p>数据透传，虽然使用了 props 进行层层传递，但是应该使用 context 进行透传。</p>
+<h3 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h3><h4 id="Array-includes"><a href="#Array-includes" class="headerlink" title="Array.includes"></a>Array.includes</h4><p>参考链接：<a target="_blank" rel="noopener" href="https://fettblog.eu/typescript-array-includes/">https://fettblog.eu/typescript-array-includes/</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/5dcd61b5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -360,7 +580,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-14 17:48:22" itemprop="dateModified" datetime="2022-02-14T17:48:22+08:00">2022-02-14</time>
+        <time title="修改时间：2022-02-27 19:45:59" itemprop="dateModified" datetime="2022-02-27T19:45:59+08:00">2022-02-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -384,14 +604,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>9.7k</span>
+      <span>9.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>16 分钟</span>
+      <span>17 分钟</span>
     </span>
 </div>
 
@@ -471,7 +691,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-09 13:36:33" itemprop="dateModified" datetime="2022-02-09T13:36:33+08:00">2022-02-09</time>
+        <time title="修改时间：2022-03-10 01:27:07" itemprop="dateModified" datetime="2022-03-10T01:27:07+08:00">2022-03-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -495,14 +715,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.9k</span>
+      <span>7.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -1129,214 +1349,6 @@ ReactDOM.render(
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/ef7ecee1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Wang Wei">
-      <meta itemprop="description" content="Stay hungry, stay foolish.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wang Wei's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/ef7ecee1/" class="post-title-link" itemprop="url">iOS调试</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-10-26 23:12:20" itemprop="dateCreated datePublished" datetime="2021-10-26T23:12:20+08:00">2021-10-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-01 01:35:40" itemprop="dateModified" datetime="2021-11-01T01:35:40+08:00">2021-11-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">整理</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>479</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>主要是调试 H5 页面。审查各个系统环境下的样式和断点调试。</p>
-<h3 id="在Mac-OS-上调试"><a href="#在Mac-OS-上调试" class="headerlink" title="在Mac OS 上调试"></a>在Mac OS 上调试</h3><p>iOS 生态环境调试会很容易。</p>
-<h4 id="模拟环境"><a href="#模拟环境" class="headerlink" title="模拟环境"></a>模拟环境</h4><h5 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h5>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/ef7ecee1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/6b9e7d16/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Wang Wei">
-      <meta itemprop="description" content="Stay hungry, stay foolish.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wang Wei's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/6b9e7d16/" class="post-title-link" itemprop="url">2021年9月面试总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-10-12 20:36:24" itemprop="dateCreated datePublished" datetime="2021-10-12T20:36:24+08:00">2021-10-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-13 00:02:20" itemprop="dateModified" datetime="2021-10-13T00:02:20+08:00">2021-10-13</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          🙅‍
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/6b9e7d16/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1362,14 +1374,14 @@ ReactDOM.render(
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">681k</span>
+    <span title="站点总字数">689k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">18:55</span>
+    <span title="站点阅读时长">19:08</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
