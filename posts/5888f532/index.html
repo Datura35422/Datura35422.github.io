@@ -28,7 +28,7 @@
 <meta property="og:description" content="本文使用的是 formily 2.* 版本  理论官方文档formily 主站：https:&#x2F;&#x2F;formilyjs.org&#x2F;zh-CN formily 核心库 core：https:&#x2F;&#x2F;core.formilyjs.org&#x2F;zh-CN">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-22T12:31:49.000Z">
-<meta property="article:modified_time" content="2022-02-27T11:45:59.574Z">
+<meta property="article:modified_time" content="2022-03-27T12:32:53.274Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="react">
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">理论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">1.1.</span> <span class="nav-text">官方文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3%E7%9A%84%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">1.2.</span> <span class="nav-text">工作相关的参考文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%87%E7%AB%A0"><span class="nav-number">1.3.</span> <span class="nav-text">其他文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%BB%84%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">关键组件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#select-%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5-options-%E6%95%B0%E6%8D%AE"><span class="nav-number">2.1.</span> <span class="nav-text">select 组件使用异步 options 数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-onFieldInit-%E8%BF%9B%E8%A1%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.1.</span> <span class="nav-text">使用 onFieldInit 进行设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-onFormInit-%E8%BF%9B%E8%A1%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用 onFormInit 进行设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8-componentDidMount-%E4%B8%AD%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.3.</span> <span class="nav-text">在 componentDidMount 中设置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E8%81%94%E5%8A%A8"><span class="nav-number">2.2.</span> <span class="nav-text">表单数据联动</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#SchemaReaction-%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">SchemaReaction 类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C"><span class="nav-number">2.3.</span> <span class="nav-text">异步数据校验</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-debounce-%E5%AF%B9%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E8%BF%9B%E8%A1%8C%E5%8C%85%E8%A3%B9"><span class="nav-number">2.3.1.</span> <span class="nav-text">使用 debounce 对数据请求接口进行包裹</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">模拟异步请求</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%96%B9%E6%A1%88%E4%B8%BA"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">最终方案为</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#formily-%E6%A0%A1%E9%AA%8C%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">formily 校验的核心代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">理论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">1.1.</span> <span class="nav-text">官方文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3%E7%9A%84%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">1.2.</span> <span class="nav-text">工作相关的参考文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%87%E7%AB%A0"><span class="nav-number">1.3.</span> <span class="nav-text">其他文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%BB%84%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">关键组件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#select-%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5-options-%E6%95%B0%E6%8D%AE"><span class="nav-number">2.1.</span> <span class="nav-text">select 组件使用异步 options 数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-onFieldInit-%E8%BF%9B%E8%A1%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.1.</span> <span class="nav-text">使用 onFieldInit 进行设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-onFormInit-%E8%BF%9B%E8%A1%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用 onFormInit 进行设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8-componentDidMount-%E4%B8%AD%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.3.</span> <span class="nav-text">在 componentDidMount 中设置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E8%81%94%E5%8A%A8"><span class="nav-number">2.2.</span> <span class="nav-text">表单数据联动</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SchemaReaction-%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">SchemaReaction 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Reaction-%E8%81%94%E5%8A%A8%E8%A7%A6%E5%8F%91%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Reaction 联动触发的时机</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Effect-%E8%BF%9B%E8%A1%8C%E8%81%94%E5%8A%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用 Effect 进行联动</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-addEffects-%E7%9A%84%E6%96%B9%E5%BC%8F%E6%B7%BB%E5%8A%A0-effect"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">使用 addEffects 的方式添加 effect</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C"><span class="nav-number">2.3.</span> <span class="nav-text">异步数据校验</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-debounce-%E5%AF%B9%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E8%BF%9B%E8%A1%8C%E5%8C%85%E8%A3%B9"><span class="nav-number">2.3.1.</span> <span class="nav-text">使用 debounce 对数据请求接口进行包裹</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">模拟异步请求</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%96%B9%E6%A1%88"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">最终方案</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#formily-%E6%A0%A1%E9%AA%8C%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">formily 校验的核心代码</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B8%A9%E5%9D%91"><span class="nav-number">3.</span> <span class="nav-text">踩坑</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -260,7 +260,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-27 19:45:59" itemprop="dateModified" datetime="2022-02-27T19:45:59+08:00">2022-02-27</time>
+        <time title="修改时间：2022-03-27 20:32:53" itemprop="dateModified" datetime="2022-03-27T20:32:53+08:00">2022-03-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,14 +284,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>9.9k</span>
+      <span>12k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>17 分钟</span>
+      <span>19 分钟</span>
     </span>
 </div>
 
@@ -373,55 +373,52 @@
 <p><a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/shared/schema#schemareactions">https://react.formilyjs.org/zh-CN/api/shared/schema#schemareactions</a></p>
 <p>schema 属性值：<a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/shared/schema#%E5%B1%9E%E6%80%A7">https://react.formilyjs.org/zh-CN/api/shared/schema#%E5%B1%9E%E6%80%A7</a></p>
 <p>IGeneralFieldState：<a target="_blank" rel="noopener" href="https://core.formilyjs.org/zh-CN/api/models/field#ifieldstate">https://core.formilyjs.org/zh-CN/api/models/field#ifieldstate</a></p>
-<h6 id="SchemaReaction-类型"><a href="#SchemaReaction-类型" class="headerlink" title="SchemaReaction 类型"></a>SchemaReaction 类型</h6><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> IGeneralFieldState <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@formily/core'</span>
+<h5 id="SchemaReaction-类型"><a href="#SchemaReaction-类型" class="headerlink" title="SchemaReaction 类型"></a>SchemaReaction 类型</h5><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> IGeneralFieldState <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@formily/core'</span>
 
 <span class="token keyword">type</span> <span class="token class-name">SchemaReaction<span class="token operator">&lt;</span>Field <span class="token operator">=</span> <span class="token builtin">any</span><span class="token operator">></span></span> <span class="token operator">=</span>
   <span class="token operator">|</span> <span class="token punctuation">&#123;</span>
-      dependencies<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span> <span class="token comment">//依赖的字段路径列表，只能以点路径描述依赖，支持相对路径，如果是数组格式，那么读的时候也是数组格式，如果是对象格式，读的时候也是对象格式，只是对象格式相当于是一个alias</span>
-      when<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">boolean</span> <span class="token comment">//联动条件</span>
-      target<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token comment">//要操作的字段路径，支持FormPathPattern路径语法，注意：不支持相对路径！！</span>
-      effects<span class="token operator">?</span><span class="token operator">:</span> SchemaReactionEffect<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">//主动模式下的独立生命周期钩子</span>
+      dependencies<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span> <span class="token comment">// 依赖的字段路径列表，只能以点路径描述依赖，支持相对路径，如果是数组格式，那么读的时候也是数组格式，如果是对象格式，读的时候也是对象格式，只是对象格式相当于是一个alias</span>
+      when<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">boolean</span> <span class="token comment">// 联动条件</span>
+      target<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token comment">// 要操作的字段路径，支持FormPathPattern路径语法，注意：不支持相对路径！！</span>
+      effects<span class="token operator">?</span><span class="token operator">:</span> SchemaReactionEffect<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// 主动模式下的独立生命周期钩子</span>
       fulfill<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">//满足条件</span>
-        state<span class="token operator">?</span><span class="token operator">:</span> IGeneralFieldState <span class="token comment">//更新状态</span>
-        schema<span class="token operator">?</span><span class="token operator">:</span> ISchema <span class="token comment">//更新Schema</span>
-        run<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token comment">//执行语句</span>
+        <span class="token comment">// 满足条件</span>
+        state<span class="token operator">?</span><span class="token operator">:</span> IGeneralFieldState <span class="token comment">// 更新状态</span>
+        schema<span class="token operator">?</span><span class="token operator">:</span> ISchema <span class="token comment">// 更新Schema</span>
+        run<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token comment">// 执行语句</span>
       <span class="token punctuation">&#125;</span>
       otherwise<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">//不满足条件</span>
-        state<span class="token operator">?</span><span class="token operator">:</span> IGeneralFieldState <span class="token comment">//更新状态</span>
-        schema<span class="token operator">?</span><span class="token operator">:</span> ISchema <span class="token comment">//更新Schema</span>
-        run<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token comment">//执行语句</span>
+        <span class="token comment">// 不满足条件</span>
+        state<span class="token operator">?</span><span class="token operator">:</span> IGeneralFieldState <span class="token comment">// 更新状态</span>
+        schema<span class="token operator">?</span><span class="token operator">:</span> ISchema <span class="token comment">// 更新Schema</span>
+        run<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token comment">// 执行语句</span>
       <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-  <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>field<span class="token operator">:</span> Field<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token comment">//可以复杂联动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>field<span class="token operator">:</span> Field<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token comment">// 可以复杂联动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>从类型上看有两种方式可以设置 schemaReaction 可以使用显示配置的方式或者函数控制 field 属性进行。</p>
-<p>常用的方式为使用显示的配置对象。</p>
-<p>进行联动配置时，可以配置 state、schema 和执行语句。配置 state 时需要查看状态类型 IGeneralFieldState 中相对应的属性，schema 是需要查看 ISchema 中相对应的属性。</p>
+<p>常用的方式为使用配置条件对象，如果有更加复杂的联动规则，推荐使用函数的方式进行联动设置。</p>
+<p>进行联动配置时，可以配置 state、schema 和执行语句。</p>
+<p>配置 state 时需要查看状态类型 IGeneralFieldState 中相对应的属性，schema 是需要查看 ISchema 中相对应的属性。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createForm <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@formily/core"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createSchemaField <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@formily/react"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Form<span class="token punctuation">,</span> FormItem<span class="token punctuation">,</span> Input<span class="token punctuation">,</span> NumberPicker <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@formily/antd"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Form<span class="token punctuation">,</span> FormItem<span class="token punctuation">,</span> Input <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@formily/antd"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> SchemaField <span class="token operator">=</span> <span class="token function">createSchemaField</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
   components<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     Input<span class="token punctuation">,</span>
-    FormItem<span class="token punctuation">,</span>
-    NumberPicker
+    FormItem
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   scope<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">autoUpdateFiledReactions</span><span class="token punctuation">(</span><span class="token parameter">field</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">const</span> executeCycleField <span class="token operator">=</span> field<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"max_1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"executeCycleField: "</span><span class="token punctuation">,</span> executeCycleField<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>executeCycleField<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">requiredReactions</span><span class="token punctuation">(</span><span class="token parameter">field</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> requiredField <span class="token operator">=</span> field<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"required_1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"requiredField: "</span><span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> requiredField<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>requiredField<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span>
-      <span class="token comment">// field.setComponentProps(&#123;</span>
-      <span class="token comment">//   value: executeCycleField.value</span>
-      <span class="token comment">// &#125;);</span>
       field<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        value<span class="token operator">:</span> executeCycleField<span class="token punctuation">.</span>value
+        value<span class="token operator">:</span> requiredField<span class="token punctuation">.</span>value
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
@@ -459,9 +456,9 @@
       <span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token string">"x-decorator"</span><span class="token operator">:</span> <span class="token string">"FormItem"</span><span class="token punctuation">,</span>
       <span class="token string">"x-component"</span><span class="token operator">:</span> <span class="token string">"Input"</span><span class="token punctuation">,</span>
-      <span class="token string">"x-reactions"</span><span class="token operator">:</span> <span class="token string">"&#123;&#123;autoUpdateFiledReactions&#125;&#125;"</span>
+      <span class="token string">"x-reactions"</span><span class="token operator">:</span> <span class="token string">"&#123;&#123;requiredReactions&#125;&#125;"</span>
       <span class="token comment">// "x-reactions": &#123;</span>
-      <span class="token comment">//   dependencies: ["max_1"],</span>
+      <span class="token comment">//   dependencies: ["required_1"],</span>
       <span class="token comment">//   fulfill: &#123;</span>
       <span class="token comment">//     state: &#123;</span>
       <span class="token comment">//       value: "&#123;&#123;$deps[0]&#125;&#125;"</span>
@@ -472,34 +469,102 @@
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-<span class="token comment">// export default (props) => &#123;</span>
-<span class="token comment">//   console.log("value: ", props.form.values);</span>
-<span class="token comment">//   return (</span>
-<span class="token comment">//     &lt;></span>
-<span class="token comment">//       &lt;Form form=&#123;props.form&#125; labelCol=&#123;6&#125; wrapperCol=&#123;10&#125;></span>
-<span class="token comment">//         &lt;SchemaField schema=&#123;requireSchema&#125; /></span>
-<span class="token comment">//       &lt;/Form></span>
-<span class="token comment">//       &lt;div onClick=&#123;() => console.log(props.form.values)&#125;> 点击 &lt;/div></span>
-<span class="token comment">//     &lt;/></span>
-<span class="token comment">//   );</span>
-<span class="token comment">// &#125;;</span>
-
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">FormPart</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">&#123;</span>
-  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
+  form <span class="token operator">=</span> <span class="token function">createForm</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    initialValues<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      required_1<span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"values:"</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>values <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>
       <span class="token operator">&lt;</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>Form form<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>form<span class="token punctuation">&#125;</span> labelCol<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">6</span><span class="token punctuation">&#125;</span> wrapperCol<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>Form form<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">&#125;</span> labelCol<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">6</span><span class="token punctuation">&#125;</span> wrapperCol<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token operator">></span>
           <span class="token operator">&lt;</span>SchemaField schema<span class="token operator">=</span><span class="token punctuation">&#123;</span>requireSchema<span class="token punctuation">&#125;</span> <span class="token operator">/</span><span class="token operator">></span>
         <span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token operator">></span>
-        <span class="token operator">&lt;</span>div onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>form<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">></span> 点击 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span>div onClick<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">></span> 点击 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
       <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://codesandbox.io/s/formily-reaction-cnuttc">https://codesandbox.io/s/formily-reaction-cnuttc</a></p>
+</blockquote>
+<h6 id="Reaction-联动触发的时机"><a href="#Reaction-联动触发的时机" class="headerlink" title="Reaction 联动触发的时机"></a>Reaction 联动触发的时机</h6><p>使用联动需要注意触发时机。</p>
+<ul>
+<li>表单初始化时</li>
+<li>依赖值初始化时</li>
+<li>依赖值改变时</li>
+</ul>
+<p>Reaction 函数主要设置到被联动的字段配置上，虽然也可以设置到被依赖字段配置上，但是需要注意被依赖字段是否有其他依赖值，容易引发一系列意想不到的联动。</p>
+<h5 id="使用-Effect-进行联动"><a href="#使用-Effect-进行联动" class="headerlink" title="使用 Effect 进行联动"></a>使用 Effect 进行联动</h5><p>effect 主要是监听被依赖字段值的改变（onFieldValueChange）。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createForm<span class="token punctuation">,</span> onFieldValueChange <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@formily/core'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createSchemaField<span class="token punctuation">,</span> FormConsumer <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@formily/react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Form<span class="token punctuation">,</span> FormItem<span class="token punctuation">,</span> Input<span class="token punctuation">,</span> Select <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@formily/antd'</span>
+
+<span class="token keyword">const</span> form <span class="token operator">=</span> <span class="token function">createForm</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token function">effects</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 字段值改变时触发</span>
+    <span class="token function">onFieldValueChange</span><span class="token punctuation">(</span><span class="token string">'select'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">field</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'effects'</span><span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      form<span class="token punctuation">.</span><span class="token function">setFieldState</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 对于初始联动，如果字段找不到，setFieldState会将更新推入更新队列，直到字段出现再执行操作</span>
+        state<span class="token punctuation">.</span>display <span class="token operator">=</span> field<span class="token punctuation">.</span>value
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> SchemaField <span class="token operator">=</span> <span class="token function">createSchemaField</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  components<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    FormItem<span class="token punctuation">,</span>
+    Input<span class="token punctuation">,</span>
+    Select<span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>Form form<span class="token operator">=</span><span class="token punctuation">&#123;</span>form<span class="token punctuation">&#125;</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>SchemaField<span class="token operator">></span>
+      <span class="token operator">&lt;</span>SchemaField<span class="token punctuation">.</span>String
+        name<span class="token operator">=</span><span class="token string">"select"</span>
+        title<span class="token operator">=</span><span class="token string">"控制者"</span>
+        <span class="token keyword">default</span><span class="token operator">=</span><span class="token string">"visible"</span>
+        <span class="token keyword">enum</span><span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">[</span>
+          <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'显示'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'visible'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'隐藏'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'none'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'隐藏-保留值'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'hidden'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
+        x<span class="token operator">-</span>component<span class="token operator">=</span><span class="token string">"Select"</span>
+        x<span class="token operator">-</span>decorator<span class="token operator">=</span><span class="token string">"FormItem"</span>
+      <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>SchemaField<span class="token punctuation">.</span>String
+        name<span class="token operator">=</span><span class="token string">"input"</span>
+        title<span class="token operator">=</span><span class="token string">"受控者"</span>
+        x<span class="token operator">-</span>component<span class="token operator">=</span><span class="token string">"Input"</span>
+        x<span class="token operator">-</span>decorator<span class="token operator">=</span><span class="token string">"FormItem"</span>
+      <span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>SchemaField<span class="token operator">></span>
+    <span class="token operator">&lt;</span>FormConsumer<span class="token operator">></span>
+      <span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>code<span class="token operator">></span>
+          <span class="token operator">&lt;</span>pre<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span>values<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>pre<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">></span>
+      <span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>FormConsumer<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token operator">></span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h6 id="使用-addEffects-的方式添加-effect"><a href="#使用-addEffects-的方式添加-effect" class="headerlink" title="使用 addEffects 的方式添加 effect"></a>使用 addEffects 的方式添加 effect</h6><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> form <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>form<span class="token punctuation">;</span>
+form<span class="token punctuation">.</span><span class="token function">addEffects</span><span class="token punctuation">(</span><span class="token string">'handleReaction'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token function">onFieldValueChange</span><span class="token punctuation">(</span><span class="token string">'require_1'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">field</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// do something</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -691,7 +756,7 @@
   <span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token operator">></span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h6 id="最终方案为"><a href="#最终方案为" class="headerlink" title="最终方案为"></a>最终方案为</h6><p>能够实时显示接口请求的异步校验结果</p>
+<h6 id="最终方案"><a href="#最终方案" class="headerlink" title="最终方案"></a>最终方案</h6><p>能够实时显示接口请求的异步校验结果</p>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://antd.formilyjs.org/zh-CN/components/select#markup-schema-%E5%BC%82%E6%AD%A5%E6%90%9C%E7%B4%A2%E6%A1%88%E4%BE%8B">https://antd.formilyjs.org/zh-CN/components/select#markup-schema-%E5%BC%82%E6%AD%A5%E6%90%9C%E7%B4%A2%E6%A1%88%E4%BE%8B</a></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createForm <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@formily/core"</span><span class="token punctuation">;</span>
@@ -759,6 +824,36 @@
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h6 id="formily-校验的核心代码"><a href="#formily-校验的核心代码" class="headerlink" title="formily 校验的核心代码"></a>formily 校验的核心代码</h6><p>源码链接：<a target="_blank" rel="noopener" href="https://github1s.com/alibaba/formily/blob/HEAD/packages/validator/src/parser.ts">https://github1s.com/alibaba/formily/blob/HEAD/packages/validator/src/parser.ts</a></p>
+<h3 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h3><p>初始使用的时候，对定义不是很清晰，所以踩了很多不必要的坑。</p>
+<ul>
+<li><p>一个 form 实例对应一个 FormProvider 组件</p>
+<ul>
+<li>如果使用多个  FormProvider 组件对应一个 form 实例，则会触发意想不到的 bug。</li>
+<li>需要注意 form 显隐控制导致的 validate 失效问题。</li>
+</ul>
+</li>
+<li><p>FormProvider 组件中可以使用多个 SchemaField 组件</p>
+</li>
+<li><p>field 属性值部分需要注意的地方</p>
+<p>使用 visible 属性设置隐藏（none）的时候，字段隐藏则会为 undefined，在获取 form.values 时会过滤掉。 </p>
+<p>hidden 属性设置隐藏（hidden）的时候，字段隐藏，但是在获取 form.values 时仍然保留字段值。</p>
+<blockquote>
+<p><strong>active</strong></p>
+<p>触发 onFocus 为 true，触发 onBlur 为 false</p>
+<p><strong>visited</strong></p>
+<p>触发过 onFocus 则永远为 true</p>
+<p><strong>inputValue</strong></p>
+<p>触发 onInput 收集到的值</p>
+<p><strong>inputValues</strong></p>
+<p>触发 onInput 收集到的多参值</p>
+<p><strong>hidden</strong></p>
+<p>为 true 时， display 为 hidden；为 false 时 display 为 visible</p>
+<p><strong>visible</strong></p>
+<p>为 true 时， display 为 visible；为 false 时 display 为 none</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://core.formilyjs.org/zh-CN/api/models/field#%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A">https://core.formilyjs.org/zh-CN/api/models/field#%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A</a></p>
+</blockquote>
+</li>
+</ul>
 
     </div>
 
@@ -834,14 +929,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">698k</span>
+    <span title="站点总字数">700k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:24</span>
+    <span title="站点阅读时长">19:26</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
