@@ -28,7 +28,7 @@
 <meta property="og:description" content="React数据透传，虽然使用了 props 进行层层传递，但是应该使用 context 进行透传。 TypeScriptArray.includes参考链接：https:&#x2F;&#x2F;fettblog.eu&#x2F;typescript-array-includes&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-16T05:30:14.000Z">
-<meta property="article:modified_time" content="2022-03-09T17:28:37.440Z">
+<meta property="article:modified_time" content="2022-05-09T06:59:11.479Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TypeScript"><span class="nav-number">2.</span> <span class="nav-text">TypeScript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-includes"><span class="nav-number">2.1.</span> <span class="nav-text">Array.includes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">工具函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E6%83%B3"><span class="nav-number">4.</span> <span class="nav-text">思想</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TypeScript"><span class="nav-number">2.</span> <span class="nav-text">TypeScript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-includes"><span class="nav-number">2.1.</span> <span class="nav-text">Array.includes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">工具函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E5%8F%8D%E6%80%9D"><span class="nav-number">4.</span> <span class="nav-text">总结与反思</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CR-%E9%97%AE%E9%A2%98"><span class="nav-number">4.2.</span> <span class="nav-text">CR 问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E6%83%B3"><span class="nav-number">4.3.</span> <span class="nav-text">思想</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,14 +164,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">145</span>
+          <span class="site-state-item-count">146</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -258,7 +258,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-10 01:28:37" itemprop="dateModified" datetime="2022-03-10T01:28:37+08:00">2022-03-10</time>
+        <time title="修改时间：2022-05-09 14:59:11" itemprop="dateModified" datetime="2022-05-09T14:59:11+08:00">2022-05-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,14 +282,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>979</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -311,36 +311,118 @@
 
 
 <h3 id="工具函数"><a href="#工具函数" class="headerlink" title="工具函数"></a>工具函数</h3><p>使用子集与超集进行对比，因为后端传值和前端传给后端的数据存在些微差异，后端可能会多传一些值，所以利用这个方法进行对比，判断共同的属性值是否相同。</p>
-<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">BaseValue</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<blockquote>
+<p>如果两个对象的属性相同只用比较值是否相同，可以使用 loadsh 的 isEqual 函数</p>
+</blockquote>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">BaseValue</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token comment">/**
  * 判断不相等，只判断相交的对象属性值是否相同，会深度对比每个对象中的属性值
  * @param base 子集
  * @param other 超集
  * @returns
  */</span>
-<span class="token keyword">export</span> <span class="token keyword">const</span> isNotEqual <span class="token operator">=</span> <span class="token operator">&lt;</span>
-  <span class="token constant">T</span> <span class="token keyword">extends</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token keyword">keyof</span> BaseValue<span class="token operator">></span> <span class="token operator">|</span> BaseValue <span class="token operator">|</span> <span class="token keyword">keyof</span> BaseValue <span class="token punctuation">&#125;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> isDiffByPart <span class="token operator">=</span> <span class="token operator">&lt;</span>
+  <span class="token constant">T</span> <span class="token keyword">extends</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span> <span class="token operator">|</span> BaseValue <span class="token punctuation">&#125;</span>
 <span class="token operator">></span><span class="token punctuation">(</span>
   base<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">,</span>
   other<span class="token operator">:</span> <span class="token constant">T</span>
 <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>base<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> other<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isEqual</span><span class="token punctuation">(</span>base<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> other<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> base<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token keyword">typeof</span> other<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> baseItem <span class="token operator">=</span> base<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> otherItem <span class="token operator">=</span> other<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>baseItem <span class="token operator">&amp;&amp;</span> otherItem <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isEqual</span><span class="token punctuation">(</span>baseItem<span class="token punctuation">,</span> otherItem<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> baseItem <span class="token operator">!==</span> <span class="token keyword">typeof</span> otherItem<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>base<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> base<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">?.</span>length <span class="token operator">===</span> other<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">?.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token function">isNotEqual</span><span class="token punctuation">(</span>base<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> other<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> baseItem <span class="token operator">===</span> <span class="token string">'number'</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> baseItem <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        <span class="token keyword">typeof</span> baseItem <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token keyword">typeof</span> otherItem <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span>
+        baseItem<span class="token operator">?.</span>length <span class="token operator">===</span> otherItem<span class="token operator">?.</span>length
+      <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">isDiffByPart</span><span class="token punctuation">(</span>baseItem <span class="token keyword">as</span> <span class="token constant">T</span><span class="token punctuation">,</span> otherItem <span class="token keyword">as</span> <span class="token constant">T</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span>
       <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><p>将重复的组件抽出来，可以做一些 UI 组件。</p>
+<h3 id="总结与反思"><a href="#总结与反思" class="headerlink" title="总结与反思"></a>总结与反思</h3><h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><ol>
+<li>将重复的组件抽出来，可以做一些 UI 组件。</li>
+</ol>
+<h4 id="CR-问题"><a href="#CR-问题" class="headerlink" title="CR 问题"></a>CR 问题</h4><ol>
+<li><p>文件嵌套过深，多个同名文件容易产生代码的理解成本。如果是一个页面的常量和类型尽量写在一个文件中，避免一个目录下一个常量和类型文件。</p>
+<blockquote>
+<p>一般来讲在页面这一级集中处理下面组件、常量、和工具方法可以满足大部分需求，更方便统一维护。</p>
+</blockquote>
+</li>
+<li><p>相对路径层级过深应使用绝对路径进行替换。</p>
+</li>
+<li></li>
+</ol>
+<h4 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h4><p>有一点点对项目中引入 npm 包有点抵触和抗拒，会觉得容易引入麻烦或者说无用的包，后期还要优化掉的包，从而使用了很奇怪的代码写法，虽然奇怪的代码写法在后期重新改了，但是初期的代码设计还有有点糟糕。</p>
+<p>因为推崇使用 await-to-js 库，但是又觉得没有必要专门导入这个库进来。所以使用了比较 hack 的方式：在 promise 函数返回的时候手动返回 [error, res] 格式，这样增加了代码理解成本，不能一下子 get 到为什么要这样写以及这样写的背景。</p>
+<blockquote>
+<p>Await-to-js 库主要是为了避免 try-catch 地狱的问题（就是 try-catch 使用的太多了）</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// shit code</span>
+<span class="token comment">// 想的是 handleCurrentStepSave 的代码调用返回的是 [error, res] 的格式</span>
+<span class="token function-variable function">onSaveAndNext</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleCurrentStepSave</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">const</span> nextStep <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ruleConfigStepList<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>currentRuleConfigStepIndex<span class="token punctuation">]</span><span class="token punctuation">.</span>nextStep<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nextStep<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            currentRuleConfigStepIndex<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ruleConfigStep<span class="token punctuation">[</span>nextStep<span class="token punctuation">]</span><span class="token punctuation">.</span>index<span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+          <span class="token comment">// 最后一步没有 nextStep</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            type<span class="token operator">:</span> <span class="token string">'routerJumpModal/setIsSaved'</span><span class="token punctuation">,</span>
+            payload<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'handleCurrentStepSave: '</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Sentry.captureException(err);</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 改进</span>
+<span class="token function-variable function">onSaveAndNext</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleCurrentStepSave</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> nextStep <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ruleConfigStepList<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>currentRuleConfigStepIndex<span class="token punctuation">]</span><span class="token punctuation">.</span>nextStep<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nextStep<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            currentRuleConfigStepIndex<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ruleConfigStep<span class="token punctuation">[</span>nextStep<span class="token punctuation">]</span><span class="token punctuation">.</span>index<span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+          <span class="token comment">// 最后一步没有 nextStep</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            type<span class="token operator">:</span> <span class="token string">'routerJumpModal/setIsSaved'</span><span class="token punctuation">,</span>
+            payload<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 如果 err 是数组表示表单校验未通过</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isArray</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        Sentry<span class="token punctuation">.</span><span class="token function">captureException</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
     </div>
 
@@ -414,14 +496,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">700k</span>
+    <span title="站点总字数">704k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:26</span>
+    <span title="站点阅读时长">19:33</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
