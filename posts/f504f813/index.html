@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://datura35422.github.io/posts/f504f813/reaction%E6%9C%BA%E5%88%B6.png">
 <meta property="og:image" content="https://datura35422.github.io/posts/f504f813/formily%E4%BA%A4%E6%B5%81%E7%BE%A4.png">
 <meta property="article:published_time" content="2022-06-30T02:50:30.000Z">
-<meta property="article:modified_time" content="2022-08-03T04:01:41.887Z">
+<meta property="article:modified_time" content="2022-08-03T04:56:28.328Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="react">
@@ -270,7 +270,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-08-03 12:01:41" itemprop="dateModified" datetime="2022-08-03T12:01:41+08:00">2022-08-03</time>
+        <time title="修改时间：2022-08-03 12:56:28" itemprop="dateModified" datetime="2022-08-03T12:56:28+08:00">2022-08-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -388,8 +388,9 @@
 <h1 id="使用-JSON-Schema-还是-JSX-的方式写表单"><a href="#使用-JSON-Schema-还是-JSX-的方式写表单" class="headerlink" title="使用 JSON Schema 还是 JSX 的方式写表单"></a>使用 JSON Schema 还是 JSX 的方式写表单</h1><p>可以先看一下 <a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/guide/architecture">@formily/react 的架构图</a>：</p>
 <p><img src="/posts/f504f813/@formily-react%E7%9A%84%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="formily-react-架构图"></p>
 <blockquote>
-<p>可以从架构图中可以得出渲染时 Markup Schema 会转换为 JSON Schema 再转换为 JSX 的方式进行渲染，所以 JSX 是最终的运行时状态。<br>纯 JSX 方式是性能最好的，因为没有表达式编译。（来自于 formily 作者的答疑解惑）<br>使用 JSON Schema 方式写表单的好处：</p>
+<p>可以从架构图中可以得出渲染时 Markup Schema 会转换为 JSON Schema 再转换为 JSX 的方式进行渲染，所以 JSX 是最终的运行时状态。<br>纯 JSX 方式是性能最好的，因为没有表达式编译。（来自于 formily 作者的答疑解惑）</p>
 </blockquote>
+<p>使用 JSON Schema 方式写表单的好处：</p>
 <ul>
 <li><p>易于平台移植，比如说可以从 React 迁移到 Vue 或其他平台。</p>
 </li>
@@ -399,9 +400,10 @@
 </li>
 <li><p>符合组件编码和代码组织习惯。</p>
 </li>
-<li><p>易于组件拆分，样式和字段组合更加灵活，更便于复杂的样式和数据结构组织<br>对于复杂的数据结构，JSON Schema 需要结合 JSX（<a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/components/recursion-field">使用 RecursionField 组件</a>） 的方式组织组件结构，JSX 在这方面就更加灵活。如果只是前端使用到表单结构更加推荐使用 JSX 的方式组织表单组件。</p>
+<li><p>易于组件拆分，样式和字段组合更加灵活，更便于复杂的样式和数据结构组织</p>
 </li>
 </ul>
+<p>对于复杂的数据结构，JSON Schema 需要结合 JSX（<a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/components/recursion-field">使用 RecursionField 组件</a>） 的方式组织组件结构，JSX 在这方面就更加灵活。如果只是前端使用到表单结构更加推荐使用 JSX 的方式组织表单组件。</p>
 <blockquote>
 <p>JSON Schema 结合 RecursionField 组件的方式 demo 参考地址：<a target="_blank" rel="noopener" href="https://formilyjs.org/zh-CN/guide/advanced/controlled#schema-%E7%89%87%E6%AE%B5%E8%81%94%E5%8A%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6">Schema 片段联动(自定义组件)</a><br>更多阅读：<a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/guide/concept#%E4%B8%89%E7%A7%8D%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F">三种开发模式</a></p>
 </blockquote>
@@ -538,8 +540,9 @@
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p>以上片段只是组织表单方式的一种，还有其他很多种方式大家可以参考官方文档<br>“叶子”字段值不使用 Field 管理状态的好处：</p>
+<p>以上片段只是组织表单方式的一种，还有其他很多种方式大家可以参考官方文档</p>
 </blockquote>
+<p>“叶子”字段值不使用 Field 管理状态的好处：</p>
 <ul>
 <li><p>简单，“叶子”字段值可以在数据 onChange 时做很多复杂的工作</p>
 </li>
@@ -550,12 +553,13 @@
 <li><p>可以使用 form.query 获取到字段的 Field 实例</p>
 </li>
 <li><p>可以使用 field effect hooks 进行字段监听</p>
-<h2 id="formily-Field-数据颗粒度"><a href="#formily-Field-数据颗粒度" class="headerlink" title="formily Field 数据颗粒度"></a>formily Field 数据颗粒度</h2></li>
+</li>
 </ul>
-<p>如果是复杂的数据结构且需要监听到”叶子”字段的数据变动，就需要使用 formily Field 管理数据。</p>
+<h2 id="formily-Field-数据颗粒度"><a href="#formily-Field-数据颗粒度" class="headerlink" title="formily Field 数据颗粒度"></a>formily Field 数据颗粒度</h2><p>如果是复杂的数据结构且需要监听到”叶子”字段的数据变动，就需要使用 formily Field 管理数据。</p>
 <blockquote>
-<p>这种情况需要灵活运用 VoidField、ArrayField、ObjectField 组件对 Field 组件的包裹，也需要注意 field path 的设置，Field 组件也能包裹 Field 组件但是需要指定 field 的 basePath，不然 formily 无法找到被包裹的 Field 的正确路径。<br>其中，引入 void，代表一个虚数据节点，表示该节点并不占用实际数据结构。<br>如果是复杂的数据结构且不监听内部”叶子”字段，就可以不使用 Field 管理“叶子”字段值。</p>
+<p>这种情况需要灵活运用 VoidField、ArrayField、ObjectField 组件对 Field 组件的包裹，也需要注意 field path 的设置，Field 组件也能包裹 Field 组件但是需要指定 field 的 basePath，不然 formily 无法找到被包裹的 Field 的正确路径。<br>其中，引入 void，代表一个虚数据节点，表示该节点并不占用实际数据结构。</p>
 </blockquote>
+<p>如果是复杂的数据结构且不监听内部”叶子”字段，就可以不使用 Field 管理“叶子”字段值。</p>
 <blockquote>
 <p>在线 demo：<a target="_blank" rel="noopener" href="https://codesandbox.io/s/field-manage-data-9zmu5f?file=/App.tsx">https://codesandbox.io/s/field-manage-data-9zmu5f?file=/App.tsx</a></p>
 </blockquote>
@@ -777,7 +781,9 @@ form<span class="token punctuation">.</span><span class="token function">query</
     <span class="token comment">// ...</span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在这种情况下 Field basePath 是非常好用的。当不够明确数据结构时，可以使用 basePath 明确指出 parent 字段路径。<br><strong>Q：setValues 后表单并没有显示预期的数据</strong></p>
+
+<p>在这种情况下 Field basePath 是非常好用的。当不够明确数据结构时，可以使用 basePath 明确指出 parent 字段路径。</p>
+<p><strong>Q：setValues 后表单并没有显示预期的数据</strong></p>
 <p>当我们遇到 Field 组件没有渲染出 Field value 时，不妨查看一下 Field 组件的绝对路径指向是否正确。</p>
 <blockquote>
 <p>使用 FormStep 组件时需要注意 basePath 的使用。</p>
@@ -892,26 +898,21 @@ form<span class="token punctuation">.</span><span class="token function">query</
 <p>更多阅读：<a target="_blank" rel="noopener" href="https://core.formilyjs.org/zh-CN/guide/field#%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99">formily 校验规则</a></p>
 </blockquote>
 <h2 id="使用-setSelfErrors-还是使用-setFeedback"><a href="#使用-setSelfErrors-还是使用-setFeedback" class="headerlink" title="使用 setSelfErrors 还是使用 setFeedback"></a>使用 setSelfErrors 还是使用 setFeedback</h2><ul>
-<li><p>如果 Field 需要展示 error message，并且定义了 Field validator，建议使用 setFeedback 的方式</p>
-</li>
-<li><p>如果 Field 不需要展示 error message，但是定义了 Field validator，建议使用 setFeedback 的方式</p>
-</li>
-<li><p>如果需要清空 ValidateError message 可以手动调用 field.validate() 动态清空</p>
-</li>
-<li><p>如果 Field 不展示 error message，没有定义 Field validator，需要手动维护 Field error 状态时，可以使用 setSelfErrors 的方式，这种方式会更方便（不用写 code、type 等参数）</p>
-</li>
-<li><p>如果想要和 Field 本身校验结果隔离，就需要使用 setSelfErrors 的方式</p>
-<h2 id="⚠️-注意"><a href="#⚠️-注意" class="headerlink" title="⚠️ 注意"></a>⚠️ 注意</h2></li>
-<li><p>field.selfErrors 获取的 error message 包含了 setSelfErrors 和 setFeedback 方式设置的 type 为 error 的 message</p>
-</li>
-<li><p>setFeedback api 是更新 code、type、triggerType 完全一致的 feedback 数据</p>
-<h2 id="Field-validator-最佳实践"><a href="#Field-validator-最佳实践" class="headerlink" title="Field validator 最佳实践"></a>Field validator 最佳实践</h2></li>
-<li><p>将 Field 校验逻辑统一写到 Field validator 中会更好维护，在需要更新字段校验状态时，可以手动调用 field.validate 方法</p>
-</li>
-<li><p>ObjectField 和 ArrayField 的子元素数量改变才会自动触发 ObjectField/ArrayField validator</p>
-<h1 id="联动使用-Field-reaction-还是-effect-hooks"><a href="#联动使用-Field-reaction-还是-effect-hooks" class="headerlink" title="联动使用 Field reaction 还是 effect hooks"></a>联动使用 Field reaction 还是 effect hooks</h1></li>
+<li>如果 Field 需要展示 error message，并且定义了 Field validator，建议使用 setFeedback 的方式</li>
+<li>如果 Field 不需要展示 error message，但是定义了 Field validator，建议使用 setFeedback 的方式</li>
+<li>如果需要清空 ValidateError message 可以手动调用 field.validate() 动态清空</li>
+<li>如果 Field 不展示 error message，没有定义 Field validator，需要手动维护 Field error 状态时，可以使用 setSelfErrors 的方式，这种方式会更方便（不用写 code、type 等参数）</li>
+<li>如果想要和 Field 本身校验结果隔离，就需要使用 setSelfErrors 的方式</li>
 </ul>
-<blockquote>
+<h2 id="⚠️-注意"><a href="#⚠️-注意" class="headerlink" title="⚠️ 注意"></a>⚠️ 注意</h2><ul>
+<li>field.selfErrors 获取的 error message 包含了 setSelfErrors 和 setFeedback 方式设置的 type 为 error 的 message</li>
+<li>setFeedback api 是更新 code、type、triggerType 完全一致的 feedback 数据</li>
+</ul>
+<h2 id="Field-validator-最佳实践"><a href="#Field-validator-最佳实践" class="headerlink" title="Field validator 最佳实践"></a>Field validator 最佳实践</h2><ul>
+<li>将 Field 校验逻辑统一写到 Field validator 中会更好维护，在需要更新字段校验状态时，可以手动调用 field.validate 方法</li>
+<li>ObjectField 和 ArrayField 的子元素数量改变才会自动触发 ObjectField/ArrayField validator</li>
+</ul>
+<h1 id="联动使用-Field-reaction-还是-effect-hooks"><a href="#联动使用-Field-reaction-还是-effect-hooks" class="headerlink" title="联动使用 Field reaction 还是 effect hooks"></a>联动使用 Field reaction 还是 effect hooks</h1><blockquote>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://formilyjs.org/zh-CN/guide/advanced/linkages">实现联动逻辑</a><br>我们会遇到很多字段联动的表单需求，如 a 字段的修改需要联动 b 字段的修改，a 字段设置了特定的值后需要隐藏 c 字段等复杂的联动交互逻辑可能是表单中最复杂的部分了。一对一、一对多、链式、循环、异步、主动模式、被动模式等多种联动方式，稍不注意就会陷入了深坑当中。</p>
 </blockquote>
 <p>demo示例：</p>
@@ -1008,11 +1009,22 @@ form<span class="token punctuation">.</span><span class="token function">query</
 </code></pre>
 <p><strong>Q：reaction 中设置了需要监听某个 field value 的逻辑，但是并没有响应？</strong></p>
 <blockquote>
-<p>在创建 Field 实例时会建立 onFieldValueChange、onFieldInitialValueChange 等事件监听的连接，而 ObjectField 只会监听到对象属性的数量增减，ArrayField 只会监听到数组元素数量的改变<br>    * 使用 ArrayField、ObjectField、VoidField 组件挂载字段值，但是这些组件在创建实例时没有设置子元素的 value change 监听，所以是无法监听到详细的字段值改变。<br>    * 没有使用 Field 组件挂载字段值，无法收集到 Field 依赖，所以监听不到 value change。<br>    * 监听的 Field 初始化时机有问题，reaction 初始化时，Field 还没有挂载，收集不到依赖。<br>    * 监听的 Field path 错误，没有指向正确的 Field。<br><strong>Q：组件显示隐藏后再显示 effect hooks 失效了</strong></p>
+<p>在创建 Field 实例时会建立 onFieldValueChange、onFieldInitialValueChange 等事件监听的连接，而 ObjectField 只会监听到对象属性的数量增减，ArrayField 只会监听到数组元素数量的改变</p>
 </blockquote>
+<pre><code>* 使用 ArrayField、ObjectField、VoidField 组件挂载字段值，但是这些组件在创建实例时没有设置子元素的 value change 监听，所以是无法监听到详细的字段值改变。
+* 没有使用 Field 组件挂载字段值，无法收集到 Field 依赖，所以监听不到 value change。
+* 监听的 Field 初始化时机有问题，reaction 初始化时，Field 还没有挂载，收集不到依赖。
+* 监听的 Field path 错误，没有指向正确的 Field。
+</code></pre>
+<p><strong>Q：组件显示隐藏后再显示 effect hooks 失效了</strong></p>
 <blockquote>
-<p>参考 formily issue：<a target="_blank" rel="noopener" href="https://github.com/alibaba/formily/issues/1602">https://github.com/alibaba/formily/issues/1602</a><br>    * formily 内部自动做了隐藏时 form dispose，为了避免内存泄漏的问题。<br>    * createForm 中的 effects 可以使用 <a target="_blank" rel="noopener" href="https://core.formilyjs.org/zh-CN/api/models/form#addeffects">addEffects api</a> 或者 <a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/hooks/use-form-effects">useFormEffects hooks</a> 方式替代。<br>    * ⚠️ onFormReact 会在卸载的时候，收集的 Field 依赖项会分别执行 dispose 函数。<br><strong>Q：被动模式容易进入死循环</strong></p>
+<p>参考 formily issue：<a target="_blank" rel="noopener" href="https://github.com/alibaba/formily/issues/1602">https://github.com/alibaba/formily/issues/1602</a></p>
 </blockquote>
+<pre><code>* formily 内部自动做了隐藏时 form dispose，为了避免内存泄漏的问题。
+* createForm 中的 effects 可以使用 [addEffects api](https://core.formilyjs.org/zh-CN/api/models/form#addeffects) 或者 [useFormEffects hooks](https://react.formilyjs.org/zh-CN/api/hooks/use-form-effects) 方式替代。
+* ⚠️ onFormReact 会在卸载的时候，收集的 Field 依赖项会分别执行 dispose 函数。
+</code></pre>
+<p><strong>Q：被动模式容易进入死循环</strong></p>
 <pre><code>* 多个值相互监听修改 value 可能会触发死循环，要注意循环判断。
 </code></pre>
 <h2 id="Reaction-机制"><a href="#Reaction-机制" class="headerlink" title="Reaction 机制"></a>Reaction 机制</h2><blockquote>
@@ -1030,7 +1042,10 @@ form<span class="token punctuation">.</span><span class="token function">query</
 <li>表单字段的 reaction 太多了，可以全部抽到一个 reaction 的文件中，统一管理，记得注释。</li>
 <li>effect hooks 最好写到字段值定义的地方，就近原则。</li>
 <li>一般情况下字段联动逻辑是主动模式和被动模式搭配使用，但是如果逻辑不清晰容易进入死循环，所以清晰的联动逻辑是很重要的。</li>
-<li>form effect hooks 会有显隐问题，所以需要使用 useMemo 控制创建 form 实例。<br>有时 Form 上挂载的组件变动过大，如某些情况下需要挂载 FormStep 组件，另外的情况又不需要挂载 FormStep 组件，如果一直使用同一个 form 实例就会出现问题，所以需要控制 useMemo 创建 form 实例的时机。<br>（不用 useMemo 可不可以？不可以，重复渲染会导致重复创建 form 从而引发更多的问题）<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// ⚠️ 注意：使用 formStep 实例要和 form 实例保持一致</span>
+<li>form effect hooks 会有显隐问题，所以需要使用 useMemo 控制创建 form 实例。</li>
+</ul>
+<p>有时 Form 上挂载的组件变动过大，如某些情况下需要挂载 FormStep 组件，另外的情况又不需要挂载 FormStep 组件，如果一直使用同一个 form 实例就会出现问题，所以需要控制 useMemo 创建 form 实例的时机。<br>（不用 useMemo 可不可以？不可以，重复渲染会导致重复创建 form 从而引发更多的问题）</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// ⚠️ 注意：使用 formStep 实例要和 form 实例保持一致</span>
 <span class="token keyword">const</span> formStep <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> FormStep<span class="token punctuation">.</span><span class="token function">createFormStep</span><span class="token punctuation">(</span>FormStepIndex<span class="token punctuation">.</span><span class="token constant">RULE_CONFIG</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">// eslint-disable-next-line react-hooks/exhaustive-deps</span>
@@ -1083,8 +1098,8 @@ ruleDetailForm<span class="token punctuation">.</span><span class="token functio
     <span class="token operator">/</span><span class="token operator">></span>
   <span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>FormProvider<span class="token operator">></span>
-<span class="token comment">// ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
+<span class="token comment">// ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><p>formliy 官网：<a target="_blank" rel="noopener" href="https://formilyjs.org/zh-CN/guide">https://formilyjs.org/zh-CN/guide</a></p>
 </li>
