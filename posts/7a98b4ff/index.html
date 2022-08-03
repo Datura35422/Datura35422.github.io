@@ -342,12 +342,12 @@
 <p>ts-node 与 tsc （typescript 自带的编译方式）编译的区别</p>
 <p>tsc根据 tsconfig 进行编译所有文件，ts-node 将从入口文件开始，并根据导入 / 导出逐步在树中转移文件。</p>
 </blockquote>
-<h4 id="局部环境"><a href="#局部环境" class="headerlink" title="局部环境"></a>局部环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 初始化项目
-npm init -y
+<h4 id="局部环境"><a href="#局部环境" class="headerlink" title="局部环境"></a>局部环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 初始化项目</span>
+<span class="token function">npm</span> init -y
 
-yarn add ts-node typescript -D
+<span class="token function">yarn</span> <span class="token function">add</span> ts-node typescript -D
 
-# 初始化ts
+<span class="token comment"># 初始化ts</span>
 npx tsc --init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1065,7 +1065,7 @@ type MyObj = &#123;
 
 <p>in 后面还可以接 as，as 后面可以接类型表达式（文档：<a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#key-remapping-via-as%EF%BC%89">https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#key-remapping-via-as）</a></p>
 <pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Getters<span class="token operator">&lt;</span>Type<span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    <span class="token punctuation">[</span>Property <span class="token keyword">in</span> <span class="token keyword">keyof</span> Type <span class="token keyword">as</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">get</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Capitalize<span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">&amp;</span> Property<span class="token operator">></span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Type<span class="token punctuation">[</span>Property<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span>Property <span class="token keyword">in</span> <span class="token keyword">keyof</span> Type <span class="token keyword">as</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">get</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Capitalize<span class="token operator">&lt;</span>string <span class="token operator">&amp;</span> Property<span class="token operator">></span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Type<span class="token punctuation">[</span>Property<span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
