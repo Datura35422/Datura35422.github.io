@@ -27,18 +27,18 @@
 <meta property="og:site_name" content="Wang Wei&#39;s Blog">
 <meta property="og:description" content="UDPTCP 从根本上讲，HTTP还是半双工的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器响应请求（单向）。半双工的效率很低。 所谓套接字( Socket )，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://datura35422.github.io/TCP%E3%80%81http%E3%80%81websocket%E5%AF%B9%E6%AF%94.png">
-<meta property="og:image" content="https://datura35422.github.io/%E6%A8%A1%E5%9E%8B.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/14112/TCP%E3%80%81http%E3%80%81websocket%E5%AF%B9%E6%AF%94.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/14112/%E6%A8%A1%E5%9E%8B.jpg">
 <meta property="article:published_time" content="2021-01-05T07:37:40.000Z">
-<meta property="article:modified_time" content="2021-05-07T09:09:12.000Z">
+<meta property="article:modified_time" content="2025-03-23T18:16:48.255Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="计算机网络">
-<meta property="article:tag" content="TCP">
-<meta property="article:tag" content="UDP">
 <meta property="article:tag" content="HTTP">
 <meta property="article:tag" content="WebSocket">
+<meta property="article:tag" content="TCP">
+<meta property="article:tag" content="UDP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://datura35422.github.io/TCP%E3%80%81http%E3%80%81websocket%E5%AF%B9%E6%AF%94.png">
+<meta name="twitter:image" content="https://datura35422.github.io/posts/14112/TCP%E3%80%81http%E3%80%81websocket%E5%AF%B9%E6%AF%94.png">
 
 
 <link rel="canonical" href="https://datura35422.github.io/posts/14112/">
@@ -171,20 +171,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-count">126</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -265,7 +265,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-07 17:09:12" itemprop="dateModified" datetime="2021-05-07T17:09:12+08:00">2021-05-07</time>
+        <time title="修改时间：2025-03-24 02:16:48" itemprop="dateModified" datetime="2025-03-24T02:16:48+08:00">2025-03-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,12 +303,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p><img src="/./TCP%E3%80%81http%E3%80%81websocket%E5%AF%B9%E6%AF%94.png" alt="URI"></p>
+        <h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p><img src="/posts/14112/TCP%E3%80%81http%E3%80%81websocket%E5%AF%B9%E6%AF%94.png" alt="URI"></p>
 <p>从根本上讲，HTTP还是<strong>半双工</strong>的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器响应请求（单向）。半双工的效率很低。</p>
 <p>所谓<strong>套接字</strong>( <code>Socket</code> )，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议根进行交互的接口</p>
 <h4 id="协议模型"><a href="#协议模型" class="headerlink" title="协议模型"></a>协议模型</h4><p><strong><code>TCP/IP</code> 协议模型</strong>只由4个层次组成：链路层、互联网层（<code>IP</code>）、传输层（<code>TCP</code>、<code>WebSocket</code>）和应用层</p>
 <p><strong>OSI模型</strong> 由7个层次组成：应用层、表示层、会话层、传输层、网络层、数据链路层、物理层。</p>
-<p><img src="/./%E6%A8%A1%E5%9E%8B.jpg" alt="模型"></p>
+<p><img src="/posts/14112/%E6%A8%A1%E5%9E%8B.jpg" alt="模型"></p>
 <blockquote>
 <p>TCP/IP 模型合并了 OSI 模型的应用层、表示层和会话层，将 OSI 模型的数据链路层和物理层合并为网络访问层。</p>
 </blockquote>
@@ -342,23 +342,23 @@
 
           <div class="post-tags">
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
-              <a href="/tags/TCP/" rel="tag"># TCP</a>
-              <a href="/tags/UDP/" rel="tag"># UDP</a>
               <a href="/tags/HTTP/" rel="tag"># HTTP</a>
               <a href="/tags/WebSocket/" rel="tag"># WebSocket</a>
+              <a href="/tags/TCP/" rel="tag"># TCP</a>
+              <a href="/tags/UDP/" rel="tag"># UDP</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/64893/" rel="prev" title="node-文件操作">
-                  <i class="fa fa-chevron-left"></i> node-文件操作
+                <a href="/posts/9028/" rel="prev" title="工具函数系列-随机数">
+                  <i class="fa fa-chevron-left"></i> 工具函数系列-随机数
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/21067/" rel="next" title="Cookie、Session、Token、JWT">
-                  Cookie、Session、Token、JWT <i class="fa fa-chevron-right"></i>
+                <a href="/posts/18836/" rel="next" title="计算机网络-HTTP系列">
+                  计算机网络-HTTP系列 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -392,14 +392,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">461k</span>
+    <span title="站点总字数">707k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:48</span>
+    <span title="站点阅读时长">19:38</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

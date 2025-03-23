@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="6月让上线一款快应用，一边产品经理想让我开发另一款小程序，一边boss想快速上线快应用，预计的开发时间未三周，实际用了一个月多，其中有两周踩坑融云IM系统，初始一周老大想让我修改融云的SDK兼容快应用，奈何能力有限几千行的代码看着真心头疼，道行不够深。最后用了H5的方式兼容融云，但是结果差强人意，快应用框架对H5页面的渲染根据手机平台和手机引擎有关，其中小米支持最好，华为可以单独上架。 反思因为拖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019年6月工作总结">
+<meta property="og:url" content="https://datura35422.github.io/posts/14717/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="6月让上线一款快应用，一边产品经理想让我开发另一款小程序，一边boss想快速上线快应用，预计的开发时间未三周，实际用了一个月多，其中有两周踩坑融云IM系统，初始一周老大想让我修改融云的SDK兼容快应用，奈何能力有限几千行的代码看着真心头疼，道行不够深。最后用了H5的方式兼容融云，但是结果差强人意，快应用框架对H5页面的渲染根据手机平台和手机引擎有关，其中小米支持最好，华为可以单独上架。 反思因为拖">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-01T09:17:02.000Z">
+<meta property="article:modified_time" content="2025-03-23T18:16:48.017Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="工作">
+<meta property="article:tag" content="快应用">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/14717/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;14717&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;14717&#x2F;&quot;,&quot;title&quot;:&quot;2019年6月工作总结&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>2019年6月工作总结 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%80%9D"><span class="nav-number">1.</span> <span class="nav-text">反思</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E5%BA%94%E7%94%A8API%E5%A1%AB%E5%9D%91"><span class="nav-number">2.</span> <span class="nav-text">快应用API填坑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">调试问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">适配问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A8%E5%9D%91%E7%9A%84%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="nav-number">2.3.</span> <span class="nav-text">巨坑的版本问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#web%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98"><span class="nav-number">2.4.</span> <span class="nav-text">web组件使用问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#list%E4%BD%BF%E7%94%A8"><span class="nav-number">2.5.</span> <span class="nav-text">list使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#refresh%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8"><span class="nav-number">2.6.</span> <span class="nav-text">refresh组件使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A8%E5%9D%91%E6%97%A0%E6%AF%94%E7%9A%84picker%EF%BC%88bug%EF%BC%89"><span class="nav-number">2.7.</span> <span class="nav-text">巨坑无比的picker（bug）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tabs%E7%BB%84%E4%BB%B6"><span class="nav-number">2.8.</span> <span class="nav-text">tabs组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#appear%E4%BA%8B%E4%BB%B6"><span class="nav-number">2.9.</span> <span class="nav-text">@appear事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%83%E7%89%9B%E4%BA%91%E6%95%B4%E5%90%88"><span class="nav-number">2.10.</span> <span class="nav-text">七牛云整合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">2.11.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%9E%8D%E4%BA%91IM-web-SDK%E5%A1%AB%E5%9D%91"><span class="nav-number">3.</span> <span class="nav-text">融云IM web SDK填坑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B0%E6%89%8B%E6%8C%87%E5%BC%95"><span class="nav-number">3.1.</span> <span class="nav-text">新手指引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#VUE%E6%95%B4%E5%90%88"><span class="nav-number">3.2.</span> <span class="nav-text">VUE整合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A1%A8%E6%83%85%E8%BE%93%E5%85%A5"><span class="nav-number">3.3.</span> <span class="nav-text">表情输入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%EF%BC%88%E6%B6%88%E6%81%AF%E7%B1%BB%E5%9E%8B%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">发送消息（消息类型）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%B2%E8%AF%BB%E6%B6%88%E6%81%AF%EF%BC%8C%E6%9B%B4%E6%96%B0%E6%B6%88%E6%81%AF%E7%8A%B6%E6%80%81"><span class="nav-number">3.5.</span> <span class="nav-text">已读消息，更新消息状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E5%88%97%E8%A1%A8"><span class="nav-number">3.6.</span> <span class="nav-text">获取消息列表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E6%96%B9%E5%90%91"><span class="nav-number">4.</span> <span class="nav-text">代码优化方向</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E5%87%8F%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81"><span class="nav-number">4.1.</span> <span class="nav-text">删减重复代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E9%87%8D%E5%A4%8Dstyle%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">提取重复style样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E8%B5%8B%E5%80%BC%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">基本类型和引用类型赋值问题</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">126</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/14717/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2019年6月工作总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-01 17:17:02" itemprop="dateCreated datePublished" datetime="2019-07-01T17:17:02+08:00">2019-07-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-03-24 02:16:48" itemprop="dateModified" datetime="2025-03-24T02:16:48+08:00">2025-03-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>6月让上线一款快应用，一边产品经理想让我开发另一款小程序，一边boss想快速上线快应用，预计的开发时间未三周，实际用了一个月多，其中有两周踩坑融云<code>IM</code>系统，初始一周老大想让我修改融云的<code>SDK</code>兼容快应用，奈何能力有限几千行的代码看着真心头疼，道行不够深。最后用了<code>H5</code>的方式兼容融云，但是结果差强人意，快应用框架对<code>H5</code>页面的渲染根据手机平台和手机引擎有关，其中小米支持最好，华为可以单独上架。</p>
+<h4 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h4><p>因为拖了一周左右的时间，所以反思一下，下次避免再发生（虽然开发拖进度是非常平常的事情）。</p>
+<ul>
+<li>看prd不细心，主要是prd和UI图不全，找了好几次UI补全UI图，prd缺少很多流程的截图，导致于少写了很多逻辑判断。</li>
+<li>没有合理规划项目周期，对整个项目还不是很了解的情况下就开始做了，应当梳理好逻辑、流程，合理框架设计之后再开始。</li>
+<li>总是忽略很多细节，反而很多细节花的时间多，总是觉得能实现，但是总是没有往深处想，没有模拟出整个操作流程。</li>
+<li>总是想复杂，应当梳理清楚进入页面的入口。</li>
+</ul>
+<h4 id="快应用API填坑"><a href="#快应用API填坑" class="headerlink" title="快应用API填坑"></a>快应用<code>API</code>填坑</h4><h5 id="调试问题"><a href="#调试问题" class="headerlink" title="调试问题"></a>调试问题</h5><p>调试可以设置真机页面不从头开始，建议编写样式时进行真机调试。</p>
+<h5 id="适配问题"><a href="#适配问题" class="headerlink" title="适配问题"></a>适配问题</h5><p>想使用骚操作当然版本越新越好，注意样式问题，快应用中可支持的样式很有限，有些在编译器中预览没有任何毛病，但是真机调试能报一堆错误，所以建议开发的时候还是连着真机来吧。</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://bbs.quickapp.cn/forum.php?mod=viewthread&tid=757&fromuid=139">快应用的机型覆盖、场景覆盖、框架版本</a></p>
+<h5 id="巨坑的版本问题"><a href="#巨坑的版本问题" class="headerlink" title="巨坑的版本问题"></a>巨坑的版本问题</h5><p>最开始开发是基于1020开发的，然后自定义了一个list版本的picker组件（滑动选择器），但是但是，巨坑的来了，在想适配1020的时候<code>list</code>的<code>scrollend</code>事件和<code>scrolltouchup</code>事件只有1040+版本支持， 然而把<code>manifast.json</code>中最低支持版本改为1040版本的，自定义的<code>picker</code>组件中的<code>list</code>无法滑动，手机调试最好和手机支持平台一致，这样不用高版本去适配低版本（后期修改的部分会比较少）。</p>
+<h5 id="web组件使用问题"><a href="#web组件使用问题" class="headerlink" title="web组件使用问题"></a>web组件使用问题</h5><p>web端的部分方式放在快应用里面会失效，比如：</p>
+<ul>
+<li><p><strong>web端定位到页面底部</strong>，场景：聊天界面一进入要定位到页面最底端，web端有效果，但是在快应用中就失效了，新发送一条消息后页面自动下滑也会在快应用中失效。</p>
+<blockquote>
+<p>（这里记录一下发送消息时页面一直处于最底部的神奇方法，感谢LeeSiuha）</p>
+<p>消息的容器设置<code>display:flex; flex-direction: column-reverse; </code>，同时消息列表需要进行<code>array.reverse()</code>，新消息需要进行<code>array.unshift()</code>的方式插入</p>
+</blockquote>
+</li>
+<li><p>华为手机（荣耀9， v1040）网页实时刷新容易出现模糊情况。</p>
+</li>
+<li><p>发送图片后web端能实时显示出图片，但是快应用端需要重新刷新页面才行。</p>
+</li>
+</ul>
+<p><code>error</code>事件，能够成功渲染页面的手机都会触发<code>error</code>事件，建议最后上线使用<code>https</code>。</p>
+<h5 id="list使用"><a href="#list使用" class="headerlink" title="list使用"></a>list使用</h5><p>注意<code>list-item</code> 内部需谨慎使用指令 <code>if</code> 或 <code>for</code>，相同 type 属性的 <code>list-item</code>， DOM 结构必须完全相同，如果不得不操控显隐，需要使用<code>show</code>替代，但是<code>show</code>的使用也会有很多坑，在<code>list-item</code>中还行。</p>
+<p>如果需要用到<strong>滚动事件</strong>只能使用list进行操作，滚动到底部进行加载，注意滚动事件的版本适配问题。</p>
+<h5 id="refresh组件使用"><a href="#refresh组件使用" class="headerlink" title="refresh组件使用"></a>refresh组件使用</h5><p>下拉刷新一定要使用<code>refresh</code>组件，并且控制下拉刷新状态，有两种下拉刷新样式可选。</p>
+<p>但是在<code>refresh</code>中使用<code>list</code>会有设置<code>scrollpage=&quot;true&quot;</code>时的莫名问题，样式显示不全。</p>
+<p>因此<code>homepage</code>页面中整个页面大部分都是使用的<code>list</code>组件</p>
+<h5 id="巨坑无比的picker（bug）"><a href="#巨坑无比的picker（bug）" class="headerlink" title="巨坑无比的picker（bug）"></a>巨坑无比的picker（bug）</h5><p>没有小程序的<code>picker</code>的自由度高，很多的<code>picker</code>都是有特定的样式无法自定义修改，而且只有自带的弹框形式。所以最后利用了<code>list</code>的<code>appear</code>事件和<code>scrollTo</code>事件写了一个<code>picker</code>，但是有很多莫名其妙的问题，道行太浅，不太懂为什么，年月日选择器如果月份选择了小月（如二月）日期滚动到最后一天，那么再换到大月（如一月31天）则不会出现选中最后一天出现跳动情况，如果先选择了大月再选择小月日期滚动到最后一天则会出现选中不了最后一天并出现跳动情况（巨坑无比，我认为跟初次渲染日期list和快应用的框架的问题，暂时没有什么好的解决办法）</p>
+<h5 id="tabs组件"><a href="#tabs组件" class="headerlink" title="tabs组件"></a>tabs组件</h5><p>因为快应用没有类似微信小程序的<code>tabs</code>页设置，只能使用tabs组件，一个<code>tab-bar</code>对应<code>tab-content</code>中的一个子组件，如果不使用懒加载（快应用官方推荐）方式，使用<code>tabs</code>的页面初始化时会同时加载<code>tab-content</code>中的子组件。</p>
+<h5 id="appear事件"><a href="#appear事件" class="headerlink" title="@appear事件"></a>@appear事件</h5><p>在页面初始化的时候就会响应，显示在页面中的<code>@appear</code>事件都会响应一遍，<strong>注意不要陷入死循环中</strong>。但是我在list中使用很好用，在<code>div</code>中使用就有点不怎么好用了。</p>
+<h5 id="七牛云整合"><a href="#七牛云整合" class="headerlink" title="七牛云整合"></a>七牛云整合</h5><p>为了方便直接使用的是七牛云的微信解决方案，但是微信解决方案的<code>js</code>中使用的是微信的<code>api</code>方式，所以需要将<code>js</code>中的微信<code>api</code>改写为快应用的<code>api</code>，其中微信上传<code>api</code>有上传进度而快应用中没有。</p>
+<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ol>
+<li>注意通用样式，可支持的通用样式很少，有些特殊用法不支持，部分常规用法也不支持。</li>
+<li>动态样式设置三元表达式中对象属性的嵌套方式无法取到值。</li>
+</ol>
+<h4 id="融云IM-web-SDK填坑"><a href="#融云IM-web-SDK填坑" class="headerlink" title="融云IM web SDK填坑"></a>融云<code>IM web SDK</code>填坑</h4><h5 id="新手指引"><a href="#新手指引" class="headerlink" title="新手指引"></a>新手指引</h5><p>开发环境和生产（上线）环境对应不同的App Key / Secret</p>
+<p>Token（用户令牌），App Key 是您的 App 的唯一标识，Token 则是您 App 上的每一个用户的身份授权象征。</p>
+<p>相关链接：</p>
+<p>融云开源项目索引： <a target="_blank" rel="noopener" href="https://www.rongcloud.cn/docs/open_source.html">https://www.rongcloud.cn/docs/open_source.html</a></p>
+<h5 id="VUE整合"><a href="#VUE整合" class="headerlink" title="VUE整合"></a>VUE整合</h5><h5 id="表情输入"><a href="#表情输入" class="headerlink" title="表情输入"></a>表情输入</h5><h5 id="发送消息（消息类型）"><a href="#发送消息（消息类型）" class="headerlink" title="发送消息（消息类型）"></a>发送消息（消息类型）</h5><h5 id="已读消息，更新消息状态"><a href="#已读消息，更新消息状态" class="headerlink" title="已读消息，更新消息状态"></a>已读消息，更新消息状态</h5><h5 id="获取消息列表"><a href="#获取消息列表" class="headerlink" title="获取消息列表"></a>获取消息列表</h5><h4 id="代码优化方向"><a href="#代码优化方向" class="headerlink" title="代码优化方向"></a>代码优化方向</h4><h5 id="删减重复代码"><a href="#删减重复代码" class="headerlink" title="删减重复代码"></a>删减重复代码</h5><p>最开始没有想到可以使用传入上下文的方式获取<code>app.ux</code>中的数据，后面优化了部分代码。</p>
+<p>很多重复使用的常量需要进行单独定义在一个常量文件中，便于管理和后期修改。</p>
+<h5 id="提取重复style样式"><a href="#提取重复style样式" class="headerlink" title="提取重复style样式"></a>提取重复<code>style</code>样式</h5><p>部分重复</p>
+<h5 id="基本类型和引用类型赋值问题"><a href="#基本类型和引用类型赋值问题" class="headerlink" title="基本类型和引用类型赋值问题"></a>基本类型和引用类型赋值问题</h5><p>参考链接 <a target="_blank" rel="noopener" href="http://hellobug.github.io/blog/javascript-variable-assignment/">http://hellobug.github.io/blog/javascript-variable-assignment/</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/14717/" title="2019年6月工作总结">https://datura35422.github.io/posts/14717/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag"># 工作</a>
+              <a href="/tags/%E5%BF%AB%E5%BA%94%E7%94%A8/" rel="tag"># 快应用</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/51261/" rel="prev" title="2019年5月工作总结">
+                  <i class="fa fa-chevron-left"></i> 2019年5月工作总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/58179/" rel="next" title="python学习-1">
+                  python学习-1 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">707k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:38</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

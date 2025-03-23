@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="参考链接： docker + webhook 从零实现前端自动化部署 前言什么是 CI &#x2F; CD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工程化-前端自动化部署">
+<meta property="og:url" content="https://datura35422.github.io/posts/61076e74/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="参考链接： docker + webhook 从零实现前端自动化部署 前言什么是 CI &#x2F; CD">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://datura35422.github.io/posts/61076e74/CI_CD.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/61076e74/CI.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/61076e74/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/61076e74/docker_run.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/61076e74/app_run.png">
+<meta property="article:published_time" content="2021-08-02T02:23:06.000Z">
+<meta property="article:modified_time" content="2025-03-23T18:16:48.147Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="自动化部署">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://datura35422.github.io/posts/61076e74/CI_CD.png">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/61076e74/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;61076e74&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;61076e74&#x2F;&quot;,&quot;title&quot;:&quot;工程化-前端自动化部署&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>工程化-前端自动化部署 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-CI-CD"><span class="nav-number">1.1.</span> <span class="nav-text">什么是 CI &#x2F; CD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="nav-number">1.2.</span> <span class="nav-text">为什么需要自动化部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">解决的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B%E5%B7%A5%E5%85%B7"><span class="nav-number">1.4.</span> <span class="nav-text">自动化流程工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E6%98%93%E7%9A%84-CI-%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.</span> <span class="nav-text">简易的 CI 系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="nav-number">1.6.</span> <span class="nav-text">自动化部署流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker"><span class="nav-number">2.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-Docker"><span class="nav-number">2.1.</span> <span class="nav-text">为什么要用 Docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E9%80%94"><span class="nav-number">2.2.</span> <span class="nav-text">用途</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-%E5%AE%89%E8%A3%85-amp-%E5%AE%9E%E8%B7%B5"><span class="nav-number">2.3.</span> <span class="nav-text">Docker 安装 &amp; 实践</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C-image"><span class="nav-number">2.3.1.</span> <span class="nav-text">运行 image</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C-docker-%E5%AE%B9%E5%99%A8"><span class="nav-number">2.3.2.</span> <span class="nav-text">制作 docker 容器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%91%E5%B8%83-image"><span class="nav-number">2.3.3.</span> <span class="nav-text">发布 image</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">2.4.</span> <span class="nav-text">Docker 其他命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E9%98%85%E8%AF%BB"><span class="nav-number">2.5.</span> <span class="nav-text">更多阅读</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">126</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/61076e74/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          工程化-前端自动化部署
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-02 10:23:06" itemprop="dateCreated datePublished" datetime="2021-08-02T10:23:06+08:00">2021-08-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-03-24 02:16:48" itemprop="dateModified" datetime="2025-03-24T02:16:48+08:00">2025-03-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/" itemprop="url" rel="index"><span itemprop="name">工程化</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6845166890420011021">docker + webhook 从零实现前端自动化部署</a></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><h4 id="什么是-CI-CD"><a href="#什么是-CI-CD" class="headerlink" title="什么是 CI / CD"></a>什么是 CI / CD</h4><p><img src="/posts/61076e74/CI_CD.png" alt="CI_CD"></p>
+<p><strong>CI</strong>（Continuous Integration <strong>持续集成</strong>）：一种通过自动化测试持续验证代码库状态的方法。最好通过与版本控制集成来实现。</p>
+<p><strong>CD</strong>（Continuous Delivery / Deployment <strong>持续交付/部署</strong>）：一种成功通过 CI 后定期部署的方法，来确保交付。 </p>
+<h4 id="为什么需要自动化部署"><a href="#为什么需要自动化部署" class="headerlink" title="为什么需要自动化部署"></a>为什么需要自动化部署</h4><p>使发布软件更快更健壮。</p>
+<p>主要做的工作流程：</p>
+<ol>
+<li>自动 lint；</li>
+<li>自动类型检测；</li>
+<li>自动单元测试；</li>
+<li>自动构建到 docker 镜像中；</li>
+<li>自动部署，发布 docker 镜像；</li>
+</ol>
+<blockquote>
+<p>如果就在本地的话，可以除了最后一步自动部署不做。</p>
+</blockquote>
+<h4 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h4><ul>
+<li><p>打包耗时</p>
+</li>
+<li><p>特殊环境隔离</p>
+</li>
+<li><p>打包环境的差异，linux 和 windows 的编码格式不同。</p>
+<blockquote>
+<p>环境的差异，导致编码格式不同，当重新编译时，会重新编译未修改文件，造成打包耗时，上线后需要重新下载新的打包文件（hash值已经改变，会认为是需要下载新的文件不使用缓存，虽然文件内容没有改变）。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="自动化流程工具"><a href="#自动化流程工具" class="headerlink" title="自动化流程工具"></a>自动化流程工具</h4><ol>
+<li><p>Jenkins (<a target="_blank" rel="noopener" href="https://jenkins.io/">https://jenkins.io</a>)</p>
+</li>
+<li><p>Gitlab CI/CD (<a target="_blank" rel="noopener" href="https://gitlab.com/">https://gitlab.com</a>)</p>
+</li>
+<li><p>Github Actions (<a target="_blank" rel="noopener" href="https://github.com/features/actions">https://github.com/features/actions</a>)</p>
+</li>
+<li><p>Travis CI (<a target="_blank" rel="noopener" href="https://travis-ci.org/">https://travis</a><a target="_blank" rel="noopener" href="https://travis-ci.org/">-</a><a target="_blank" rel="noopener" href="https://travis-ci.org/">ci.org</a>)</p>
+</li>
+<li><p>Drone (<a target="_blank" rel="noopener" href="https://www.drone.io/">https://www.drone.io</a>)</p>
+</li>
+</ol>
+<blockquote>
+<p>之前公司使用的是 gitea（项目托管） + drone 搭配</p>
+</blockquote>
+<h4 id="简易的-CI-系统"><a href="#简易的-CI-系统" class="headerlink" title="简易的 CI 系统"></a>简易的 CI 系统</h4><p>参考链接：<a target="_blank" rel="noopener" href="http://aosabook.org/en/500L/a-continuous-integration-system.html">http://aosabook.org/en/500L/a-continuous-integration-system.html</a></p>
+<p><img src="/posts/61076e74/CI.png" alt="CI"></p>
+<h4 id="自动化部署流程"><a href="#自动化部署流程" class="headerlink" title="自动化部署流程"></a>自动化部署流程</h4><p><img src="/posts/61076e74/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B.jpg" alt="自动化部署流程"></p>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>官网： <a target="_blank" rel="noopener" href="https://www.docker.com/">https://www.docker.com/</a></p>
+<p>文档：<a target="_blank" rel="noopener" href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a></p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html">docker 入门教程 - 阮一峰</a></p>
+<p>Docker 可以灵活的创建/销毁/管理多个“服务器”，这些“服务器”被称为 <code>容器 (container)</code></p>
+<p><strong>Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用接口。</strong>它是目前最流行的 Linux 容器解决方案。</p>
+<p>Docker 将应用程序与该程序的依赖，打包在一个文件里面。运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了 Docker，就不用担心环境问题。</p>
+<p>总体来说，Docker 的接口相当简单，用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。</p>
+<h4 id="为什么要用-Docker"><a href="#为什么要用-Docker" class="headerlink" title="为什么要用 Docker"></a>为什么要用 Docker</h4><ul>
+<li>环境统一。利用镜像统一开发环境和生产环境，避免因为环境因素导致的问题。</li>
+<li>便于回滚。版本控制，如果环境出现了问题，可以回滚到之前版本。</li>
+<li>环境隔离。</li>
+<li><strong>高效并节省资源</strong>。作用类似服务器 / 虚拟机，可以直接在 Docker 中布置特殊环境且不包含操作系统。</li>
+</ul>
+<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ul>
+<li>提供一次性的环境。比如，本地测试他人的软件、持续集成的时候提供单元测试和构建的环境。</li>
+<li>提供弹性的云服务。因为 Docker 容器可以随开随关，很适合动态扩容和缩容。</li>
+<li>组建微服务架构。通过多个容器，一台机器可以跑多个服务，因此在本机就可以模拟出微服务架构。</li>
+<li>版本管理。</li>
+</ul>
+<h4 id="Docker-安装-amp-实践"><a href="#Docker-安装-amp-实践" class="headerlink" title="Docker 安装 &amp; 实践"></a>Docker 安装 &amp; 实践</h4><p>windows 安装链接：<a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/windows/install/">https://docs.docker.com/desktop/windows/install/</a></p>
+<p>操作指南：<a target="_blank" rel="noopener" href="https://docs.docker.com/get-started/overview/">https://docs.docker.com/get-started/overview/</a></p>
+<p>image 仓库：<a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com/</a></p>
+<p>安装好后进行检测是否安装成功：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> version <span class="token comment"># 查看版本信息</span>
+<span class="token function">docker</span> info <span class="token comment"># 查看docker状态</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>Docker是服务器-客户端架构。命令运行docker命令时，需要本机有Docker服务。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># service 命令用法</span>
+<span class="token function">service</span> <span class="token function">docker</span> start
+<span class="token comment"># systemctl 命令用法</span>
+systemctl start <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>image (镜像) 文件：Docker 把应用程序及其依赖，打包在 image 文件里面。</strong>只有通过这个文件，才能生成 Docker 容器。image 文件可以看作是容器的模板。Docker 根据 image 文件生成容器的实例。同一个 image 文件，可以生成多个同时运行的容器实例。</p>
+<p><strong>容器文件</strong>：image 生成的容器实例，本身也是一个文件。一旦容器生成，就会同时存在两个文件，image 文件和容器文件。</p>
+<blockquote>
+<p>image 是二进制文件。实际开发中，一个 image 文件往往通过继承另一个 image 文件，加上一些个性化设置而生成。举例来说，你可以在 Ubuntu 的 image 基础上，往里面加入 Apache 服务器，形成你的 image。</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> image <span class="token function">ls</span> <span class="token comment"># 列出本机的所有 image 文件</span>
+<span class="token function">docker</span> image <span class="token function">rm</span> <span class="token punctuation">[</span>imageName<span class="token punctuation">]</span> <span class="token comment"># 删除某个 image 文件</span>
+
+<span class="token function">docker</span> container <span class="token function">ls</span> <span class="token comment"># 列出本机正在运行的容器</span>
+<span class="token function">docker</span> container <span class="token function">ls</span> <span class="token parameter variable">--all</span> <span class="token comment"># 列出本机所有容器</span>
+<span class="token function">docker</span> container <span class="token function">rm</span> <span class="token punctuation">[</span>containerID<span class="token punctuation">]</span> <span class="token comment"># 删除容器文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="运行-image"><a href="#运行-image" class="headerlink" title="运行 image"></a>运行 image</h5><p>拉取 image 到本地</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000006745913">Docker for Windows docker pull 镜像到哪里去了</a></p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> image pull library/hello-world
+<span class="token comment"># 或 Docker官方的 image 都在library组里，是默认组，可省略</span>
+<span class="token function">docker</span> image pull hello-world
+
+<span class="token comment"># 拉取成功后 查看镜像</span>
+<span class="token function">docker</span> image <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行 image 文件，会生成一个正在运行的容器实例。<code>docker container run</code> 命令具有自动抓取 image 文件的功能。如果发现本地没有指定的 image 文件，就会从仓库自动抓取。每次运行都会新建容器。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> container run hello-world
+
+<span class="token comment"># 运行已经运行过的container</span>
+<span class="token function">docker</span> container start <span class="token punctuation">[</span>containerID<span class="token punctuation">]</span> <span class="token comment"># 用来启动已经生成、已经停止运行的容器文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果 image 提供的是服务，如 Ubuntu系统 <code>docker container run -it ubuntu bash</code>，则需要手动终止服务 <code>docker</code></p>
+<p> <code>container kill [containId]</code>。</p>
+<img src="./docker_run.png" alt="docker_run" style="zoom:80%;" />
+
+<h5 id="制作-docker-容器"><a href="#制作-docker-容器" class="headerlink" title="制作 docker 容器"></a>制作 docker 容器</h5><p>Dockerfile 文件： 配置 image 的文件。docker 会更具该文件生成二进制的 image 文件。</p>
+<p>项目下新建 <code>.dockerignore</code> 文件，配置不需要打包的文件名。</p>
+<p>新建 <code>Dockerfile</code> 文件，内容：</p>
+<pre class="line-numbers language-none"><code class="language-none">FROM node:8.4：该 image 文件继承官方的 node image，冒号表示标签，这里标签是8.4，即8.4版本的 node。
+COPY . &#x2F;app：将当前目录下的所有文件（除了.dockerignore排除的路径），都拷贝进入 image 文件的&#x2F;app目录。
+WORKDIR &#x2F;app：指定接下来的工作路径为&#x2F;app。
+RUN npm install：在&#x2F;app目录下，运行npm install命令安装依赖。注意，安装后所有的依赖，都将打包进入 image 文件。
+EXPOSE 3000：将容器 3000 端口暴露出来， 允许外部连接这个端口。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在当前目录下，创建 image 文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> image build <span class="token parameter variable">-t</span> <span class="token punctuation">[</span>dockerName<span class="token punctuation">]</span> <span class="token builtin class-name">.</span> <span class="token comment"># 默认标签是 latest</span>
+<span class="token comment"># 或</span>
+<span class="token function">docker</span> image build <span class="token parameter variable">-t</span> <span class="token punctuation">[</span>dockerName<span class="token punctuation">]</span>:<span class="token punctuation">[</span>tag<span class="token punctuation">]</span> <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>运行成功后查看新生成的 image 文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> image <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>生成容器</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> container run <span class="token parameter variable">-p</span> <span class="token number">8000</span>:3000 <span class="token parameter variable">-it</span> koa-demo /bin/bash
+<span class="token comment"># 或者</span>
+<span class="token function">docker</span> container run <span class="token parameter variable">-p</span> <span class="token number">8000</span>:3000 <span class="token parameter variable">-it</span> koa-demo:0.0.1 /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>-p</code>参数：容器的 3000 端口映射到本机的 8000 端口。</li>
+<li><code>-it</code>参数：容器的 Shell 映射到当前的 Shell，然后你在本机窗口输入的命令，就会传入容器。</li>
+<li><code>koa-demo:0.0.1</code>：image 文件的名字（如果有标签，还需要提供标签，默认是 latest 标签）。</li>
+<li><code>/bin/bash</code>：容器启动以后，内部第一个执行的命令。这里是启动 Bash，保证用户可以使用 Shell。</li>
+</ul>
+<blockquote>
+<p>Node 进程运行在 Docker 容器的虚拟环境里面，进程接触到的文件系统和网络接口都是虚拟的，与本机的文件系统和网络接口是隔离的，因此需要定义容器与物理机的端口映射（map）</p>
+<p>可以在 run 后加 –rm 配置，在容器终止运行后自动删除容器文件。</p>
+<p>可以在 Dockerfile 文件中设置 CMD 命令，但是就不能使用 /bin/bash 了，会覆盖配置的 CMD 命令。</p>
+</blockquote>
+<p>在容器中运行项目</p>
+<p><img src="/posts/61076e74/app_run.png" alt="app_run"></p>
+<p>ctrl + c：停止 Node 进程</p>
+<p>ctrl + d / exit：退出容器 或者在另一个终端中使用命令 <code>docker countainer kill [containerID]</code> 进行终止服务。</p>
+<h5 id="发布-image"><a href="#发布-image" class="headerlink" title="发布 image"></a>发布 image</h5><p>需要在 docker 网站上注册账户</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 登录注册号的账户</span>
+<span class="token function">docker</span> login
+
+<span class="token comment"># 为本地的 image 标注用户名和版本（可选）</span>
+<span class="token function">docker</span> image tag <span class="token punctuation">[</span>imageName<span class="token punctuation">]</span> <span class="token punctuation">[</span>username<span class="token punctuation">]</span>/<span class="token punctuation">[</span>repository<span class="token punctuation">]</span>:<span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+<span class="token comment"># 例如：</span>
+<span class="token function">docker</span> image tag koa-demos:0.0.1 ruanyf/koa-demos:0.0.1
+
+<span class="token comment"># 重新构建一下 image 文件</span>
+<span class="token function">docker</span> image build <span class="token parameter variable">-t</span> <span class="token punctuation">[</span>username<span class="token punctuation">]</span>/<span class="token punctuation">[</span>repository<span class="token punctuation">]</span>:<span class="token punctuation">[</span>tag<span class="token punctuation">]</span> <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 发布 image 文件</span>
+<span class="token function">docker</span> image push <span class="token punctuation">[</span>username<span class="token punctuation">]</span>/<span class="token punctuation">[</span>repository<span class="token punctuation">]</span>:<span class="token punctuation">[</span>tag<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="Docker-其他命令"><a href="#Docker-其他命令" class="headerlink" title="Docker 其他命令"></a>Docker 其他命令</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 终止容器运行，相当于向容器里面的主进程发出 SIGTERM 信号，然后过一段时间再发出 SIGKILL 信号</span>
+<span class="token comment"># 和 kill 命令的差别是 可以进行一段收尾操作后再杀死容器，避免操作丢失</span>
+<span class="token function">docker</span> container stop <span class="token punctuation">[</span>containerID<span class="token punctuation">]</span>
+
+<span class="token comment"># 查看 docker 容器的输出 即容器里面 Shell 的标准输出</span>
+<span class="token function">docker</span> container logs <span class="token punctuation">[</span>containerID<span class="token punctuation">]</span>
+
+<span class="token comment"># 进入一个正在运行的 docker 容器 进入容器后可以使用 shell 命令</span>
+<span class="token function">docker</span> container <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> <span class="token punctuation">[</span>containerID<span class="token punctuation">]</span> /bin/bash
+
+<span class="token comment"># 用于从正在运行的 Docker 容器里面，将文件拷贝到本机</span>
+<span class="token function">docker</span> container <span class="token function">cp</span> <span class="token punctuation">[</span>containID<span class="token punctuation">]</span>:<span class="token punctuation">[</span>/path/to/file<span class="token punctuation">]</span> <span class="token builtin class-name">.</span> <span class="token comment"># 拷贝到当前目录</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h4><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/02/docker-wordpress-tutorial.html">Docker 微服务教程 - 阮一峰</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/61076e74/" title="工程化-前端自动化部署">https://datura35422.github.io/posts/61076e74/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" rel="tag"># 自动化部署</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/d4a7f941/" rel="prev" title="工程化-创建脚手架">
+                  <i class="fa fa-chevron-left"></i> 工程化-创建脚手架
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/ff43fc89/" rel="next" title="github的使用">
+                  github的使用 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">707k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:38</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

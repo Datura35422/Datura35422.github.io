@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="HTTP协议 请求访问文本或图像等资源的一端称为客户端，而提供资源响应的一端称为服务器端。  超文本传输协议。协议时之规则的约定。 HTTP协议出现主要是为了解决文本传输难题。 HTTP协议用于客户端和服务器端之间的通信。Web是建立在HTTP协议上通信的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络-HTTP系列">
+<meta property="og:url" content="https://datura35422.github.io/posts/18836/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="HTTP协议 请求访问文本或图像等资源的一端称为客户端，而提供资源响应的一端称为服务器端。  超文本传输协议。协议时之规则的约定。 HTTP协议出现主要是为了解决文本传输难题。 HTTP协议用于客户端和服务器端之间的通信。Web是建立在HTTP协议上通信的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/URI.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/HTTP报文.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/通用首部字段.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/请求首部字段.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/响应首部字段.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/实体首部字段.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/http方法.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/状态码.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/密钥.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/18836/https.png">
+<meta property="article:published_time" content="2021-01-05T07:58:45.000Z">
+<meta property="article:modified_time" content="2025-03-23T18:16:48.226Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="HTTP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://datura35422.github.io/posts/18836/URI.png">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/18836/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;18836&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;18836&#x2F;&quot;,&quot;title&quot;:&quot;计算机网络-HTTP系列&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>计算机网络-HTTP系列 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E6%8A%A5%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">HTTP报文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">报文结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E9%A6%96%E9%83%A8"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP首部</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">HTTP方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GET-%E4%B8%8E-POST-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">GET 与 POST 有什么区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">4.1.</span> <span class="nav-text">常见状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#301-%E5%92%8C-302-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.2.</span> <span class="nav-text">301 和 302 的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%E7%93%B6%E9%A2%88-amp-%E7%BC%BA%E7%82%B9"><span class="nav-number">5.</span> <span class="nav-text">HTTP 瓶颈 &amp; 缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-%E7%93%B6%E9%A2%88"><span class="nav-number">5.1.</span> <span class="nav-text">HTTP 瓶颈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-%E7%BC%BA%E7%82%B9"><span class="nav-number">5.2.</span> <span class="nav-text">HTTP 缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%8E%E6%96%87%E4%BC%A0%E8%BE%93"><span class="nav-number">5.2.1.</span> <span class="nav-text">明文传输</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8D%E9%AA%8C%E8%AF%81%E9%80%9A%E4%BF%A1%E6%96%B9%E7%9A%84%E8%BA%AB%E4%BB%BD"><span class="nav-number">5.2.2.</span> <span class="nav-text">不验证通信方的身份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A0%E6%B3%95%E8%AF%81%E6%98%8E%E6%8A%A5%E6%96%87%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-number">5.2.3.</span> <span class="nav-text">无法证明报文完整性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98"><span class="nav-number">5.2.4.</span> <span class="nav-text">队头阻塞问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0%E3%80%81HTTP-1-1-%E5%8C%BA%E5%88%AB"><span class="nav-number">5.3.</span> <span class="nav-text">HTTP&#x2F;1.0、HTTP&#x2F;1.1 区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS"><span class="nav-number">6.</span> <span class="nav-text">HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86%E6%8A%80%E6%9C%AF"><span class="nav-number">6.1.</span> <span class="nav-text">公开密钥加密技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86"><span class="nav-number">6.1.1.</span> <span class="nav-text">对称密钥加密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86"><span class="nav-number">6.1.2.</span> <span class="nav-text">公开密钥加密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTPS-%E9%87%87%E7%94%A8%E6%B7%B7%E5%90%88%E5%8A%A0%E5%AF%86%E6%9C%BA%E5%88%B6"><span class="nav-number">6.1.3.</span> <span class="nav-text">HTTPS 采用混合加密机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6%E8%AE%A4%E8%AF%81"><span class="nav-number">6.1.4.</span> <span class="nav-text">数字证书认证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%AF%81%E4%B9%A6%E8%AE%A4%E8%AF%81%E6%9C%BA%E6%9E%84%E7%9A%84%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B"><span class="nav-number">6.1.5.</span> <span class="nav-text">数据证书认证机构的业务流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS-%E7%9A%84%E5%AE%89%E5%85%A8%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6"><span class="nav-number">6.2.</span> <span class="nav-text">HTTPS 的安全通信机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS-%E7%BC%BA%E7%82%B9"><span class="nav-number">6.3.</span> <span class="nav-text">HTTPS 缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SSL%E6%85%A2"><span class="nav-number">6.3.1.</span> <span class="nav-text">SSL慢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP2-0"><span class="nav-number">7.</span> <span class="nav-text">HTTP2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">7.1.</span> <span class="nav-text">特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E4%BC%9A%E5%9C%A8%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="nav-number">8.1.</span> <span class="nav-text">HTTP会在什么时候进行四次挥手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E9%87%8D%E7%94%A8%E8%BF%9E%E6%8E%A5"><span class="nav-number">8.2.</span> <span class="nav-text">可重用连接</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">126</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/18836/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络-HTTP系列
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-05 15:58:45" itemprop="dateCreated datePublished" datetime="2021-01-05T15:58:45+08:00">2021-01-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-03-24 02:16:48" itemprop="dateModified" datetime="2025-03-24T02:16:48+08:00">2025-03-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><blockquote>
+<p>请求访问文本或图像等资源的一端称为客户端，而提供资源响应的一端称为服务器端。</p>
+</blockquote>
+<p>超文本传输协议。协议时之规则的约定。</p>
+<p>HTTP协议出现主要是为了解决文本传输难题。</p>
+<p>HTTP协议用于客户端和服务器端之间的通信。Web是建立在HTTP协议上通信的。</p>
+<p>HTTP协议规定，请求从客户端发出，最后服务器端响应请求并返回。</p>
+<p>HTTP协议使用<strong>URI</strong>(统一资源标识符)定位互联网上的资源。</p>
+<p><img src="/posts/18836/URI.png" alt="URI"></p>
+<p>HTTP是<strong>无状态协议</strong>。HTTP协议自身不对请求和响应之间的通信状态进行保存，即协议对于发送过的请求或响应都不做持久化处理。</p>
+<blockquote>
+<p><strong>持久连接的特点</strong>: 只要任意一端没有明确提出断开连接，则保持TCP连接状态。</p>
+</blockquote>
+<p>每当有新的请求发出，就会有对应新的响应产生。</p>
+<p>每次请求都会造成无谓的 <code>TCP</code> 连接建立和断开，增加通信量的开销。为解决这个问题，<code>HTTP/1.1</code> 和一部分 <code>HTTP/1.0</code> 使用了持久连接（<code>HTTP keep-alive</code>或<code>HTTP connection reuse</code>）的方法。</p>
+<blockquote>
+<p>更多阅读：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Connection_management_in_HTTP_1.x">HTTP/1.x 的连接管理 - MDN</a></p>
+</blockquote>
+<h3 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h3><p>用于HTTP协议交互的信息被称为HTTP报文。</p>
+<p>HTTP报文本身是由多行（用 <code>CR+LF</code> 作换行符）数据构成的字符串文本。</p>
+<p>HTTP报文大致可分为报文首部和报文主体两块。两者由最初出现的空行（ <code>CR+LF</code> ）来划分。<strong>通常，并不一定要有报文主体。</strong></p>
+<img src="./HTTP报文.png" alt="URI" style="zoom:80%;" />
+
+<h4 id="报文结构"><a href="#报文结构" class="headerlink" title="报文结构"></a>报文结构</h4><p>起始行 + 头部 + 空行 + 实体</p>
+<p><strong>请求报文</strong>是由请求方法、请求URI、协议版本、可选的请求首部字段和内容实体构成的。</p>
+<p><img src="/posts/18836/%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87.png" alt="URI"></p>
+<p><strong>响应报文</strong>基本上由协议版本、状态码、用以解释状态码的原因短语、可选的响应首部字段以及实体主体构成。</p>
+<p><img src="/posts/18836/%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87.png" alt="URI"></p>
+<h4 id="HTTP首部"><a href="#HTTP首部" class="headerlink" title="HTTP首部"></a>HTTP首部</h4><p>结构：首部字段名: 字段值</p>
+<p>HTTP首部字段根据<strong>实际用途</strong>被分为以下4种类型</p>
+<ol>
+<li><p><strong>通用首部字段</strong>：请求报文和响应报文两方都会使用的首部。</p>
+</li>
+<li><p><strong>请求首部字段</strong>：从客户端向服务器端发送请求报文时使用的首部。补充了请求的附加内容、客户端信息、响应内容相关优先级等信息。</p>
+</li>
+<li><p><strong>响应首部字段</strong>：从服务器端向客户端返回响应报文时使用的首部。补充了响应的附加内容，也会要求客户端附加额外的内容信息。</p>
+</li>
+<li><p><strong>实体首部字段</strong>：针对请求报文和响应报文的实体部分使用的首部。补充了资源内容更新时间等与实体有关的信息。</p>
+</li>
+</ol>
+<p>在HTTP协议通信交互中使用到的首部字段，不限于<code>RFC2616</code>中定义的47种首部字段。还有<code>Cookie</code>、<code>Set-Cookie</code>和<code>Content-Disposition</code>等在其他<code>RFC</code>中定义的首部字段，它们的使用频率也很高。这些非正式的首部字段统一归纳在<code>RFC4229</code> <code>HTTP Header Field Registrations</code>中。</p>
+<img src="./通用首部字段.png" alt="URI" style="zoom:80%;" />
+
+<img src="./请求首部字段.png" alt="URI" style="zoom:80%;" />
+
+<img src="./响应首部字段.png" alt="URI" style="zoom:80%;" />
+
+<img src="./实体首部字段.png" alt="URI" style="zoom: 80%;" />
+
+
+
+<h3 id="HTTP方法"><a href="#HTTP方法" class="headerlink" title="HTTP方法"></a>HTTP方法</h3><p>向请求URI指定的资源发送请求报文时，采用称为方法的命令。方法的作用在于，可以指定请求的资源按期望产生某种行为。</p>
+<img src="./http方法.png" alt="URI" style="zoom: 80%;" />
+
+<h4 id="GET-与-POST-有什么区别"><a href="#GET-与-POST-有什么区别" class="headerlink" title="GET 与 POST 有什么区别"></a>GET 与 POST 有什么区别</h4><ul>
+<li><p>传参：GET 参数在 url 上传递，POST 参数在 request body 中。（GET 请求也可以携带 request body，主要看服务器是否处理）</p>
+</li>
+<li><p>参数限制：url 长度有限制，所以 GET 传参有限制，而 POST 没有。</p>
+</li>
+<li><p>安全性：GET 参数直接暴露在 url 中，不能传递敏感信息。</p>
+</li>
+<li><p>编码：GET 请求只能进行 url 编码，而 post 支持多种编码方式。</p>
+</li>
+<li><p>缓存：浏览器会主动缓存 GET 请求，而 POST 不会，除非手动设置。</p>
+</li>
+<li><p>历史记录：GET请求参数会被完整保留在浏览器历史记录里，而 POST 中的参数不会被保留。</p>
+</li>
+<li><p>收藏为书签：GET请求支持，POST请求不支持。</p>
+</li>
+<li><p>对参数的数据类型：GET值接受 ASCII 字符，而 POST 没有限制。</p>
+</li>
+<li><p>数据包：GET产生一个TCP数据包，POST产生两个TCP数据包。</p>
+<p>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200 OK(返回数据);</p>
+<p>而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 OK(返回数据)。注意，<code>尽管POST请求会分两次，但body 是紧随在 header 后面发送的，根本不存在『等待服务器响应』一说</code>。</p>
+</li>
+</ul>
+<h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果</p>
+<img src="./状态码.png" alt="URI" style="zoom: 80%;" />
+
+<h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status">常见状态码</a></h4><p>200 - 请求成功</p>
+<p>301 - 永久重定向</p>
+<p>302 - 临时重定向</p>
+<p>304 - 协商缓存</p>
+<p>400 - 参数错误</p>
+<p>401 - 未携带身份验证的凭证，如未携带token</p>
+<p>403 - 禁止访问，如token失效或没有权限</p>
+<p>404 - 资源找不到</p>
+<p>500 - 服务器错误</p>
+<p>503 - 服务器没有准备好处理请求。如服务器因维护或重载而停机。</p>
+<h4 id="301-和-302-的区别"><a href="#301-和-302-的区别" class="headerlink" title="301 和 302 的区别"></a>301 和 302 的区别</h4><p><strong>301 Moved Permanently</strong> 请求的资源已永久移动到新位置， 并且将来任何对此资源的引用都应该使用本响应返回的若干个 URI 之一。 如果可能，拥有链接编辑功能的客户端应当自动把请求的地址修改为从服务器反馈回来的地址。 除非额外指定， 否则这个响应也是可缓存的。<br><strong>302 Found</strong> 请求的资源现在临时从不同的URI 响应请求。 由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。 只有在 Cache-Control 或 Expires 中进行了指定的情况下， 这个响应才是可缓存的。</p>
+<p><strong>使用场景</strong>：301使用域名跳转。302用来做临时跳转，如未登录的用户访问用户中心重定向到登录页面。</p>
+<h3 id="HTTP-瓶颈-amp-缺点"><a href="#HTTP-瓶颈-amp-缺点" class="headerlink" title="HTTP 瓶颈 &amp; 缺点"></a>HTTP 瓶颈 &amp; 缺点</h3><h4 id="HTTP-瓶颈"><a href="#HTTP-瓶颈" class="headerlink" title="HTTP 瓶颈"></a>HTTP 瓶颈</h4><p>● 一条连接上只可发送一个请求。</p>
+<p>● 请求只能从客户端开始。客户端不可以接收除响应以外的指令。</p>
+<p>● 请求/响应首部未经压缩就发送。首部信息越多延迟越大。</p>
+<p>● 发送冗长的首部。每次互相发送相同的首部造成的浪费较多。</p>
+<p>● 可任意选择数据压缩格式。非强制压缩发送。</p>
+<h4 id="HTTP-缺点"><a href="#HTTP-缺点" class="headerlink" title="HTTP 缺点"></a>HTTP 缺点</h4><h5 id="明文传输"><a href="#明文传输" class="headerlink" title="明文传输"></a>明文传输</h5><p>即协议里的报文(主要指的是头部)不使用二进制数据，而是文本形式。</p>
+<p>这当然对于调试提供了便利，但同时也让 <code>HTTP</code> 的报文信息暴露给了外界，给攻击者也提供了便利。</p>
+<p><code>WIFI</code> 陷阱就是利用 <code>HTTP</code> 明文传输的缺点，诱导你连上热点，然后疯狂抓你所有的流量，从而拿到你的敏感信息。</p>
+<h5 id="不验证通信方的身份"><a href="#不验证通信方的身份" class="headerlink" title="不验证通信方的身份"></a>不验证通信方的身份</h5><p>HTTP协议中的请求和响应不会对通信方进行确认。也就是说存在 “服务器是否就是发送请求中 <code>URI</code> 真正指定的主机，返回的响应是否真的返回到实际提出请求的客户端” 等类似问题。</p>
+<blockquote>
+<p> ● 无法确定请求发送至目标的Web服务器是否是按真实意图返回响应的那台服务器。有可能是已伪装的Web服务器。</p>
+<p>● 无法确定响应返回到的客户端是否是按真实意图接收响应的那个客户端。有可能是已伪装的客户端。</p>
+<p>● 无法确定正在通信的对方是否具备访问权限。因为某些 Web 服务器上保存着重要的信息，只想发给特定用户通信的权限。</p>
+<p>● 无法判定请求是来自何方、出自谁手。</p>
+<p>● 即使是无意义的请求也会照单全收。无法阻止海量请求下的 DoS 攻击（Denial of Service，拒绝服务攻击）。</p>
+</blockquote>
+<h5 id="无法证明报文完整性"><a href="#无法证明报文完整性" class="headerlink" title="无法证明报文完整性"></a>无法证明报文完整性</h5><p>所谓完整性是指信息的准确度。若无法证明其完整性，通常也就意味着无法判断信息是否准确。</p>
+<h5 id="队头阻塞问题"><a href="#队头阻塞问题" class="headerlink" title="队头阻塞问题"></a>队头阻塞问题</h5><p>当 <code>http</code> 开启长连接时，共用一个 <code>TCP</code> 连接，同一时刻只能处理一个请求，那么当前请求耗时过长的情况下，其它的请求只能处于阻塞状态。</p>
+<blockquote>
+<p>无状态所谓的优点和缺点还是要分场景来看的，对于 HTTP 而言，最具争议的地方在于它的无状态。在需要长连接的场景中，需要保存大量的上下文信息，以免传输大量重复的信息，那么这时候无状态就是 HTTP 的缺点了。但与此同时，另外一些应用仅仅只是为了获取一些数据，不需要保存连接上下文信息，无状态反而减少了网络开销，成为了 HTTP 的优点。</p>
+</blockquote>
+<h4 id="HTTP-1-0、HTTP-1-1-区别"><a href="#HTTP-1-0、HTTP-1-1-区别" class="headerlink" title="HTTP/1.0、HTTP/1.1 区别"></a>HTTP/1.0、HTTP/1.1 区别</h4><blockquote>
+<p><code>HTTP1.0</code> 最早在网页中使用是在1996年，只是使用一些较为简单的网页上和网络请求上，而 <code>HTTP1.1</code> 则在1999年才开始广泛应用于现在的各大浏览器网络请求中，同时 <code>HTTP1.1</code> 也是当前使用最为广泛的HTTP协议。</p>
+</blockquote>
+<p><strong>缓存处理</strong>，在 <code>HTTP1.0</code> 中主要使用 <code>header</code> 里的 <code>If-Modified-Since</code> , <code>Expires</code> 来做为缓存判断的标准， <code>HTTP1.1</code> 则引入了更多的缓存控制策略例如 <code>Entity tag</code>，<code>If-Unmodified-Since</code> , <code>If-Match</code> , <code>If-None-Match</code> 等更多可供选择的缓存头来控制缓存策略。</p>
+<p><strong>带宽优化及网络连接的使用</strong>，<code>HTTP1.0</code> 中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，<code>HTTP1.1</code>则在请求头引入了 <code>range</code> 头域，它允许只请求资源的某个部分，即返回码是206（<code>Partial Content</code>），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</p>
+<p><strong>错误通知的管理</strong>，在 <code>HTTP1.1</code> 中新增了24个错误状态响应码，如409（<code>Conflict</code>）表示请求的资源与资源的当前状态发生冲突；410（<code>Gone</code>）表示服务器上的某个资源被永久性的删除。</p>
+<p><strong>Host头处理</strong>，在 <code>HTTP1.0</code> 中认为每台服务器都绑定一个唯一的 <code>IP</code> 地址，因此，请求消息中的URL并没有传递主机名。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个 <code>IP</code> 地址。<code>HTTP1.1</code> 的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（<code>400 Bad Request</code>）。</p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5"><strong>长连接</strong></a>，<code>HTTP 1.1</code> 支持长连接和请求的流水线处理，在一个 <code>TCP</code> 连接上可以传送多个 <code>HTTP</code> 请求和响应，减少了建立和关闭连接的消耗和延迟，在 <code>HTTP1.1</code> 中默认开启<code>Connection： keep-alive</code>，一定程度上弥补了 <code>HTTP1.0</code> 每次请求都要创建连接的缺点。</p>
+<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p>超文本传输安全协议:  <code>HTTP</code> + 加密 + 认证 + 完整性保护</p>
+<p>超文本传输安全协议( <code>HTTPS</code> )是一种通过计算机网络进行安全通信的传输协议。<code>HTTPS</code> 并非是应用层的一种新协议。只是<code>HTTP</code>通信接口部分用 <code>SSL</code> 和 <code>TLS</code> 协议代替而已。</p>
+<p><code>HTTPS</code> 开发的主要<strong>目的</strong>，是提供对网站服务器的身份认证，保护交换数据的隐私与完整性。</p>
+<p><code>SSL</code> （<code>Secure Socket Layer</code>，安全套接字层）是独立于 <code>HTTP</code> 的协议，所以不光是 <code>HTTP</code> 协议，其他运行在应用层的 <code>SMTP</code> 和 <code>Telnet</code> 等协议均可配合 <code>SSL</code> 协议使用。可以说<code>SSL</code> 是当今世界上应用最为广泛的网络安全技术。</p>
+<blockquote>
+<p>TLS 的主要目标是使 SSL 更安全，并使协议的规范更精确和完善。</p>
+<p>SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。</p>
+<p>TLS：(Transport Layer Security，传输层安全协议)，用于两个应用程序之间提供保密性和数据完整性。该协议由两层组成：TLS记录协议和TLS握手协议。</p>
+<p>SSL是Netscape开发的专门用户保护Web通讯的，目前版本为3.0。最新版本的TLS 1.0是IETF(工程任务组)制定的一种新的协议，它建立在SSL 3.0协议规范之上，是SSL 3.0的后续版本。两者差别极小，可以理解为SSL 3.1，它是写入了RFC的。 </p>
+</blockquote>
+<h4 id="公开密钥加密技术"><a href="#公开密钥加密技术" class="headerlink" title="公开密钥加密技术"></a>公开密钥加密技术</h4><p><code>SSL</code> 采用一种叫做公开密钥加密的加密处理方式</p>
+<h5 id="对称密钥加密"><a href="#对称密钥加密" class="headerlink" title="对称密钥加密"></a>对称密钥加密</h5><p>加密和解密同用一个密钥的方式称为共享密钥加密。</p>
+<p>以共享密钥方式加密时必须将密钥也发给对方。</p>
+<h5 id="公开密钥加密"><a href="#公开密钥加密" class="headerlink" title="公开密钥加密"></a>公开密钥加密</h5><p>公开密钥加密使用一对非对称的密钥。一把叫做私有密钥，另一把叫做公开密钥。私有密钥不能让其他任何人知道，而公开密钥则可以随意发布，任何人都可以获得。</p>
+<p>使用公开密钥加密方式，发送密文的一方使用对方的公开密钥进行加密处理，对方收到被加密的信息后，再使用自己的私有密钥进行解密。利用这种方式，不需要发送用来解密的私有密钥，也不必担心密钥被攻击者窃听而盗走。</p>
+<h5 id="HTTPS-采用混合加密机制"><a href="#HTTPS-采用混合加密机制" class="headerlink" title="HTTPS 采用混合加密机制"></a>HTTPS 采用混合加密机制</h5><p><code>HTTPS</code> 采用共享密钥加密和公开密钥加密两者并用的混合加密机制。若密钥能够实现安全交换，那么有可能会考虑仅使用公开密钥加密来通信。但是公开密钥加密与共享密钥加密相比，其处理速度要慢。所以应充分利用两者各自的优势，将多种方法组合起来用于通信。在交换密钥环节使用公开密钥加密方式，之后的建立通信交换报文阶段则使用共享密钥加密方式。</p>
+<h5 id="数字证书认证"><a href="#数字证书认证" class="headerlink" title="数字证书认证"></a>数字证书认证</h5><ol>
+<li><p>服务器把自己的公开密钥登录至数字证书认证机构。</p>
+</li>
+<li><p>数字证书认证机构用自己的私有密钥向服务器的公开密码署数字签名并颁发公钥证书。</p>
+<p>（数字证书认证机构的公开密钥已事先植入到浏览器里了）</p>
+</li>
+<li><p>客户端拿到服务器的公钥证书后，使用数字证书认证机构的公开密钥，向数字证书认证机构验证公钥证书上的数字签名，以确认服务器的公开密钥的真实性。</p>
+</li>
+<li><p>使用服务器的公开密钥对报文加密后发送。</p>
+</li>
+<li><p>服务器用私有密钥对报文解密。</p>
+</li>
+</ol>
+<blockquote>
+<p>近代的加密方法中加密算法是公开的，而密钥却是保密的。通过这种方式得以保持加密方法的安全性。</p>
+<p>加密和解密都会用到密钥。没有密钥就无法对密码解密，反过来说，任何人只要持有密钥就能解密了。如果密钥被攻击者获得，那加密也就失去了意义。</p>
+<p><strong>公开密钥加密</strong>方式还是存在一些问题的。那就是无法证明公开密钥本身就是货真价实的公开密钥。比如，正准备和某台服务器建立公开密钥加密方式下的通信时，如何证明收到的公开密钥就是原本预想的那台服务器发行的公开密钥。或许在公开密钥传输途中，真正的公开密钥已经被攻击者替换掉了。</p>
+<p>为了解决上述问题，可以使用由数字证书认证机构和其相关机关颁发的公开密钥证书。</p>
+</blockquote>
+<h5 id="数据证书认证机构的业务流程"><a href="#数据证书认证机构的业务流程" class="headerlink" title="数据证书认证机构的业务流程"></a>数据证书认证机构的业务流程</h5><p>首先，服务器的运营人员向数字证书认证机构提出公开密钥的申请。数字证书认证机构在判明提出申请者的身份之后，会对已申请的公开密钥做数字签名，然后分配这个已签名的公开密钥，并将该公开密钥放入公钥证书后绑定在一起。</p>
+<p>服务器会将这份由数字证书认证机构颁发的公钥证书发送给客户端，以进行公开密钥加密方式通信。公钥证书也可叫做数字证书或直接称为证书。</p>
+<p>接到证书的客户端可使用数字证书认证机构的公开密钥，对那张证书上的数字签名进行验证，一旦验证通过，客户端便可明确两件事：一，认证服务器的公开密钥的是真实有效的数字证书认证机构。二，服务器的公开密钥是值得信赖的。此处认证机关的公开密钥必须安全地转交给客户端。</p>
+<p>使用通信方式时，如何安全转交是一件很困难的事，因此，多数浏览器开发商发布版本时，会事先在内部植入常用认证机关的公开密钥。</p>
+<img src="./密钥.png" alt="URI"  />
+
+
+
+<h4 id="HTTPS-的安全通信机制"><a href="#HTTPS-的安全通信机制" class="headerlink" title="HTTPS 的安全通信机制"></a>HTTPS 的安全通信机制</h4><p>步骤1： 客户端通过发送 <code>Client Hello</code> 报文开始 <code>SSL</code> 通信。报文中包含客户端支持的 <code>SSL</code> 的指定版本、加密组件列表（所使用的加密算法及密钥长度等）。</p>
+<p>步骤2： 服务器可进行 <code>SSL</code> 通信时，会以 <code>Server Hello</code> 报文作为应答。和客户端一样，在报文中包含 <code>SSL</code> 版本以及加密组件。服务器的加密组件内容是从接收到的客户端加密组件内筛选出来的。</p>
+<p>步骤3： 之后服务器发送 <code>Certificate</code> 报文。报文中包含公开密钥证书。</p>
+<p>步骤4： 最后服务器发送 <code>Server Hello Done</code> 报文通知客户端，最初阶段的 <code>SSL</code> 握手协商部分结束。</p>
+<p>步骤5： <code>SSL</code> 第一次握手结束之后，客户端以 <code>Client Key Exchange</code> 报文作为回应。报文中包含通信加密中使用的一种被称为 <code>Pre-master secret</code> 的随机密码串。该报文已用步骤3中的公开密钥进行加密。</p>
+<p>步骤6： 接着客户端继续发送 <code>Change Cipher Spec</code> 报文。该报文会提示服务器，在此报文之后的通信会采用 <code>Pre-master secret</code> 密钥加密。</p>
+<p>步骤7： 客户端发送 <code>Finished</code> 报文。该报文包含连接至今全部报文的整体校验值。这次握手协商是否能够成功，要以服务器是否能够正确解密该报文作为判定标准。</p>
+<p>步骤8： 服务器同样发送 <code>Change Cipher Spec</code> 报文。</p>
+<p>步骤9： 服务器同样发送 <code>Finished</code> 报文。</p>
+<p>步骤10： 服务器和客户端的 <code>Finished</code> 报文交换完毕之后，<code>SSL</code> 连接就算建立完成。当然，通信会受到 <code>SSL</code> 的保护。从此处开始进行应用层协议的通信，即发送 <code>HTTP</code> 请求。</p>
+<p>步骤11： 应用层协议通信，即发送 <code>HTTP</code> 响应。</p>
+<p>步骤12： 最后由客户端断开连接。断开连接时，发送 <code>close_notify</code> 报文。上图做了一些省略，这步之后再发送 <code>TCP FIN</code> 报文来关闭与 <code>TCP</code> 的通信。</p>
+<img src="./https.png" alt="URI"  />
+
+<h4 id="HTTPS-缺点"><a href="#HTTPS-缺点" class="headerlink" title="HTTPS 缺点"></a>HTTPS 缺点</h4><h5 id="SSL慢"><a href="#SSL慢" class="headerlink" title="SSL慢"></a>SSL慢</h5><p><code>SSL</code> 的慢分两种。一种是指通信慢。另一种是指由于大量消耗 <code>CPU</code> 及内存等资源，导致处理速度变慢。</p>
+<p>和使用 <code>HTTP</code> 相比，网络负载可能会变慢2到100倍。</p>
+<p>除去和TCP连接、发送HTTP请求·响应以外，还必须进行 <code>SSL</code> 通信，因此整体上处理通信量不可避免会增加。另一点是 <code>SSL</code> 必须进行加密处理。在服务器和客户端都需要进行加密和解密的运算处理。因此从结果上讲，比起 <code>HTTP</code> 会更多地消耗服务器和客户端的硬件资源，导致负载增强。</p>
+<h3 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h3><h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li><strong>内容安全</strong>，基于 https，通过 http2.0的特性可以避免单纯使用 https 的性能下降。</li>
+<li><strong>二进制格式</strong>，http1.x的解析是基于文本的，http2.0 将所有的传输信息分割为更小的消息和帧，并对他们采用二进制格式编码，基于二进制可以让协议有更多的扩展性，比如引入了帧来传输数据和指令。</li>
+<li><strong>多路复用</strong>，每个请求可以随机的混杂在一起，接收方可以根据请求的id将请求再归属到各自不同的服务端请求里面，另外多路复用也支持了流的优先级，允许客户端告诉服务器哪些内容是更优先级的资源，可以优先传输。</li>
+</ul>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="HTTP会在什么时候进行四次挥手"><a href="#HTTP会在什么时候进行四次挥手" class="headerlink" title="HTTP会在什么时候进行四次挥手"></a>HTTP会在什么时候进行四次挥手</h4><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5">HTTP 的持久连接</a> <code>Connection: Keep-Alive</code></p>
+<p>连接就不会中断，而是保持连接。当客户端发送另一个请求时，它会使用同一个连接。这一直继续到客户端或服务器端认为会话已经结束，其中一方中断连接。</p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=HTTP%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5&action=edit&section=2">优势</a></p>
+<ul>
+<li>较少的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/CPU">CPU</a>和内存的使用（由于同时打开的连接的减少了）</li>
+<li>允许请求和应答的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E7%AE%A1%E7%B7%9A%E5%8C%96">HTTP流水线</a></li>
+<li>降低<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6">拥塞控制</a> （<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">TCP连接</a>减少了）</li>
+<li>减少了后续请求的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%BB%B6%E9%81%B2_(%E9%9B%BB%E8%85%A6)">延迟</a>（无需再进行<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8F%A1%E6%89%8B_(%E6%8A%80%E6%9C%AF)">握手</a>）</li>
+<li>报告错误无需关闭TCP连接</li>
+</ul>
+<p>劣势：</p>
+<p>对于现在的广泛普及的宽带连接来说，Keep-Alive也许并不像以前一样有用。web服务器会保持连接若干秒(Apache中默认15秒)，这与提高的性能相比也许会影响性能。</p>
+<p>对于单个文件被不断请求的服务(例如图片存放网站)，Keep-Alive可能会极大的影响性能，因为它在文件被请求之后还保持了不必要的连接很长时间。</p>
+<h4 id="可重用连接"><a href="#可重用连接" class="headerlink" title="可重用连接"></a>可重用连接</h4><p><a target="_blank" rel="noopener" href="https://blog.51cto.com/gaibianziji/1211940">https://blog.51cto.com/gaibianziji/1211940</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/18836/" title="计算机网络-HTTP系列">https://datura35422.github.io/posts/18836/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"># 面试</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/14112/" rel="prev" title="计算机网络基础理论">
+                  <i class="fa fa-chevron-left"></i> 计算机网络基础理论
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/21067/" rel="next" title="Cookie、Session、Token、JWT">
+                  Cookie、Session、Token、JWT <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">707k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:38</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

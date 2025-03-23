@@ -28,7 +28,7 @@
 <meta property="og:description" content="本文使用的是 formily 2.* 版本  理论官方文档formily 主站：https:&#x2F;&#x2F;formilyjs.org&#x2F;zh-CN formily 核心库 core：https:&#x2F;&#x2F;core.formilyjs.org&#x2F;zh-CN">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-22T12:31:49.000Z">
-<meta property="article:modified_time" content="2022-07-06T06:05:20.000Z">
+<meta property="article:modified_time" content="2025-03-23T18:16:48.059Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="react">
@@ -166,20 +166,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-count">126</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -260,7 +260,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-07-06 14:05:20" itemprop="dateModified" datetime="2022-07-06T14:05:20+08:00">2022-07-06</time>
+        <time title="修改时间：2025-03-24 02:16:48" itemprop="dateModified" datetime="2025-03-24T02:16:48+08:00">2025-03-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,14 +284,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>14k</span>
+      <span>13k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>24 分钟</span>
+      <span>21 分钟</span>
     </span>
 </div>
 
@@ -325,88 +325,8 @@
 </blockquote>
 <h4 id="关键组件"><a href="#关键组件" class="headerlink" title="关键组件"></a>关键组件</h4><p><a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/components/form-provider">FormProvider</a>：入口组件，用于下发表单上下文给字段组件，负责整个表单状态的通讯，它相当于是一个通讯枢纽。挂载 Form 实例的组件。</p>
 <p><a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/components/schema-field">SchemaField</a>：SchemaField 组件是专门用于解析<a target="_blank" rel="noopener" href="https://react.formilyjs.org/api/shared/schema">JSON-Schema</a>动态渲染表单的组件。 在使用 SchemaField 组件的时候，需要通过 createSchemaField 工厂函数创建一个 SchemaField 组件。</p>
-<p><a target="_blank" rel="noopener" href="https://formilyjs.org/zh-CN/guide/quick-start#%E5%85%B7%E4%BD%93%E7%94%A8%E4%BE%8B">来自官网的简单 JSX 示例</a>：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
-<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createForm <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@formily/core'</span>
-<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> FormProvider<span class="token punctuation">,</span> FormConsumer<span class="token punctuation">,</span> Field <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@formily/react'</span>
-<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>
-  FormItem<span class="token punctuation">,</span>
-  FormLayout<span class="token punctuation">,</span>
-  Input<span class="token punctuation">,</span>
-  FormButtonGroup<span class="token punctuation">,</span>
-  Submit<span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@formily/antd'</span>
-
-<span class="token keyword">const</span> form <span class="token operator">=</span> <span class="token function">createForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>FormProvider form<span class="token operator">=</span><span class="token punctuation">&#123;</span>form<span class="token punctuation">&#125;</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span>FormLayout layout<span class="token operator">=</span><span class="token string">"vertical"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>Field
-          name<span class="token operator">=</span><span class="token string">"input"</span>
-          title<span class="token operator">=</span><span class="token string">"输入框"</span>
-          required
-          initialValue<span class="token operator">=</span><span class="token string">"Hello world"</span>
-          decorator<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">[</span>FormItem<span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
-          component<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">[</span>Input<span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
-        <span class="token operator">/</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>FormLayout<span class="token operator">></span>
-      <span class="token operator">&lt;</span>FormConsumer<span class="token operator">></span>
-        <span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
-          <span class="token operator">&lt;</span>div
-            style<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>
-              <span class="token literal-property property">marginBottom</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
-              <span class="token literal-property property">padding</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
-              <span class="token literal-property property">border</span><span class="token operator">:</span> <span class="token string">'1px dashed #666'</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
-          <span class="token operator">></span>
-            实时响应：<span class="token punctuation">&#123;</span>form<span class="token punctuation">.</span>values<span class="token punctuation">.</span>input<span class="token punctuation">&#125;</span>
-          <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-        <span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>FormConsumer<span class="token operator">></span>
-      <span class="token operator">&lt;</span>FormButtonGroup<span class="token operator">></span>
-        <span class="token operator">&lt;</span>Submit onSubmit<span class="token operator">=</span><span class="token punctuation">&#123;</span>console<span class="token punctuation">.</span>log<span class="token punctuation">&#125;</span><span class="token operator">></span>提交<span class="token operator">&lt;</span><span class="token operator">/</span>Submit<span class="token operator">></span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>FormButtonGroup<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>FormProvider<span class="token operator">></span>
-  <span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>从以上例子中，我们可以学到很多东西：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://core.formilyjs.org/zh-CN/api/entry/create-form">createForm</a> 用来创建表单核心领域模型，它是作为 <a target="_blank" rel="noopener" href="https://core.formilyjs.org/guide/mvvm">MVVM</a> 设计模式的标准 ViewModel</li>
-<li><a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/components/form-provider">FormProvider</a> 组件是作为视图层桥接表单模型的入口，它只有一个参数，就是接收 createForm 创建出来的 Form 实例，并将 Form 实例以上下文形式传递到子组件中</li>
-<li><a target="_blank" rel="noopener" href="https://antd.formilyjs.org/zh-CN/components/form-layout">FormLayout</a> 组件是用来批量控制 <a target="_blank" rel="noopener" href="https://antd.formilyjs.org/zh-CN/components/form-item">FormItem</a> 样式的组件，这里我们指定布局为上下布局，也就是标签在上，组件在下</li>
-<li><a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/components/field">Field</a> 组件是用来承接普通字段的组件<ul>
-<li>name 属性，标识字段在表单最终提交数据中的路径</li>
-<li>title 属性，标识字段的标题<ul>
-<li>如果 decorator 指定为 FormItem，那么在 FormItem 组件中会默认以接收 title 属性作为标签</li>
-<li>如果指定为某个自定义组件，那么 title 的消费方则由自定义组件来承接</li>
-<li>如果不指定 decorator，那么 title 则不会显示在 UI 上</li>
-</ul>
-</li>
-<li>required 属性，必填校验的极简写法，标识该字段必填<ul>
-<li>如果 decorator 指定为 FormItem，那么会自动出现星号提示，同时校验失败也会有对应的状态反馈，这些都是 FormItem 内部做的默认处理</li>
-<li>如果 decorator 指定为自定义组件，那么对应的 UI 样式则需要自定义组件实现方自己实现</li>
-<li>如果不指定 decorator，那么 required 只是会阻塞提交，校验失败不会有任何 UI 反馈。</li>
-</ul>
-</li>
-<li>initialValue 属性，代表字段的默认值</li>
-<li>decorator 属性，代表字段的 UI 装饰器，通常我们都会指定为 FormItem<ul>
-<li>注意 decorator 属性传递的是数组形式，第一个参数代表指定组件类型，第二个参数代表指定组件属性</li>
-</ul>
-</li>
-<li>component 属性，代表字段的输入控件，可以是 Input，也可以是 Select，等等<ul>
-<li>注意 component 属性传递的是数组形式，第一个参数代表指定组件类型，第二个参数代表指定组件属性</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a target="_blank" rel="noopener" href="https://react.formilyjs.org/zh-CN/api/components/form-consumer">FormConsumer</a> 组件是作为响应式模型的响应器而存在，它核心是一个 render props 模式，在作为 children 的回调函数中，会自动收集所有依赖，如果依赖发生变化，则会重新渲染，借助 FormConsumer 我们可以很方便的实现各种计算汇总的需求</li>
-<li><a target="_blank" rel="noopener" href="https://antd.formilyjs.org/zh-CN/components/form-button-group">FormButtonGroup</a> 组件作为表单按钮组容器而存在，主要负责按钮的布局</li>
-<li><a target="_blank" rel="noopener" href="https://antd.formilyjs.org/zh-CN/components/submit">Submit</a> 组件作为表单提交的动作触发器而存在，其实我们也可以直接使用 form.submit 方法进行提交，但是使用 Submit 的好处是不需要每次都在 Button 组件上写 onClick 事件处理器，同时它还处理了 Form 的 loading 状态，如果 onSubmit 方法返回一个 Promise，且 Promise 正在 pending 状态，那么按钮会自动进入 loading 状态</li>
-</ul>
 <h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><blockquote>
+<p>有些坑在 function component 中很简单就可以处理了，但是在 class component 中需要使用一些 formily api 进行处理才行（或许功夫不到位，把问题复杂化了，记录一下，后续有好的方案继续更新）</p>
 <p>项目中主要使用 JSON Schema 的方式去创建表单</p>
 </blockquote>
 <p>表单字段内容设置参考链接：</p>
@@ -987,8 +907,8 @@ form<span class="token punctuation">.</span><span class="token function">addEffe
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/97c65c57/" rel="prev" title="react系列-HOOKS-UseEffect">
-                  <i class="fa fa-chevron-left"></i> react系列-HOOKS-UseEffect
+                <a href="/posts/6d9d4b74/" rel="prev" title="typescript系列-TypeChallenge-简单">
+                  <i class="fa fa-chevron-left"></i> typescript系列-TypeChallenge-简单
                 </a>
             </div>
             <div class="post-nav-item">
@@ -1027,14 +947,14 @@ form<span class="token punctuation">.</span><span class="token function">addEffe
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">461k</span>
+    <span title="站点总字数">707k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:48</span>
+    <span title="站点阅读时长">19:38</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

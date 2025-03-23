@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="《学习JavaScript数据结构与算法(第3版)》  树是一种分层数据的抽象模型。 一个树结构包含一系列存在父子关系的节点。每个节点都有一个父节点（除了顶部的第一个节点）以及零个或多个子节点：   树的每个元素都叫做节点，节点分为内部节点（有子节点的节点）和外部节点（叶节点，无子节点的节点）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法-树">
+<meta property="og:url" content="https://datura35422.github.io/posts/30193/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="《学习JavaScript数据结构与算法(第3版)》  树是一种分层数据的抽象模型。 一个树结构包含一系列存在父子关系的节点。每个节点都有一个父节点（除了顶部的第一个节点）以及零个或多个子节点：   树的每个元素都叫做节点，节点分为内部节点（有子节点的节点）和外部节点（叶节点，无子节点的节点）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://datura35422.github.io/posts/30193/树.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/30193/二叉搜索树.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/30193/3A.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/30193/2A.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/30193/2B.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/30193/3B.jpg">
+<meta property="article:published_time" content="2021-01-14T03:14:51.000Z">
+<meta property="article:modified_time" content="2025-03-23T18:16:48.191Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="读书笔记">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://datura35422.github.io/posts/30193/树.jpg">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/30193/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;30193&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;30193&#x2F;&quot;,&quot;title&quot;:&quot;数据结构与算法-树&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>数据结构与算法-树 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91-amp-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%EF%BC%88BST%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">二叉树 &amp; 二叉搜索树（BST）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">2.</span> <span class="nav-text">树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE"><span class="nav-number">2.1.</span> <span class="nav-text">面试题目</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%88AVL%E6%A0%91%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">平衡二叉树（AVL树）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="nav-number">4.</span> <span class="nav-text">红黑树</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">126</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/30193/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构与算法-树
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-14 11:14:51" itemprop="dateCreated datePublished" datetime="2021-01-14T11:14:51+08:00">2021-01-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-03-24 02:16:48" itemprop="dateModified" datetime="2025-03-24T02:16:48+08:00">2025-03-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>15k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>25 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>《学习JavaScript数据结构与算法(第3版)》</p>
+</blockquote>
+<p>树是一种分层数据的抽象模型。</p>
+<p>一个树结构包含一系列存在父子关系的节点。每个节点都有一个父节点（除了顶部的第一个节点）以及零个或多个子节点：</p>
+<img src="./树.jpg" alt="树" style="zoom:80%;" />
+
+<p>树的每个元素都叫做<strong>节点</strong>，节点分为<strong>内部节点</strong>（有子节点的节点）和<strong>外部节点</strong>（<strong>叶节点</strong>，无子节点的节点）。</p>
+<p>位于树顶部（第0层）的节点叫做<strong>根节点</strong>。</p>
+<p><strong>子树</strong>由节点和它的后代构成。</p>
+<p>节点的<strong>深度</strong>取决于祖先节点的数量。树的<strong>高度</strong>取决于所有节点深度的最大值。</p>
+<h4 id="二叉树-amp-二叉搜索树（BST）"><a href="#二叉树-amp-二叉搜索树（BST）" class="headerlink" title="二叉树 &amp; 二叉搜索树（BST）"></a>二叉树 &amp; 二叉搜索树（BST）</h4><p><strong>二叉树</strong>中的节点最多只能有两个子节点：一个是左侧子节点，另一个是右侧子节点。这个定义有助于我们写出更高效地在树中插入、查找和删除节点的算法。</p>
+<p>满二叉树：深度为k且有2^k-1个节点的二叉树，即除叶节点外每个节点都有左右子节点。</p>
+<p><strong>二叉搜索树</strong>（<code>BST</code>）是二叉树的一种，但是只允许你在左侧节点存储（比父节点）小的值，在右侧节点存储（比父节点）大的值。</p>
+<p>二叉搜索树数据结构的组织方式：</p>
+<img src="./二叉搜索树.jpg" alt="二叉搜索树" style="zoom:80%;" />
+
+<p>将通过指针（引用）来表示节点之间的关系（树相关的术语称其为边）。</p>
+<p>树中的每个节点都包含两个指针，一个指向左侧的子节点，另一个指向右侧的子节点。</p>
+<blockquote>
+<p>键是树相关术语中对节点的称呼。</p>
+</blockquote>
+<h4 id="树的遍历"><a href="#树的遍历" class="headerlink" title="树的遍历"></a>树的遍历</h4><p>深度优先搜索（DFS）：先序遍历，中序遍历，后序遍历</p>
+<ul>
+<li>中序遍历(<code>inOrder</code>)：是一种以上行顺序访问 <code>BST</code> 所有节点的遍历方式，也就是以从最小到最大的顺序访问所有节点。中序遍历的一种应用就是对树进行排序操作。左子树 -&gt; 根节点 -&gt; 右子树。</li>
+<li>先序遍历(<code>preOrder</code>)：是以优先于后代节点的顺序访问每个节点的。先序遍历的一种应用是打印一个结构化的文档。根节点 -&gt; 左子树 -&gt; 右子树。</li>
+<li>后序遍历(<code>postOrder</code>)：是先访问节点的后代节点，再访问节点本身。后序遍历的一种应用是计算一个目录及其子目录中所有文件所占空间的大小。左子树 -&gt; 右子树 -&gt; 根节点。</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> Compare <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token constant">LESS_THAN</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token constant">BIGGER_THAN</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token constant">EQUALS</span><span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">defaultCompare</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">===</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> Compare<span class="token punctuation">.</span><span class="token constant">EQUALS</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> a <span class="token operator">&lt;</span> b <span class="token operator">?</span> Compare<span class="token punctuation">.</span><span class="token constant">LESS_THAN</span> <span class="token operator">:</span> Compare<span class="token punctuation">.</span><span class="token constant">BIGGER_THAN</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 节点类</span>
+<span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>key <span class="token operator">=</span> key<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>key<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">BinarySearchTree</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">compareFn <span class="token operator">=</span> defaultCompare</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>compareFn <span class="token operator">=</span> compareFn<span class="token punctuation">;</span> <span class="token comment">// 用来比较节点值</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// Node类型的根节点</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 向树中插入一个新的键</span>
+    <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 特殊情况，是否是第一次插入值</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 第一次插入值则赋值为根节点</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 树为非空，需要找到插入新节点的位置</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 否则就将节点添加到根节点以外的位置</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 插入新节点</span>
+    <span class="token function">insertNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 与父节点的值进行比较，小于父节点的值则插入左边节点，大于等于父节点的值则插入右边节点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">LESS_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果没有左侧子节点</span>
+                node<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 就在此处插入新的节点</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 有左侧子节点，继续递归找到树的下一层（到左侧节点子树）</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 父节点没有右侧子节点</span>
+            node<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在此处插入新的节点</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 大于等于父节点的值，且父节点有右侧子节点</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 继续递归找到树的下一层（到右侧节点子树），直到找到右侧为空的节点</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 返回树的根节点</span>
+    <span class="token function">getRoot</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 在树中查找一个键。如果节点存在，则返回true；如果不存在，则返回false</span>
+    <span class="token function">search</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">searchNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 搜索节点递归函数 来寻找一棵树或其任意子树中的一个特定的值</span>
+    <span class="token function">searchNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 验证传入的节点是否合法</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 一直搜索到叶子节点的子节点（null），返回false表示没有找到搜索的节点</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">LESS_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果要找的键比当前节点的值小，则向左子树查找</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">searchNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">BIGGER_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果要找的键比道歉节点的值大，则向右子树查找</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">searchNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 否则就和当前节点的值相等，返回true表示找到节点</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 通过中序遍历的方式遍历所有的节点</span>
+    <span class="token function">inOrderTraverse</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 辅助方法，接受一个节点和对应的回调函数</span>
+        <span class="token comment">// 回调函数用来定义对遍历到的每个节点进行的操作（访问者模式）</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">inOrderTraverseNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 中序遍历递归函数</span>
+    <span class="token comment">// 中序遍历左子树会一直找到最左边的叶子节点a进行回调操作然后对叶子节点a的父节点b进行操作再对叶子节点的右兄弟节点c进行操作</span>
+    <span class="token comment">// 操作结束后响应递归函数到上一层b的父节点d的递归中，进行对b的父节点d进行回调操作后，再对d的右子树进行递归函数</span>
+    <span class="token comment">// d的右子树子节点e进入递归找到左叶子节点f和右叶子节点g，顺序响应左叶子节点f、父节点e、右叶子节点g，然后回到上一层父节点d的递归</span>
+    <span class="token comment">// 响应完右子树中序遍历后，再继续响应节点d的上一层递归</span>
+    <span class="token function">inOrderTraverseNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 递归算法的基线条件，判断当前节点是否为空</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">inOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 中序遍历左子树</span>
+            <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 访问根节点，对根节点进行回调操作</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">inOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 中序遍历右子树</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 通过先序遍历方式遍历所有节点</span>
+    <span class="token function">preOrderTraverse</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">preOrderTraverseNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 先序遍历递归函数</span>
+    <span class="token comment">// 先序遍历会从根节点a开始响应回调后遍历左子树，进入递归后左子树父节点b响应回调后进入b的左子树递归，逐层递归，并响应父节点回调</span>
+    <span class="token comment">// 所有左子树的内部节点调用完后，最左边的叶子节点进行回调后再进行右兄弟节点回调，再回到上一层的右兄子树的回调中</span>
+    <span class="token function">preOrderTraverseNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 递归算法的基线条件，判断当前节点是否为空</span>
+            <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 访问根节点，对根节点进行回调操作</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">preOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 先序遍历左子树</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">preOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 先序遍历右子树</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 通过后序遍历方式遍历所有节点</span>
+    <span class="token function">postOrderTraverse</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">postOrderTraverseNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 后序遍历递归函数</span>
+    <span class="token comment">// 后序遍历是最先递归到最左边的叶子节点a进行回调后，再遍历到叶子节点a的兄弟节点b响应回调后，再到节点a的父节点c响应回调后，回到上一层递归中</span>
+    <span class="token function">postOrderTraverseNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 递归算法的基线条件，判断当前节点是否为空</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">postOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 后序遍历左子树</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">postOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 后序遍历右子树</span>
+            <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 访问根节点，对根节点进行回调操作</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 返回树中最小的值/键</span>
+    <span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">minNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 返回最小节点递归函数，找到一棵树或其子树中最小的键，即找到最左端的节点，并返回值</span>
+    <span class="token function">minNode</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> current <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>current <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> current<span class="token punctuation">.</span>left <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            current <span class="token operator">=</span> current<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> current<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 返回树中最大的值/键</span>
+    <span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">maxNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 返回最大节点递归函数，找到一棵树或其子树中最大的键，即找到最右端的节点，并返回值</span>
+    <span class="token function">maxNode</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> current <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>current <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> current<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            current <span class="token operator">=</span> current<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> current<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 从树中移除某个键</span>
+    <span class="token function">remove</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// root被赋值为removeNode方法的返回值</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 移除节点的递归函数</span>
+    <span class="token function">removeNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 检查节点的合法性</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 该节点不存在</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 需要在树中找到要移除的键</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">LESS_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果要找的键比当前节点小，则向左子树查找</span>
+            node<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 沿着树的左边找到下一个节点</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span> <span class="token comment">// 返回更新后的节点</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">BIGGER_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果要找的键比当前节点大，则向右子树查找</span>
+            node<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 沿着树的右边找到下一个节点</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span> <span class="token comment">// 返回更新后的节点</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 否则，键值和当前节点值相等，找到需要移除的键</span>
+        <span class="token comment">// 有三种情况</span>
+        <span class="token comment">// 叶子节点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            node <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 移除，赋值为null</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span> <span class="token comment">// 返回null来解除对应的父节点指针（引用）node.left|node.right|root = null</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 有一个子节点的节点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 左子节点为空</span>
+            node <span class="token operator">=</span> node<span class="token punctuation">.</span>right<span class="token punctuation">;</span> <span class="token comment">// 将指向当前节点的指针指向右子节点</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span> <span class="token comment">// 返回更新后的节点</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 右子节点为空 </span>
+            node <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span> <span class="token comment">// 将指向当前节点的指针指向左子节点</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span> <span class="token comment">// 返回更新后的节点</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 有两个子节点的节点</span>
+        <span class="token keyword">const</span> aux <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">minNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 找到右子树中最小的节点，成为继承者</span>
+        node<span class="token punctuation">.</span>key <span class="token operator">=</span> aux<span class="token punctuation">.</span>key<span class="token punctuation">;</span> <span class="token comment">// 用右子树中最小节点的键更新当前节点的值</span>
+        node<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> aux<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 递归移除查找到的右子树中的继承者</span>
+        <span class="token keyword">return</span> node<span class="token punctuation">;</span> <span class="token comment">// 返回更新后的节点</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>BST</code> 存在一个问题：取决于你添加的节点数，树的一条边可能会非常深；也就是说，树的一条分支会有很多层，而其他的分支却只有几层。这会在需要在某条边上添加、移除和搜索某个节点时引起一些性能问题</p>
+<h5 id="面试题目"><a href="#面试题目" class="headerlink" title="面试题目"></a>面试题目</h5><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/">计算二叉树的最大深度 – leetcode</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/a9fec6c46a684ad5a3abd4e365a9d362?tpId=190&rp=1&ru=/activity/oj&qru=/ta/job-code-high-rd/question-ranking&tab=answerKey">实现二叉树的先序、中序、后序遍历 – 牛客</a></p>
+<h4 id="平衡二叉树（AVL树）"><a href="#平衡二叉树（AVL树）" class="headerlink" title="平衡二叉树（AVL树）"></a>平衡二叉树（AVL树）</h4><p><code>AVL</code> 树是一种自平衡二叉搜索树，意思是任何一个节点左右两侧子树的高度之差最多为1。</p>
+<p>添加或移除节点时，<code>AVL</code> 树会尝试保持自平衡。任意一个节点（不论深度）的左子树和右子树高度最多相差1。添加或移除节点时，<code>AVL</code> 树会尽可能尝试转换为完全树。</p>
+<p>平衡二叉树是特殊的二叉搜索树。平衡二叉树在插入或移除节点的时候需要检验平衡因子。</p>
+<p>平衡因子：在 <code>AVL</code> 树中，需要对每个节点计算右子树高度（<code>hr</code>）和左子树高度（<code>hl</code>）之间的差值，该值（<code>hr - hl</code>）应为0，1或-1。如果结果超出范围，则需要平衡该 <code>AVL</code> 树。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Compare<span class="token punctuation">,</span> defaultCompare <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'../util'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> BinarySearchTree <span class="token keyword">from</span> <span class="token string">'./binary-search-tree'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Node <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./models/node'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 平衡因子常量</span>
+<span class="token keyword">const</span> BalanceFactor <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token constant">UNBALANCED_RIGHT</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token constant">SLIGHTLY_UNBALANCED_RIGHT</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token constant">BALANCED</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    <span class="token constant">SLIGHTLY_UNBALANCED_LEFT</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token constant">UNBALANCED_LEFT</span><span class="token operator">:</span> <span class="token number">5</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// AVL树继承BST类但是需要重写insert、insertNode和removeNode方法</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">AVLTree</span> <span class="token keyword">extends</span> <span class="token class-name">BinarySearchTree</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">compareFn <span class="token operator">=</span> defaultCompare</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>compareFn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>compareFn <span class="token operator">=</span> compareFn<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 计算节点高度</span>
+    <span class="token function">getNodeHeight</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getNodeHeight</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getNodeHeight</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/**
+   * Left left case: rotate right 向右的单旋转
+   * 出现于节点的左侧子节点高度大于右侧子节点高度时，并且左侧子节点也是平衡或左侧较重时
+   *       b                           a
+   *      / \                         / \
+   *     a   e -> rotationLL(b) ->   c   b
+   *    / \                             / \
+   *   c   d                           d   e
+   *
+   * @param node Node&lt;T>
+   */</span>
+    <span class="token function">rotationLL</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 当前节点位置b</span>
+        <span class="token comment">// 向右旋转，根节点b变为b的左子节点a</span>
+        <span class="token comment">// 以a为根节点时，a节点变成了b节点的父节点，a的右子节点变为b节点替换了d节点的位置，b节点的左侧此时为空</span>
+        <span class="token comment">// a节点的原右子节点d，应该处于a节点的右侧（右子树），但b节点为a的右子节点</span>
+        <span class="token comment">// d节点的值小于b节点，d节点赋值到b节点的左子节点上</span>
+        <span class="token keyword">const</span> tmp <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span> <span class="token comment">// 变量记录根节点b的左节点a</span>
+        node<span class="token punctuation">.</span>left <span class="token operator">=</span> tmp<span class="token punctuation">.</span>right<span class="token punctuation">;</span> <span class="token comment">// 将a的右节点d赋值给b的左节点</span>
+        tmp<span class="token punctuation">.</span>right <span class="token operator">=</span> node<span class="token punctuation">;</span> <span class="token comment">// a的右节点变成b节点</span>
+        <span class="token keyword">return</span> tmp<span class="token punctuation">;</span> <span class="token comment">// 将新的节点a替换当前位置的节点b</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/**
+   * Right right case: rotate left 向左的单旋转
+   * 出现于节点的右侧子节点的高度大于左侧子节点的高度，并且右侧子节点也是平衡或右侧较重时
+   *     a                              b
+   *    / \                            / \
+   *   c   b   -> rotationRR(a) ->    a   e
+   *      / \                        / \
+   *     d   e                      c   d
+   *
+   * @param node Node&lt;T>
+   */</span>
+    <span class="token function">rotationRR</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 当前节点位置a</span>
+        <span class="token comment">// 向左旋转，根节点a变为a的右子节点b</span>
+        <span class="token comment">// 以b为根节点时，b节点变成了a节点的父节点，b的左子节点变为a节点替换了d节点的位置，a节点的右侧此时为空</span>
+        <span class="token comment">// b节点的原左子节点d，应该处于b节点的左侧（左子树），但a节点为b的左子节点</span>
+        <span class="token comment">// d节点的值大于a节点，d节点赋值到a节点的右子节点上</span>
+        <span class="token keyword">const</span> tmp <span class="token operator">=</span> node<span class="token punctuation">.</span>right<span class="token punctuation">;</span> <span class="token comment">// 变量记录根节点a的右节点b</span>
+        node<span class="token punctuation">.</span>right <span class="token operator">=</span> tmp<span class="token punctuation">.</span>left<span class="token punctuation">;</span> <span class="token comment">// 将b的左节点变为a的右节点</span>
+        tmp<span class="token punctuation">.</span>left <span class="token operator">=</span> node<span class="token punctuation">;</span> <span class="token comment">// b的左节点变为a节点</span>
+        <span class="token keyword">return</span> tmp<span class="token punctuation">;</span> <span class="token comment">// 将新的节点b替换当前位置的节点a</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/**
+   * Left right case: rotate left then right 左右双转 向左旋转后再向右旋转 RR -> LL
+   * 出现于左侧子节点的高度大于右侧子节点的高度，并且左侧子节点的右侧较重
+   * @param node Node&lt;T>
+   */</span>
+    <span class="token function">rotationLR</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        node<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationRR</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 左侧子树先进行向左旋转</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationLL</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 上一层的树进行向右旋转</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/**
+   * Right left case: rotate right then left 右左双转 向右旋转后再向左旋转 LL -> RR
+   * @param node Node&lt;T>
+   */</span>
+    <span class="token function">rotationRL</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        node<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationLL</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationRR</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 递归计算以每个插入树的节点为根的节点的平衡因子</span>
+    <span class="token function">getBalanceFactor</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> heightDifference <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getNodeHeight</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getNodeHeight</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>heightDifference<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">case</span> <span class="token operator">-</span><span class="token number">2</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">UNBALANCED_RIGHT</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token operator">-</span><span class="token number">1</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">SLIGHTLY_UNBALANCED_RIGHT</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">SLIGHTLY_UNBALANCED_LEFT</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">UNBALANCED_LEFT</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">BALANCED</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 插入节点</span>
+    <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 插入节点递归函数</span>
+    <span class="token function">insertNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 插入节点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">LESS_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            node<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">BIGGER_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            node<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span> <span class="token comment">// 重复键值</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 验证以插入节点为根的子树插入节点后树是否平衡</span>
+        <span class="token keyword">const</span> balanceFactor <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 检测平衡因子</span>
+        <span class="token comment">// 左侧子树较重</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>balanceFactor <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">UNBALANCED_LEFT</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 插入的键是否小于左侧子节点的键</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>left<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">LESS_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 小于左侧子节点，则插入在左侧子节点的左侧，左侧子节点的左侧偏重，需要向右旋转</span>
+                <span class="token comment">// Left left case 向右旋转</span>
+                node <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationLL</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 大于左侧子节点，则插入在左侧子节点的右边，左侧子节点的右侧偏重，需要向左旋转后向右旋转</span>
+                <span class="token comment">// Left right case 向左旋转后向右旋转</span>
+                <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationLR</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 右侧子树较重</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>balanceFactor <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">UNBALANCED_RIGHT</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 插入的键是否大于右侧子节点的键</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>right<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">BIGGER_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 大于右侧子节点，则插入在右侧子节点的右侧，右侧子节点的右侧偏重，需要向左旋转</span>
+                <span class="token comment">// Right right case 向左旋转</span>
+                node <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationRR</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 小于右侧子节点，则插入在右侧子节点的左侧，右侧子节点的左侧偏重，需要先向右旋转再向左旋转</span>
+                <span class="token comment">// Right left case 向右旋转后向左旋转</span>
+                <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationRL</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 移除节点的递归函数</span>
+    <span class="token function">removeNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        node <span class="token operator">=</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 父级BST类的移除节点递归函数</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 移除结果为null 则未找到需移除节点</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 移除节点后，验证以移除节点为根的子树是否平衡</span>
+        <span class="token keyword">const</span> balanceFactor <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 左侧子树较重</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>balanceFactor <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">UNBALANCED_LEFT</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 计算左侧子树的平衡因子，平衡或略微偏重，则做向右旋转</span>
+            <span class="token comment">// Left left case 向右旋转</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">BALANCED</span> <span class="token operator">||</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">SLIGHTLY_UNBALANCED_LEFT</span>
+            <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationLL</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">// 计算左侧子树的平衡因子，右侧略微偏重，则先向左旋转后再向右旋转</span>
+            <span class="token comment">// Left right case 向左旋转后向右旋转</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">SLIGHTLY_UNBALANCED_RIGHT</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationLR</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 右侧子树偏重</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>balanceFactor <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">UNBALANCED_RIGHT</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 计算右侧子树的平衡因子，平衡或右侧略重，则做向左旋转</span>
+            <span class="token comment">// Right right case 向左旋转</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">BALANCED</span> <span class="token operator">||</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">SLIGHTLY_UNBALANCED_RIGHT</span>
+            <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationRR</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">// 计算右侧子树的平衡因子，左侧略重，则做向右旋转后向左旋转</span>
+            <span class="token comment">// Right left case 向右旋转后向左旋转</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token operator">===</span> BalanceFactor<span class="token punctuation">.</span><span class="token constant">SLIGHTLY_UNBALANCED_LEFT</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationRL</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>红黑树是一个自平衡二叉树，也是二叉搜索树的一种。</p>
+<p>如果需要多次插入和删除的自平衡树，红黑树较为合适；如果需要多次搜索，插入和删除频率较少，平衡二叉树较为合适。</p>
+<p>红黑树遵循的规则：</p>
+<ol>
+<li>每个节点不是红的就是黑的；</li>
+<li>树的根节点是黑的；</li>
+<li>所有叶节点都是黑的；</li>
+<li>如果一个节点是红的，那么它的两个子节点都是黑的；</li>
+<li>不能有两个相邻的红节点，一个红节点不能有红的父节点或子节点；</li>
+<li>从给定的节点到它的后代节点（null叶节点）的所有路径包含相同数量的黑色节点。</li>
+</ol>
+<p>树不平衡的情况：</p>
+<ol>
+<li><p>父节点是祖父节点的左侧子节点时，父节点的兄弟节点是黑色的</p>
+<ol>
+<li><p>插入节点是左侧子节点</p>
+<p><img src="/posts/30193/3A.jpg" alt="插入节点是左侧子节点"></p>
+</li>
+<li><p>插入节点是右侧子节点</p>
+<p><img src="/posts/30193/2A.jpg" alt="插入节点是右侧子节点"></p>
+</li>
+</ol>
+</li>
+<li><p>父节点是祖父节点的右侧子节点时，父节点的兄弟节点是黑色的</p>
+<ol>
+<li><p>插入节点是左侧子节点</p>
+<p><img src="/posts/30193/2B.jpg" alt="插入节点是左侧子节点"></p>
+</li>
+<li><p>插入节点是右侧子节点</p>
+<p><img src="/posts/30193/3B.jpg" alt="插入节点是右侧子节点"></p>
+</li>
+</ol>
+</li>
+</ol>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Compare<span class="token punctuation">,</span> defaultCompare <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'../util'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> BinarySearchTree <span class="token keyword">from</span> <span class="token string">'./binary-search-tree'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Node <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./models/node'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 平衡因子常量</span>
+<span class="token keyword">const</span> BalanceFactor <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token constant">UNBALANCED_RIGHT</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token constant">SLIGHTLY_UNBALANCED_RIGHT</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token constant">BALANCED</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    <span class="token constant">SLIGHTLY_UNBALANCED_LEFT</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token constant">UNBALANCED_LEFT</span><span class="token operator">:</span> <span class="token number">5</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> Colors <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token constant">RED</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token constant">BLACK</span><span class="token operator">:</span> <span class="token number">1</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">RedBlackNode</span> <span class="token keyword">extends</span> <span class="token class-name">Node</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">;</span> <span class="token comment">// 节点的颜色</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>parent <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 指向父节点的引用</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function">isRed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">===</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function">flipColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">===</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+  
+<span class="token comment">// 红黑树继承BST类但是需要重写insert、insertNode和removeNode方法</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">RedBlackTree</span> <span class="token keyword">extends</span> <span class="token class-name">BinarySearchTree</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">compareFn <span class="token operator">=</span> defaultCompare</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>compareFn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>compareFn <span class="token operator">=</span> compareFn<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 向红黑树种插入节点 </span>
+    <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+            <span class="token comment">// 如果树是空的</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedBlackNode</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 创建一个红黑树节点</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">;</span> <span class="token comment">// 根节点颜色设置为红色</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">const</span> newNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 插入节点</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fixTreeProperties</span><span class="token punctuation">(</span>newNode<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 验证节点插入后，红黑树的规则是否得到了满足</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 插入节点的递归函数</span>
+    <span class="token function">insertNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">compareFn</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token operator">===</span> Compare<span class="token punctuation">.</span><span class="token constant">LESS_THAN</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                node<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedBlackNode</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            	node<span class="token punctuation">.</span>left<span class="token punctuation">.</span>parent <span class="token operator">=</span> node<span class="token punctuation">;</span> <span class="token comment">// 保存指向被插入节点父节点的引用</span>
+                <span class="token keyword">return</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span> <span class="token comment">// 返回节点的引用</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            node<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedBlackNode</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            node<span class="token punctuation">.</span>right<span class="token punctuation">.</span>parent <span class="token operator">=</span> node<span class="token punctuation">;</span> <span class="token comment">// 保存指向被插入节点父节点的引用</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">.</span>right<span class="token punctuation">;</span> <span class="token comment">// 返回节点的引用</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+           	<span class="token comment">// 不符合条件继续向下层查找</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 插入节点后验证红黑树属性，可能需要重新填色和旋转</span>
+    <span class="token function">fixTreeProperties</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 验证父节点是红色，且这个节点不是黑色</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>parent <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>color<span class="token punctuation">.</span><span class="token function">isRed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>color <span class="token operator">!==</span> Color<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">let</span> parent <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">;</span> <span class="token comment">// 父节点引用</span>
+            <span class="token keyword">const</span> grandParent <span class="token operator">=</span> parent<span class="token punctuation">.</span>parent<span class="token punctuation">;</span> <span class="token comment">// 祖父节点</span>
+            <span class="token comment">// 验证父节点是左侧子节点还是右侧子节点</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>grandParent <span class="token operator">&amp;&amp;</span> grandParent<span class="token punctuation">.</span>left <span class="token operator">===</span> parent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 父节点是左侧子节点</span>
+                <span class="token keyword">const</span> uncle <span class="token operator">=</span> grandParent<span class="token punctuation">.</span>right<span class="token punctuation">;</span> <span class="token comment">// 叔节点，父节点的兄弟节点</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>uncle <span class="token operator">&amp;&amp;</span> uncle<span class="token punctuation">.</span>color <span class="token operator">===</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 验证叔节点是否是红色的</span>
+                    <span class="token comment">// 叔节点是红色的，两个相邻的节点不能是红色的</span>
+                    grandParent<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">;</span> <span class="token comment">// 修改祖父节点的颜色为红色</span>
+                    parent<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">;</span> <span class="token comment">// 修改父节点的颜色为黑色</span>
+                    uncle<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">;</span> <span class="token comment">// 修改叔节点为黑色</span>
+                    node <span class="token operator">=</span> grandParent<span class="token punctuation">;</span> <span class="token comment">// 当前节点指向祖父节点，继续循环检查树是否有其他冲突</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                    <span class="token comment">// 叔节点为黑色时，父节点是红色的，此时树是不平衡的</span>
+                    <span class="token comment">// 父节点是祖父节点的左子节点，如果节点是父节点的右侧子节点--左旋转后进行右旋转</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">===</span> parent<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationRR</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 先进行左旋转</span>
+                        node <span class="token operator">=</span> parent<span class="token punctuation">;</span> <span class="token comment">// 更新当前节点的引用</span>
+                        parent <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">;</span> <span class="token comment">// 更新父节点的引用</span>
+                    <span class="token punctuation">&#125;</span>
+                    <span class="token comment">// 父节点是祖父节点的左子节点，如果节点是父节点的左侧子节点--右旋转</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationLL</span><span class="token punctuation">(</span>grandParent<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                    parent<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">;</span> <span class="token comment">// 更新父节点颜色</span>
+                    grandParent<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">;</span> <span class="token comment">// 更新祖父节点颜色</span>
+                    node <span class="token operator">=</span> parent<span class="token punctuation">;</span> <span class="token comment">// 更新当前节点的引用</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 父节点是右侧子节点</span>
+                <span class="token keyword">const</span> uncle <span class="token operator">=</span> grandParent<span class="token punctuation">.</span>left<span class="token punctuation">;</span> <span class="token comment">// 叔节点，父节点的兄弟节点</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>uncle <span class="token operator">&amp;&amp;</span> uncle<span class="token punctuation">.</span>color <span class="token operator">===</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 验证叔节点是否是红色的</span>
+                    grandParent<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">;</span>
+                    parent<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">;</span>
+                    uncle<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">;</span>
+                    node <span class="token operator">=</span> grandParent<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                    <span class="token comment">// 叔节点为黑色是，父组件为红色的，此时树不平衡</span>
+                    <span class="token comment">// 父节点是祖父节点的右子节点，如果节点是父节点的左侧子节点--右旋转后左旋转</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">===</span> parent<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationLL</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 先进行右旋转</span>
+                        node <span class="token operator">=</span> parent<span class="token punctuation">;</span>
+                        parent <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                    <span class="token comment">// 父节点是祖父节点的右子节点，如果节点是父节点的右侧子节点--左旋转</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">rotationRR</span><span class="token punctuation">(</span>grandParent<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 进行左旋转</span>
+                    parent<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">;</span>
+                    grandParent<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">RED</span><span class="token punctuation">;</span>
+                    node <span class="token operator">=</span> parent<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">.</span>color <span class="token operator">=</span> Colors<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">;</span> <span class="token comment">// 根节点颜色为黑色</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 因为验证红黑树属性的函数中保存了父节点的函数引用，要更新父节点引用，所以旋转函数和AVL树不太一样</span>
+    <span class="token comment">// 左-左旋转函数 右旋转</span>
+    <span class="token function">rotationLL</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> tmp <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        node<span class="token punctuation">.</span>left <span class="token operator">=</span> tmp<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">.</span>right <span class="token operator">&amp;&amp;</span> tmp<span class="token punctuation">.</span>right<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            tmp<span class="token punctuation">.</span>right<span class="token punctuation">.</span>parent <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        tmp<span class="token punctuation">.</span>parent <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">.</span>parent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">===</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>left <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>right <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        tmp<span class="token punctuation">.</span>right <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        node<span class="token punctuation">.</span>parent <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// 右-右旋转函数 左旋转</span>
+    <span class="token function">rotationRR</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> tmp <span class="token operator">=</span> node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        node<span class="token punctuation">.</span>right <span class="token operator">=</span> tmp<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">.</span>left <span class="token operator">&amp;&amp;</span> tmp<span class="token punctuation">.</span>left<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            tmp<span class="token punctuation">.</span>left<span class="token punctuation">.</span>parent <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        tmp<span class="token punctuation">.</span>parent <span class="token operator">=</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">.</span>parent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">===</span> node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>left <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                node<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>right <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        tmp<span class="token punctuation">.</span>left <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        node<span class="token punctuation">.</span>parent <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/30193/" title="数据结构与算法-树">https://datura35422.github.io/posts/30193/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"># 面试</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"># 读书笔记</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/5399/" rel="prev" title="数据结构与算法-递归">
+                  <i class="fa fa-chevron-left"></i> 数据结构与算法-递归
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/31553/" rel="next" title="数据结构与算法-堆">
+                  数据结构与算法-堆 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">707k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:38</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

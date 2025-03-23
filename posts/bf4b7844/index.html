@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="前端异常监控系统之前写微信小程序的时候使用的微信小程序自带的实时日志 API ，微信小程序端将错误信息进行上报，可以在微信小程序公众平台上进行查看。 当前公司使用的是 Sentry.io 管理前端异常。需要手动上传当前登录用户的信息和错误信息。然后在 Sentry 错误信息管理平台进行查看报错信息和系统性能。  Sentry’s SDK hooks into your runtime enviro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021年10-11月工作总结">
+<meta property="og:url" content="https://datura35422.github.io/posts/bf4b7844/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="前端异常监控系统之前写微信小程序的时候使用的微信小程序自带的实时日志 API ，微信小程序端将错误信息进行上报，可以在微信小程序公众平台上进行查看。 当前公司使用的是 Sentry.io 管理前端异常。需要手动上传当前登录用户的信息和错误信息。然后在 Sentry 错误信息管理平台进行查看报错信息和系统性能。  Sentry’s SDK hooks into your runtime enviro">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-12T13:11:40.000Z">
+<meta property="article:modified_time" content="2025-03-23T18:16:48.021Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/bf4b7844/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;bf4b7844&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;bf4b7844&#x2F;&quot;,&quot;title&quot;:&quot;2021年10-11月工作总结&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>2021年10-11月工作总结 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%BC%82%E5%B8%B8%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">前端异常监控系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%BC%82%E5%B8%B8%E5%92%8C%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">其他异常和性能监控系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB"><span class="nav-number">1.2.</span> <span class="nav-text">推荐阅读</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">前端数据埋点体系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">前端自动化流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91"><span class="nav-number">4.</span> <span class="nav-text">项目开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E6%8F%90%E7%A4%BA%E5%92%8C%E6%95%B0%E6%8D%AE%E7%8A%B6%E6%80%81%E5%85%B1%E4%BA%AB-redux"><span class="nav-number">4.1.</span> <span class="nav-text">全局提示和数据状态共享 - redux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.2.</span> <span class="nav-text">组件设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dva-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.3.</span> <span class="nav-text">Dva 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%B8%96%EF%BC%9A"><span class="nav-number">4.3.1.</span> <span class="nav-text">经验帖：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9C%A8-model-%E4%B8%AD%E4%BD%BF%E7%94%A8-typescript%EF%BC%9A"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">在 model 中使用 typescript：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB%EF%BC%9A"><span class="nav-number">4.3.2.</span> <span class="nav-text">扩展阅读：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E9%A1%B5%E9%9D%A2%E5%89%A9%E4%BD%99%E9%AB%98%E5%BA%A6"><span class="nav-number">4.4.</span> <span class="nav-text">计算页面剩余高度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">4.4.1.</span> <span class="nav-text">解决方案：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.5.</span> <span class="nav-text">React 生命周期的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#UNSAFE-componentWillReceiveProps"><span class="nav-number">4.5.1.</span> <span class="nav-text">UNSAFE_componentWillReceiveProps()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95"><span class="nav-number">4.6.</span> <span class="nav-text">错误记录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%B1%E7%BD%91%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E8%BF%87%E6%85%A2%EF%BC%8C%E4%B8%8B%E4%B8%80%E6%AD%A5%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE-undefined-%E9%97%AE%E9%A2%98%E3%80%82"><span class="nav-number">4.6.1.</span> <span class="nav-text">弱网环境，数据请求过慢，下一步操作数据 undefined 问题。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.6.1.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%87%BA%E7%8E%B0%E9%97%AA%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.6.2.</span> <span class="nav-text">页面出现闪动的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%8F%8D%E6%80%9D"><span class="nav-number">5.</span> <span class="nav-text">总结反思</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CR-%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.</span> <span class="nav-text">CR 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TS-%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.1.</span> <span class="nav-text">TS 使用问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.2.</span> <span class="nav-text">代码问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%8A%AF%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">常犯问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%86%E8%8A%82%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.3.</span> <span class="nav-text">细节问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%96%91%E6%83%91%E6%88%96%E5%BE%85%E4%BC%98%E5%8C%96%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.4.</span> <span class="nav-text">疑惑或待优化的问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E4%B8%AA%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C%E4%BD%8E%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.5.</span> <span class="nav-text">整个开发过程中，低效的问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%80%9D%EF%BC%9A"><span class="nav-number">5.6.</span> <span class="nav-text">反思：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%AA%E6%96%BD-%F0%9F%9A%A9%EF%BC%9A"><span class="nav-number">5.7.</span> <span class="nav-text">措施 🚩：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">126</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/bf4b7844/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2021年10-11月工作总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-12 21:11:40" itemprop="dateCreated datePublished" datetime="2021-12-12T21:11:40+08:00">2021-12-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-03-24 02:16:48" itemprop="dateModified" datetime="2025-03-24T02:16:48+08:00">2025-03-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="前端异常监控系统"><a href="#前端异常监控系统" class="headerlink" title="前端异常监控系统"></a>前端异常监控系统</h3><p>之前写微信小程序的时候使用的微信小程序自带的<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/realtimelog/">实时日志 API</a> ，微信小程序端将错误信息进行上报，可以在微信小程序公众平台上进行查看。</p>
+<p>当前公司使用的是 <a target="_blank" rel="noopener" href="https://docs.sentry.io/">Sentry.io</a> 管理前端异常。需要手动上传当前登录用户的信息和错误信息。然后在 Sentry 错误信息管理平台进行查看报错信息和系统性能。</p>
+<blockquote>
+<p>Sentry’s SDK hooks into your runtime environment and automatically reports errors, uncaught exceptions, and unhandled rejections as well as other types of errors depending on the platform.</p>
+</blockquote>
+<p>Sentry 后端系统可以使用 python 进行搭建。</p>
+<h4 id="其他异常和性能监控系统"><a href="#其他异常和性能监控系统" class="headerlink" title="其他异常和性能监控系统"></a>其他异常和性能监控系统</h4><p>webfunny：</p>
+<h4 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h4><p> <a target="_blank" rel="noopener" href="https://docs.sentry.io/">Sentry.io - docs</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039131388">错误上报和应用性能监控平台 Sentry</a> </p>
+<h3 id="前端数据埋点体系"><a href="#前端数据埋点体系" class="headerlink" title="前端数据埋点体系"></a>前端数据埋点体系</h3><p>前公司的数据埋点系统使用的是友盟、微盟、阿拉丁，因为是 To C 的应用所以埋点数据侧重于用户的按钮点击次数和页面加载次数等记录用户操作。</p>
+<p>当前公司使用的是自己搭建的 apm 埋点系统 + <a target="_blank" rel="noopener" href="https://grafana.com/">grafana</a> 数据展示平台。更加复杂的数据就使用的神策进行处理。因为是 To B 应用所以更加侧重于系统性能，如页面加载速度等。</p>
+<h3 id="前端自动化流程"><a href="#前端自动化流程" class="headerlink" title="前端自动化流程"></a>前端自动化流程</h3><p>使用的是 k8s + docker + gitlab + jenkins 搭建的自动化流程</p>
+<p>每次发布构建需要十几分钟，整个流程是先创建 docker 然后在 docker 中运行 <code>npm install --production --registry=http://npm.mokahr.com &amp;&amp; npm run build</code> 命令，就会重新安装一遍 npm 包，然后进行构建。巨型项目这个流程就会很耗时，构建好后触发 jenkins 进行镜像发布，这段时间耗时一般在一分半左右。</p>
+<h3 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h3><p>项目使用的是 React + dva + umi + axios 技术栈。</p>
+<h4 id="全局提示和数据状态共享-redux"><a href="#全局提示和数据状态共享-redux" class="headerlink" title="全局提示和数据状态共享 - redux"></a>全局提示和数据状态共享 - redux</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://redux.js.org/faq/general#when-should-i-use-redux">https://redux.js.org/faq/general#when-should-i-use-redux</a></p>
+</blockquote>
+<p>一般提示信息和数据状态多页面共享情况下，会使用 redux 。</p>
+<p>但是一个业务页面中数据逻辑过于复杂时需要进行合理地按照组件职责进行划分和抽取组件。</p>
+<h4 id="组件设计"><a href="#组件设计" class="headerlink" title="组件设计"></a>组件设计</h4><blockquote>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/04-%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95.md">dva-组件设计方法</a></p>
+</blockquote>
+<p>在拆分 Component 的过程中要尽量让每个 Component 专注做自己的事情。</p>
+<p>根据职责区分可以分为：容器型组件和展示型组件。</p>
+<p><strong>容器型组件</strong>主要负责业务逻辑部分，指的是具有监听数据行为的组件，一般来说它们的职责是绑定相关联的 model 数据，以数据容器的角色包含其它子组件，通常在项目中表现出来的类型为：Layouts、Router Components 以及普通 Containers 组件。需要组织子组件的交互逻辑和展示。</p>
+<p><strong>展示型组件</strong>，也称作为<strong>木偶组件</strong>，不会关联订阅 model 上的数据。每个组件跟业务数据并没有耦合关系，只是完成自己独立的任务，需要的数据通过 <code>props</code> 传递进来，需要操作的行为通过接口暴露出去。</p>
+<h4 id="Dva-的使用"><a href="#Dva-的使用" class="headerlink" title="Dva 的使用"></a>Dva 的使用</h4><p>dva 官网： <a target="_blank" rel="noopener" href="https://dvajs.com/guide/">https://dvajs.com/guide/</a></p>
+<p>dva 首先是一个基于 <a target="_blank" rel="noopener" href="https://github.com/reduxjs/redux">redux</a> 和 <a target="_blank" rel="noopener" href="https://github.com/redux-saga/redux-saga">redux-saga</a> 的数据流方案，然后为了简化开发体验，dva 还额外内置了 <a target="_blank" rel="noopener" href="https://github.com/ReactTraining/react-router">react-router</a> 和 <a target="_blank" rel="noopener" href="https://github.com/github/fetch">fetch</a>，所以也可以理解为一个轻量级的应用框架。</p>
+<p>dva = React-Router + Redux + Redux-saga</p>
+<h5 id="经验帖："><a href="#经验帖：" class="headerlink" title="经验帖："></a>经验帖：</h5><p><a target="_blank" rel="noopener" href="https://dvajs.com/guide/develop-complex-spa.html">使用 Dva 开发复杂 SPA</a></p>
+<h6 id="在-model-中使用-typescript："><a href="#在-model-中使用-typescript：" class="headerlink" title="在 model 中使用 typescript："></a>在 model 中使用 typescript：</h6><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6971323669825994789">玩转 TS - 实现 dva 的完整类型推导 - 掘金</a> ：使用 dva-type 基于 typescript 4.1 进行类型推导。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7023712356064559111">react+typescript+umi+dva+antd - 掘金</a></p>
+<h5 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h5><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6963466553601835044">一文彻底搞懂 DvaJS 原理 - 掘金</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7014484781429850148">为什么 redux-saga 不能用 async await 实现 - 掘金</a></p>
+<p>Redux-Saga妈妈级教程 - 掘金：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6975041237266989086">https://juejin.cn/post/6975041237266989086</a> + <a target="_blank" rel="noopener" href="https://juejin.cn/post/6979146131028574245">https://juejin.cn/post/6979146131028574245</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7009110590752817183">踏入进阶！redux-saga中的八个高阶知识点 - 掘金</a></p>
+<h4 id="计算页面剩余高度"><a href="#计算页面剩余高度" class="headerlink" title="计算页面剩余高度"></a>计算页面剩余高度</h4><p><strong>表格容器需要占用页面中的剩余的空间</strong>，这个空间不固定，原来的处理逻辑是通过获取父容器的高度然后减去兄弟元素的高度得到表格容器的高度。</p>
+<p>对于更加复杂的页面布局，可能会出现需要计算更多的兄弟元素的高度。使用 NewTable 组件和 BasicTable 组件高度计算方式不一样，BasicTable 设置的高度是表格数据的高度（即不包含表头的高度），NewTable 设置的高度是表格的整体高度（即包含了表头的高度），要在原来的基础上写会更加复杂和难懂。</p>
+<p>在项目中使用 <code>flex: 1 1 0; / flex: 1 1 0px; / flex: 1 1 0%;</code> 构建后变成了 <code>flex: 1 1;</code> 。但是实际情况下 <code>flex: 1 1 0;</code> 和 <code>flex: 1 1 0%;</code> 的效果是不一样的，所以在项目中使用只能将三个属性拆开写 <code>flex-grow: 1; flex-shrink: 1; flex-basis: 0;</code> 才能达到目标效果。 </p>
+<blockquote>
+<p>项目中的具体原因需要进行 css loader 之类的库进行实验。</p>
+</blockquote>
+<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><p>父容器使用 <code>flex: 1 1 0px;</code>  （即<code>flex-grow: 1; flex-shrink: 1; flex-basis: 0;</code>）设置样式，然后使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver">ResizeObserver</a> 进行监听父容器的高度变化，因为页面中部分区域是需要根据数据动态显示的，所以组件挂载后的高度不是固定的，需要等待数据加载并更新渲染后才能确定父容器的真正高度。</p>
+<blockquote>
+<p>关于 ResizeObserver 扩展阅读：<a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2020/03/dom-resize-api-resizeobserver/">检测DOM尺寸变化JS API ResizeObserver简介 - 张鑫旭</a></p>
+</blockquote>
+<p>相关代码片段（<a target="_blank" rel="noopener" href="https://caniuse.com/?search=ResizeObserver">注意 ResizeObserver 的兼容性</a> ）：</p>
+<pre class="line-numbers language-react" data-language="react"><code class="language-react">componentDidMount() &#123;
+  const tableWrapElement &#x3D; document.getElementsByClassName(styles.reportTable)[0];
+  if (window.ResizeObserver) &#123;
+    this.resizeObserver &#x3D; new ResizeObserver((entries) &#x3D;&gt; &#123;
+      const tableWrapContentRect &#x3D; entries[0].contentRect;
+      this.throttleSetHeight(tableWrapContentRect.height);
+    &#125;);
+
+    if (tableWrapElement) &#123;
+      this.resizeObserver.observe(tableWrapElement);
+    &#125;
+  &#125; else &#123;
+    this.setState(&#123;
+      tableWrapHeight: tableWrapElement.clientHeight,
+      isBrowserSupportResizeObserver: false,
+    &#125;);
+  &#125;
+&#125;
+
+componentWillUnmount() &#123;
+  this.resizeObserver?.disconnect();
+  this.resizeObserver &#x3D; null;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="React-生命周期的使用"><a href="#React-生命周期的使用" class="headerlink" title="React 生命周期的使用"></a>React 生命周期的使用</h4><h5 id="UNSAFE-componentWillReceiveProps"><a href="#UNSAFE-componentWillReceiveProps" class="headerlink" title="UNSAFE_componentWillReceiveProps()"></a><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops"><code>UNSAFE_componentWillReceiveProps()</code></a></h5><p>我需要监听到 model 中传递的 props 发生了改变且进行新旧 props 对比后计算并触发一些事件，如封存状态从封存中变为封存成功时需要重新刷新数据表格，数据表格数据维护在容器型组件中而不是在 model 中。在这种情况下就需要用到 <code>UNSAFE_componentWillReceiveProps(nextProps)</code> 生命周期。</p>
+<blockquote>
+<p>todo：需要进行实验 componentDidUpdate 和 getSnapshotBeforeUpdate 生命周期，并总结生命周期使用的场景</p>
+</blockquote>
+<h4 id="错误记录"><a href="#错误记录" class="headerlink" title="错误记录"></a>错误记录</h4><p>这块主要是记录在这个月组内或者自己解决或遇到的问题，做个记录。</p>
+<h5 id="弱网环境，数据请求过慢，下一步操作数据-undefined-问题。"><a href="#弱网环境，数据请求过慢，下一步操作数据-undefined-问题。" class="headerlink" title="弱网环境，数据请求过慢，下一步操作数据 undefined 问题。"></a>弱网环境，数据请求过慢，下一步操作数据 undefined 问题。</h5><p>redux 和 vuex 具有一样的问题。页面强制刷新（F5）后，redux 和 vuex 中 store 数据就会被清空，回到初始状态。如果当前页依赖上一页储存到 redux 中的数据，用户进行手动刷新页面或者移动端系统机制强制刷新，上一页的数据就会被清空，当前页的操作就会报数据 undefined 错误。</p>
+<h6 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h6><p>数据请求是在 redux model 中进行的，所以数据最后传输是通过 props，如果要知道数据情况有两种方案 —— <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/glossary.html#%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6-vs-%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6">受控组件和非受控组件</a>。</p>
+<p>受控组件：可以监听 props 中的数据是否更改，即从初始空值变为有值的状态，如果需要使用这个状态，则就需要在 state 中存入 loading 状态。</p>
+<p>非受控组件：在 model 中添加一个 loading 变量来记录数据加载状态传递给组件。</p>
+<p>最后使用的是非受控组件的方案解决的。（推荐）</p>
+<p>交互效果：弱网情况下数据还没有返回就点击下一步按钮，显示 loading 提示，然后开始轮询检查数据是否请求成功，请求成功则继续执行按钮接下来的事件。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function-variable function">goAskForHolidayFlow</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> flowMenuList <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+  <span class="token comment">// 如果 flowMenuList 数据没有加载完成 则跳转操作进行不下去（弱网）</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>flowMenuList<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> HolidayFlowLoadingId <span class="token operator">=</span> <span class="token string">'HolidayFlowLoadingId'</span><span class="token punctuation">;</span>
+    <span class="token comment">// 检查状态</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">checkStatus</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">time</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">flowMenuList</span><span class="token operator">:</span> curFlowMenuList<span class="token punctuation">,</span> flowMenuLoading <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+          <span class="token comment">// 当前flowMenuList数组有数据 或 flowMenuLoading 加载状态已经重置（处理接口返回失败关闭loading弹窗）</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>curFlowMenuList<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> flowMenuLoading <span class="token operator">===</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token function">checkStatus</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">btnLoadingId</span><span class="token operator">:</span> HolidayFlowLoadingId<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sendToast</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">id</span><span class="token operator">:</span> HolidayFlowLoadingId<span class="token punctuation">,</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">isLoading</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token string">'加载中，请稍候'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 开始轮询检测</span>
+    <span class="token keyword">await</span> <span class="token function">checkStatus</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">withdrawToast</span><span class="token punctuation">(</span>HolidayFlowLoadingId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">btnLoadingId</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// 此处跟我的出勤跳转逻辑形同 DayUnusualList中 onProcess 方法 只拿请假类菜单中的第一个;</span>
+  <span class="token keyword">let</span> flow <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>askForHoliday<span class="token punctuation">;</span>
+  <span class="token comment">// 接口数据返回失败时没有数据</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flow<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="页面出现闪动的问题"><a href="#页面出现闪动的问题" class="headerlink" title="页面出现闪动的问题"></a>页面出现闪动的问题</h5><p>最开始查找问题的时候，只进行了最直接的值的查询，而忽略了影响值的查询，结果发现了一个离奇 bug 。</p>
+<p>Bug 示例：</p>
+<pre class="line-numbers language-react" data-language="react"><code class="language-react">useEffect(() &#x3D;&gt; &#123;
+  setConfigList(formConfigList);
+  setIsShowClearBtn(false);
+  return () &#x3D;&gt; &#123;
+    if (departmentToggleReload) &#123;
+      departmentToggleChecked.current &#x3D; false;
+    &#125;
+  &#125;;
+&#125;, [formConfigList]);
+
+useEffect(() &#x3D;&gt; &#123;
+  const haveValue &#x3D; getIshaveValue(configList);
+  if (haveValue) &#123;
+    setIsShowClearBtn(true);
+  &#125; else &#123;
+    setIsShowClearBtn(false);
+  &#125;
+&#125;, [configList]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Bug 分析：第一个 useEffect 中设置了第二个 useEffect 的依赖值，所以并不是两个 useEffect 顺行执行 setState 打包进行值的更新，而是异步执行。所以会出现第一轮 isShowClearBtn 先设置为 false 即按钮隐藏，又会在第二轮中将 isShowClearBtn 设置为 true，出现闪动问题。（找这个 bug 都对 react 的认知产生了怀疑🤨，所以还是要细心和耐心！！！）</p>
+<p>解决方案：删除第一个 useEffect 中的 setIsShowClearBtn，使用第二个 useEffect 中计算出来的值。</p>
+<h3 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h3><h4 id="CR-问题"><a href="#CR-问题" class="headerlink" title="CR 问题"></a>CR 问题</h4><h5 id="TS-使用问题"><a href="#TS-使用问题" class="headerlink" title="TS 使用问题"></a>TS 使用问题</h5><ul>
+<li><p>避免使用 [props: string]: unknown</p>
+<ul>
+<li>只声明需要使用的对象属性，不需要做其他多余的类型处理。</li>
+</ul>
+</li>
+<li><p>尽量减少使用 as xxx，有的时候不得已也没办法，如 qs.parse 的处理结果。需要写一个转换类型工具函数进行类型转换。</p>
+<ul>
+<li>as xxx 是欺骗编译器的行为，并不是真正把 String 转为 Number 的处理。</li>
+</ul>
+</li>
+</ul>
+<h5 id="代码问题"><a href="#代码问题" class="headerlink" title="代码问题"></a>代码问题</h5><ul>
+<li>避免使用 Object.assign 使用对象扩展符进行替换。<ul>
+<li>如果需要使用 Object.assign 则使用 lodash 中的 assign api。</li>
+</ul>
+</li>
+<li>短路逻辑运算，最好在脑子清醒的时候进行优化。</li>
+<li>命名问题，减少通用命名，命名最好有业务关联。新值最好以 newXxxx 进行命名。<ul>
+<li>需要贯彻执行《代码整洁之道》。</li>
+</ul>
+</li>
+<li>后端接口返回值不幂等时要及时沟通，前端减少数据兜底操作。</li>
+<li>减少魔术字符串的使用，通用部分尽量使用常量处理。</li>
+</ul>
+<h4 id="常犯问题："><a href="#常犯问题：" class="headerlink" title="常犯问题："></a>常犯问题：</h4><ol>
+<li>只记得更新 table 了，总是忘记重置 pagination，即使写了 testplan 但是还是忘记了。</li>
+<li>边界值处理和特殊情况处理，有的时候会多想，有的时候会少想，总想着给后端兜底。有的时候考虑到了，但是打断就忘记了，还是要及时 todo 记录下来。<strong>自测时可以询问测试同学如何造数据操作。</strong></li>
+</ol>
+<blockquote>
+<p>这些也是不应该犯的基础问题，记录一下下次 testplan 和技术方案覆盖上。</p>
+</blockquote>
+<h4 id="细节问题："><a href="#细节问题：" class="headerlink" title="细节问题："></a>细节问题：</h4><ol>
+<li>关于根据数据的值不同来展示样式细节问题。最开始模拟数据的时候没有考虑到这个问题，所以接通数据能跑通主流程后就忘记了。<strong>模拟数据 mock 要做全套。</strong></li>
+<li>对于后端的错误返回特殊处理 message 问题，需要和后端沟通进行统一，然后及时关掉全局的统一处理设置，避免出现两次错误提示的情况。</li>
+</ol>
+<h4 id="疑惑或待优化的问题："><a href="#疑惑或待优化的问题：" class="headerlink" title="疑惑或待优化的问题："></a>疑惑或待优化的问题：</h4><ol>
+<li>关于数据请求接口，是否需要判断请求参数的可用性，需要进一步确认。如果是一连串的接口请求操作，后一个接口依赖前一个接口的数据时，接口数据都在请求函数中做了错误捕获或者返回数据处理，就无法在 async 中断 await 调用，后果会在接口动荡的时候出现一连串的服务器内部错误或者参数为 null 的错误提示。</li>
+<li>表格滑动容易出现浏览器页面切换的问题，需要和 sugar 同学进行沟通，可以使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overscroll-behavior">overscroll-behavior</a> 样式属性来控制浏览器滚动到边界的情况。</li>
+</ol>
+<h4 id="整个开发过程中，低效的问题："><a href="#整个开发过程中，低效的问题：" class="headerlink" title="整个开发过程中，低效的问题："></a>整个开发过程中，低效的问题：</h4><ol>
+<li>这次开发是重构页面，由于个人习惯总是喜欢 follow 之前项目中别人写的代码，这种基操对于当前情况并不适用，没有足够的知识储备，所以开始写的的时候就出现了低效的问题。<strong>要避免 follow 不好的代码习惯。</strong></li>
+<li>对于 react 和 typescript 使用经验不足导致的低效问题，在使用过程中对于某些特殊的用法需要询问其他同学才敢下手，其实有点干扰别人工作。</li>
+<li>typescript 对接 sugar 组件库，为了减少 typescript 报错行为，所以补全了很多实际用不到但 sugar 组件需要的类型，这个归根结底还是对 typescript 不熟和不主动与其他部门同学交流导致的。</li>
+<li>文件项目过于巨大的时候就应该想实际办法，比如是否可以<strong>使用 redux 去改善</strong>，没有灵活变通，后期使用了大量的时间去拆分组件和避免拆分后的组件出现问题，进行巨轮组件拆分后，之前遇到的一些问题反而更加容易解决了，减少了使用 unsafe 的生命周期和复杂的判断计算，更容易维护。</li>
+<li>对于前期已经考虑到的交互优化效果，对高阶组件使用不太明确，也没有想其他想法去实现相同的功能，被之前的模式给框住了，浪费了很多时间在样式处理实验和进行复杂的高度计算，反而写出更多难懂和难以维护的逻辑。<strong>如果出现了自己都觉得难懂和难以维护的解决方案就要适时放弃，对自己好一点，也对后续维护的人好一点。且要坚持交互优化效果，保持良好的交互体验。</strong></li>
+<li>不合理的开发安排。技术方案的问题，主要想要先实现通用组件再实现业务组件，但是通用组件的效果是在业务组件的基础上进行测试的，所以初期考虑的开发顺序有问题。<strong>先业务后通用组件，更加容易实现通用组件的数据交互和测试。</strong></li>
+<li>过度思考。总是会多考虑一些问题，如果拿不定的时候应该多和产品、设计或其他同学进行讨论。关于交互问题的疑问不要只问设计同学，要与产品、设计、涉及到的技术同学一起询问，避免出现设计同学的方案被产品否定的情况，<strong>确定方案再下手修改，避免重复修改</strong>。</li>
+<li>对于需求的理解不够透彻。最开始写的时候单纯的信了产品说的没有数据交互关系，反讲的时候也是这样讲的，结果实际开发的时候其实有数据逻辑关系的，和后端的接口文档沟通上也不是很全，浪费了很多时间。</li>
+<li>后端接口的问题不要去多写兜底方案，最后还是要修改的，要<strong>积极主动去推动后端同学修复 bug</strong> 避免前端白屏或报错问题，影响主流程测试。</li>
+<li>深刻的意识到技术方案的重要性。<strong>需要深入思考和前期多花时间去进行规划，使用思维导图将临时想到的问题及时记录下来，不要相信金鱼的记忆力。</strong></li>
+</ol>
+<h4 id="反思："><a href="#反思：" class="headerlink" title="反思："></a>反思：</h4><ol>
+<li>沟通能力待提升。沟通时需要提供上下文以及相关链接，以及重点文字标注，更加容易让人清楚知道接下来需要沟通的内容。以及沟通的时候需要仔细查看关键字，需要耐心和细心。</li>
+<li>效率提升。需要按照计划来进行，前期需要合理的开发安排、组件设计、通用设计。</li>
+<li>基础知识积累和提升。需要花更多时间在 react + typescript + css 方面进行基础知识的提升，利用等待电梯和地铁的时间进行知识积累，目前最重要的是快速提升对 react + typescript 的使用经验。</li>
+<li>更加专心、耐心、认真仔细，减少过度考虑和多余的想法，拿不定的交互效果需要和其他人沟通并讲清楚。</li>
+</ol>
+<h4 id="措施-🚩："><a href="#措施-🚩：" class="headerlink" title="措施 🚩："></a>措施 🚩：</h4><ol>
+<li><p>技术方案：覆盖内容常犯问题和细节问题、边界问题。</p>
+<p>整个逻辑交互需要用思维导图整理下来，包括边界问题、弱网问题、特殊情况问题。</p>
+</li>
+<li><p>每日总结，早睡早起，饮食规律。</p>
+</li>
+<li><p>使用番茄钟，保持良好的工作状态和合理用脑。</p>
+</li>
+<li><p>每日完成 typescript-challenge 或阅读一篇 typescript 相关文章并整理总结。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/bf4b7844/" title="2021年10-11月工作总结">https://datura35422.github.io/posts/bf4b7844/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/b5a9a427/" rel="prev" title="react系列-React.memo">
+                  <i class="fa fa-chevron-left"></i> react系列-React.memo
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/97c65c57/" rel="next" title="react系列-HOOKS-UseEffect">
+                  react系列-HOOKS-UseEffect <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">707k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:38</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,99 @@
+# 保存为 fix-encoding.ps1 文件，右键以管理员身份运行
+$sourcePath = "D:\projects\blog\source\_posts"  # 修改为你的乱码目录路径
+$originalEncoding = [System.Text.Encoding]::UTF8  # macOS 原始编码
+$targetEncoding = [System.Text.Encoding]::GetEncoding("GBK")  # Windows 兼容编码
+$targetPath = "D:\projects\blog\source\_posts1"
+
+Get-ChildItem -Path $sourcePath -Recurse | Sort-Object -Property FullName -Descending | ForEach-Object {
+    # 将乱码名称按 Windows 错误解析的字节还原为正确 UTF-8 名称
+    $rawBytes = $targetEncoding.GetBytes($_.Name)
+    $correctName = $originalEncoding.GetString($rawBytes)
+    Rename-Item -Path $targetPath -NewName $correctName -Force
+}
+
+# 文件名修复脚本（macOS → Windows 乱码修复）
+# 保存为 fix_macos_to_win_encoding.ps1，右键管理员身份运行
+
+# 配置参数
+$sourcePath = "D:\projects\blog\source\_posts"  # 需修改为实际路径
+$originalEncoding = [System.Text.Encoding]::UTF8  # macOS 使用 UTF-8
+$targetEncoding = [System.Text.Encoding]::GetEncoding("GBK")  # Windows 默认 GBK
+$logFile = Join-Path $sourcePath "rename_log.txt"  # 日志文件路径
+
+# 初始化日志
+"开始时间: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" | Out-File $logFile -Encoding UTF8
+"正在处理目录: $sourcePath" | Out-File $logFile -Append
+
+# 递归处理所有文件和目录（按深度倒序，先处理子项）
+Get-ChildItem -Path $sourcePath -Recurse | Sort-Object -Property FullName -Descending | ForEach-Object {
+    $currentItem = $_
+    try {
+        # 将乱码名称按错误解析的字节还原正确名称
+        $rawBytes = $targetEncoding.GetBytes($currentItem.Name)
+        $correctName = $originalEncoding.GetString($rawBytes)
+
+        # 检测名称是否已正确或无需修改
+        if ($correctName -eq $currentItem.Name) {
+            Write-Host "[跳过] 名称无需修改: $($currentItem.FullName)"
+            "[跳过] $($currentItem.FullName)" | Out-File $logFile -Append
+            return  # 跳过当前项
+        }
+
+        # 检测目标路径是否存在同名文件
+        $newPath = Join-Path $currentItem.Directory.FullName $correctName
+        if (Test-Path $newPath) {
+            Write-Host "[冲突] 目标已存在: $newPath"
+            "[冲突] $newPath" | Out-File $logFile -Append
+            return  # 跳过冲突项
+        }
+
+        # 执行重命名
+        Rename-Item -Path $currentItem.FullName -NewName $correctName -Force -ErrorAction Stop
+        Write-Host "[成功] 重命名: $($currentItem.Name) → $correctName"
+        "[成功] $($currentItem.FullName) → $correctName" | Out-File $logFile -Append
+    }
+    catch {
+        Write-Host "[失败] 错误: $_"
+        "[失败] $($currentItem.FullName) → 错误: $_" | Out-File $logFile -Append
+    }
+}
+
+# 完成提示
+Write-Host "`n处理完成！日志已保存至: $logFile"
+
+
+
+# 增强版脚本：修复残留的 .md 文件名乱码
+$sourcePath = "D:\projects\blog\source\_posts"  # 修改为实际路径
+$originalEncoding = [System.Text.Encoding]::UTF8
+$targetEncoding = [System.Text.Encoding]::GetEncoding("GBK")
+
+Get-ChildItem -Path $sourcePath -Recurse -Filter *.md | ForEach-Object {
+    $currentItem = $_
+    try {
+        # 尝试多种编码转换组合（UTF-8 → GBK 或反向）
+        $rawBytes = $targetEncoding.GetBytes($currentItem.BaseName)  # 仅处理文件名（不含扩展名）
+        $correctBaseName = $originalEncoding.GetString($rawBytes)
+        $correctName = "$correctBaseName.md"  # 强制保留 .md 扩展名
+
+        # 如果直接转换无效，尝试反向操作（GBK → UTF-8）
+        if ($correctName -eq $currentItem.Name) {
+            $rawBytes = $originalEncoding.GetBytes($currentItem.BaseName)
+            $correctBaseName = $targetEncoding.GetString($rawBytes)
+            $correctName = "$correctBaseName.md"
+        }
+
+        # 检测是否需要修改
+        if ($correctName -eq $currentItem.Name) {
+            Write-Host "[跳过] 名称无需修改: $($currentItem.FullName)"
+            return
+        }
+
+        # 执行重命名
+        Rename-Item -Path $currentItem.FullName -NewName $correctName -Force
+        Write-Host "[成功] 已修复: $($currentItem.Name) → $correctName"
+    }
+    catch {
+        Write-Host "[失败] 错误: $_"
+    }
+}

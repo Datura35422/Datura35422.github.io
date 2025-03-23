@@ -27,18 +27,18 @@
 <meta property="og:site_name" content="Wang Wei&#39;s Blog">
 <meta property="og:description" content="Vue官网：https:&#x2F;&#x2F;cn.vuejs.org&#x2F;v2&#x2F;guide&#x2F;installation.html Vue-Cli 官网：https:&#x2F;&#x2F;cli.vuejs.org&#x2F;zh&#x2F;guide&#x2F; 当前文档为2.x版本 理论常见概念">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://datura35422.github.io/vue%E7%89%B9%E7%82%B9.jpg">
-<meta property="og:image" content="https://datura35422.github.io/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/28605/vue%E7%89%B9%E7%82%B9.jpg">
+<meta property="og:image" content="https://datura35422.github.io/posts/28605/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.png">
 <meta property="og:image" content="https://datura35422.github.io/posts/28605/lifecycle.png">
 <meta property="og:image" content="https://datura35422.github.io/posts/28605/transition.jpg">
-<meta property="og:image" content="https://datura35422.github.io/%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93%E6%9B%B4%E6%96%B0.png">
+<meta property="og:image" content="https://datura35422.github.io/posts/28605/%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93%E6%9B%B4%E6%96%B0.png">
 <meta property="article:published_time" content="2019-03-19T02:17:45.000Z">
-<meta property="article:modified_time" content="2021-10-12T04:34:42.000Z">
+<meta property="article:modified_time" content="2025-03-23T18:16:48.088Z">
 <meta property="article:author" content="Wang Wei">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://datura35422.github.io/vue%E7%89%B9%E7%82%B9.jpg">
+<meta name="twitter:image" content="https://datura35422.github.io/posts/28605/vue%E7%89%B9%E7%82%B9.jpg">
 
 
 <link rel="canonical" href="https://datura35422.github.io/posts/28605/">
@@ -171,20 +171,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-count">126</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -265,7 +265,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-12 12:34:42" itemprop="dateModified" datetime="2021-10-12T12:34:42+08:00">2021-10-12</time>
+        <time title="修改时间：2025-03-24 02:16:48" itemprop="dateModified" datetime="2025-03-24T02:16:48+08:00">2025-03-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -326,7 +326,7 @@
 <blockquote>
 <p>没有完全遵循 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/MVVM">MVVM 模型</a>，但是核心思想相同。<a href="https://datura35422.github.io/posts/17715/">MVVM与其他架构模型有什么不同</a></p>
 </blockquote>
-<p><img src="/./vue%E7%89%B9%E7%82%B9.jpg" alt="vue特点"></p>
+<p><img src="/posts/28605/vue%E7%89%B9%E7%82%B9.jpg" alt="vue特点"></p>
 <h5 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h5><h6 id="Runtime-Compiler"><a href="#Runtime-Compiler" class="headerlink" title="Runtime + Compiler"></a>Runtime + Compiler</h6><p>包含编译代码的，可以把编译过程放在运行时做。引用的 <code>vue</code> 版本文件<code>vue.js</code></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 需要编译器</span>
 <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
@@ -356,7 +356,7 @@
 <blockquote>
 <p><code>Object.defineProperty</code> 是 ES5 中一个无法 shim 的特性，这也就是 Vue 不支持 IE8 以及更低版本浏览器的原因。</p>
 </blockquote>
-<p><img src="/./%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.png" alt="响应式原理"></p>
+<p><img src="/posts/28605/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.png" alt="响应式原理"></p>
 <h5 id="检测变化的注意事项"><a href="#检测变化的注意事项" class="headerlink" title="检测变化的注意事项"></a>检测变化的注意事项</h5><p>由于 js 的限制，vue不能检测数组和对象的变化。</p>
 <p>由于 Vue 不允许动态添加根级响应式 property，所以你<strong>必须在初始化实例前声明所有根级响应式 property</strong>，哪怕只是一个空值。</p>
 <h6 id="对于对象"><a href="#对于对象" class="headerlink" title="对于对象"></a>对于对象</h6><p><strong>Vue 无法检测 property 的添加或移除</strong>。由于 Vue 会在初始化时对对象进行 <code>getter / setter</code> 的转化，所以 property 必须在 data 对象上存在才能让 Vue 将它转换为响应式的。</p>
@@ -1062,7 +1062,7 @@ export default &#123;
 </ul>
 <h4 id="描述组件渲染和更新的过程"><a href="#描述组件渲染和更新的过程" class="headerlink" title="描述组件渲染和更新的过程"></a>描述组件渲染和更新的过程</h4><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42072086/article/details/108006061">https://blog.csdn.net/qq_42072086/article/details/108006061</a></p>
 <p>渲染组件时，会通过 Vue.extend 方法构建子组件的构造函数，初始化组件的时候会进行实例化。终手动调用 $mount() 进行组件挂载渲染。更新组件时会进行 patchVnode 流程。核心就是diﬀ算法。</p>
-<p><img src="/./%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93%E6%9B%B4%E6%96%B0.png" alt="组件渲染更新"></p>
+<p><img src="/posts/28605/%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93%E6%9B%B4%E6%96%B0.png" alt="组件渲染更新"></p>
 <h4 id="双向数据绑定v-model的实现原理"><a href="#双向数据绑定v-model的实现原理" class="headerlink" title="双向数据绑定v-model的实现原理"></a>双向数据绑定v-model的实现原理</h4><h4 id="为什么Vue组件中的data要使用function的方式"><a href="#为什么Vue组件中的data要使用function的方式" class="headerlink" title="为什么Vue组件中的data要使用function的方式"></a>为什么Vue组件中的data要使用function的方式</h4><p>参考官网：<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components.html#data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0"><code>data</code> 必须是一个函数</a></p>
 <p><strong>一个组件的 <code>data</code> 选项必须是一个函数</strong>，因此每个实例可以维护一份被返回对象的独立的拷贝。 </p>
 <p>对于组件复用而言，每个组件的data要相互独立，互不影响。如果data是一个对象，多个组件引用的则是同一个内存地址上的对象数据。使用函数返回一个对象，则形成了一个闭包，创建了独立的对象引用地址。</p>
@@ -1182,14 +1182,14 @@ computed: &#123;
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">461k</span>
+    <span title="站点总字数">707k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:48</span>
+    <span title="站点阅读时长">19:38</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
