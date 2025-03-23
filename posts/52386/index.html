@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="Pug(jade)模板引擎。类似于JSP、FreeMarker之类Java相关的模板引擎。Pug(原称是jade)是Nodejs相关的模板引擎，可以和Express进行集成。 类似的Nodejs相关的模板引擎：ejs、art-template、doT、Handlebars、Mustache等 模板引擎通常都是有后端搭配进行数据传输，但是有的时候只需要静态页面不需要后端时，类似Java的模板引擎就不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack系列-pug实战">
+<meta property="og:url" content="https://datura35422.github.io/posts/52386/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="Pug(jade)模板引擎。类似于JSP、FreeMarker之类Java相关的模板引擎。Pug(原称是jade)是Nodejs相关的模板引擎，可以和Express进行集成。 类似的Nodejs相关的模板引擎：ejs、art-template、doT、Handlebars、Mustache等 模板引擎通常都是有后端搭配进行数据传输，但是有的时候只需要静态页面不需要后端时，类似Java的模板引擎就不">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-03T11:41:29.000Z">
+<meta property="article:modified_time" content="2021-09-27T05:34:02.000Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="webpack">
+<meta property="article:tag" content="pug">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/52386/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;52386&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;52386&#x2F;&quot;,&quot;title&quot;:&quot;webpack系列-pug实战&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>webpack系列-pug实战 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pug-jade"><span class="nav-number">1.</span> <span class="nav-text">Pug(jade)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">项目配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">webpack 配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">其他配置</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/52386/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          webpack系列-pug实战
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-03 19:41:29" itemprop="dateCreated datePublished" datetime="2021-04-03T19:41:29+08:00">2021-04-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-27 13:34:02" itemprop="dateModified" datetime="2021-09-27T13:34:02+08:00">2021-09-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/webpack/" itemprop="url" rel="index"><span itemprop="name">webpack</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Pug-jade"><a href="#Pug-jade" class="headerlink" title="Pug(jade)"></a><a target="_blank" rel="noopener" href="https://www.pugjs.cn/api/getting-started.html">Pug(jade)</a></h3><p>模板引擎。类似于JSP、FreeMarker之类Java相关的模板引擎。Pug(原称是jade)是Nodejs相关的模板引擎，可以和Express进行集成。</p>
+<p>类似的Nodejs相关的模板引擎：<a target="_blank" rel="noopener" href="https://github.com/mde/ejs">ejs</a>、<a target="_blank" rel="noopener" href="https://github.com/aui/art-template">art-template</a>、<a target="_blank" rel="noopener" href="https://github.com/olado/doT">doT</a>、<a target="_blank" rel="noopener" href="https://handlebarsjs.com/zh/guide/">Handlebars</a>、<a target="_blank" rel="noopener" href="https://github.com/janl/mustache.js">Mustache</a>等</p>
+<p>模板引擎通常都是有后端搭配进行数据传输，但是有的时候只需要静态页面不需要后端时，类似Java的模板引擎就不好用了。可以在node环境下使用模板引擎可以生成静态页面后发布。</p>
+<p>模板引擎的好处在于可以将重复的代码提出来进行模块化，可以进行灵活的嵌入、继承、扩展等，降低后期维护难度和代码修改工作量。</p>
+<p>主要问题在于数据传值部分。</p>
+<ul>
+<li>可以将数据写在模板里定义常量进行数据取值，但是灵活性不高，如果不同的网站数据相同的样式，需要重新创建文件定义常量。</li>
+<li>可以将数据写在JSON文档中，可以进行单文件或多文件进行命令行编译。</li>
+<li>可以使用webpack进行打包，补充兼容、压缩和优化代码，但是难点在于webpack配置和pug配置，如特殊需要，可能需要编写插件或loader。</li>
+</ul>
+<p>实例代码：<a target="_blank" rel="noopener" href="https://github.com/Datura35422/pug-demo/tree/master/website">https://github.com/Datura35422/pug-demo/tree/master/website</a></p>
+<h4 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h4><p>package.json</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"website"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"jquery"</span><span class="token operator">:</span> <span class="token string">"^3.6.0"</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"@babel/core"</span><span class="token operator">:</span> <span class="token string">"^7.13.10"</span><span class="token punctuation">,</span>
+    <span class="token property">"@babel/preset-env"</span><span class="token operator">:</span> <span class="token string">"^7.13.10"</span><span class="token punctuation">,</span>
+    <span class="token property">"autoprefixer"</span><span class="token operator">:</span> <span class="token string">"^10.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"babel-loader"</span><span class="token operator">:</span> <span class="token string">"^8.2.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"clean-webpack-plugin"</span><span class="token operator">:</span> <span class="token string">"^3.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"copy-webpack-plugin"</span><span class="token operator">:</span> <span class="token string">"^8.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"css-loader"</span><span class="token operator">:</span> <span class="token string">"^5.1.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"css-mqpacker"</span><span class="token operator">:</span> <span class="token string">"^7.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"cssnano"</span><span class="token operator">:</span> <span class="token string">"^4.1.10"</span><span class="token punctuation">,</span>
+    <span class="token property">"file-loader"</span><span class="token operator">:</span> <span class="token string">"^6.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"html-webpack-injector"</span><span class="token operator">:</span> <span class="token string">"^1.1.4"</span><span class="token punctuation">,</span>
+    <span class="token property">"html-webpack-plugin"</span><span class="token operator">:</span> <span class="token string">"^5.3.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"mini-css-extract-plugin"</span><span class="token operator">:</span> <span class="token string">"^1.3.9"</span><span class="token punctuation">,</span>
+    <span class="token property">"postcss-loader"</span><span class="token operator">:</span> <span class="token string">"^5.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"pug-loader"</span><span class="token operator">:</span> <span class="token string">"^2.4.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"url-loader"</span><span class="token operator">:</span> <span class="token string">"^4.1.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"webpack"</span><span class="token operator">:</span> <span class="token string">"^5.26.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"webpack-cli"</span><span class="token operator">:</span> <span class="token string">"^4.5.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"webpack-dev-server"</span><span class="token operator">:</span> <span class="token string">"^3.11.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"webpack-merge"</span><span class="token operator">:</span> <span class="token string">"^5.7.3"</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"npx webpack --config ./build/webpack.build.conf.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"debug"</span><span class="token operator">:</span> <span class="token string">"node --inspect --inspect-brk webpack --config ./build/webpack.build.conf.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"npx webpack-dev-server --open --config ./build/webpack.dev.conf.js"</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"author"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  <span class="token property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span><span class="token punctuation">,</span>
+  <span class="token property">"browserslist"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"> 1%"</span><span class="token punctuation">,</span>
+    <span class="token string">"last 3 version"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="webpack-配置"><a href="#webpack-配置" class="headerlink" title="webpack 配置"></a>webpack 配置</h4><p>webpack.base.conf.js</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// reference https://github.com/vedees/webpack-template-pug &amp; https://github.com/vedees/webpack-template</span>
+
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackInjector <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-injector'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> MiniCssExtractPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mini-css-extract-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> CopyWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'copy-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> CleanWebpackPlugin <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> dataJson <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../src/data/home.json'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Main const</span>
+<span class="token keyword">const</span> <span class="token constant">PATHS</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Path to main app dir</span>
+  <span class="token literal-property property">src</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../src'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment">// Path to Output dir</span>
+  <span class="token literal-property property">dist</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../dist'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Pages const for HtmlWebpackPlugin</span>
+<span class="token keyword">const</span> <span class="token constant">PAGES_DIR</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">PATHS</span><span class="token punctuation">.</span>src<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/pages/</span><span class="token template-punctuation string">`</span></span>
+<span class="token keyword">const</span> <span class="token constant">PAGES</span> <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span><span class="token constant">PAGES_DIR</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">fileName</span> <span class="token operator">=></span> fileName<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">'.pug'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// BASE config</span>
+  <span class="token literal-property property">externals</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">paths</span><span class="token operator">:</span> <span class="token constant">PATHS</span> <span class="token comment">// webpack.dev.conf 中 devServer中会使用</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">entry</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">index</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">PATHS</span><span class="token punctuation">.</span>src<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/js/index.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token literal-property property">index_head</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">PATHS</span><span class="token punctuation">.</span>src<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/js/judegDevice.js</span><span class="token template-punctuation string">`</span></span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">js/[name].[fullhash].js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token constant">PATHS</span><span class="token punctuation">.</span>dist<span class="token punctuation">,</span>
+    <span class="token literal-property property">publicPath</span><span class="token operator">:</span> <span class="token string">'./'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token comment">// 优化</span>
+  <span class="token literal-property property">optimization</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">splitChunks</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">cacheGroups</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">vendor</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'vendors'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">node_modules</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+          <span class="token literal-property property">chunks</span><span class="token operator">:</span> <span class="token string">'all'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">enforce</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">MiniCssExtractPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token comment">// 压缩优化css</span>
+      <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">css/[name].[fullhash].css</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment">// 处理静态文件 将静态引入的文件复制到目标目录下 要与html中的文件引用一样 不然HtmlWebpackPlugin会编译出错</span>
+    <span class="token keyword">new</span> <span class="token class-name">CopyWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">patterns</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">from</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">src/imgs</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+          <span class="token literal-property property">to</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">imgs</span><span class="token template-punctuation string">`</span></span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">from</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">src/favicon.ico</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+          <span class="token literal-property property">to</span><span class="token operator">:</span>  <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">favicon.ico</span><span class="token template-punctuation string">`</span></span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment">// 自动加载模块</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>ProvidePlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token comment">// 其他js文件中使用jquery 进行自动导入</span>
+      <span class="token literal-property property">$</span><span class="token operator">:</span> <span class="token string">'jquery'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">jQuery</span><span class="token operator">:</span> <span class="token string">'jquery'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">jquery</span><span class="token operator">:</span> <span class="token string">'jquery'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Automatic creation any html pages (Don't forget to RERUN dev server)</span>
+    <span class="token comment">// see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files</span>
+    <span class="token comment">// best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best</span>
+    <span class="token operator">...</span><span class="token constant">PAGES</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">page</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">minify</span><span class="token operator">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment">// 压缩</span>
+        <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">PAGES_DIR</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>page<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>page<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.pug</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span class="token string">'.html'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">chunks</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'index'</span><span class="token punctuation">,</span> <span class="token string">'index_head'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">data</span><span class="token operator">:</span> dataJson
+        <span class="token comment">// chunksConfig: &#123;             // Added option</span>
+        <span class="token comment">//   async: ["index_head"],    </span>
+        <span class="token comment">//   defer: ["index"]</span>
+        <span class="token comment">// &#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackInjector</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// js分开注入</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">stats</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">module</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.pug$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">use</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">'pug-loader'</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 配置参考 pug api：https://pugjs.org/zh-cn/api/reference.html</span>
+              <span class="token literal-property property">pretty</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 不压缩html</span>
+              <span class="token literal-property property">self</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token comment">// 局部变量</span>
+            <span class="token punctuation">&#125;</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.js$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">exclude</span><span class="token operator">:</span> <span class="token string">'/node_modules/'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">use</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'babel-loader'</span><span class="token punctuation">]</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(png|jpe?g|gif|svg)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">use</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span> <span class="token comment">// 处理js、css中出现的img</span>
+            <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token comment">// 为css内的图片、文件等外部资源指定一个自定义的公共路径</span>
+              <span class="token function">name</span><span class="token punctuation">(</span><span class="token parameter">resourcePath</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 替换css中的文件名</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'resourcePath: '</span><span class="token punctuation">,</span> resourcePath<span class="token punctuation">)</span>
+                <span class="token keyword">let</span> url <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">relative</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">PATHS</span><span class="token punctuation">.</span>src<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/imgs/</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> path<span class="token punctuation">.</span><span class="token function">dirname</span><span class="token punctuation">(</span>resourcePath<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'/[name].[ext]'</span>
+                url <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'\\'</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> url<span class="token punctuation">;</span>
+              <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">outputPath</span><span class="token operator">:</span> <span class="token string">'imgs'</span><span class="token punctuation">,</span> <span class="token comment">// 输出目录, 如果配置好路径的话可以不用配置</span>
+              <span class="token literal-property property">limit</span><span class="token operator">:</span> <span class="token number">8190</span>
+            <span class="token punctuation">&#125;</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'javascript/auto'</span> <span class="token comment">// webpack v5</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.css$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">use</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">loader</span><span class="token operator">:</span> MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span>
+            <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token comment">// 将 CSS 提取到单独的文件中，为每个包含 CSS 的 JS 文件创建一个 CSS 文件，并且支持 CSS 和 SourceMaps 的按需加载。</span>
+              <span class="token function-variable function">publicPath</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">resourcePath</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> path<span class="token punctuation">.</span><span class="token function">relative</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">dirname</span><span class="token punctuation">(</span>resourcePath<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token constant">PATHS</span><span class="token punctuation">.</span>src<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'/'</span><span class="token punctuation">;</span>
+              <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token string">'css-loader'</span><span class="token punctuation">,</span>
+          <span class="token string">'postcss-loader'</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>webpack.dev.conf.js</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> webpack <span class="token operator">=</span>  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> merge <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-merge'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> baseWebpackConfig <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./webpack.base.conf'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> devWebpackConfig <span class="token operator">=</span> <span class="token function">merge</span><span class="token punctuation">(</span>baseWebpackConfig<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// DEV config</span>
+  <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">devtool</span><span class="token operator">:</span> <span class="token string">'cheap-module-eval-source-map'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">devServer</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">contentBase</span><span class="token operator">:</span> baseWebpackConfig<span class="token punctuation">.</span>externals<span class="token punctuation">.</span>paths<span class="token punctuation">.</span>dist<span class="token punctuation">,</span> <span class="token comment">// 且仅在使用静态资源的时候配置</span>
+    <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">8081</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">open</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">hot</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">hotOnly</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 热更新</span>
+    <span class="token comment">// historyApiFallback: true, // 响应html内容</span>
+    <span class="token literal-property property">overlay</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 编译器警告</span>
+      <span class="token literal-property property">warnings</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">errors</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>SourceMapDevToolPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">'[file].map'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span>devWebpackConfig<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>webpack.build.conf.js</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> merge <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-merge'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> baseWebpackConfig <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./webpack.base.conf'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> buildWebpackConfig <span class="token operator">=</span> <span class="token function">merge</span><span class="token punctuation">(</span>baseWebpackConfig<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// BUILD config</span>
+  <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span>buildWebpackConfig<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h4><p>postcss.config.js</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// autoprefixer - https://github.com/postcss/autoprefixer</span>
+<span class="token comment">// css-mqpacker - https://github.com/hail2u/node-css-mqpacker</span>
+<span class="token comment">// cssnano      - https://github.com/hail2u/node-css-mqpacker</span>
+
+<span class="token comment">// npm install postcss-loader autoprefixer css-mqpacker cssnano --save-dev</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'css-mqpacker'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'cssnano'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">preset</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">'default'</span><span class="token punctuation">,</span> 
+                <span class="token punctuation">&#123;</span>
+                    <span class="token literal-property property">discardComments</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                        <span class="token literal-property property">removeAll</span><span class="token operator">:</span> <span class="token boolean">true</span>
+                    <span class="token punctuation">&#125;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>.babelrc</p>
+<pre class="line-numbers language-none"><code class="language-none">&#123;
+    &quot;presets&quot;: [
+    	&quot;@babel&#x2F;preset-env&quot;
+    ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/52386/" title="webpack系列-pug实战">https://datura35422.github.io/posts/52386/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/webpack/" rel="tag"># webpack</a>
+              <a href="/tags/pug/" rel="tag"># pug</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/4848/" rel="prev" title="高级函数-thunk">
+                  <i class="fa fa-chevron-left"></i> 高级函数-thunk
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/61373/" rel="next" title="2020年工作总结">
+                  2020年工作总结 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">461k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">12:48</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

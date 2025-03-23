@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="一、区别1. 开发前准备    微信小程序 快应用    开发账号准备 （发布前非必需）微信公众平台注册申请微信小程序账号 （发布前非必需）快应用官网注册，需要绑定厂商开发者账号（至少一家）   开发环境 PC端：需要下载微信小程序IDE，进行预览小程序手机端：需要下载微信APP PC端：需要安装10.0+版本的nodejs、hap-toolkit，快应用开发IDE（非必需）手机端：需要下载快应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快应用与微信小程序的区别">
+<meta property="og:url" content="https://datura35422.github.io/posts/45150/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="一、区别1. 开发前准备    微信小程序 快应用    开发账号准备 （发布前非必需）微信公众平台注册申请微信小程序账号 （发布前非必需）快应用官网注册，需要绑定厂商开发者账号（至少一家）   开发环境 PC端：需要下载微信小程序IDE，进行预览小程序手机端：需要下载微信APP PC端：需要安装10.0+版本的nodejs、hap-toolkit，快应用开发IDE（非必需）手机端：需要下载快应用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://doc.quickapp.cn/tutorial/overview/images/join.jpg">
+<meta property="article:published_time" content="2019-05-19T13:11:46.000Z">
+<meta property="article:modified_time" content="2021-05-07T09:09:12.000Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="微信小程序">
+<meta property="article:tag" content="快应用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://doc.quickapp.cn/tutorial/overview/images/join.jpg">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/45150/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;45150&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;45150&#x2F;&quot;,&quot;title&quot;:&quot;快应用与微信小程序的区别&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>快应用与微信小程序的区别 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">一、区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BC%80%E5%8F%91%E5%89%8D%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">1. 开发前准备</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#hap-toolkit%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-number">1.1.1.</span> <span class="nav-text">hap-toolkit安装：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%AB%E5%BA%94%E7%94%A8%E9%A1%B9%E7%9B%AE%E8%B0%83%E8%AF%95%EF%BC%88%E5%AE%89%E8%A3%85rpk%E5%8C%85%EF%BC%89%EF%BC%9A"><span class="nav-number">1.1.2.</span> <span class="nav-text">快应用项目调试（安装rpk包）：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%90%AF%E5%8A%A8HTTP%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E4%B8%BA8000"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1.启动HTTP服务器(默认端口为8000)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E6%89%93%E5%BC%80%E6%89%8B%E6%9C%BA%E6%89%AB%E7%A0%81%E5%AE%89%E8%A3%85%EF%BC%88pc%E7%AB%AF%E5%92%8C%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%9C%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%EF%BC%8C%E5%90%A6%E5%88%99%E7%94%A8USB%E8%BF%9E%E6%8E%A5%EF%BC%89"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">2.打开手机扫码安装（pc端和手机端在同一个局域网内，否则用USB连接）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6"><span class="nav-number">1.2.</span> <span class="nav-text">2. 开发框架</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.2.1.</span> <span class="nav-text">(1)创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BF%AB%E5%BA%94%E7%94%A8%E5%8F%91%E5%B8%83%E5%89%8D%E6%89%93%E5%8C%85"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">快应用发布前打包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0release%E7%AD%BE%E5%90%8D"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">增加release签名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E7%A8%8B%E5%BA%8F%E5%8C%85"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">发布程序包</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">(2)项目结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.2.3.</span> <span class="nav-text">(3)生命周期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E6%A0%B7%E5%BC%8F%E4%B8%8E%E5%B8%83%E5%B1%80"><span class="nav-number">1.2.4.</span> <span class="nav-text">(4)样式与布局</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%85%B6%E4%BB%96"><span class="nav-number">1.3.</span> <span class="nav-text">3.其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">2.</span> <span class="nav-text">二、参考链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/45150/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          快应用与微信小程序的区别
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-05-19 21:11:46" itemprop="dateCreated datePublished" datetime="2019-05-19T21:11:46+08:00">2019-05-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-07 17:09:12" itemprop="dateModified" datetime="2021-05-07T17:09:12+08:00">2021-05-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">整理</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="一、区别"><a href="#一、区别" class="headerlink" title="一、区别"></a>一、区别</h3><h4 id="1-开发前准备"><a href="#1-开发前准备" class="headerlink" title="1. 开发前准备"></a>1. 开发前准备</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>微信小程序</th>
+<th>快应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发账号准备</td>
+<td>（发布前非必需）<br />微信公众平台注册申请微信小程序账号</td>
+<td>（发布前非必需）<br />快应用官网注册，<br />需要绑定厂商开发者账号（至少一家）</td>
+</tr>
+<tr>
+<td>开发环境</td>
+<td>PC端：需要下载微信小程序IDE，进行预览小程序<br />手机端：需要下载微信APP</td>
+<td>PC端：需要安装10.0+版本的nodejs、hap-toolkit，快应用开发IDE（非必需）<br />手机端：需要下载快应用调试器APK，多个快应用需要下载快应用预览版</td>
+</tr>
+<tr>
+<td>开发语言</td>
+<td>wxml、wxss、js脚本、wxs<br /></td>
+<td>html、css、js脚本<br />开发规范与vue相近</td>
+</tr>
+<tr>
+<td>调试预览</td>
+<td>微信小程序IDE中进行预览和调试</td>
+<td>快应用开发IDE中进行预览和调试<br />或在其他IDE中开发完成通过命令行进行编译后使用浏览器打开生成的预览地址，通过浏览器开发者模式进行调试<br />或使用手机连接USB进行预览</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>补充</p>
+</blockquote>
+<p>快应用账号申请流程图</p>
+<p><img src="https://doc.quickapp.cn/tutorial/overview/images/join.jpg" alt="https://doc.quickapp.cn/tutorial/overview/images/join.jpg"></p>
+<h5 id="hap-toolkit安装："><a href="#hap-toolkit安装：" class="headerlink" title="hap-toolkit安装："></a>hap-toolkit安装：</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> hap-toolkit
+hap <span class="token parameter variable">-v</span> // 查看当前版本，安装成功后会有版本号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h5 id="快应用项目调试（安装rpk包）："><a href="#快应用项目调试（安装rpk包）：" class="headerlink" title="快应用项目调试（安装rpk包）："></a>快应用项目调试（安装rpk包）：</h5><h6 id="1-启动HTTP服务器-默认端口为8000"><a href="#1-启动HTTP服务器-默认端口为8000" class="headerlink" title="1.启动HTTP服务器(默认端口为8000)"></a>1.启动HTTP服务器(默认端口为8000)</h6><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>自定义端口</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run server -- <span class="token parameter variable">--port</span> <span class="token number">8888</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h6 id="2-打开手机扫码安装（pc端和手机端在同一个局域网内，否则用USB连接）"><a href="#2-打开手机扫码安装（pc端和手机端在同一个局域网内，否则用USB连接）" class="headerlink" title="2.打开手机扫码安装（pc端和手机端在同一个局域网内，否则用USB连接）"></a>2.打开手机扫码安装（pc端和手机端在同一个局域网内，否则用USB连接）</h6><p>打开手机上的<code>快应用调试器</code> –&gt; 点击<code>扫码安装</code></p>
+<p>扫描启动服务器生成的http链接上的二维码进行安装</p>
+<p>点击<code>在线更新</code>唤起平台运行rpx包</p>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p><strong>快应用</strong>：<a href="mailto:&#x68;&#x61;&#112;&#45;&#116;&#111;&#111;&#x6c;&#107;&#105;&#x74;&#x40;&#x30;&#46;&#x33;">&#x68;&#x61;&#112;&#45;&#116;&#111;&#111;&#x6c;&#107;&#105;&#x74;&#x40;&#x30;&#46;&#x33;</a>及其以后的版本不再支持 NodeJS v8.0 以下的版本)</p>
+<h4 id="2-开发框架"><a href="#2-开发框架" class="headerlink" title="2. 开发框架"></a>2. 开发框架</h4><h5 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="(1)创建项目"></a>(1)创建项目</h5><p><strong>微信小程序</strong>：微信小程序IDE中创建项目</p>
+<p><strong>快应用</strong>：快应用开发IDE中创建项目，或命令行创建初始化项目</p>
+<blockquote>
+<p>快应用项目命令行初始化</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">// 初始化项目
+hap init <span class="token operator">&lt;</span>projectName<span class="token operator">></span>
+// 安装依赖
+<span class="token builtin class-name">cd</span> projectName
+<span class="token function">npm</span> <span class="token function">install</span>
+// 编译项目
+<span class="token function">npm</span> run build
+// 自动编译项目
+<span class="token function">npm</span> run <span class="token function">watch</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>build：临时产出，包含编译后的页面js、图片等</p>
+<p>dist：最终产出，包含rpk文件</p>
+<h6 id="快应用发布前打包"><a href="#快应用发布前打包" class="headerlink" title="快应用发布前打包"></a>快应用发布前打包</h6><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run build<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h6 id="增加release签名"><a href="#增加release签名" class="headerlink" title="增加release签名"></a>增加release签名</h6><p>通过openssl命令等工具生成签名文件<code>private.pem</code>、<code>certificate.pem</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">openssl req <span class="token parameter variable">-newkey</span> rsa:2048 <span class="token parameter variable">-nodes</span> <span class="token parameter variable">-keyout</span> private.pem <span class="token parameter variable">-x509</span> <span class="token parameter variable">-days</span> <span class="token number">3650</span> <span class="token parameter variable">-out</span> certificate.pem<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在工程的 sign 目录下创建 release 目录，将私钥文件 private.pem 和证书文件 certificate.pem 拷贝进去</p>
+<h6 id="发布程序包"><a href="#发布程序包" class="headerlink" title="发布程序包"></a>发布程序包</h6><p>发布程序包前需要<code>增加release签名</code>，然后在工程的根目录下运行</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run release<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>生成的应用路径为/dist/.release.rpk</p>
+<p>如果需要临时使用 debug 签名，可以使用</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run release -- <span class="token parameter variable">--debug</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>注意: debug 签名由于是公开的，安全性无法保证，一定不要使用 debug 签名签发正式上线的应用</p>
+<h5 id="2-项目结构"><a href="#2-项目结构" class="headerlink" title="(2)项目结构"></a>(2)项目结构</h5><p><strong>微信小程序</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">├── pages                     页面文件夹
+│   └── index                 页面文件目录，页面名和文件名相同
+│       ├── index.js          页面脚本逻辑文件，需要和页面名相同
+│       ├── index.json        页面配置文件，需要和页面名相同
+│       ├── index.wxml        页面模板文件，需要和页面名相同
+│       └── index.wxss        页面样式文件，需要和页面名相同
+├── utils
+│   ├── util.js               公用的资源
+├── app.js                    小程序公共脚本逻辑
+├── app.json                  小程序全局配置
+├── app.wxss                  小程序全局样式
+└── package.config.json       小程序工具配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li><p><strong>wxml</strong>文件：由标签、属性等等完成页面结构，类似于<code>html</code>，但有特殊标签、组件和属性</p>
+</li>
+<li><p><strong>wxss</strong>文件：完成页面的样式，具有<code>css</code>大部分的特性，新增了<code>rpx</code>尺寸单位</p>
+</li>
+</ul>
+<p><strong>快应用</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">├── sign                      rpk包签名模块
+│   └── debug                 调试环境
+│       ├── certificate.pem   证书文件
+│       └── private.pem       私钥文件
+├── src                       项目源文件夹
+│   ├── Common                公用的资源和组件文件
+│       └── logo.png          应用图标
+│   ├── Demo                  页面目录
+│       └── index.ux          页面文件，可自定义页面名称
+│   ├── Doc
+│       └── Layout            页面目录，存放各自页面私有的资源文件和组件文件
+│           └── index.ux     页面文件，文件名不必与父文件夹相同（推荐index.ux）
+│   ├── app.ux                APP文件，可引入公共脚本，暴露公共数据和方法等
+│   └── manifest.json         项目配置文件，配置应用图标、页面路由等
+└── package.json              定义项目需要的各种模块及配置信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li><p><strong>sign</strong>：签名模块，当前仅有<code>debug</code>签名，如果内测上线，请添加<code>release</code>文件夹，增加线上签名；签名生成方法详见文档<a target="_blank" rel="noopener" href="https://doc.quickapp.cn/tutorial/overview/use-command.html#%E5%8F%91%E5%B8%83%E5%89%8D%E6%89%93%E5%8C%85">使用命令行，发布前打包</a></p>
+</li>
+<li><p><strong>ux</strong>文件：文件中代码的书写方式类似于<code>vue</code>，<code>&lt;template&gt;</code>标签中写<code>html</code>页面结构，<code>&lt;script&gt;</code>标签中写<code>js</code>逻辑部分，<code>&lt;style&gt;</code>标签中写css样式部分，使用<code>less</code>需要在<code>&lt;style&gt;</code>标签中声明<code>lang=&quot;less&quot;</code></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>微信小程序</th>
+<th>快应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>代码结构</td>
+<td>页面代码是分开的，页面的结构、逻辑和样式在不同的文件中</td>
+<td>页面代码是在一个<code>ux</code>文件中，支持import和require</td>
+</tr>
+<tr>
+<td>页面配置</td>
+<td><code>app.json</code>全局配置和<code>page.json</code>页面配置</td>
+<td><code>manifest.json</code>配置文件中进行全局配置和页面配置</td>
+</tr>
+<tr>
+<td>框架指令</td>
+<td><code>wx:if</code>、<code>wx:elif</code>、<code>wx:else</code>、<code>wx:for</code>、<code>wx:show</code></td>
+<td><code>if</code>、<code>elif</code>、<code>else</code>、<code>for</code>、<code>show</code></td>
+</tr>
+<tr>
+<td>组件</td>
+<td>有模板和自定义组件两种方式<br />引入模板的方式：<code>import</code>和<code>include</code><br />引入组件的方式：在<code>page.json</code>中声明后使用</td>
+<td>有模板和自定义组件两种方式<br />两者都需要使用<code>&lt;import&gt;</code>标签导入后使用</td>
+</tr>
+<tr>
+<td>组件通信</td>
+<td>父组件通过属性的方式将数据传递给子组件<br />子组件的触发事件使用<code>triggerEvent</code>方法传递数据和父组件监听子组件事件传递数据</td>
+<td>父组件通过属性和$broadcast()的方式将数据传递给子组件<br />子组件通过$dispatch()或通过$emit()节点绑定的事件进行通信</td>
+</tr>
+<tr>
+<td>组件样式</td>
+<td><code>:host选择器</code>指定组件所在节点的默认样式<br />组件样式隔离，在<code>options</code>中配置<code>styleIsolation</code>选项</td>
+<td>可以设置css作用域</td>
+</tr>
+<tr>
+<td>事件触发</td>
+<td><code>bind-*</code>属性、<code>catch-*</code>属性绑定响应事件</td>
+<td><code>on-*</code>绑定响应事件</td>
+</tr>
+<tr>
+<td>事件监听</td>
+<td></td>
+<td><code>$on</code> 用于监听自定义事件；<br /><code>$off</code>移除对应的事件监听；<br /><code>$emitElement()</code>完成事件的动态触发</td>
+</tr>
+<tr>
+<td>页面跳转</td>
+<td>通过api进行页面跳转</td>
+<td>使用组件<code>&lt;a&gt;</code>进行跳转，或通过router进行跳转<br /></td>
+</tr>
+<tr>
+<td>API</td>
+<td>可以直接使用api</td>
+<td>需要在配置文件<code>manifest.json</code>中声明后，在页面文件中进行<code>import</code>或<code>require</code>导入才能使用</td>
+</tr>
+<tr>
+<td>async</td>
+<td>原生不支持<code>async</code></td>
+<td>支持使用ES6语法</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p> 相同部分：</p>
+</blockquote>
+<p>数据绑定方式相同，都有<code>&lt;block&gt;</code>组件，动态修改样式方式相同，组件的slot</p>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p><strong>微信小程序</strong>：</p>
+<ul>
+<li>自定义组件中，接受一个 <code>Object</code> 类型的参数。</li>
+</ul>
+<p><strong>快应用</strong>：</p>
+<ul>
+<li><p>自定义变量表示 for 指令的数组索引和数组元素时，变量名不可以用<code>$</code>或<code>_</code>开头。</p>
+</li>
+<li><p>快应用中<code>mainfest.json</code>中<code>widgets</code>为负一屏卡片概念，但是每个厂商的样式和规格不同要有所区别。</p>
+</li>
+<li><p>快应用中有<code>public</code>、<code>protected</code>、<code>private</code>概念，注意不能和data属性同时使用。子组件中只能使用data。子组件中的数据名称避免和父组件中的数据名称相同，可能会父组件覆盖子组件的数据出现错误。</p>
+</li>
+<li><p>if/elif/else 节点必须是相邻的兄弟节点。</p>
+</li>
+<li><p>子组件数据传递属性名称使用驼峰方式定义，父组件传递时使用“-”连接。</p>
+</li>
+<li><p><strong>组件通信</strong>：</p>
+<p><em>父组件向子组件传递数据</em>：父组件通过属性传递数据；父组件通过<code>$broadcast()</code>方式传递数据。</p>
+<p><em>子组件向父组件传递数据</em>：子组件通过<code>$dispatch()</code>完成事件触发，父组件通过<code>$on()</code>绑定的事件并响应（适用于祖孙组件传递数据）；子组件通过<code>$emit()</code>触发在节点上绑定的事件来执行父组件的方法。</p>
+<p><em>双向事件传递</em>：</p>
+<p>向下传递：父组件触发，子组件响应；调用<code>parentVm.$broadcast()</code>完成向下传递，<br>向上传递：子组件触发，父组件响应；调用<code>childVm.$dispath()</code>完成向上传递。</p>
+<p>触发时传递参数，再接收时使用<code>evt.detail</code>来获取参数；</p>
+<p>当传递结束后，可以调用<code>evt.stop()</code>来结束传递。</p>
+</li>
+<li><p>组件<code>a</code>还提供调起电话、短信、邮件的功能和加载网页的能力。</p>
+</li>
+<li><p><code>router</code>使用前需要导入模块<code>import router from &#39;@system.router&#39;</code></p>
+</li>
+<li><p>页面跳转：若希望参数允许被应用外部请求传递的数据覆盖，请在页面的 <code>ViewModel </code>的<code>public</code>属性中声明使用的属性</p>
+</li>
+</ul>
+<h5 id="3-生命周期"><a href="#3-生命周期" class="headerlink" title="(3)生命周期"></a>(3)生命周期</h5><p><strong>微信小程序</strong>：</p>
+<ul>
+<li><p><strong>APP生命周期</strong>：<code>onLaunch</code>、<code>onShow</code>、<code>onHide</code>、<code>onError</code></p>
+</li>
+<li><p><strong>页面生命周期</strong>：<code>onLoad</code>、<code>onReady</code>、<code>onShow</code>、<code>onHide</code>、<code>onUnload</code>、<code>onPullDownRefresh</code>、<code>onReachBottom</code>、<code>onShareAppMessage</code>、<code>onPageScroll</code>、<code>onResize</code>、<code>onTabItemTap</code></p>
+</li>
+</ul>
+<p><strong>快应用</strong>：</p>
+<ul>
+<li><p><strong>APP 的生命周期</strong>：<code>onCreate</code>、<code>onDestroy</code></p>
+</li>
+<li><p><strong>页面的生命周期</strong>：<code>onInit</code>、<code>onReady</code>、<code>onShow</code>、<code>onHide</code>、<code>onDestroy</code>、<code>onBackPress</code>、<code>onMenuPress</code>  </p>
+</li>
+</ul>
+<h5 id="4-样式与布局"><a href="#4-样式与布局" class="headerlink" title="(4)样式与布局"></a>(4)样式与布局</h5><table>
+<thead>
+<tr>
+<th></th>
+<th>微信小程序</th>
+<th>快应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>盒模型</td>
+<td>默认content-box</td>
+<td>框架使用 border-box 模型，<br />暂不支持 content-box 模型与 box-sizing 属性</td>
+</tr>
+<tr>
+<td>长度单位</td>
+<td>rpx: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。<br />1rpx = 0.5px = 1物理像素</td>
+<td>框架目前仅支持长度单位<code>px</code>和<code>%</code>。与传统 web 页面不同，<code>px</code>是相对于<code>项目配置基准宽度</code>的单位，已经适配了移动端屏幕，其原理类似于<code>rem</code><br />设计稿1px / 设计稿基准宽度 = 框架样式1px / 项目配置基准宽度</td>
+</tr>
+<tr>
+<td>选择器</td>
+<td><code>内联样式</code>、<code>tag选择器</code>、<code>class选择器</code>、<code>id选择器</code>、<code>并列选择</code>、<code>:after选择器</code>、<code>:before选择器</code></td>
+<td><code>内联样式</code>、<code>tag选择器</code>、<code>class选择器</code>、<code>id选择器</code>、<code>并列选择</code>、<code>后代选择器</code></td>
+</tr>
+<tr>
+<td>预编译</td>
+<td>不支持预编译</td>
+<td>支持less、postcss，需要相应的环境配置</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p><strong>微信小程序</strong>：开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。在较小的屏幕上不可避免的会有一些毛刺，请在开发时尽量避免这种情况。</p>
+<p><strong>快应用</strong>：<code>项目配置基准宽度</code>：项目的配置文件（<code>&lt;ProjectName&gt;/src/manifest.json</code>）中<code>config.designWidth</code>的值，默认为 750</p>
+<h4 id="3-其他"><a href="#3-其他" class="headerlink" title="3.其他"></a>3.其他</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>微信小程序</th>
+<th>快应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>打开方式</td>
+<td>微信中打开<br />小程序之间跳转<br />微信中服务通知打开</td>
+<td>应用商店打开<br />通过连接从外部打开应用<br />H5 页面中可以通过调用接口跳转到应用（注意兼容）</td>
+</tr>
+<tr>
+<td>分包加载</td>
+<td>同一个分包中的页面享有共同的预下载大小限额 2M，限额会在工具中打包时校验。</td>
+<td>整个快应用的所有分包大小不超过 4M 单个分包/基础包大小不能超过 1M</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p><strong>快应用</strong>：分包注意低版本兼容，推荐采用编译时兼容方式。</p>
+<h3 id="二、参考链接"><a href="#二、参考链接" class="headerlink" title="二、参考链接"></a>二、参考链接</h3><p>微信小程序官网：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/">https://developers.weixin.qq.com/miniprogram/dev/</a></p>
+<p>快应用官网：<a target="_blank" rel="noopener" href="https://doc.quickapp.cn/">https://doc.quickapp.cn/</a></p>
+<p>华为快应用文档：<a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/service/hms/catalog/fastapp.html?page=fastapp_fastapp_api_reference_card">https://developer.huawei.com/consumer/cn/service/hms/catalog/fastapp.html?page=fastapp_fastapp_api_reference_card</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/45150/" title="快应用与微信小程序的区别">https://datura35422.github.io/posts/45150/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag"># 微信小程序</a>
+              <a href="/tags/%E5%BF%AB%E5%BA%94%E7%94%A8/" rel="tag"># 快应用</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/21719/" rel="prev" title="基础系列-less学习-1">
+                  <i class="fa fa-chevron-left"></i> 基础系列-less学习-1
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/58179/" rel="next" title="python学习-1">
+                  python学习-1 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">461k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">12:48</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

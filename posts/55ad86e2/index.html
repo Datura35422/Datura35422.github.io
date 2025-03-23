@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="官网：https:&#x2F;&#x2F;koa.bootcss.com&#x2F; 中间件：https:&#x2F;&#x2F;github.com&#x2F;koajs&#x2F;koa&#x2F;wiki#middleware 学习教程： koa2进阶学习笔记 项目地址：https:&#x2F;&#x2F;github.com&#x2F;Datura35422&#x2F;nodejs-demo-jiudao">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node-koa2入门">
+<meta property="og:url" content="https://datura35422.github.io/posts/55ad86e2/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="官网：https:&#x2F;&#x2F;koa.bootcss.com&#x2F; 中间件：https:&#x2F;&#x2F;github.com&#x2F;koajs&#x2F;koa&#x2F;wiki#middleware 学习教程： koa2进阶学习笔记 项目地址：https:&#x2F;&#x2F;github.com&#x2F;Datura35422&#x2F;nodejs-demo-jiudao">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://datura35422.github.io/%E6%B4%8B%E8%91%B1%E6%A8%A1%E5%9E%8B.png">
+<meta property="article:published_time" content="2021-06-08T03:11:03.000Z">
+<meta property="article:modified_time" content="2021-10-18T16:32:28.000Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="node">
+<meta property="article:tag" content="koa2">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://datura35422.github.io/%E6%B4%8B%E8%91%B1%E6%A8%A1%E5%9E%8B.png">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/55ad86e2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;55ad86e2&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;55ad86e2&#x2F;&quot;,&quot;title&quot;:&quot;node-koa2入门&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>node-koa2入门 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Koa2-%E8%A2%AB%E6%8E%A8%E5%87%BA%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.1.</span> <span class="nav-text">Koa2 被推出的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%8E-express-%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.</span> <span class="nav-text">koa2 与 express  区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#express"><span class="nav-number">1.2.1.</span> <span class="nav-text">express</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#koa2"><span class="nav-number">1.2.2.</span> <span class="nav-text">koa2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.3.</span> <span class="nav-text">使用区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%B4%8B%E8%91%B1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">koa2 中间件洋葱模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#koa2-%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91-koa-compose"><span class="nav-number">1.4.</span> <span class="nav-text">koa2 中间件处理逻辑 koa-compose</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87-base64"><span class="nav-number">2.1.</span> <span class="nav-text">上传图片 base64</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/55ad86e2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          node-koa2入门
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-06-08 11:11:03" itemprop="dateCreated datePublished" datetime="2021-06-08T11:11:03+08:00">2021-06-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-19 00:32:28" itemprop="dateModified" datetime="2021-10-19T00:32:28+08:00">2021-10-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>官网：<a target="_blank" rel="noopener" href="https://koa.bootcss.com/">https://koa.bootcss.com/</a></p>
+<p>中间件：<a target="_blank" rel="noopener" href="https://github.com/koajs/koa/wiki#middleware">https://github.com/koajs/koa/wiki#middleware</a></p>
+<p>学习教程：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chenshenhai/koa2-note">koa2进阶学习笔记</a></p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Datura35422/nodejs-demo-jiudao">https://github.com/Datura35422/nodejs-demo-jiudao</a></p>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><h4 id="Koa2-被推出的原因"><a href="#Koa2-被推出的原因" class="headerlink" title="Koa2 被推出的原因"></a>Koa2 被推出的原因</h4><p>express 和 koa 框架都是相同的作者 TJ 写的。</p>
+<p>express 框架内置了很多中间件，主要面对是企业级开发，底层采用的是 ES5 的方式。</p>
+<p>koa2 出现主要是小而精，没有内置中间件，所以中间件自己安装，底层采用的是 ES7 的方式编写的。</p>
+<p>两个框架的相关 api 大同小异。</p>
+<h4 id="koa2-与-express-区别"><a href="#koa2-与-express-区别" class="headerlink" title="koa2 与 express  区别"></a>koa2 与 express  区别</h4><h5 id="express"><a href="#express" class="headerlink" title="express"></a>express</h5><ol>
+<li>中间件调用呈直线型，即串行。使用 callback 的方式进行调用中间件，next() 函数只能在中间件底部使用，中间件一个一个往下执行。</li>
+<li>基础Connect中间件，自身封装了路由、视图处理等功能。</li>
+<li>弊端是callback回调方式，不可组合、异常不可捕获。</li>
+<li>express 的路由是自身集成的；</li>
+<li>express 采用传统的函数形式 function 进行启动； </li>
+</ol>
+<h5 id="koa2"><a href="#koa2" class="headerlink" title="koa2"></a>koa2</h5><ol>
+<li>中间件呈U型，即“洋葱模型”。使用 Promise 的方式进行顺序调用中间件。所以中间件的 next() 函数可以使用 <code>async / await</code> 的方式进行调用，中间件一层一层往下执行，到达中心后再一层一层往外执行，因此是洋葱模型。</li>
+<li>利用co作为底层运行框架，利用Generator的特性，实现“无回调”的异步处理。</li>
+<li>利用 async 函数、Koa2丢弃回调函数，增强错误处理。</li>
+<li>低级中间件层中提供高级“语法糖”，提高了互操性、稳健性。</li>
+<li>Koa2新增了一个Context对象，用来代替Express的Request和Response，作为请求的上下文对象。  还有Node原生提供的req、res、socket等对象。</li>
+<li>Koa的需要引入中间件Koa-router。</li>
+<li>koa采用new Koa()方式启动；</li>
+</ol>
+<h5 id="使用区别"><a href="#使用区别" class="headerlink" title="使用区别"></a>使用区别</h5><p>参考链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903968041091080">https://juejin.cn/post/6844903968041091080</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>koa(Router = require(‘koa-router’))</th>
+<th>express(假设不使用app.get之类的方法)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始化</td>
+<td>const app = new koa()</td>
+<td>const app = express()</td>
+</tr>
+<tr>
+<td>实例化路由</td>
+<td>const router = Router()</td>
+<td>const router = express.Router()</td>
+</tr>
+<tr>
+<td>app级别的中间件</td>
+<td>app.use</td>
+<td>app.use</td>
+</tr>
+<tr>
+<td>路由级别的中间件</td>
+<td>router.get</td>
+<td>router.get</td>
+</tr>
+<tr>
+<td>路由中间件挂载</td>
+<td>app.use(router.routes())</td>
+<td>app.use(‘/‘, router)</td>
+</tr>
+<tr>
+<td>监听端口</td>
+<td>app.listen(3000)</td>
+<td>app.listen(3000)</td>
+</tr>
+</tbody></table>
+<h4 id="koa2-中间件洋葱模型"><a href="#koa2-中间件洋葱模型" class="headerlink" title="koa2 中间件洋葱模型"></a>koa2 中间件洋葱模型</h4><p><img src="/./%E6%B4%8B%E8%91%B1%E6%A8%A1%E5%9E%8B.png" alt="洋葱模型"></p>
+<h4 id="koa2-中间件处理逻辑-koa-compose"><a href="#koa2-中间件处理逻辑-koa-compose" class="headerlink" title="koa2 中间件处理逻辑 koa-compose"></a>koa2 中间件处理逻辑 koa-compose</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token string">'use strict'</span>
+
+<span class="token comment">/**
+ * Expose compositor.
+ */</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> compose
+
+<span class="token comment">/**
+ * Compose `middleware` returning
+ * a fully valid middleware comprised
+ * of all those which are passed.
+ *
+ * @param &#123;Array&#125; middleware
+ * @return &#123;Function&#125;
+ * @api public
+ */</span>
+
+<span class="token keyword">function</span> <span class="token function">compose</span> <span class="token punctuation">(</span><span class="token parameter">middleware</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 判断中间件数组</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>middleware<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'Middleware stack must be an array!'</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// 遍历 检测 中间件数组中的函数类型</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> fn <span class="token keyword">of</span> middleware<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> fn <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'Middleware must be composed of functions!'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token comment">/**
+   * @param &#123;Object&#125; context
+   * @return &#123;Promise&#125;
+   * @api public
+   */</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// last called middleware #</span>
+    <span class="token comment">// 传入当前内容和下一个中间件函数 闭包记录传入的中间件数组</span>
+    <span class="token comment">// 初始化 index</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">return</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token comment">// 定义 dispatch 函数</span>
+    <span class="token keyword">function</span> <span class="token function">dispatch</span> <span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 如果 当前位置小于等于 index 则表示 next() 重复调用 </span>
+      <span class="token comment">// next 会传入索引值 如果索引值没有改变则表示重复调用</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> index<span class="token punctuation">)</span> <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'next() called multiple times'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token comment">// 记录当前中间件的索引值</span>
+      index <span class="token operator">=</span> i
+      <span class="token comment">// 赋值当前中间件函数</span>
+      <span class="token keyword">let</span> fn <span class="token operator">=</span> middleware<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+      <span class="token comment">// 如果当前位置超出了中间件的最后一个索引 则表示进入到了最里面的中间件 赋值为最里面中间件的next()</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> middleware<span class="token punctuation">.</span>length<span class="token punctuation">)</span> fn <span class="token operator">=</span> next
+      <span class="token comment">// 如果下一个函数不存在 则返回完成状态</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fn<span class="token punctuation">)</span> <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 执行当前函数 将下一个中间件函数赋值给当前中间件next参数</span>
+        <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token function">fn</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token function">dispatch</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>jest 简单的测试用例</p>
+<p>利用事件循环机制，将后续的内容加到微任务队列。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should work'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">const</span> stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token comment">// 中间件 1</span>
+    stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 进入执行中间件2</span>
+        <span class="token keyword">await</span> <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 中间件 2</span>
+    stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 进入执行中间件3</span>
+        <span class="token keyword">await</span> <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 中间件 3</span>
+    stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 已经到洋葱中心 继续向下执行 回到上层中间件</span>
+        <span class="token keyword">await</span> <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">await</span> <span class="token function">compose</span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span>expect<span class="token punctuation">.</span><span class="token function">arrayContaining</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+<p>1-1 koa2导学</p>
+<p>遇到的问题</p>
+<p>Koa框架到底为我们做了什么</p>
+<p>他的内部到底是什么样子</p>
+<p>他向下一直到Nodejs底层，到底是怎么处理事件循环的</p>
+<p>一个异步的HTTP过程，到底是怎么进行的</p>
+<p>技术栈：MongoDB、Puppeteer、AntDesign、Bootstrap、Parcel</p>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><h4 id="上传图片-base64"><a href="#上传图片-base64" class="headerlink" title="上传图片 base64"></a>上传图片 base64</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 教程：https://www.huaweicloud.com/articles/2687012349fabd74e9cc9da11c0ca640.html</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> writeFileSync <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span> Buffer <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'buffer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/koajs/router/blob/master/API.md</span>
+<span class="token keyword">const</span> Router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@koa/router'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/koajs/koa-body</span>
+<span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/koajs/static</span>
+<span class="token keyword">const</span> koaStatic <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-static'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/koajs/cors</span>
+<span class="token comment">// const cors = require('@koa/cors');</span>
+<span class="token keyword">const</span> Crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> SizeOf <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'image-size'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> images <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'images'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// app.use(cors(&#123;</span>
+<span class="token comment">//   'Access-Control-Allow-Methods': 'POST',</span>
+<span class="token comment">//   'Access-Control-Allow-Origin': '*'</span>
+<span class="token comment">// &#125;))</span>
+
+<span class="token keyword">function</span> <span class="token function">_getHash</span><span class="token punctuation">(</span><span class="token parameter">salt <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> Crypto<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'md5'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>salt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">koaStatic</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/img'</span><span class="token punctuation">,</span> 
+  <span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">multipart</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+    <span class="token comment">// https://github.com/node-formidable/formidable</span>
+    <span class="token literal-property property">formidable</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">uploadDir</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./public/uploads'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">keepExtensions</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">hash</span><span class="token operator">:</span> <span class="token string">'sha1'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> file <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>files<span class="token punctuation">.</span>file<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> basename <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">&#123;</span> 
+      <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>ctx<span class="token punctuation">.</span>origin<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/uploads/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>basename<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      <span class="token literal-property property">hash</span><span class="token operator">:</span> file<span class="token punctuation">.</span>hash
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/pixel'</span><span class="token punctuation">,</span> 
+  <span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> data <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body
+    <span class="token comment">// => POST body</span>
+    <span class="token keyword">const</span> pixel <span class="token operator">=</span> data<span class="token punctuation">.</span>pixel
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pixel <span class="token operator">&amp;&amp;</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>pixel<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> sizeOld <span class="token operator">=</span> pixel<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">4</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sizeOld<span class="token punctuation">)</span>
+      <span class="token keyword">const</span> base64 <span class="token operator">=</span> pixel<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">base<span class="token punctuation">,</span> item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">rgba\(([\d]+), ([\d]+), ([\d]+), 255\)</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> match <span class="token operator">=</span> reg<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        match<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            base <span class="token operator">+=</span> String<span class="token punctuation">.</span><span class="token function">fromCharCode</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> base
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// 转图片</span>
+      <span class="token keyword">const</span> buf <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>base64<span class="token punctuation">,</span> <span class="token string">'base64'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> unit <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 返回一个被 string,编码格式是base64(默认编码格式是utf-8)的值初始化的新的 Buffer 实例</span>
+      <span class="token keyword">const</span> salt <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> hash <span class="token operator">=</span> <span class="token function">_getHash</span><span class="token punctuation">(</span>salt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> imgPath <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>hash<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.jpg</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+      <span class="token comment">// 计算图片大小</span>
+      <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> width<span class="token punctuation">,</span> height <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">SizeOf</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
+      <span class="token keyword">const</span> sizeNew <span class="token operator">=</span> width <span class="token operator">*</span> height<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> multiple <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sizeOld <span class="token operator">/</span> sizeNew<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newWidth <span class="token operator">=</span> multiple <span class="token operator">*</span> width<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newHeight <span class="token operator">=</span> multiple <span class="token operator">*</span> height<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newHash <span class="token operator">=</span> <span class="token function">_getHash</span><span class="token punctuation">(</span>salt <span class="token operator">+</span> <span class="token string">'new'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>multiple<span class="token punctuation">,</span> newHeight<span class="token punctuation">,</span> newWidth<span class="token punctuation">)</span>
+
+      <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 用fs写入文件</span>
+        <span class="token keyword">const</span> uploadDir <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">./public/uploads</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>uploadDir<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>imgPath<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> unit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">images</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span>newWidth<span class="token punctuation">,</span> newHeight<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>uploadDir<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>newHash<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.jpg</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>ctx<span class="token punctuation">.</span>origin<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/uploads/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>imgPath<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+          hash
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app
+  <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token function">allowedMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'启动成功: http://localhost:3000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/55ad86e2/" title="node-koa2入门">https://datura35422.github.io/posts/55ad86e2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/node/" rel="tag"># node</a>
+              <a href="/tags/koa2/" rel="tag"># koa2</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/ffce8ba0/" rel="prev" title="常用网站整理">
+                  <i class="fa fa-chevron-left"></i> 常用网站整理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/43953bf1/" rel="next" title="node-项目部署">
+                  node-项目部署 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">461k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">12:48</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

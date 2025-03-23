@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="Vue-Router官网：https:&#x2F;&#x2F;router.vuejs.org&#x2F;zh&#x2F;guide&#x2F; 基础vue-router是什么Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：  嵌套的路由&#x2F;视图表 模块化的、基于组件的路由配置 路由参数、查询、通配符 基于 Vue.js 过渡系统的视图过渡效果 细粒度的导航控">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue系列-vue-router">
+<meta property="og:url" content="https://datura35422.github.io/posts/63840/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="Vue-Router官网：https:&#x2F;&#x2F;router.vuejs.org&#x2F;zh&#x2F;guide&#x2F; 基础vue-router是什么Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：  嵌套的路由&#x2F;视图表 模块化的、基于组件的路由配置 路由参数、查询、通配符 基于 Vue.js 过渡系统的视图过渡效果 细粒度的导航控">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://datura35422.github.io/vur-router%E5%AE%88%E5%8D%AB.jpg">
+<meta property="article:published_time" content="2021-04-12T05:13:23.000Z">
+<meta property="article:modified_time" content="2021-07-01T10:06:16.000Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="vue-router">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://datura35422.github.io/vur-router%E5%AE%88%E5%8D%AB.jpg">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/63840/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;63840&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;63840&#x2F;&quot;,&quot;title&quot;:&quot;vue系列-vue-router&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>vue系列-vue-router | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-router%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">vue-router是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%8C%B9%E9%85%8D"><span class="nav-number">1.3.</span> <span class="nav-text">动态路由匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%8C%B9%E9%85%8D"><span class="nav-number">1.3.1.</span> <span class="nav-text">路径匹配</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#router-link%E7%BB%84%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">router-link组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#router-view%E7%BB%84%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">router-view组件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#matcher"><span class="nav-number">2.2.</span> <span class="nav-text">matcher</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%88%87%E6%8D%A2"><span class="nav-number">2.3.</span> <span class="nav-text">路径切换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E6%9C%89%E5%87%A0%E7%A7%8D%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">路由有几种模式，区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB%E6%B5%81%E7%A8%8B"><span class="nav-number">3.2.</span> <span class="nav-text">完整的导航守卫流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E8%B7%AF%E7%94%B1%E4%BC%A0%E8%BF%87%E6%9D%A5%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">如何获取路由传过来的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%B3%E8%BD%AC"><span class="nav-number">3.4.</span> <span class="nav-text">路由之间的跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Route%E4%B8%8ERouter%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.5.</span> <span class="nav-text">Route与Router的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue%E8%B7%AF%E7%94%B1%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80%E6%96%B0%E7%AA%97%E5%8F%A3"><span class="nav-number">3.6.</span> <span class="nav-text">Vue路由如何打开新窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue-Router-%E5%88%87%E6%8D%A2%E9%A1%B5%E9%9D%A2-%E4%B8%8E-window-location-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.7.</span> <span class="nav-text">Vue-Router 切换页面 与 window.location 的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-history-pushState-%EF%BC%9A"><span class="nav-number">3.7.1.</span> <span class="nav-text">关于 history.pushState ：</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/63840/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vue系列-vue-router
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-12 13:13:23" itemprop="dateCreated datePublished" datetime="2021-04-12T13:13:23+08:00">2021-04-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-01 18:06:16" itemprop="dateModified" datetime="2021-07-01T18:06:16+08:00">2021-07-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Vue-Router官网：<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/">https://router.vuejs.org/zh/guide/</a></p>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="vue-router是什么"><a href="#vue-router是什么" class="headerlink" title="vue-router是什么"></a><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/">vue-router是什么</a></h4><p>Vue Router 是 <a target="_blank" rel="noopener" href="http://cn.vuejs.org/">Vue.js</a> 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建<strong>单页面应用</strong>变得易如反掌。包含的功能有：</p>
+<ul>
+<li>嵌套的路由/视图表</li>
+<li>模块化的、基于组件的路由配置</li>
+<li>路由参数、查询、通配符</li>
+<li>基于 Vue.js 过渡系统的视图过渡效果</li>
+<li>细粒度的导航控制</li>
+<li>带有自动激活的 CSS class 的链接</li>
+<li>HTML5 历史模式或 hash 模式，在 IE9 中自动降级</li>
+<li>自定义的滚动条行为</li>
+</ul>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>模块化方式安装。</p>
+<p>vue-router 依赖包安装 <code>npm install vue-router</code> 后，需要在vue实例上进行挂载。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)</span>
+
+<span class="token comment">// 1. 定义 (路由) 组件。</span>
+<span class="token comment">// 可以从其他文件 import 进来</span>
+<span class="token keyword">const</span> Foo <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token string">'&lt;div>foo&lt;/div>'</span> <span class="token punctuation">&#125;</span>
+<span class="token keyword">const</span> Bar <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token string">'&lt;div>bar&lt;/div>'</span> <span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 2. 定义路由</span>
+<span class="token comment">// 每个路由应该映射一个组件。 其中"component" 可以是</span>
+<span class="token comment">// 通过 Vue.extend() 创建的组件构造器，</span>
+<span class="token comment">// 或者，只是一个组件配置对象。</span>
+<span class="token comment">// 我们晚点再讨论嵌套路由。</span>
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/foo'</span><span class="token punctuation">,</span> <span class="token literal-property property">component</span><span class="token operator">:</span> Foo <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/bar'</span><span class="token punctuation">,</span> <span class="token literal-property property">component</span><span class="token operator">:</span> Bar <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment">// 3. 创建 router 实例，然后传 `routes` 配置</span>
+<span class="token comment">// 你还可以传别的配置参数, 不过先这么简单着吧。</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  routes <span class="token comment">// (缩写) 相当于 routes: routes</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 4. 创建和挂载根实例。</span>
+<span class="token comment">// 记得要通过 router 配置参数注入路由，</span>
+<span class="token comment">// 从而让整个应用都有路由功能</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  router
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 现在，应用已经启动了！</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="动态路由匹配"><a href="#动态路由匹配" class="headerlink" title="动态路由匹配"></a><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%8C%B9%E9%85%8D">动态路由匹配</a></h4><p>当使用路由参数时，例如从 <code>/user/foo</code> 导航到 <code>/user/bar</code>，<strong>原来的组件实例会被复用</strong>。<strong>所以组件的生命周期钩子不会再被调用</strong>。</p>
+<p>复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch (监测变化) <code>$route</code> 对象：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token string">'&lt;div>User&lt;/div>'</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">routes</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// 动态路径参数 以冒号开头</span>
+    <span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/user/:id'</span><span class="token punctuation">,</span> <span class="token literal-property property">component</span><span class="token operator">:</span> User <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>在搭建页面框架时需要注意到这点，复用 <code>pageRouter</code> 和 <code>pageHeader</code></p>
+</blockquote>
+<p>在一个路由中设置多段“路径参数”，对应的值都会设置到 <code>$route.params</code> 中。</p>
+<h5 id="路径匹配"><a href="#路径匹配" class="headerlink" title="路径匹配"></a>路径匹配</h5><p>常规参数只会匹配被 <code>/</code> 分隔的 URL 片段中的字符。如果想匹配<strong>任意路径</strong>，我们可以使用通配符 (<code>*</code>)。</p>
+<p>匹配路径是循环遍历，所以如果前面没有匹配到的路由可以匹配最后的通配符。</p>
+<blockquote>
+<p>当使用<em>通配符</em>路由时，请确保路由的顺序是正确的，也就是说含有<em>通配符</em>的路由应该放在最后。路由 <code>&#123; path: &#39;*&#39; &#125;</code> 通常用于客户端 404 错误。history模式下，需要后端配合或者在 Vue 应用里面覆盖所有的路由情况，然后在给出一个 404 页面。</p>
+</blockquote>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p><strong>以 <code>/</code> 开头的嵌套路径会被当作根路径。</strong> </p>
+<p><strong>参数或查询的改变并不会触发进入/离开的导航守卫</strong>。</p>
+<p><strong>确保 <code>next</code> 函数在任何给定的导航守卫中都被严格调用一次。它可以出现多于一次，但是只能在所有的逻辑路径都不重叠的情况下，否则钩子永远都不会被解析或报错</strong>。</p>
+<h4 id="router-link组件"><a href="#router-link组件" class="headerlink" title="router-link组件"></a><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/api/#router-link">router-link组件</a></h4><p><code>&lt;router-link&gt;</code> 组件支持用户在具有路由功能的应用中 (点击) 导航。 通过 <code>to</code> 属性指定目标地址，默认渲染成带有正确链接的 <code>&lt;a&gt;</code> 标签，可以通过配置 <code>tag</code> 属性生成别的标签.。另外，当目标路由成功激活时，链接元素自动设置一个表示激活的 CSS 类名。</p>
+<p><code>&lt;router-link&gt;</code> 比起写死的 <code>&lt;a href=&quot;...&quot;&gt;</code> 会好一些，理由如下：</p>
+<ul>
+<li>无论是 HTML5 history 模式还是 hash 模式，它的表现行为一致，所以，当你要切换路由模式，或者在 IE9 降级使用 hash 模式，无须作任何变动。</li>
+<li>在 HTML5 history 模式下，<code>router-link</code> 会守卫点击事件，让浏览器不再重新加载页面。</li>
+<li>当你在 HTML5 history 模式下使用 <code>base</code> 选项之后，所有的 <code>to</code> 属性都不需要写 (基路径) 了。</li>
+<li>a 标签会造成页面的强制刷新，需要手动阻止默认行为。</li>
+</ul>
+<p>属性值 props：</p>
+<ul>
+<li>to： 表示目标路由的链接。</li>
+<li>replace：切换路由时使用router.replace</li>
+<li>append：在当前（相对）路径前添加基路径。</li>
+<li>tag：指定 router-link 渲染成其他标签，默认为 a 标签。</li>
+<li>active-class：设置连接激活时使用的 css 类名。默认值可以通过路由的构造选项 linkActiveClass 来全局配置。</li>
+<li>exact：启用“精确匹配模式”。“是否激活”默认类名的依据是包含匹配。</li>
+<li>event：可以用来触发导航的事件。</li>
+<li>exact-active-class：当连接被精确匹配时应激活的 class 样式。默认值可以通过路由构造函数选项 linkExactActiveClass 进行全局配置。</li>
+<li>aria-current-value：当链接根据精确匹配规则激活时配置的 <code>aria-current</code> 的值。这个值应该是 ARIA 规范中<a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#aria-current">允许的 aria-current 的值 (opens new window)</a>。在绝大多数场景下，默认值 <code>page</code> 应该是最合适的。</li>
+</ul>
+<h4 id="router-view组件"><a href="#router-view组件" class="headerlink" title="router-view组件"></a><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/api/#router-view">router-view组件</a></h4><p><code>&lt;router-view&gt;</code> 组件是一个 functional 组件，渲染路径匹配到的视图组件。<code>&lt;router-view&gt;</code> 渲染的组件还可以内嵌自己的 <code>&lt;router-view&gt;</code>，根据嵌套路径，渲染嵌套组件。</p>
+<p>其他属性 (非 router-view 使用的属性) 都直接传给渲染的组件， 很多时候，每个路由的数据都是包含在路由参数中。</p>
+<p>因为它也是个组件，所以可以配合 <code>&lt;transition&gt;</code> 和 <code>&lt;keep-alive&gt;</code> 使用。如果两个结合一起用，要确保在内层使用 <code>&lt;keep-alive&gt;</code>：</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;transition&gt;
+  &lt;keep-alive&gt;
+    &lt;router-view&gt;&lt;&#x2F;router-view&gt;
+  &lt;&#x2F;keep-alive&gt;
+&lt;&#x2F;transition&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>设置<strong>命名视图</strong>，可以在同一个组件中使用多个 <code>router-view</code> 组件。</p>
+<p>一个视图使用一个组件渲染，因此对于同个路由，多个视图就需要多个组件。确保正确使用 <code>components</code> 配置 (带上 s)：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">routes</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">default</span><span class="token operator">:</span> Foo<span class="token punctuation">,</span>
+        <span class="token literal-property property">a</span><span class="token operator">:</span> Bar<span class="token punctuation">,</span>
+        <span class="token literal-property property">b</span><span class="token operator">:</span> Baz
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>route 是响应式的，路由发生了变化会改变 app.route 响应 route 的 setter 导致 router-view 组件的 render 函数。</p>
+</blockquote>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>Vue-Router 的 install 方法会给每一个组件注入 beforeCreated 和 destroyed 钩子函数，在 beforeCreated 做一些私有属性定义和路由初始化工作。</p>
+<p>路由初始化的时机是在组件的初始化阶段，执行到 beforeCreate 钩子函数的时候会执行 router.init 方法。然后又会执行 history.transitionTo 方法做路由过渡</p>
+<h4 id="matcher"><a href="#matcher" class="headerlink" title="matcher"></a>matcher</h4><p>createMatcher 的初始化就是根据路由的配置描述创建映射表，包括路径、名称到路由 record 的映射关系。</p>
+<p>match 会根据传入的位置和路径计算出新的位置，并匹配到对应的路由record，然后根据新的位置和 record 创建新的路径并返回。</p>
+<h4 id="路径切换"><a href="#路径切换" class="headerlink" title="路径切换"></a>路径切换</h4><p>路由始终会维护当前的线路，路由切换的时候会把当前线路切换到目标线路，切换过程中会执行一系列的导航守卫钩子函数，会更改url，同样也会渲染对应的组件，切换完毕后会把目标线路更新替换当前线路，这样就会作为下一次的路径切换的依据。</p>
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><p>**参考：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903961745440775">Vue-Router面试题汇总 - 掘金</a></p>
+<h4 id="路由有几种模式，区别"><a href="#路由有几种模式，区别" class="headerlink" title="路由有几种模式，区别"></a>路由有几种<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/api/#mode">模式</a>，区别</h4><ul>
+<li><strong>hash模式</strong>：使用 URL hash 值来作路由。支持所有浏览器，包括不支持 HTML5 History Api 的浏览器。例<a target="_blank" rel="noopener" href="http://www.abc.com/#/index%EF%BC%8Chash%E5%80%BC%E4%B8%BA#/index%EF%BC%8C">http://www.abc.com/#/index，hash值为#/index，</a> hash的改变会触发hashchange事件，通过监听hashchange事件来完成操作实现前端路由。hash值变化不会让浏览器向服务器请求。主要使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location"><code>window.location</code></a> 方式进行页面跳转，如<code>window.location.assign()</code>、<code>window.location.replace()</code>。</li>
+<li><strong>history模式</strong>：依赖 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/History_API">HTML5 History API</a> 和服务器配置。没有<code>#</code>，路由地址跟正常的url一样，但是初次访问或者刷新都会向服务器请求，如果没有请求到对应的资源就会返回404，所以路由地址匹配不到任何静态资源，则应该返回同一个index.html 页面，需要在nginx中配置。页面路径操作为<code>history api</code>的方式，如<code>history.pushState()</code>、<code>history.replaceState()</code></li>
+<li><strong>abstract模式</strong>：支持所有 JavaScript 运行环境，如 Node.js 服务器端。<strong>如果发现没有浏览器的 API，路由会自动强制进入这个模式。</strong></li>
+</ul>
+<h4 id="完整的导航守卫流程"><a href="#完整的导航守卫流程" class="headerlink" title="完整的导航守卫流程"></a><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%AE%8C%E6%95%B4%E7%9A%84%E5%AF%BC%E8%88%AA%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B">完整的导航守卫流程</a></h4><ul>
+<li>导航被触发。</li>
+<li>如果不是首次加载页面，在失活的组件里调用<strong>组件内</strong>离开钩子<code>beforeRouteLeave(to,from,next)</code>。</li>
+<li>调用<strong>全局</strong>前置守卫<code>beforeEach((to,from,next) =&gt; &#123;&#125; )</code>，可以改变导航本身。守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于 <strong>等待中</strong>。</li>
+<li>在重用的组件里调用<strong>组件内</strong>的更新守卫 <code>beforeRouteUpdate(to,from,next)</code> 。</li>
+<li>在路由配置里调用<strong>路由独享</strong>的守卫<code>beforeEnter(to,from,next)</code>，在配置路由时定义。</li>
+<li>解析异步路由组件。</li>
+<li>在被激活的组件里调用<strong>组件内</strong>的前置钩子 <code>beforeRouteEnter(to,from,next)</code>，此时不能访问 this ，因为守卫在导航确认前被调用，因此即将登场的新组件还没被创建，可以设置 next 回调来访问组件实例。</li>
+<li>在所有组件内守卫和异步路由组件被解析之后调用<strong>全局</strong>解析守 <code>beforeResolve((to,from,next) =&gt; &#123;&#125; )</code>。</li>
+<li>导航被确认。</li>
+<li>调用<strong>全局</strong>后置钩子<code>afterEach((to,from) =&gt; &#123;&#125; )</code>，不会改变导航本身。</li>
+<li>触发 DOM 更新，执行 vue 组件的生命周期，组件创建挂载后。</li>
+<li>用创建好的实例调用<strong>组件内</strong>的前置钩子 <code>beforeRouteEnter</code> 中传给 next 的回调函数。</li>
+</ul>
+<p>图示为首次渲染进入页面的调用顺序。</p>
+<p><img src="/./vur-router%E5%AE%88%E5%8D%AB.jpg" alt="vur-router守卫"></p>
+<h4 id="如何获取路由传过来的参数"><a href="#如何获取路由传过来的参数" class="headerlink" title="如何获取路由传过来的参数"></a>如何获取路由传过来的参数</h4><ul>
+<li>router配置参数meta：如<code>this.$route.meta.title</code></li>
+<li>url上携带的参数query：使用 path 和 query 配合传参。如浏览器地址：<code>http://localhost:8036/home?userId=123</code> 获取方式：<code>this.$route.query.userId</code></li>
+<li>params传参：使用 name 和 params 配合传参。<code>router.push(&#123; name: &#39;user&#39;, params: &#123; userId: &#39;123&#39; &#125;&#125;)</code> 获取参数：<code>this.$route.params.userId</code></li>
+<li>在配置router时，设置props属性，可以在组件的props中获取：<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/passing-props.html#%E5%B8%83%E5%B0%94%E6%A8%A1%E5%BC%8F">props方式</a></li>
+</ul>
+<h4 id="路由之间的跳转"><a href="#路由之间的跳转" class="headerlink" title="路由之间的跳转"></a>路由之间的跳转</h4><ul>
+<li>声明式：通过使用内置组件<code>&lt;router-link :to=&quot;/home&quot;&gt;</code>来跳转</li>
+<li>编程式：通过调用router实例的push方法<code>router.push(&#123; path: &#39;/home&#39; &#125;)</code>或 replace 方法<code>router.replace(&#123; path: &#39;/home&#39; &#125;)</code></li>
+</ul>
+<h4 id="Route与Router的关系"><a href="#Route与Router的关系" class="headerlink" title="Route与Router的关系"></a>Route与Router的关系</h4><ul>
+<li><strong>route</strong>是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name等路由信息参数。 </li>
+<li><strong>router</strong>是“路由实例对象”，包括了路由的跳转方法，钩子函数等。</li>
+</ul>
+<h4 id="Vue路由如何打开新窗口"><a href="#Vue路由如何打开新窗口" class="headerlink" title="Vue路由如何打开新窗口"></a>Vue路由如何打开新窗口</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> xxx<span class="token punctuation">,</span><span class="token comment">//路由地址</span>
+    <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+       <span class="token literal-property property">mid</span><span class="token operator">:</span> data<span class="token punctuation">.</span>id<span class="token comment">//可以带参数</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">&#123;</span>href<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>href<span class="token punctuation">,</span> <span class="token string">'_blank'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="Vue-Router-切换页面-与-window-location-的区别"><a href="#Vue-Router-切换页面-与-window-location-的区别" class="headerlink" title="Vue-Router 切换页面 与 window.location 的区别"></a>Vue-Router 切换页面 与 <code>window.location</code> 的区别</h4><p>要区分路由导航的方式。</p>
+<table>
+<thead>
+<tr>
+<th>router导航方式</th>
+<th>hash模式</th>
+<th>history模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>router.replace(…)</td>
+<td>window.location.replace(…)</td>
+<td>history.replaceState(…)</td>
+</tr>
+<tr>
+<td>router.push(…)</td>
+<td>window.location.hash(…)</td>
+<td>history.pushState(…)</td>
+</tr>
+<tr>
+<td>router.go(n)</td>
+<td>window.history.go(<em>n</em>)</td>
+<td>window.history.go(<em>n</em>)</td>
+</tr>
+<tr>
+<td>事件监听</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/hashchange_event">hashchange</a></td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/WindowEventHandlers/onpopstate">popstate</a></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>在支持window.history的情况下，hash模式也是使用history模式的api操作，如果history.pushState失败会使用window.location.assign(…)处理异常。回退事件会触发 popstate 事件监听。</p>
+<p>不支持 window.history 的情况下，hash模式则会使用 window.location 方式进行操作 url，回退事件会触发 hashchange 事件监听。</p>
+</blockquote>
+<p>本质上就是问 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/History_API"><code>window.history</code></a> 与 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location"><code>window.location</code></a> 的区别。 </p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/History_API#pushstate_%E6%96%B9%E6%B3%95%E7%9A%84%E4%BE%8B%E5%AD%90"><strong>history.pushState(…)</strong></a>：调用 <code>pushState()</code> 后浏览器并不会立即加载这个URL，但可能会在稍后某些情况下加载这个URL，比如在用户重新打开浏览器时，后退时。新URL不必须为绝对路径。如果新URL是相对路径，那么它将被作为相对于当前URL处理。新URL必须与当前URL同源，否则 <code>pushState()</code> 会抛出一个异常。该参数是可选的，缺省为当前URL。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span><span class="token function-variable function">onpopstate</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">let</span> stateObj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">foo</span><span class="token operator">:</span> <span class="token string">"bar"</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span>stateObj<span class="token punctuation">,</span> <span class="token string">"page 2"</span><span class="token punctuation">,</span> <span class="token string">"bar.html"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 假如现在用户在bar.html点击了返回按钮，将会执行alert(2)。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>window.location</strong>：只要赋给 location 对象一个新值，文档就会使用新的 URL 加载，就好像使用修改后的 URL 调用了  <code>window.location.assign()</code> 一样。需要注意的是，安全设置，如 CORS（跨域资源共享），可能会限制实际加载新页面。<strong>会立即触发 <code>popstate</code> 或 <code>hashchange</code>监听</strong>。</p>
+<blockquote>
+<p><code>window.location.href</code>、<code>window.location.hash</code> 的操作结果和<code>window.location</code>一致。</p>
+</blockquote>
+<p>在某种意义上，调用 <code>pushState()</code> 与 设置 <code>window.location = &quot;#foo&quot;</code> 类似，二者都会在当前页面创建并激活新的历史记录。但 <code>pushState()</code> 具有如下几条优点：</p>
+<ul>
+<li>新的 URL 可以是与当前URL同源的任意URL 。相反，只有在修改哈希时，设置 <code>window.location</code> 才能是同一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document"><code>document</code></a>。</li>
+<li>如果你不想改URL，就不用改。相反，设置 <code>window.location = &quot;#foo&quot;;</code>在当前哈希不是 <code>#foo</code> 时， 才能创建新的历史记录项。</li>
+<li>你可以将任意数据和新的历史记录项相关联。而基于哈希的方式，要把所有相关数据编码为短字符串。 </li>
+<li>如果 <code>title</code>参数，随后还会被浏览器所用到，那么这个数据是可以被使用的（哈希则不是）。</li>
+</ul>
+<p>注意 <code>pushState()</code> 绝对不会触发 <code>hashchange</code> 事件，即使新的URL与旧的URL仅哈希不同也是如此。</p>
+<blockquote>
+<p>调用<code>history.pushState()</code>或者<code>history.replaceState()</code>不会触发popstate事件. <code>popstate</code>事件只会在浏览器某些行为下触发, 比如点击后退、前进按钮(或者在JavaScript中调用<code>history.back()、history.forward()、history.go()</code>方法)，此外，a 标签的锚点也会触发该事件.</p>
+</blockquote>
+<p><strong>如果vue项目是单页面项目，其实router操作只是组件的显隐，所以不是真正的页面跳转。如果使用页面跳转会耗费更多的性能去加载渲染页面。</strong></p>
+<p>vue-router 跳转原理类似于 pjax (pushState + ajax) 都使用了history state API。</p>
+<h5 id="关于-history-pushState-："><a href="#关于-history-pushState-：" class="headerlink" title="关于 history.pushState ："></a>关于 history.pushState ：</h5><p>更多阅读：<a target="_blank" rel="noopener" href="https://blog.csdn.net/helloxiaoliang/article/details/73850428">https://blog.csdn.net/helloxiaoliang/article/details/73850428</a></p>
+<p>在浏览器中改变地址栏url，将会触发页面资源的重新加载，这使得我们可以在不同的页面间进行跳转，得以浏览不同的内容。但随着单页应用的增多，越来越多的网站采用ajax来加载资源。因为异步加载的特性，地址栏上的资源路径没有被改变，随之而来的问题就是页面的状态无法被保存。这导致我们难以通过熟悉的方式（点击浏览器前进/后退按钮），在前后的页面状态间进行切换。 </p>
+<p>为了解决ajax页面状态不能返回的问题，人们想出了一些曲线救国的方法，比如利用浏览器hash的特性，将新的资源路径伪装成锚点，通过<code>onhashchange</code>事件来改变状态，同时又避免了浏览器刷新。但这样始终显得有些hack。 </p>
+<p>现在HTML5规范为 <code>window.history</code>引入了两个新api，<code>pushState</code> 和 <code>replaceState</code>，我们可以使用它很方便的达到改变url不重载页面的目的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/63840/" title="vue系列-vue-router">https://datura35422.github.io/posts/63840/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/vue/" rel="tag"># vue</a>
+              <a href="/tags/vue-router/" rel="tag"># vue-router</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/9396/" rel="prev" title="基础系列-垃圾回收机制">
+                  <i class="fa fa-chevron-left"></i> 基础系列-垃圾回收机制
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/50505/" rel="next" title="工具函数系列-千位符格式化处理">
+                  工具函数系列-千位符格式化处理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">461k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">12:48</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

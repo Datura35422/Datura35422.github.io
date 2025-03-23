@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;datura35422.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12,&quot;onmobile&quot;:false},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="策略模式策略模式：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。 一个基于策略模式的程序至少由两个部分组成。 第一个部分是一组策略类，策略类封装了具体的算法，并负责具体的计算过程。 第二个部分是环境类 Context，Context 接受客户的请求，随后把请求委托给某一个策略类。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式-策略模式">
+<meta property="og:url" content="https://datura35422.github.io/posts/ea641220/index.html">
+<meta property="og:site_name" content="Wang Wei&#39;s Blog">
+<meta property="og:description" content="策略模式策略模式：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。 一个基于策略模式的程序至少由两个部分组成。 第一个部分是一组策略类，策略类封装了具体的算法，并负责具体的计算过程。 第二个部分是环境类 Context，Context 接受客户的请求，随后把请求委托给某一个策略类。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-30T10:34:57.000Z">
+<meta property="article:modified_time" content="2022-02-16T05:25:16.000Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="工具函数">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://datura35422.github.io/posts/ea641220/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;datura35422.github.io&#x2F;posts&#x2F;ea641220&#x2F;&quot;,&quot;path&quot;:&quot;posts&#x2F;ea641220&#x2F;&quot;,&quot;title&quot;:&quot;设计模式-策略模式&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>设计模式-策略模式 | Wang Wei's Blog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wang Wei's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fas fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fas fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">策略模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%A5%96%E9%87%91"><span class="nav-number">2.1.</span> <span class="nav-text">计算奖金</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%A5%96%E9%87%91"><span class="nav-number">2.1.1.</span> <span class="nav-text">使用策略模式计算奖金</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F%E6%94%B9%E5%86%99"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用对象的方式改写</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E7%94%BB"><span class="nav-number">2.2.</span> <span class="nav-text">动画</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%93%E5%8A%A8%E5%8A%A8%E7%94%BB"><span class="nav-number">2.2.1.</span> <span class="nav-text">缓动动画</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Animate-%E7%B1%BB"><span class="nav-number">2.2.2.</span> <span class="nav-text">Animate 类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C"><span class="nav-number">2.3.</span> <span class="nav-text">表单校验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5"><span class="nav-number">4.</span> <span class="nav-text">应用与实践</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wang Wei"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Wang Wei</p>
+  <div class="site-description" itemprop="description">Stay hungry, stay foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Datura35422" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Datura35422" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangwei35422@163.com" title="E-Mail → mailto:wangwei35422@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Datura35422" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://datura35422.github.io/posts/ea641220/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wang Wei">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Wei's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计模式-策略模式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-30 18:34:57" itemprop="dateCreated datePublished" datetime="2022-01-30T18:34:57+08:00">2022-01-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-16 13:25:16" itemprop="dateModified" datetime="2022-02-16T13:25:16+08:00">2022-02-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p><strong>策略模式</strong>：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。</p>
+<p>一个基于策略模式的程序至少由两个部分组成。</p>
+<p>第一个部分是一组策略类，策略类封装了具体的算法，并负责具体的计算过程。</p>
+<p>第二个部分是环境类 Context，Context 接受客户的请求，随后把请求委托给某一个策略类。</p>
+<p>Context 中要维持对某个策略对象的引用。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="计算奖金"><a href="#计算奖金" class="headerlink" title="计算奖金"></a>计算奖金</h4><h5 id="使用策略模式计算奖金"><a href="#使用策略模式计算奖金" class="headerlink" title="使用策略模式计算奖金"></a>使用策略模式计算奖金</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 先把每种绩效的计算规则都封装在对应的策略类里面</span>
+<span class="token keyword">var</span> <span class="token function-variable function">performanceS</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+performanceS<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">calculate</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">salary</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> salary <span class="token operator">*</span> <span class="token number">4</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">var</span> <span class="token function-variable function">performanceA</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+performanceA<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">calculate</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">salary</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> salary <span class="token operator">*</span> <span class="token number">3</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">var</span> <span class="token function-variable function">performanceB</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+performanceB<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">calculate</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">salary</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> salary <span class="token operator">*</span> <span class="token number">2</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 奖金类Bonus</span>
+<span class="token keyword">var</span> <span class="token function-variable function">Bonus</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>salary <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// 原始工资</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>strategy <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// 绩效等级对应的策略对象</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token class-name">Bonus</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">setSalary</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">salary</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>salary <span class="token operator">=</span> salary <span class="token comment">// 设置员工的原始工资</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token class-name">Bonus</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">setSrategy</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">strategy</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>strategy <span class="token operator">=</span> strategy <span class="token comment">// 设置员工绩效等级对应的策略对象</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 取得奖金数额</span>
+<span class="token class-name">Bonus</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">getBonus</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>strategy<span class="token punctuation">.</span><span class="token function">calculate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>salary<span class="token punctuation">)</span> <span class="token comment">// 把计算奖金的操作委托给对应的策略对象</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 计算奖金</span>
+<span class="token keyword">var</span> bonus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Bonus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+bonus<span class="token punctuation">.</span><span class="token function">setSalary</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span>
+bonus<span class="token punctuation">.</span><span class="token function">setSrategy</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">performanceS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 设置策略对象</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'performanceS'</span><span class="token punctuation">,</span> bonus<span class="token punctuation">.</span><span class="token function">getBonus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 获取奖金</span>
+bonus<span class="token punctuation">.</span><span class="token function">setSrategy</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">performanceA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 替换策略对象</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'performanceA'</span><span class="token punctuation">,</span> bonus<span class="token punctuation">.</span><span class="token function">getBonus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>策略模式的实现</strong>：定义一系列的算法，把它们各自封装成策略类，算法被封装在策略类内部的方法里。在客户对Context发起请求的时候，Context总是把请求委托给这些策略对象中间的某一个进行计算。</p>
+<p>使用策略模式之后，代码变得更加清晰，各个类的职责更加鲜明。</p>
+<h5 id="使用对象的方式改写"><a href="#使用对象的方式改写" class="headerlink" title="使用对象的方式改写"></a>使用对象的方式改写</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 对象改写</span>
+<span class="token keyword">var</span> strategies <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">S</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">salary</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> salary <span class="token operator">*</span> <span class="token number">4</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">A</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">salary</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> salary <span class="token operator">*</span> <span class="token number">3</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">B</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">salary</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> salary <span class="token operator">*</span> <span class="token number">2</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> <span class="token function-variable function">calculateBonus</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">level<span class="token punctuation">,</span> salary</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> strategies<span class="token punctuation">[</span>level<span class="token punctuation">]</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'calculateBonus S'</span><span class="token punctuation">,</span> <span class="token function">calculateBonus</span><span class="token punctuation">(</span><span class="token string">'S'</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'calculateBonus A'</span><span class="token punctuation">,</span> <span class="token function">calculateBonus</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><h5 id="缓动动画"><a href="#缓动动画" class="headerlink" title="缓动动画"></a>缓动动画</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 缓动动画</span>
+<span class="token comment">// 参数的含义分别是动画已消耗的时间、小球原始位置、小球目标位置、动画持续的总时间</span>
+<span class="token comment">// 返回的值则是动画元素应该处在的当前位置</span>
+<span class="token keyword">var</span> tween <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">linear</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">t<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> c <span class="token operator">*</span> t <span class="token operator">/</span> d <span class="token operator">+</span> b
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">easeIn</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">t<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> c <span class="token operator">*</span> <span class="token punctuation">(</span>t <span class="token operator">/=</span> d<span class="token punctuation">)</span> <span class="token operator">*</span> t <span class="token operator">+</span> b
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">strongEaseIn</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">t<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> c <span class="token operator">*</span> <span class="token punctuation">(</span>t <span class="token operator">/=</span> d<span class="token punctuation">)</span> <span class="token operator">*</span> t <span class="token operator">*</span> t <span class="token operator">*</span> t <span class="token operator">*</span> t <span class="token operator">+</span> b
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">strongEaseOut</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">t<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> c <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>t <span class="token operator">=</span> t <span class="token operator">/</span> d <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> t <span class="token operator">*</span> t <span class="token operator">*</span> t <span class="token operator">*</span> t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> b
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">sineaseIn</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">t<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> c <span class="token operator">*</span> <span class="token punctuation">(</span>t <span class="token operator">/=</span> d<span class="token punctuation">)</span> <span class="token operator">*</span> t <span class="token operator">*</span> t <span class="token operator">+</span> b
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">sineaseOut</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">t<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> c <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>t <span class="token operator">=</span> t <span class="token operator">/</span> d <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> t <span class="token operator">*</span> t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> b
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="Animate-类"><a href="#Animate-类" class="headerlink" title="Animate 类"></a>Animate 类</h5><p>利用这个动画类和一些缓动算法就可以让小球运动起来。</p>
+<p>使用策略模式把算法传入动画类中，来达到各种不同的缓动效果，这些算法都可以轻易地被替换为另外一个算法，这是策略模式的经典运用之一。</p>
+<p>策略模式的实现并不复杂，关键是如何从策略模式的实现背后，找到封装变化、委托和多态性这些思想的价值。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// Animate类</span>
+<span class="token keyword">var</span> <span class="token function-variable function">Animate</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">dom</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>dom <span class="token operator">=</span> dom <span class="token comment">// 进行运动的dom节点</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>startTime <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// 动画开始时间</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>startPos <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// 动画开始时, dom节点的位置,即dom的初始位置</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>endPos <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// 动画结束时,dom节点的位置,即dom的目标位置</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>propertyName <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// dom节点需要被改变的css属性名</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>easing <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// 缓动算法</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>duration <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// 动画持续时间</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 动画启动,需要记录一些信息,供缓动算法在以后计算小球当前位置的时候使用</span>
+<span class="token class-name">Animate</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">start</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">propertyName<span class="token punctuation">,</span> endPos<span class="token punctuation">,</span> duration<span class="token punctuation">,</span> easing</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>startTime <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span> <span class="token comment">// 动画启动时间</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>startPos <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>dom<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>propertyName<span class="token punctuation">]</span> <span class="token comment">// dom节点初始位置</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>propertyName <span class="token operator">=</span> propertyName <span class="token comment">// dom节点需要被改变的CSS属性名</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>endPos <span class="token operator">=</span> endPos <span class="token comment">// dom节点目标</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>duration <span class="token operator">=</span> duration <span class="token comment">// 动画持续时间</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>easing <span class="token operator">=</span> tween<span class="token punctuation">[</span>easing<span class="token punctuation">]</span> <span class="token comment">// 缓动算法</span>
+
+  <span class="token keyword">var</span> self <span class="token operator">=</span> <span class="token keyword">this</span>
+  <span class="token comment">// 启动定时器,开始执行动画</span>
+  <span class="token keyword">var</span> timeId <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span><span class="token function">step</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果动画已结束,则清除定时器</span>
+      <span class="token function">clearInterval</span><span class="token punctuation">(</span>timeId<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 设置动画每一帧需要做的事情</span>
+<span class="token class-name">Animate</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">step</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span> <span class="token comment">// 取得当前时间</span>
+  <span class="token comment">// 如果当前事件大于动画开始时间加上动画持续时间之和,说明动画已经结束,此时需要修正小球的位置</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">>=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>startTime <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>duration<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>endPos<span class="token punctuation">)</span> <span class="token comment">// 更新小球的CSS属性值</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token comment">// start函数清除定时器</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">var</span> pos <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">easing</span><span class="token punctuation">(</span>t <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>startTime<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>startPos<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>endPos <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>startPos<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>duration<span class="token punctuation">)</span>
+  <span class="token comment">// pos为小球当前位置</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>pos<span class="token punctuation">)</span> <span class="token comment">// 更新小球的CSS属性值</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 更新小球CSS属性值</span>
+<span class="token class-name">Animate</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">update</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">pos</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>dom<span class="token punctuation">.</span>style<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>propertyName<span class="token punctuation">]</span> <span class="token operator">=</span> pos <span class="token operator">+</span> <span class="token string">'px'</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 测试</span>
+<span class="token comment">// var div = document.getElementById('div')</span>
+<span class="token comment">// var animate = new Animate(div)</span>
+<span class="token comment">// animate.start('left', 500, 1000, 'strongEaseOut')</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>从定义上看，策略模式就是用来封装算法的。</p>
+<p>在业务规则中使用，只要这些业务规则指向的目标一致，并且可以被替换使用，就可以用策略模式来封装。</p>
+<h4 id="表单校验"><a href="#表单校验" class="headerlink" title="表单校验"></a>表单校验</h4><p>使用策略模式可以仅仅通过配置的方式完成一个表单的校验，这些校验规则也可以复用在程序的任何地方，还能作为插件的形式，方便地移植到其他项目中。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 表单验证</span>
+<span class="token comment">// 校验逻辑封装为策略对象</span>
+<span class="token keyword">var</span> strategies <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 不为空</span>
+  <span class="token function-variable function">isNotEmpty</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> errorMsg</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">===</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> errorMsg
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token comment">// 限制最小长度</span>
+  <span class="token function-variable function">minLength</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> length<span class="token punctuation">,</span> errorMsg</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> errorMsg
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token comment">// 校验手机号码格式</span>
+  <span class="token function-variable function">isMobile</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> errorMsg</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(^1[3|5|8][0-9]&#123;9&#125;$)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> errorMsg
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// validator类作为context</span>
+<span class="token keyword">var</span> <span class="token function-variable function">Validator</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>cache <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// 保存校验规则</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 仅验证一条规则</span>
+<span class="token comment">// Validator.prototype.add = function(dom, rule, errorMsg)&#123;</span>
+<span class="token comment">// 冒号前面的minLength代表客户挑选的strategy对象，冒号后面的数字6表示在校验过程中所必需的一些参数。</span>
+<span class="token comment">// 'minLength:6’的意思就是校验registerForm.password这个文本输入框的value最小长度为6。</span>
+<span class="token comment">// 如果这个字符串中不包含冒号，说明校验过程中不需要额外的参数信息。</span>
+<span class="token comment">//   var ary = rule.split(':') // 把strategy和参数分开</span>
+<span class="token comment">//   this.cache.push(function()&#123; // 把校验的步骤用控函数包装起来,并且放入cache</span>
+<span class="token comment">//     var strategy = ary.shift() // 用户挑选的strategy</span>
+<span class="token comment">//     ary.unshift(dom.value) // 把input的value添加进参数列表</span>
+<span class="token comment">//     ary.push(errorMsg)</span>
+<span class="token comment">//     return strategies[strategy].apply(dom, ary)</span>
+<span class="token comment">//   &#125;)</span>
+<span class="token comment">// &#125;</span>
+<span class="token comment">// 多条验证规则</span>
+<span class="token class-name">Validator</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">dom<span class="token punctuation">,</span> rules</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> self <span class="token operator">=</span> <span class="token keyword">this</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> rule<span class="token punctuation">;</span> rule <span class="token operator">=</span> rules<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">rule</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">var</span> strategyAry <span class="token operator">=</span> rule<span class="token punctuation">.</span>strategy<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span>
+      <span class="token keyword">var</span> errorMsg <span class="token operator">=</span> rule<span class="token punctuation">.</span>errorMsg
+      self<span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> strategy <span class="token operator">=</span> strategyAry<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        strategyAry<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span>dom<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+        strategyAry<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>errorMsg<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> strategies<span class="token punctuation">[</span>strategy<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>dom<span class="token punctuation">,</span> strategyAry<span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>rule<span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">Validator</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">start</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> validatorFunc<span class="token punctuation">;</span> validatorFunc <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> msg <span class="token operator">=</span> <span class="token function">validatorFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 开始校验,并取得校验后的返回信息</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 如果有确切的返回值,说明校验没有通过</span>
+      <span class="token keyword">return</span> msg
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// ================================== 使用 ======================================</span>
+<span class="token keyword">var</span> <span class="token function-variable function">validatorFunc</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> validator <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Validator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 创建一个validator对象</span>
+  <span class="token comment">// 添加一些校验规则, 单条验证规则的使用</span>
+  <span class="token comment">// validator.add(registerForm.userName, 'isNotEmpty', '用户名不能为空')</span>
+  <span class="token comment">// validator.add(registerForm.password, 'minLength:6', '密码长度不能少于6位')</span>
+  <span class="token comment">// validator.add(registerForm.phoneNumber, 'isMobile', '手机号码格式不正确')</span>
+  <span class="token comment">// 多条规则的验证</span>
+  validator<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>registerForm<span class="token punctuation">.</span>userName<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">strategy</span><span class="token operator">:</span> <span class="token string">'isNotEmpty'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">errorMsg</span><span class="token operator">:</span> <span class="token string">'用户名长度不能为空'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">strategy</span><span class="token operator">:</span> <span class="token string">'minLength:10'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">errorMsg</span><span class="token operator">:</span> <span class="token string">'用户名长度不能小于10位'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token keyword">var</span> errorMsg <span class="token operator">=</span> validator<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 获得校验结果</span>
+  <span class="token keyword">return</span> errorMsg <span class="token comment">// 返回校验结果</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">var</span> registerForm <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'registerForm'</span><span class="token punctuation">)</span>
+registerForm<span class="token punctuation">.</span><span class="token function-variable function">onsubmit</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> errorMsg <span class="token operator">=</span> <span class="token function">validatorFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 如果errorMsg有确切发返回值,说明未通过校验</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>errorMsg<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>errorMsg<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token comment">// 阻止表单提交</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>使用策略模式，可以消除了原程序中大片的条件分支语句。每个策略对象负责的算法已被各自封装在对象内部。减少了维护成本。</li>
+<li>策略模式利用组合、委托和多态等技术和思想，可以有效地避免多重条件选择语句。</li>
+<li>策略模式提供了对开放——封闭原则的完美支持，将算法封装在独立的 strategy 中，使得它们易于切换，易于理解，易于扩展。</li>
+<li>策略模式中的算法也可以复用在系统的其他地方，从而避免许多重复的复制粘贴工作。</li>
+<li>在策略模式中利用组合和委托来让 Context 拥有执行算法的能力，这也是继承的一种更轻便的替代方案。</li>
+</ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
+<li>使用策略模式会在程序中增加许多策略类或者策略对象。</li>
+<li>要使用策略模式，必须了解所有的 strategy，必须了解各个 strategy 之间的不同点，这样才能选择一个合适的 strategy。strategy 要向客户暴露它的所有实现，这是违反最少知识原则的。</li>
+</ol>
+<h3 id="应用与实践"><a href="#应用与实践" class="headerlink" title="应用与实践"></a>应用与实践</h3><p>在以类为中心的传统面向对象语言中，不同的算法或者行为被封装在各个策略类中，Context 将请求委托给这些策略对象，这些策略对象会根据请求返回不同的执行结果，这样便能表现出对象的多态性。</p>
+<p>在函数作为一等对象的语言中，策略模式是隐形的。strategy 就是值为函数的变量。</p>
+<p>在 JavaScript 语言的策略模式中，策略类往往被函数所代替，这时策略模式就成为一种“隐形”的模式。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Wang Wei
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://datura35422.github.io/posts/ea641220/" title="设计模式-策略模式">https://datura35422.github.io/posts/ea641220/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"># 面试</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" rel="tag"># 工具函数</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"># 设计模式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/5888f532/" rel="prev" title="react-formily踩坑实记">
+                  <i class="fa fa-chevron-left"></i> react-formily踩坑实记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/acbe5842/" rel="next" title="基础系列-onerror处理">
+                  基础系列-onerror处理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Wei</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">461k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">12:48</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"right","hOffset":0,"vOffset":60},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
